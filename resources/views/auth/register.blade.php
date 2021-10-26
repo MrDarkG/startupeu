@@ -34,6 +34,9 @@
                         <label for="phone_index">Phone index</label>
 
                         <select name="phone_index" class="form-control @error('phone_index') is-invalid @enderror" id="phone_index">
+                            @foreach ($array as $element)
+                                
+                            @endforeach
                         </select>
                         @error('phone_index')
                             <span class="invalid-feedback" role="alert">
