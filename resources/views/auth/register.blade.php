@@ -34,8 +34,8 @@
                         <label for="phone_index">Phone index</label>
 
                         <select name="phone_index" class="form-control @error('phone_index') is-invalid @enderror" id="phone_index">
-                            @foreach ($array as $element)
-                                
+                            @foreach (App\Models\Phone_index::get() as $index)
+                                <option value="{{ $index->id }}">{{ $index->code }}</option>
                             @endforeach
                         </select>
                         @error('phone_index')

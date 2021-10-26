@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\Mentors\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +31,8 @@ Route::group(['prefix' => '{language_id}',], function () {
 Route::get("/mentor",function(){
     return view("registration.mentor");
 });
+
+Route::get("/mentor/info",[ProfileController::class,"index"]);
 Route::get("/investor",function(){
     return view("registration.investor");
 });
