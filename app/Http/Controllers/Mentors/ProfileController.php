@@ -19,17 +19,10 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         if (MentorServices::checkIfMentorHaveProfileCompleted()) {
-            return [
-                "status"=>"1",
-                "description"=>"Information updated Successfully"
-            ];
+            return MentorServices::updateMyProfileInfo();
         }
         else{
-            MentorServices::createProfile();
-            return [
-                "status"=>"1",
-                "description"=>"Information stored Successfully"
-            ];
+            return MentorServices::createProfile();
         }
     }
 

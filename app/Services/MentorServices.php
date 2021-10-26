@@ -29,7 +29,7 @@ class MentorServices extends MainServices
         // Storage::disk('avatars')->put($image_name, $data);
 		Storage::disk('mentors_avatar')->put($filaname,$data);
 
-		return Mentor::where("user_id",Auth::user()->id)->update([
+		Mentor::where("user_id",Auth::user()->id)->update([
 			'name'=>$request->input("name"),
         	'linnkedin'=>$request->input("linnkedin"),
         	'question1'=>$request->input("question1"),
@@ -40,6 +40,11 @@ class MentorServices extends MainServices
         	'user_id'=>$request->input("user_id"),
         	'logo'=>'/mentors/'.$filaname
 		]);
+		return [
+            "status"=>"1",
+            "description"=>"Information updated Successfully"
+        ];
+
 	}
 
 	public function createProfile($request)
@@ -49,7 +54,7 @@ class MentorServices extends MainServices
         $data = substr($base64_image, strpos($base64_image, ',') + 1);
         $data = base64_decode($data);
 		Storage::disk('mentors_avatar')->put($filaname,$data);
-		return Mentor::create([
+		Mentor::create([
 			'name'=>$request->input("name"),
         	'linnkedin'=>$request->input("linnkedin"),
         	'question1'=>$request->input("question1"),
@@ -60,5 +65,9 @@ class MentorServices extends MainServices
         	'user_id'=>$request->input("user_id"),
         	'logo'=>'/mentors/'.$filaname
 		]);
+		return [
+            "status"=>"1",
+            "description"=>"Information stored Successfully"
+        ];
 	}
 }
