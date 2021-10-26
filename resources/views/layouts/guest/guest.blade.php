@@ -44,7 +44,9 @@
                 </form>
             </div>
             <button class="btn btn-light login-btn">
-                Login <span class="login-text-primary"> / </span> Register
+                <a href="/login">Login</a>
+                <span class="login-text-primary"> / </span>
+                <a href="/register">Register</a>
             </button>
           </div>
         </nav>
