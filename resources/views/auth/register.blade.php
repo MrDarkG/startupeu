@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-md-6  ">
                         <label for="re_password">Repeat password</label>
-                        <input type="password" id="re_password" name="re_password" value="" class="form-control">
+                        <input type="password" id="re_password" name="password_confirmation" value="" class="form-control">
                     </div>
                     <button type="submit" id="submit" class="btn">Create an account</button>
                     <div class="clear"></div>
