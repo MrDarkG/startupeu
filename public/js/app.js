@@ -2696,9 +2696,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -2725,7 +2722,6 @@ Vue.use((vue_js_modal__WEBPACK_IMPORTED_MODULE_7___default()), {
   },
   data: function data() {
     return {
-      selected: null,
       input: {
         full_name: '',
         linkedin: '',
@@ -2743,11 +2739,10 @@ Vue.use((vue_js_modal__WEBPACK_IMPORTED_MODULE_7___default()), {
         edited: ''
       },
       options: ['list', 'of', 'options'],
-      countries: []
+      countries: ["Azerbaijan", "Georgia", "Armenia", "Khazakhstan"]
     };
   },
-  created: function created() {
-    this.getCountries();
+  created: function created() {// this.getCountries()
   },
   methods: {
     setSelectedCountry: function setSelectedCountry(event) {
@@ -44090,11 +44085,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
-                      attrs: {
-                        options: _vm.countries,
-                        label: "title",
-                        multiple: false
-                      },
+                      attrs: { options: _vm.countries, multiple: false },
                       model: {
                         value: _vm.multiselect.country,
                         callback: function($$v) {
@@ -44118,11 +44109,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
-                      attrs: {
-                        options: _vm.countries,
-                        label: "title",
-                        multiple: true
-                      },
+                      attrs: { options: _vm.countries, multiple: true },
                       model: {
                         value: _vm.multiselect.fieldes_consult,
                         callback: function($$v) {
@@ -44146,11 +44133,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
-                      attrs: {
-                        options: _vm.countries,
-                        label: "title",
-                        multiple: true
-                      },
+                      attrs: { options: _vm.countries, multiple: true },
                       model: {
                         value: _vm.multiselect.issues_consult_id,
                         callback: function($$v) {

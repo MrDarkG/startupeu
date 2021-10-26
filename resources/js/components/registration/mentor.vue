@@ -46,7 +46,6 @@
                                     <multiselect
                                         v-model="multiselect.country"
                                         :options="countries"
-                                        label="title"
                                         :multiple="false"
                                     >
                                   
@@ -60,7 +59,6 @@
                                     <multiselect
                                         v-model="multiselect.fieldes_consult"
                                         :options="countries"
-                                        label="title"
                                         :multiple="true"
                                       >
                                       
@@ -77,7 +75,6 @@
                                     <multiselect
                                         v-model="multiselect.issues_consult_id"
                                         :options="countries"
-                                        label="title"
                                         :multiple="true"
                                     >
                                     </multiselect>
@@ -164,7 +161,6 @@ export default {
     },
     data () {
       return {
-        selected: null,
         input:{
             full_name:'',
             linkedin:'',
@@ -183,12 +179,12 @@ export default {
             edited:'',
         },
         options: ['list', 'of', 'options'],
-        countries:[]
+        countries:["Azerbaijan" ,"Georgia" ,"Armenia" ,"Khazakhstan"]
 
       }
     },
     created(){
-        this.getCountries()
+        // this.getCountries()
     },
     methods:{
         setSelectedCountry(event){
