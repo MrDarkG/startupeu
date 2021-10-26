@@ -186,7 +186,7 @@ export default {
       }
     },
     created(){
-        // this.getCountries()
+        // after template render
     },
     methods:{
         onImageUpload(event){
@@ -195,15 +195,6 @@ export default {
         },
         setSelectedCountry(event){
             console.log(event)
-        },
-        getCountries(){
-            let countries = ["Azerbaijan" ,"Georgia" ,"Armenia" ,"Khazakhstan"]
-            countries.filter((country)=>{
-                this.countries.push({
-                    title:country,
-                    is_selected:false,
-                })
-            })
         },
         change(file){
             this.img.edited = file.canvas.toDataURL('image/jpeg')
