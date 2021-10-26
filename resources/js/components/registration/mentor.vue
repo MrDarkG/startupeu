@@ -44,15 +44,14 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="country_id">Country</label>
-                                        <select name="country_id" class="form-control" id="country_id">
-                                                <option value="3">Azerbaijan</option>
-                                                <option value="1">Georgia</option>
-                                                <option value="2">Armenia</option>
-                                                <option value="4">Kazakhstan</option>
-                                                <option value="7">Kyrgyzstan</option>
-                                                <option value="5">Uzbekistan</option>
-                                                <option value="6">Tajikistan</option>
-                                            </select>
+                                    <multiselect
+                                        v-model="multiselect.country"
+                                        :options="countries"
+                                        label="title"
+                                        :multiple="false"
+                                    >
+                                  
+                                    </multiselect>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -60,10 +59,10 @@
                                     <label for="fields_consult_id">Fieldes consult</label>
                                     
                                     <multiselect
-                                        v-model="selected"
+                                        v-model="multiselect.fieldes_consult"
                                         :options="countries"
+                                        label="title"
                                         :multiple="true"
-
                                       >
                                       
                                     </multiselect>
@@ -77,58 +76,147 @@
                                 <div class="form-group">
                                     <label for="issues_consult_id">Issues consult ID</label>
                                     <multiselect
-                                        v-model="selected"
+                                        v-model="multiselect.issues_consult_id"
                                         :options="countries"
+                                        label="title"
                                         :multiple="true"
                                     >
                                     </multiselect>
                                 </div>
                             </div>
-                            
-
                             <div class="col-md-12 st-logo" style="margin-right: 20px;">
-                                <input type="file" id="image" class="filestyle" name="image" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1">
-                                <div class="bootstrap-filestyle input-group">
-                                    <div name="filedrag" style="position: absolute; width: 100%; height: 103px; z-index: -1;">
-                                    
-                                    </div>
-                                    <span class="group-span-filestyle " tabindex="0">
-                                        <label for="image" style="margin-bottom: 0;" class="btn  ">
-                                            <img class="st-logo-img" src="http://beta.startupcentraleurasia.com/themes/application/Components/svg/attachment.svg" alt="">
-                                            <span class="buttonText">Drag your logo here, or browse</span>
-                                        </label>
-                                    </span>
-                                </div>
+                                <VueFileAgent 
+                                    :accept="'image/*'"
+                                    :maxSize="'10MB'"
+                                    :maxFiles="14"
+                                    :errorText="{
+                                      type: 'Invalid file type. Only images or zip Allowed',
+                                      size: 'Files should not exceed 10MB in size',
+                                    }"
+                                    :uploadUrl="img.uploaded" 
+                                    v-model="fileRecords"
+                                ></VueFileAgent>
                             </div>
 
-                            <button type="submit" id="submit" class="btn">Get started </button>
+                            <button type="submit" id="submit" class="btn" @click="getStarted">Get started </button>
 
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <modal name="croppermodal" class="p-4">
+            <div class="d-flex mt-3">
+                <div class="col-md-12">
+                    <cropper 
+                        :src="img.uploaded"
+                    
+                        :stencil-props="{
+                            aspectRatio: 1/1
+                        }"
+                        @change="change"
+                        :stencil-component="$options.components.CircleStencil"
+                        class="upload-example-cropper"
+                    >
+                    </cropper>
+                </div>
+                <!-- <div class="mr-2 col-md-1 d-flex flex-column justify-content-between"> -->
+<!--                     <div>
+                        <div class="d-flex align-bottom mt-2">
+                            <div style="height:150px;width:150px;z-index:5;border:solid 1px black;border-radius:100%;position-relative">
+                                <img :src="img.edited" alt="None" v-if="img.edited !== ''" style="" class="profile_medium_img position-absolute" style="position:absolute;">
+                                <img :src="img.uploaded" alt="None" v-else style="position:absolute;" class="profile_medium_img position-absolute">
+                            </div>
+                        </div>
+                    </div> -->
+              <!--       <div>
+                        <button class="btn btn-success mt-4" @click="closemodal()">
+                            Save
+                        </button>
+                    </div>
+                </div>
+                <div> -->
+            </div>
+            <div class="float-right mt-2 mr-3">   
+                <button class="btn btn-success mt-4" @click="$modal.hide('croppermodal')">
+                    Save
+                </button>
+            </div>
+        </modal>
     </div>
 </template>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <script>
-  import Multiselect from 'vue-multiselect'
-  Vue.component('multiselect', Multiselect)
+import 'vue-multiselect/dist/vue-multiselect.min.css'
+import VueFileAgent from 'vue-file-agent'
+import { CircleStencil,Cropper } from 'vue-advanced-cropper'
+import 'vue-advanced-cropper/dist/style.css'
+import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css'
+import Multiselect from 'vue-multiselect'
+import VueToastify from "vue-toastify"
+import VModal from 'vue-js-modal'
 
-  export default {
-    components: { Multiselect },
+Vue.use(VueFileAgent)
+Vue.use(VueToastify)
+Vue.component('multiselect', Multiselect)
+Vue.use(VModal, { componentName: 'modal',dynamicDefault: { draggable: true, resizable: false }  })
+
+export default {
+    components: {
+        Cropper, CircleStencil,Multiselect 
+    },
     data () {
       return {
         selected: null,
+        input:{
+            full_name:'',
+            linkedin:'',
+            experience:'',
+            about_prev_company:'',
+        },
+        multiselect:{
+            country:'',
+            fieldes_consult:[],
+            issues_consult_id:[],
+        },
+        fileRecords:[],
+        img:{
+            uploaded:'',
+            edited:'',
+        },
         options: ['list', 'of', 'options'],
-        countries:[
-            "Azerbaijan",
-            "Georgia",
-            "Armenia",
-            "Khazakhstan"
-        ]
+        countries:[]
 
       }
+    },
+    created(){
+        this.getCountries()
+    },
+    methods:{
+        setSelectedCountry(event){
+            console.log(event)
+        },
+        getCountries(){
+            let countries = ["Azerbaijan" ,"Georgia" ,"Armenia" ,"Khazakhstan"]
+            countries.filter((country)=>{
+                this.countries.push({
+                    title:country,
+                    is_selected:false,
+                })
+            })
+        },
+        change(file){
+            this.img.edited = file.canvas.toDataURL('image/jpeg')
+        },
+        getStarted(){
+            axios.post('/register/mentor',{
+                input:this.input,
+                multiselect:this.multiselect,
+                image:this.img.edited
+            }).then((response)=>{
+                console.log(response)
+            })
+        },
     }
-  };
+};
 </script>
+
