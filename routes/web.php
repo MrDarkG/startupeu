@@ -28,9 +28,7 @@ Route::group(['prefix' => '{language_id}',], function () {
     });
 });
 
-Route::get("/mentor",function(){
-    return view("registration.mentor");
-});
+Route::get("/mentor",[ProfileController::class,"index"]);
 
 Route::get("/mentor/info",[ProfileController::class,"index"]);
 Route::get("/investor",function(){
