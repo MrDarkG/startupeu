@@ -14,20 +14,27 @@ class MentorServices extends MainServices
 		return Mentor::where("user_id",Auth::user()->id)->first();
 	}
 
-	public function checkIfMentorHaveProfileCompleted()
+	static public function checkIfMentorHaveProfileCompleted()
 	{
 		return Mentor::where("user_id",Auth::user()->id)->count();
 	}
-
+	static public function getMyImageName()
+	{
+		return Mentor::where("user_id",Auth::user()->id)->first()->logo;
+	}
 	static public function updateMyProfileInfo($request)
 	{
-		$filaname=parent::generateRandomString().".jpg";
-
-		$base64_image = $request->input("avatar");
-        $data = substr($base64_image, strpos($base64_image, ',') + 1);
-        $data = base64_decode($data);
-        // Storage::disk('avatars')->put($image_name, $data);
-		Storage::disk('mentors_avatar')->put($filaname,$data);
+		if ($request->input("avatar")) {
+			$filaname=parent::generateRandomString().".jpg";
+			$base64_image = $request->input("avatar");
+	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
+	        $data = base64_decode($data);
+	        // Storage::disk('avatars')->put($image_name, $data);
+			Storage::disk('mentors_avatar')->put($filaname,$data);
+		}
+		else{
+			$filaname=self::getMyImageName();
+		}
 
 		Mentor::where("user_id",Auth::user()->id)->update([
 			'name'=>$request->input("name"),
@@ -47,7 +54,7 @@ class MentorServices extends MainServices
 
 	}
 
-	public function createProfile($request)
+	static public function createProfile($request)
 	{
 		$filaname=parent::generateRandomString().".jpg";
 		$base64_image = $request->input("avatar");
