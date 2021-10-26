@@ -17,28 +17,27 @@
                         Mentor Registration         </div>
                     <div class="sign-desc">Plan your mentorship sessions easily        </div>
 
-                    <form action="" class="sign-form" id="startup-form" method="post" enctype="multipart/form-data" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="full_name">Full Name</label>
-                                <input type="text" id="full_name" name="full_name" value="" class="form-control" placeholder="Full Name">
+                                <input type="text" id="full_name" v-model="input.full_name" value="" class="form-control" placeholder="Full Name">
                             </div>
 
 
                             <div class="col-md-6">
                                 <label for="linkedin_address">Linkedin address </label>
-                                <input type="text" id="linkedin_address" name="linkedin_address" value="" class="form-control" placeholder="Linkedin address ">
+                                <input type="text" id="linkedin_address" v-model="input.linkedin_address" value="" class="form-control" placeholder="Linkedin address ">
                             </div>
 
                             <div class="col-md-12">
                                 <label for="experience_text">What experience do I have and what proccesses did I improve?</label>
-                                <textarea name="experience_text" id="experience_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+                                <textarea v-model="input.experience_text" id="experience_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
                             </div>
 
 
                             <div class="col-md-12">
                                 <label for="companies_worked_text">What companies have I worked in?</label>
-                                <textarea name="companies_worked_text" id="companies_worked_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+                                <textarea v-model="input.companies_worked_text" id="companies_worked_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
                             </div>
 
                             <div class="col-md-12">
@@ -101,7 +100,6 @@
                             <button type="submit" id="submit" class="btn" @click="getStarted">Get started </button>
 
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -172,6 +170,7 @@ export default {
             linkedin:'',
             experience:'',
             about_prev_company:'',
+
         },
         multiselect:{
             country:'',

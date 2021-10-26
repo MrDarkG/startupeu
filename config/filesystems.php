@@ -43,7 +43,7 @@ return [
         ],
         'mentors_avatar'=>[
             'driver' => 'local',
-            'root' => public_path('app/public/mentors'),
+            'root' => public_path('/mentors'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],

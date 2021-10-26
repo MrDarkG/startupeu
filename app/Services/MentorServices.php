@@ -37,14 +37,13 @@ class MentorServices extends MainServices
 		}
 
 		Mentor::where("user_id",Auth::user()->id)->update([
-			'name'=>$request->input("name"),
-        	'linnkedin'=>$request->input("linnkedin"),
-        	'question1'=>$request->input("question1"),
-        	'question2'=>$request->input("question2"),
-        	'country_id'=>$request->input("country_id"),
-        	'fields_id'=>$request->input("fields_id"),
-        	'issues_id'=>$request->input("issues_id"),
-        	'user_id'=>$request->input("user_id"),
+			'name'=>$request->input("input.full_name"),
+        	'linnkedin'=>$request->input("input.linkedin_address"),
+        	'question1'=>$request->input("input.experience_text"),
+        	'question2'=>$request->input("input.companies_worked_text"),
+        	'country_id'=>$request->input("multiselect.country.is_selected"),
+        	'fields_id'=>$request->input("multiselect.country.is_selected"),
+        	'issues_id'=>$request->input("multiselect.country.is_selected"),
         	'logo'=>'/mentors/'.$filaname
 		]);
 		return [
@@ -62,14 +61,14 @@ class MentorServices extends MainServices
         $data = base64_decode($data);
 		Storage::disk('mentors_avatar')->put($filaname,$data);
 		Mentor::create([
-			'name'=>$request->input("name"),
-        	'linnkedin'=>$request->input("linnkedin"),
-        	'question1'=>$request->input("question1"),
-        	'question2'=>$request->input("question2"),
-        	'country_id'=>$request->input("country_id"),
-        	'fields_id'=>$request->input("fields_id"),
-        	'issues_id'=>$request->input("issues_id"),
-        	'user_id'=>$request->input("user_id"),
+			'name'=>$request->input("input.full_name"),
+        	'linnkedin'=>$request->input("input.linkedin_address"),
+        	'question1'=>$request->input("input.experience_text"),
+        	'question2'=>$request->input("input.companies_worked_text"),
+        	'country_id'=>$request->input("multiselect.country.is_selected"),
+        	'fields_id'=>$request->input("multiselect.country.is_selected"),
+        	'issues_id'=>$request->input("multiselect.country.is_selected"),
+        	'user_id'=>Auth::user()->id,
         	'logo'=>'/mentors/'.$filaname
 		]);
 		return [

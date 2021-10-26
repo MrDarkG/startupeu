@@ -36,3 +36,5 @@ Route::get("/mentor/info",[ProfileController::class,"index"]);
 Route::get("/investor",function(){
     return view("registration.investor");
 });
+
+Route::post("/register/mentor",[ProfileController::class,"update"]);
