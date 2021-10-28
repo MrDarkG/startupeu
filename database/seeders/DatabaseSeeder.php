@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         PhoneIndexSeeder::run();
         CountrySeeder::run();
         FaqCuntrySeeder::run();
+        FieldSeeder::run();
+        IssueSeeder::run();
     }
 }
