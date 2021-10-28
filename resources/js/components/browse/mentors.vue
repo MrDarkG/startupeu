@@ -78,13 +78,16 @@
                                     <div class="title investor-title">{{ mentor.name }}</div>
                                     <div class="desc investor-desc">{{ mentor.question1 }}</div>
                                 </a>
-                                <div class="d-flex justify-content-between  tags-div">
-                                    <div>
+                                <div class="d-flex justify-content-between  tags-div w-100">
+                                    <div class="col-md-6">
                                         <ul class="tags">
+                                            <li><a href="#">#Enterprise Softwa</a></li>
+                                            <li><a href="#">#Enterprise Software </a></li>
+                                            <li><a href="#">#Enterprise Software </a></li>
                                             <li><a href="#">#Enterprise Software </a></li>
                                         </ul>
                                     </div>
-                                    <div>
+                                    <div class="d-flex justify-content-end col-md-6">
                                         <span class="money-in-investor">
                                             $50 
                                         </span>

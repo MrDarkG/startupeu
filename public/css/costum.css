@@ -2147,9 +2147,14 @@ a:hover{
 
 .tags {
     display: flex;
-    position: absolute;
+    flex-wrap: wrap;
+    /*position: absolute;*/
     bottom: 20px;
     list-style-type: none;
+    padding-left: 0;
+    height: 50px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 
 }
 
@@ -4998,4 +5003,17 @@ a:hover{
 
 .investor-item img {
     width: 160px;
+}
+.chek-list ul{
+    padding-left: 4px;
+}
+.money-in-investor{
+    letter-spacing: 0.374px;
+    color: #34C759;
+    font-size: 34px;
+}
+.moneyandhours{
+    letter-spacing: 0.374px;
+    color: #34C759;
+    line-height: 50px;
 }
