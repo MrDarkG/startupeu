@@ -7,6 +7,8 @@ use App\Models\Country;
 use App\Models\Issue;
 use App\Models\Field;
 use App\Models\Mentor;
+use App\Models\Faq_country;
+
 class GuestController extends Controller
 {
     /**
@@ -19,10 +21,12 @@ class GuestController extends Controller
         $issues=Issue::orderBy('title')->get();
         $fields=Field::orderBy('title')->get();
         $mentors=Mentor::paginatedMentors(10);
+        $contries=Faq_country::orderBy('title')->get();
 
         return view("browse_mentors",[
             'issues' => $issues,
             'fields' => $fields,
+            'contries' => $contries,
             'mentors' => $mentors
         ]);
     }
@@ -30,12 +34,12 @@ class GuestController extends Controller
     {
         $issues=Issue::orderBy('title')->get();
         $fields=Field::orderBy('title')->get();
-        $mentors=$mentors=Mentor::paginatedMentors(10);
+        $mentors=Mentor::paginatedMentors(10);
 
         return view("browse_startups",[
             'issues' => $issues,
             'fields' => $fields,
-            'mentors' => $mentors
+            'mentors' => $mentors,
         ]);
     }
     /**

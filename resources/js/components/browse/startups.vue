@@ -91,6 +91,11 @@
 </template>
 <script>
 export default{
+	props:{
+		fields:Array,
+		issues:Array,
+		mentors:Object
+	},
 	data(){
 		return{
 

@@ -1,8 +1,9 @@
 @extends("layouts.guest.guest")
 @section("content")
-    <browse-startups
-        :startups="{{ json_encode($startups) }}"
+    <browse-mentors
+        :issues="{{ json_encode($issues) }}"
         :fields="{{ json_encode($fields) }}"
         :mentors="{{ json_encode($mentors) }}"
-    ></browse-startups>
+        :contries="{{ json_encode($contries) }}"
+    ></browse-mentors>
 @endsection
