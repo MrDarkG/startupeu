@@ -28,7 +28,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="/browse/startups">Browse startups </span></a>
+                <a class="nav-link" href="/browse/startups">Browse startups</span></a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="/browse/funding">Seek funding </a>

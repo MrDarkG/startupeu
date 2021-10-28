@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\Mentors\ProfileController;
+use App\Http\Controllers\GuestController as GuestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,9 @@ Route::group(['prefix' => '{language_id}',], function () {
 Route::get("/mentor/info",[ProfileController::class,"index"]);
 Route::get("/investor",function(){
     return view("registration.investor");
+});
+Route::prefix("/browse")->group(function(){
+    Route::get("/startups" ,[GuestController::class,'startupPage']);
 });
 
 

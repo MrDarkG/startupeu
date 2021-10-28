@@ -18,9 +18,26 @@ class GuestController extends Controller
     {
         $issues=Issue::orderBy('title')->get();
         $fields=Field::orderBy('title')->get();
-        return $mentors=Mentor::allMentors();
-    }
+        $mentors=$mentors=Mentor::paginatedMentors(10);
 
+        return view("browse_mentors",[
+            'issues' => $issues,
+            'fields' => $fields,
+            'mentors' => $mentors
+        ]);
+    }
+    public function startupPage()
+    {
+        $issues=Issue::orderBy('title')->get();
+        $fields=Field::orderBy('title')->get();
+        $mentors=$mentors=Mentor::paginatedMentors(10);
+
+        return view("browse_startups",[
+            'issues' => $issues,
+            'fields' => $fields,
+            'mentors' => $mentors
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
