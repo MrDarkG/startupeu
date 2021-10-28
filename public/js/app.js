@@ -2298,6 +2298,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     fields: Array,
@@ -2323,6 +2324,11 @@ __webpack_require__.r(__webpack_exports__);
         data: this.fields
       }]
     };
+  },
+  methods: {
+    setSelectedFilters: function setSelectedFilters(filters) {
+      console.log(filters);
+    }
   }
 });
 
@@ -43000,7 +43006,12 @@ var render = function() {
           _c(
             "div",
             { staticClass: "col-md-3 left-search" },
-            [_c("filter-list", { attrs: { data: _vm.filter_data } })],
+            [
+              _c("filter-list", {
+                attrs: { data: _vm.filter_data },
+                on: { getSelectedFilters: _vm.setSelectedFilters }
+              })
+            ],
             1
           ),
           _vm._v(" "),

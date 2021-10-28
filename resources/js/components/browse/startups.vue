@@ -20,6 +20,7 @@
 			    <div class="col-md-3 left-search">
 					<filter-list
 	        			:data="filter_data"
+	        			@getSelectedFilters="setSelectedFilters"
 	        		>
 	        		</filter-list> 
 			    </div>
@@ -86,6 +87,11 @@ export default{
 				},
 			],
 		}
+	},
+	methods:{
+		setSelectedFilters(filters){
+			console.log(filters)
+		},
 	},
 };
 </script>
