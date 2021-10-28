@@ -33,4 +33,17 @@ class Mentor extends Model
             \App\QueryFilters\Issues::class,
         ])->thenReturn()->get();
     }
+
+    static public function paginatedMentors($count)
+    {
+        return $pipeline=app(Pipeline::class)
+        ->send(self::query())
+        ->through([
+            \App\QueryFilters\Countries::class,
+            \App\QueryFilters\Sort::class,
+            \App\QueryFilters\Name::class,
+            \App\QueryFilters\Fields::class,
+            \App\QueryFilters\Issues::class,
+        ])->thenReturn()->paginate($count);
+    }
 }
