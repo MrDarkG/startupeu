@@ -28,14 +28,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Browse startups </span></a>
+                <a class="nav-link" href="/browse/startups">Browse startups </span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">Seek funding </a>
+                <a class="nav-link" href="/browse/funding">Seek funding </a>
               </li>
               
               <li class="nav-item active">
-                <a class="nav-link" href="#">Find mentors</a>
+                <a class="nav-link" href="/browse/mentors">Find mentors</a>
               </li>
             </ul>
             <div class="d-sm-none d-xl-block">
