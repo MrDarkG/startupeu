@@ -1,19 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Mentors;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\MentorServices;
-
 use App\Models\Country;
-
-
 class ProfileController extends Controller
 {
-    
-
-
     public function index()
     {
         $data=MentorServices::getMyProfileInfo();
@@ -23,7 +15,6 @@ class ProfileController extends Controller
             "country"=>$country
         ]);
     } 
-
     public function update(Request $request)
     {
         if (MentorServices::checkIfMentorHaveProfileCompleted()) {

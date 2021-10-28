@@ -8,12 +8,10 @@ use Illuminate\Http\Request;
 use Storage;
 class MentorServices extends MainServices
 {
-	
 	static public function getMyProfileInfo($value='')
 	{
 		return Mentor::where("user_id",Auth::user()->id)->first();
 	}
-
 	static public function checkIfMentorHaveProfileCompleted()
 	{
 		return Mentor::where("user_id",Auth::user()->id)->count();
@@ -29,7 +27,6 @@ class MentorServices extends MainServices
 			$base64_image = $request->input("avatar");
 	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
 	        $data = base64_decode($data);
-	        // Storage::disk('avatars')->put($image_name, $data);
 			Storage::disk('mentors_avatar')->put($filaname,$data);
 		}
 		else{

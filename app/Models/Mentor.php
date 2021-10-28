@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pipeline\Pipeline;
 
 class Mentor extends Model
 {
@@ -19,4 +20,17 @@ class Mentor extends Model
         'user_id',
         'logo'
     ];
+
+    static public function allMentors($value='')
+    {
+        return $pipeline=app(Pipeline::class)
+        ->send(self::query())
+        ->through([
+            \App\QueryFilters\Countries::class,
+            \App\QueryFilters\Sort::class,
+            \App\QueryFilters\Name::class,
+            \App\QueryFilters\Fields::class,
+            \App\QueryFilters\Issues::class,
+        ])->thenReturn()->get();
+    }
 }
