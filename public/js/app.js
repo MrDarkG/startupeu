@@ -2696,6 +2696,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2715,6 +2718,7 @@ Vue.use((vue_js_modal__WEBPACK_IMPORTED_MODULE_7___default()), {
   }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['data', 'countries'],
   components: {
     Cropper: vue_advanced_cropper__WEBPACK_IMPORTED_MODULE_2__.Cropper,
     CircleStencil: vue_advanced_cropper__WEBPACK_IMPORTED_MODULE_2__.CircleStencil,
@@ -2738,13 +2742,16 @@ Vue.use((vue_js_modal__WEBPACK_IMPORTED_MODULE_7___default()), {
         uploaded: '',
         edited: ''
       },
-      options: ['list', 'of', 'options'],
-      countries: ["Azerbaijan", "Georgia", "Armenia", "Khazakhstan"]
+      options: ['list', 'of', 'options']
     };
   },
   created: function created() {// this.getCountries()
   },
   methods: {
+    onImageUpload: function onImageUpload(event) {
+      this.img.uploaded = event[0].urlResized;
+      this.$modal.show('croppermodal');
+    },
     setSelectedCountry: function setSelectedCountry(event) {
       console.log(event);
     },
@@ -2766,7 +2773,7 @@ Vue.use((vue_js_modal__WEBPACK_IMPORTED_MODULE_7___default()), {
       axios.post('/register/mentor', {
         input: this.input,
         multiselect: this.multiselect,
-        image: this.img.edited
+        avatar: this.img.edited
       }).then(function (response) {
         console.log(response);
       });
@@ -44085,7 +44092,11 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
-                      attrs: { options: _vm.countries, multiple: false },
+                      attrs: {
+                        label: "title",
+                        options: _vm.countries,
+                        multiple: false
+                      },
                       model: {
                         value: _vm.multiselect.country,
                         callback: function($$v) {
@@ -44109,7 +44120,11 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
-                      attrs: { options: _vm.countries, multiple: true },
+                      attrs: {
+                        label: "title",
+                        options: _vm.countries,
+                        multiple: true
+                      },
                       model: {
                         value: _vm.multiselect.fieldes_consult,
                         callback: function($$v) {
@@ -44133,7 +44148,11 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("multiselect", {
-                      attrs: { options: _vm.countries, multiple: true },
+                      attrs: {
+                        label: "title",
+                        options: _vm.countries,
+                        multiple: true
+                      },
                       model: {
                         value: _vm.multiselect.issues_consult_id,
                         callback: function($$v) {
@@ -44165,6 +44184,7 @@ var render = function() {
                       },
                       uploadUrl: _vm.img.uploaded
                     },
+                    on: { select: _vm.onImageUpload },
                     model: {
                       value: _vm.fileRecords,
                       callback: function($$v) {

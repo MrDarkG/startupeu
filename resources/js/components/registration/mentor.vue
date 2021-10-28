@@ -44,6 +44,7 @@
                                 <div class="form-group">
                                     <label for="country_id">Country</label>
                                     <multiselect
+                                        label="title"
                                         v-model="multiselect.country"
                                         :options="countries"
                                         :multiple="false"
@@ -57,6 +58,7 @@
                                     <label for="fields_consult_id">Fieldes consult</label>
                                     
                                     <multiselect
+                                        label="title"
                                         v-model="multiselect.fieldes_consult"
                                         :options="countries"
                                         :multiple="true"
@@ -73,6 +75,7 @@
                                 <div class="form-group">
                                     <label for="issues_consult_id">Issues consult ID</label>
                                     <multiselect
+                                        label="title"
                                         v-model="multiselect.issues_consult_id"
                                         :options="countries"
                                         :multiple="true"
@@ -89,7 +92,8 @@
                                       type: 'Invalid file type. Only images or zip Allowed',
                                       size: 'Files should not exceed 10MB in size',
                                     }"
-                                    :uploadUrl="img.uploaded" 
+                                    :uploadUrl="img.uploaded"
+                                    @select="onImageUpload" 
                                     v-model="fileRecords"
                                 ></VueFileAgent>
                             </div>
@@ -105,7 +109,6 @@
                 <div class="col-md-12">
                     <cropper 
                         :src="img.uploaded"
-                    
                         :stencil-props="{
                             aspectRatio: 1/1
                         }"
@@ -156,6 +159,7 @@ Vue.component('multiselect', Multiselect)
 Vue.use(VModal, { componentName: 'modal',dynamicDefault: { draggable: true, resizable: false }  })
 
 export default {
+    props:['data','countries'],
     components: {
         Cropper, CircleStencil,Multiselect 
     },
@@ -179,25 +183,18 @@ export default {
             edited:'',
         },
         options: ['list', 'of', 'options'],
-        countries:["Azerbaijan" ,"Georgia" ,"Armenia" ,"Khazakhstan"]
-
       }
     },
     created(){
-        // this.getCountries()
+        // after template render
     },
     methods:{
+        onImageUpload(event){
+            this.img.uploaded = event[0].urlResized
+            this.$modal.show('croppermodal')
+        },
         setSelectedCountry(event){
             console.log(event)
-        },
-        getCountries(){
-            let countries = ["Azerbaijan" ,"Georgia" ,"Armenia" ,"Khazakhstan"]
-            countries.filter((country)=>{
-                this.countries.push({
-                    title:country,
-                    is_selected:false,
-                })
-            })
         },
         change(file){
             this.img.edited = file.canvas.toDataURL('image/jpeg')
@@ -206,7 +203,7 @@ export default {
             axios.post('/register/mentor',{
                 input:this.input,
                 multiselect:this.multiselect,
-                image:this.img.edited
+                avatar:this.img.edited
             }).then((response)=>{
                 console.log(response)
             })
