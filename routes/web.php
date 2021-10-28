@@ -35,6 +35,7 @@ Route::get("/investor",function(){
     return view("registration.investor");
 });
 Route::prefix("/browse")->group(function(){
+    Route::get("/mentors" ,[GuestController::class,'index']);
     Route::get("/startups" ,[GuestController::class,'startupPage']);
 });
 

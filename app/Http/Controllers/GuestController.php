@@ -18,7 +18,7 @@ class GuestController extends Controller
     {
         $issues=Issue::orderBy('title')->get();
         $fields=Field::orderBy('title')->get();
-        $mentors=$mentors=Mentor::paginatedMentors(10);
+        $mentors=Mentor::paginatedMentors(10);
 
         return view("browse_mentors",[
             'issues' => $issues,
