@@ -1,29 +1,27 @@
 <?php
-
 namespace App\Http\Controllers\Mentors;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\MentorServices;
-
 use App\Models\Country;
-
-
+use App\Models\Issue;
+use App\Models\Field;
 class ProfileController extends Controller
 {
-    
-
-
     public function index()
     {
         $data=MentorServices::getMyProfileInfo();
         $country=Country::orderBy('title')->get();
+        $issues=Issue::orderBy('title')->get();
+        $fields=Field::orderBy('title')->get();
         return view("registration.mentor",[
             "data"=>$data,
-            "country"=>$country
+            "country"=>$country,
+            "issues"=>$issues,
+            "fields"=>$fields
+
         ]);
     } 
-
     public function update(Request $request)
     {
         if (MentorServices::checkIfMentorHaveProfileCompleted()) {
