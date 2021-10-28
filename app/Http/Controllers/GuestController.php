@@ -18,7 +18,7 @@ class GuestController extends Controller
     {
         $issues=Issue::orderBy('title')->get();
         $fields=Field::orderBy('title')->get();
-        $mentors=Mentor::allMentors();
+        return $mentors=Mentor::allMentors();
     }
 
     /**
