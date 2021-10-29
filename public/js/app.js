@@ -2244,23 +2244,36 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      custom_mentors: [],
       url: '',
       filter_data: [{
         title: 'Countries',
-        prop: 'Contries[]=',
+        prop: 'countries[]=',
         data: this.contries
       }, {
         title: 'issues_consult',
-        prop: 'Issues[]=',
+        prop: 'issues[]=',
         data: this.issues
       }, {
         title: 'Fieldes consult',
-        prop: 'Fields[]=',
+        prop: 'fields[]=',
         data: this.fields
       }]
     };
   },
+  created: function created() {
+    this.setMentors();
+  },
   methods: {
+    setMentors: function setMentors() {
+      var _this = this;
+
+      this.mentors.data.map(function (mentor) {
+        var object = mentor;
+
+        _this.custom_mentors.push(object);
+      });
+    },
     checkFilterExistance: function checkFilterExistance(string) {
       return;
     },
@@ -2274,8 +2287,10 @@ __webpack_require__.r(__webpack_exports__);
       this.url = custom_url;
     },
     getMentorData: function getMentorData(url) {
-      axios.get(url).then(function (response) {
-        console.log(response);
+      var _this2 = this;
+
+      axios.get('/mentor/search' + url).then(function (response) {
+        _this2.custom_mentors = response.data;
       });
     }
   }
@@ -42901,7 +42916,7 @@ var render = function() {
               ? _c(
                   "div",
                   { staticClass: "row" },
-                  _vm._l(_vm.mentors.data, function(mentor) {
+                  _vm._l(_vm.custom_mentors, function(mentor) {
                     return _c("div", { staticClass: "col-md-6" }, [
                       _c(
                         "div",

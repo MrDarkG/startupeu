@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="row" v-if="mentors">
-                        <div class="col-md-6" v-for="mentor in mentors.data">
+                        <div class="col-md-6" v-for="mentor in custom_mentors">
                             <div class="list-item investor-item d-flex justify-content-between pt-4 pb-2">
                                 <a href="#">
                                     <img :src="mentor.logo" alt="Logo" style="border-radius: 16px;">
@@ -82,27 +82,37 @@ export default{
 	},
 	data(){
 		return {
+			custom_mentors:[],
 			url:'',
 			filter_data:[
 				{
 					title:'Countries',
-					prop:'Contries[]=',
+					prop:'countries[]=',
 					data:this.contries
 				},
 				{
 					title:'issues_consult',
-					prop:'Issues[]=',
+					prop:'issues[]=',
 					data:this.issues
 				},
 				{
 					title:'Fieldes consult',
-					prop:'Fields[]=',
+					prop:'fields[]=',
 					data:this.fields
 				},
 			],
 		}
 	},
+	created(){
+		this.setMentors()
+	},
 	methods:{
+		setMentors(){
+			this.mentors.data.map((mentor)=>{
+				let object = mentor
+				this.custom_mentors.push(object)
+			})
+		},
 		checkFilterExistance(string){
 			return 
 		},
@@ -115,9 +125,9 @@ export default{
 			this.url = custom_url
 		},
 		getMentorData(url){
-			axios.get(url)
+			axios.get('/mentor/search'+url)
 			.then((response)=>{
-				console.log(response)
+				this.custom_mentors = response.data
 			})
 		}
 	},
