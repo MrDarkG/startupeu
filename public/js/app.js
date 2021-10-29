@@ -2118,7 +2118,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['data']
+  props: ['data'],
+  data: function data() {
+    return {
+      event: null
+    };
+  },
+  created: function created() {
+    this.event = 'change';
+  },
+  methods: {
+    getSelectedFilters: function getSelectedFilters() {
+      var filters = [];
+      this.data.map(function (data) {
+        data.data.map(function (filter) {
+          var object = filter;
+          object.checked = document.getElementById(filter.id + filter.title).checked;
+          object.url = data.prop + filter.id;
+          filters.push(object);
+        });
+      });
+      return filters.filter(function (filter) {
+        return filter.checked;
+      });
+    },
+    setCustomUrl: function setCustomUrl() {
+      this.$emit('getSelectedFilters', this.getSelectedFilters());
+    }
+  }
 });
 
 /***/ }),
@@ -2202,6 +2229,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     fields: Array,
@@ -2209,24 +2237,48 @@ __webpack_require__.r(__webpack_exports__);
     contries: Array,
     mentors: Object
   },
+  watch: {
+    url: function url(_url) {
+      this.getMentorData(_url);
+    }
+  },
   data: function data() {
     return {
+      url: '',
       filter_data: [{
         title: 'Countries',
-        prop: 'contries[]=',
+        prop: 'Contries[]=',
         data: this.contries
       }, {
         title: 'issues_consult',
-        prop: 'issues[]=',
+        prop: 'Issues[]=',
         data: this.issues
       }, {
         title: 'Fieldes consult',
-        prop: 'fields[]=',
+        prop: 'Fields[]=',
         data: this.fields
       }]
     };
   },
-  methods: {}
+  methods: {
+    checkFilterExistance: function checkFilterExistance(string) {
+      return;
+    },
+    setSearchUrl: function setSearchUrl(selected_filters) {
+      var custom_url = '';
+      selected_filters.map(function (filter, index) {
+        var _char = index !== 0 ? '&' : '?';
+
+        custom_url += _char + filter.url;
+      });
+      this.url = custom_url;
+    },
+    getMentorData: function getMentorData(url) {
+      axios.get(url).then(function (response) {
+        console.log(response);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -42771,10 +42823,10 @@ var render = function() {
                   staticClass: "form-check-input country-check",
                   attrs: {
                     type: "checkbox",
-                    value: "5",
                     id: response.id + response.title,
                     disabled: response.is_disabled
-                  }
+                  },
+                  on: _vm._d({}, [_vm.event, _vm.setCustomUrl])
                 }),
                 _vm._v(" "),
                 _c(
@@ -42832,7 +42884,12 @@ var render = function() {
         _c(
           "div",
           { staticClass: "col-md-3 left-search" },
-          [_c("filter-list", { attrs: { data: _vm.filter_data } })],
+          [
+            _c("filter-list", {
+              attrs: { data: _vm.filter_data },
+              on: { getSelectedFilters: _vm.setSearchUrl }
+            })
+          ],
           1
         ),
         _vm._v(" "),

@@ -19,6 +19,7 @@
         	<div class="col-md-3 left-search">
         		<filter-list
         			:data="filter_data"
+        			@getSelectedFilters="setSearchUrl"
         		>
         		</filter-list>   	
 			</div>     
@@ -74,28 +75,51 @@ export default{
 		contries:Array,
 		mentors:Object
 	},
+	watch:{
+		url:function(url){
+			this.getMentorData(url)
+		}
+	},
 	data(){
 		return {
+			url:'',
 			filter_data:[
 				{
 					title:'Countries',
-					prop:'contries[]=',
+					prop:'Contries[]=',
 					data:this.contries
 				},
 				{
 					title:'issues_consult',
-					prop:'issues[]=',
+					prop:'Issues[]=',
 					data:this.issues
 				},
 				{
 					title:'Fieldes consult',
-					prop:'fields[]=',
+					prop:'Fields[]=',
 					data:this.fields
 				},
 			],
 		}
 	},
 	methods:{
+		checkFilterExistance(string){
+			return 
+		},
+		setSearchUrl(selected_filters){
+			let custom_url = ''
+			selected_filters.map((filter, index)=>{
+				let char = (index!==0)?'&':'?'
+				custom_url += char+filter.url
+			})
+			this.url = custom_url
+		},
+		getMentorData(url){
+			axios.get(url)
+			.then((response)=>{
+				console.log(response)
+			})
+		}
 	},
 };
 </script>

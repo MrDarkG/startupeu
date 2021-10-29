@@ -5,7 +5,7 @@
         <ul>
             <li v-for="response in list.data" :key="response.id+response.title">
                 <div class="form-check">
-                    <input class="form-check-input country-check" type="checkbox" value="5" :id="response.id+response.title" :disabled="response.is_disabled">
+                    <input @[event]="setCustomUrl" class="form-check-input country-check" type="checkbox" :id="response.id+response.title" :disabled="response.is_disabled">
                     <label class="form-check-label" :for="response.id+response.title">
                         {{ response.title }}                    
                     </label>
@@ -18,6 +18,30 @@
 <script>
 export default{
 	props:['data'],
-	
+    data(){
+        return{
+            event:null,
+        }
+    },
+    created(){
+        this.event = 'change'
+    },
+	methods:{
+        getSelectedFilters(){
+            let filters = []
+            this.data.map((data)=>{
+                data.data.map((filter)=>{
+                    let object = filter
+                    object.checked = document.getElementById(filter.id+filter.title).checked
+                    object.url = data.prop+filter.id
+                    filters.push(object)
+                })
+            })
+            return filters.filter((filter)=>filter.checked)
+        },
+        setCustomUrl(){
+            this.$emit('getSelectedFilters', this.getSelectedFilters())
+        }
+    },
 };
 </script>
