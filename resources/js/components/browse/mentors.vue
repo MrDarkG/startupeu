@@ -15,49 +15,14 @@
         </div>
     </div>
     <div class="container">
-        <div class="row startup-list">
-            <div class="col-md-3 left-search">
-			    <div class="chek-list">
-			        <div class="title">Countries </div>
-			        <ul>
-
-			            <li v-for="country in contries" :key="country.id+country.title">
-			                <div class="form-check">
-			                    <input class="form-check-input country-check" type="checkbox" value="5" :id="`country-${country.id}`">
-			                    <label class="form-check-label" :for="`country-${country.id}`">
-			                        {{ country.title }}                    
-			                    </label>
-			                </div>
-			            </li>
-			        </ul>
-			    </div>
-			    <div class="chek-list">
-			        <div class="title">issues_consult</div>
-			        <ul>
-			        	<li v-for="issue in issues" :key="issue.id+issue.title">
-			                <div class="form-check">
-			                    <input class="form-check-input" type="checkbox" value="25" :id="`Issues-${issue.id}`">
-			                    <label class="form-check-label" :for="`Issues-${issue.id}`">
-			                        {{ issue.title }}                    
-			                    </label>
-			                </div>
-			            </li>
-			        </ul>
-			    </div>
-			    <div class="chek-list">
-			    	<div class="title">Fieldes consult</div>
-			    	<ul>
-			            <li v-for="field in fields" :key="field.id+field.title">
-			                <div class="form-check">
-			                    <input class="form-check-input" type="checkbox" value="2" :id="`fieldes-${field.id}`">
-			                    <label class="form-check-label" :for="`fieldes-${field.id}`">
-			                        {{ field.title }}              
-			                    </label>
-			                </div>
-			            </li>
-			        </ul>
-				</div>
-    		</div>            
+        <div class="row startup-list">    
+        	<div class="col-md-3 left-search">
+        		<filter-list
+        			:data="filter_data"
+        			@getSelectedFilters="setSearchUrl"
+        		>
+        		</filter-list>   	
+			</div>     
     		<div class="col-md-9 pb-150">
                 <div class="col-md-12">
                     <div class="row">
@@ -70,24 +35,21 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6" v-for="mentor in mentors.data">
+                    <div class="row" v-if="mentors">
+                        <div class="col-md-6" v-for="mentor in custom_mentors">
                             <div class="list-item investor-item d-flex justify-content-between pt-4 pb-2">
-                                <a href="https://beta.startupcentraleurasia.com/en/mentors/v/9">
+                                <a href="#">
                                     <img :src="mentor.logo" alt="Logo" style="border-radius: 16px;">
                                     <div class="title investor-title">{{ mentor.name }}</div>
                                     <div class="desc investor-desc">{{ mentor.question1 }}</div>
                                 </a>
-                                <div class="d-flex justify-content-between  tags-div w-100">
-                                    <div class="col-md-6">
+                                <div class="d-flex justify-content-between  tags-div">
+                                    <div>
                                         <ul class="tags">
-                                            <li><a href="#">#Enterprise Softwa</a></li>
-                                            <li><a href="#">#Enterprise Software </a></li>
-                                            <li><a href="#">#Enterprise Software </a></li>
                                             <li><a href="#">#Enterprise Software </a></li>
                                         </ul>
                                     </div>
-                                    <div class="d-flex justify-content-end col-md-6">
+                                    <div>
                                         <span class="money-in-investor">
                                             $50 
                                         </span>
@@ -107,15 +69,66 @@
 </template>
 <script>
 export default{
-		props:{
-			fields:Array,
-			issues:Array,
-			contries:Array,
-			mentors:Object
-		},
+	props:{
+		fields:Array,
+		issues:Array,
+		contries:Array,
+		mentors:Object
+	},
+	watch:{
+		url:function(url){
+			this.getMentorData(url)
+		}
+	},
 	data(){
 		return {
-
+			custom_mentors:[],
+			url:'',
+			filter_data:[
+				{
+					title:'Countries',
+					prop:'countries[]=',
+					data:this.contries
+				},
+				{
+					title:'issues_consult',
+					prop:'issues[]=',
+					data:this.issues
+				},
+				{
+					title:'Fieldes consult',
+					prop:'fields[]=',
+					data:this.fields
+				},
+			],
+		}
+	},
+	created(){
+		this.setMentors()
+	},
+	methods:{
+		setMentors(){
+			this.mentors.data.map((mentor)=>{
+				let object = mentor
+				this.custom_mentors.push(object)
+			})
+		},
+		checkFilterExistance(string){
+			return 
+		},
+		setSearchUrl(selected_filters){
+			let custom_url = ''
+			selected_filters.map((filter, index)=>{
+				let char = (index!==0)?'&':'?'
+				custom_url += char+filter.url
+			})
+			this.url = custom_url
+		},
+		getMentorData(url){
+			axios.get('/mentor/search'+url)
+			.then((response)=>{
+				this.custom_mentors = response.data
+			})
 		}
 	},
 };

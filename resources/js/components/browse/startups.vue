@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid" style="background:#efeff4;">
+<div class="container-fluid">
     <form action="" id="startupSearch">
 	    <div class="container-fluid startup-list-search">
 	        <div class="list-search">
@@ -18,45 +18,11 @@
 		<div class="container">
 			<div class="row startup-list">
 			    <div class="col-md-3 left-search">
-				    <div class="chek-list">
-				        <div class="title">Countries</div>
-				        <ul>
-				            <li>
-				                <div class="form-check">
-				                    <input class="form-check-input country-check" type="checkbox" value="5" id="country-5" name="country[]">
-				                    <label class="form-check-label" for="country-5">
-				                        Uzbekistan                    
-				                    </label>
-				                </div>
-				            </li>
-				        </ul>
-				    </div>
-				    <div class="chek-list">
-				        <div class="title">Industry</div>
-				        <ul>
-				       		<li>
-				                <div class="form-check">
-				                    <input class="form-check-input" type="checkbox" value="2" id="Industry-2" name="industry[]">
-				                    <label class="form-check-label" for="Industry-2">
-				                        Fashion                    
-				                    </label>
-				                </div>
-				            </li>
-				        </ul>
-				    </div>
-			        <div class="chek-list">
-			        	<div class="title">Startup Stage</div>
-				        <ul>
-			                <li>
-				                <div class="form-check">
-				                    <input class="form-check-input" type="checkbox" value="5" id="stage-5" name="stage[]">
-				                    <label class="form-check-label" for="stage-5">
-				                        Paying Users                    
-				                    </label>
-				                </div>
-				            </li>
-			            </ul>
-			    	</div>
+					<filter-list
+	        			:data="filter_data"
+	        			@getSelectedFilters="setSelectedFilters"
+	        		>
+	        		</filter-list> 
 			    </div>
 		        <div class="col-md-9 pb-150">
 		            <div class="col-md-12">
@@ -98,8 +64,34 @@ export default{
 	},
 	data(){
 		return{
-
+			filter_data:[
+				{
+					title:'Countries',
+					prop:'contries[]=',
+					data:[
+						{
+							title:'Not Available At This Moment',
+							is_disabled:true,
+						}
+					]
+				},
+				{
+					title:'Industry',
+					prop:'issues[]=',
+					data:this.issues
+				},
+				{
+					title:'Startup Stage',
+					prop:'fields[]=',
+					data:this.fields
+				},
+			],
 		}
+	},
+	methods:{
+		setSelectedFilters(filters){
+			console.log(filters)
+		},
 	},
 };
 </script>

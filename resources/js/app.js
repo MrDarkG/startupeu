@@ -24,6 +24,7 @@ Vue.component('mentor-registration', require('./components/registration/mentor.v
 Vue.component('investor-registration', require('./components/registration/investor.vue').default);
 Vue.component('browse-startups', require('./components/browse/startups.vue').default);
 Vue.component('browse-mentors', require('./components/browse/mentors.vue').default);
+Vue.component('filter-list', require('./components/browse/filter.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
