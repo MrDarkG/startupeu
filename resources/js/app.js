@@ -22,6 +22,7 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('mentor-registration', require('./components/registration/mentor.vue').default);
 Vue.component('investor-registration', require('./components/registration/investor.vue').default);
+Vue.component('user-registration', require('./components/registration/index.vue').default);
 Vue.component('browse-startups', require('./components/browse/startups.vue').default);
 Vue.component('browse-mentors', require('./components/browse/mentors.vue').default);
 Vue.component('filter-list', require('./components/browse/filter.vue').default);
