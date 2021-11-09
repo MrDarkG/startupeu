@@ -43,11 +43,17 @@
                   <input class="form-control mr-sm-2 login-input-search" type="search" placeholder="Search" aria-label="Search">
                 </form>
             </div>
+            @guest
+              <button class="btn btn-light login-btn">
+                <a href="/home">Dashboard</a>
+              </button>
+            @else
             <button class="btn btn-light login-btn">
                 <a href="/login">Login</a>
                 <span class="login-text-primary"> / </span>
                 <a href="/register">Register</a>
             </button>
+            @endguest
           </div>
         </nav>
         <div id="app">
