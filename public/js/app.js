@@ -2401,6 +2401,106 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/index.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/index.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {},
+  data: function data() {
+    return {
+      selected: {
+        type: {}
+      },
+      types: [{
+        title: 'Startup',
+        description: 'Find investment',
+        // href:'https://startupcentraleurasia.com/en/dashboard/addUserByType/1',
+        is_selected: false,
+        src: 'https://startupcentraleurasia.com/themes/application/Components/svg/startup-icon.svg'
+      }, {
+        title: 'Investor',
+        description: 'Find startups',
+        // href:'https://startupcentraleurasia.com/en/dashboard/addUserByType/2',
+        is_selected: false,
+        src: 'https://startupcentraleurasia.com/themes/application/Components/svg/investor-icon.svg'
+      }, {
+        title: 'Mentor',
+        description: 'Mark the time for the session',
+        // href:'https://startupcentraleurasia.com/en/dashboard/addUserByType/3',
+        is_selected: false,
+        src: 'https://startupcentraleurasia.com/themes/application/Components/svg/mentor-icon.svg'
+      }]
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/registration/index.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/registration/index.vue?vue&type=script&lang=js& ***!
@@ -3215,6 +3315,10 @@ Vue.component('user-registration', __webpack_require__(/*! ./components/registra
 Vue.component('browse-startups', __webpack_require__(/*! ./components/browse/startups.vue */ "./resources/js/components/browse/startups.vue")["default"]);
 Vue.component('browse-mentors', __webpack_require__(/*! ./components/browse/mentors.vue */ "./resources/js/components/browse/mentors.vue")["default"]);
 Vue.component('filter-list', __webpack_require__(/*! ./components/browse/filter.vue */ "./resources/js/components/browse/filter.vue")["default"]);
+Vue.component('choose-side', __webpack_require__(/*! ./components/choose_side/index.vue */ "./resources/js/components/choose_side/index.vue")["default"]);
+Vue.component('create-startup', __webpack_require__(/*! ./components/choose_side/startup.vue */ "./resources/js/components/choose_side/startup.vue")["default"]);
+Vue.component('create-investor', __webpack_require__(/*! ./components/choose_side/investor.vue */ "./resources/js/components/choose_side/investor.vue")["default"]);
+Vue.component('create-mentor', __webpack_require__(/*! ./components/choose_side/mentor.vue */ "./resources/js/components/choose_side/mentor.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -42569,6 +42673,156 @@ component.options.__file = "resources/js/components/browse/startups.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/choose_side/index.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/choose_side/index.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index_vue_vue_type_template_id_1e4b3587___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=1e4b3587& */ "./resources/js/components/choose_side/index.vue?vue&type=template&id=1e4b3587&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/choose_side/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_1e4b3587___WEBPACK_IMPORTED_MODULE_0__.render,
+  _index_vue_vue_type_template_id_1e4b3587___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/choose_side/index.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/investor.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/choose_side/investor.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _investor_vue_vue_type_template_id_3aa2321a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./investor.vue?vue&type=template&id=3aa2321a& */ "./resources/js/components/choose_side/investor.vue?vue&type=template&id=3aa2321a&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _investor_vue_vue_type_template_id_3aa2321a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _investor_vue_vue_type_template_id_3aa2321a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/choose_side/investor.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/mentor.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/choose_side/mentor.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mentor_vue_vue_type_template_id_62647e5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mentor.vue?vue&type=template&id=62647e5c& */ "./resources/js/components/choose_side/mentor.vue?vue&type=template&id=62647e5c&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _mentor_vue_vue_type_template_id_62647e5c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _mentor_vue_vue_type_template_id_62647e5c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/choose_side/mentor.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/startup.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/choose_side/startup.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./startup.vue?vue&type=template&id=71b82e72& */ "./resources/js/components/choose_side/startup.vue?vue&type=template&id=71b82e72&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__.render,
+  _startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/choose_side/startup.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/registration/index.vue":
 /*!********************************************************!*\
   !*** ./resources/js/components/registration/index.vue ***!
@@ -42752,6 +43006,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/choose_side/index.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/choose_side/index.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/index.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/registration/index.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/registration/index.vue?vue&type=script&lang=js& ***!
@@ -42877,6 +43147,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_startups_vue_vue_type_template_id_491d9280___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_startups_vue_vue_type_template_id_491d9280___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./startups.vue?vue&type=template&id=491d9280& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/browse/startups.vue?vue&type=template&id=491d9280&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/index.vue?vue&type=template&id=1e4b3587&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/choose_side/index.vue?vue&type=template&id=1e4b3587& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_1e4b3587___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_1e4b3587___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_1e4b3587___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=1e4b3587& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/index.vue?vue&type=template&id=1e4b3587&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/investor.vue?vue&type=template&id=3aa2321a&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/choose_side/investor.vue?vue&type=template&id=3aa2321a& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_investor_vue_vue_type_template_id_3aa2321a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_investor_vue_vue_type_template_id_3aa2321a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_investor_vue_vue_type_template_id_3aa2321a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./investor.vue?vue&type=template&id=3aa2321a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/investor.vue?vue&type=template&id=3aa2321a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/mentor.vue?vue&type=template&id=62647e5c&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/choose_side/mentor.vue?vue&type=template&id=62647e5c& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mentor_vue_vue_type_template_id_62647e5c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mentor_vue_vue_type_template_id_62647e5c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mentor_vue_vue_type_template_id_62647e5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./mentor.vue?vue&type=template&id=62647e5c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/mentor.vue?vue&type=template&id=62647e5c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/startup.vue?vue&type=template&id=71b82e72&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/choose_side/startup.vue?vue&type=template&id=71b82e72& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./startup.vue?vue&type=template&id=71b82e72& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/startup.vue?vue&type=template&id=71b82e72&");
 
 
 /***/ }),
@@ -43366,6 +43704,2156 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/index.vue?vue&type=template&id=1e4b3587&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/index.vue?vue&type=template&id=1e4b3587& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container-fluid pd-50" }, [
+      _c("div", { staticClass: "row sign-up" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm.selected.type.index === undefined
+          ? _c("div", { staticClass: "col-md-8 right" }, [
+              _c("div", { staticClass: "sign-title" }, [
+                _vm._v(
+                  "\r\n\t\t            Choose the type of your account        \r\n\t\t        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sign-desc" }, [
+                _vm._v(
+                  "\r\n\t\t        \tFew clicks away from your Ecosystem        \r\n\t\t        "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "type_list" },
+                _vm._l(_vm.types, function(type, index) {
+                  return _c(
+                    "a",
+                    {
+                      staticClass: "item",
+                      on: {
+                        click: function($event) {
+                          _vm.types.map(function(tp) {
+                            return (tp.is_selected = false)
+                          })
+                          type.is_selected = true
+                          _vm.selected.type = type
+                          _vm.selected.type.index = index
+                        }
+                      }
+                    },
+                    [
+                      _c("img", { attrs: { src: type.src, alt: "" } }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "texts" }, [
+                        _c("div", { staticClass: "t-title" }, [
+                          _vm._v(
+                            "\r\n\t\t                    \t" +
+                              _vm._s(type.title) +
+                              "\r\n\t\t                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "t-desc" }, [
+                          _vm._v(
+                            "\r\n\t\t                    \t" +
+                              _vm._s(type.description) +
+                              "\r\n\t\t                    "
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          : _c(
+              "div",
+              { staticClass: "col-md-8 right" },
+              [
+                _c("div", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: {
+                        click: function($event) {
+                          _vm.types.map(function(type) {
+                            return (type.is_selected = false)
+                          })
+                          _vm.selected.type = {}
+                        }
+                      }
+                    },
+                    [_vm._v("\r\n\t\t\t\t\t\t< back\r\n\t\t\t\t\t")]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.selected.type.index === 0
+                  ? _c("create-startup", { staticClass: "pt-2" })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.selected.type.index === 1
+                  ? _c("create-investor", { staticClass: "pt-2" })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.selected.type.index === 2
+                  ? _c("create-mentor", { staticClass: "pt-2" })
+                  : _vm._e()
+              ],
+              1
+            )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-4 left" }, [
+      _c(
+        "a",
+        {
+          staticClass: "sign-logo",
+          attrs: { href: "https://startupcentraleurasia.com/en/" }
+        },
+        [
+          _c("img", {
+            attrs: {
+              src:
+                "https://startupcentraleurasia.com/themes/application/Components/svg/sign-logo.svg",
+              alt: ""
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "sign-text" }, [
+        _c("span", [
+          _vm._v(
+            "\r\n\t            \t\tFew clicks away from your Ecosystem\r\n\t\t        \t"
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\r\n\t\t            \tAlready have an account?"),
+          _c(
+            "a",
+            { attrs: { href: "https://startupcentraleurasia.com/en/login" } },
+            [_vm._v("Login")]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/investor.vue?vue&type=template&id=3aa2321a&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/investor.vue?vue&type=template&id=3aa2321a& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "sign-title" }, [
+        _vm._v("\r\n        Investor Registration        \r\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sign-desc" }, [
+        _vm._v(
+          "\r\n    \tUse our smart matching tool to find startups from Central Eurasia        \r\n    "
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "sign-form",
+          attrs: {
+            action: "",
+            id: "startup-form",
+            method: "post",
+            enctype: "multipart/form-data",
+            novalidate: "novalidate"
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("label", { attrs: { for: "full_name" } }, [
+                _vm._v("Full Name")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "full_name",
+                  name: "full_name",
+                  value: "",
+                  placeholder: "Full Name"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("label", { attrs: { for: "company_name" } }, [
+                _vm._v("Company name")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "company_name",
+                  name: "company_name",
+                  value: "",
+                  placeholder: "Company name"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "successful_investments" } }, [
+                _vm._v("Successful investments")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control h160",
+                attrs: {
+                  name: "successful_investments",
+                  id: "successful_investments",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "successful_investments" } }, [
+                _vm._v("About Investor")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control h160",
+                attrs: {
+                  name: "about_investor",
+                  id: "about_investor",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "website" } }, [_vm._v("Website")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "website",
+                  name: "website",
+                  value: "",
+                  placeholder: "Website address"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "email",
+                  name: "email",
+                  value: "",
+                  placeholder: "Email address"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "investment_range" } }, [
+                _vm._v("Investment range")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { name: "investment_range", id: "investment_range" }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "1" } }, [
+                    _vm._v(" 10000-20000 ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "2" } }, [
+                    _vm._v(" 10000 - 50.0000 ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "3" } }, [
+                    _vm._v(" 50.000- 100.000 ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "interest_martket_id" } }, [
+                _vm._v("Which markets are you interested in?")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "interest_martket_id",
+                    id: "interest_martket_id"
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "4" } }, [
+                    _vm._v(" Western Europe ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "5" } }, [
+                    _vm._v(" Eastern Europe ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "6" } }, [
+                    _vm._v(" Scandinavia ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "interest_stage_id" } }, [
+                _vm._v("Which stages are you interested in?")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { name: "interest_stage_id", id: "interest_stage_id" }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "2" } }, [
+                    _vm._v(" Idea Stage ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "3" } }, [
+                    _vm._v(" Prototype ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "4" } }, [
+                    _vm._v(" Users ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "country_id" } }, [
+                  _vm._v("Country")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass: "form-control",
+                    attrs: { name: "country_id", id: "country_id" }
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Bangladesh")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Burkina Faso")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("Belgium")])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "investor_type" } }, [
+                _vm._v("investor_type")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { name: "investor_type", id: "investor_type" }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "1" } }, [
+                    _vm._v(" Venture Funds ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "2" } }, [
+                    _vm._v(" Angels ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "3" } }, [
+                    _vm._v(" Accelerators ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "div",
+                { staticClass: "alert alert-warning alert-dismissible" },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        href: "#",
+                        "data-dismiss": "alert",
+                        "aria-label": "close"
+                      }
+                    },
+                    [_vm._v("×")]
+                  ),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v("warning!")]),
+                  _vm._v(
+                    "  Image file formats - JPG,PNG,JPEG; Size - 2MB                    \r\n                "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-md-12 st-logo",
+                staticStyle: { "margin-right": "20px" }
+              },
+              [
+                _c("input", {
+                  staticClass: "filestyle",
+                  staticStyle: {
+                    position: "absolute",
+                    clip: "rect(0px, 0px, 0px, 0px)"
+                  },
+                  attrs: {
+                    type: "file",
+                    id: "image",
+                    name: "image",
+                    tabindex: "-1"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "bootstrap-filestyle input-group" }, [
+                  _c("div", {
+                    staticStyle: {
+                      position: "absolute",
+                      width: "100%",
+                      height: "131px",
+                      "z-index": "-1"
+                    },
+                    attrs: { name: "filedrag" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "group-span-filestyle ",
+                      attrs: { tabindex: "0" }
+                    },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "btn  ",
+                          staticStyle: { "margin-bottom": "0" },
+                          attrs: { for: "image" }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "st-logo-img",
+                            attrs: {
+                              src:
+                                "https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "buttonText" }, [
+                            _vm._v("Drag your logo here, or browse")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn", attrs: { type: "submit", id: "submit" } },
+              [_vm._v("Get started ")]
+            )
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/mentor.vue?vue&type=template&id=62647e5c&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/mentor.vue?vue&type=template&id=62647e5c& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "sign-title" }, [
+        _vm._v("\r\n        Mentor Registration         \r\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sign-desc" }, [
+        _vm._v(
+          "\r\n        Plan your mentorship sessions easily        \r\n    "
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "sign-form",
+          attrs: {
+            action: "",
+            id: "startup-form",
+            method: "post",
+            enctype: "multipart/form-data",
+            novalidate: "novalidate"
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("label", { attrs: { for: "full_name" } }, [
+                _vm._v("Full Name")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "full_name",
+                  name: "full_name",
+                  value: "",
+                  placeholder: "Full Name"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("label", { attrs: { for: "linkedin_address" } }, [
+                _vm._v("Linkedin profile")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "linkedin_address",
+                  name: "linkedin_address",
+                  value: "",
+                  placeholder: "Linkedin profile"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "experience_text" } }, [
+                _vm._v(
+                  "What experience do I have and what proccesses did I improve?"
+                )
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control h160",
+                attrs: {
+                  name: "experience_text",
+                  id: "experience_text",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "companies_worked_text" } }, [
+                _vm._v("What companies have I worked in?")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control h160",
+                attrs: {
+                  name: "companies_worked_text",
+                  id: "companies_worked_text",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "country_id" } }, [
+                  _vm._v("Country")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass: "form-control",
+                    attrs: { name: "country_id", id: "country_id" }
+                  },
+                  [
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Azerbaijan")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Georgia")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("Armenia")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("Kazakhstan")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [
+                      _vm._v("Kyrgyzstan")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [
+                      _vm._v("Uzbekistan")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [
+                      _vm._v("Tajikistan")
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "fields_consult_id" } }, [
+                  _vm._v("Which fields can you consult in?")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "js-example-disabled-results form-control select2-hidden-accessible",
+                    attrs: {
+                      name: "fields_consult_id[]",
+                      id: "fields_consult_id",
+                      multiple: "",
+                      "data-select2-id": "select2-data-fields_consult_id",
+                      tabindex: "-1",
+                      "aria-hidden": "true"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "12" } }, [
+                      _vm._v("Blockchain")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "24" } }, [_vm._v("Legal")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "23" } }, [
+                      _vm._v("Enterprise Software")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "22" } }, [_vm._v("Media")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "21" } }, [
+                      _vm._v("Marketing")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "20" } }, [
+                      _vm._v("Security")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "select2 select2-container select2-container--default",
+                    staticStyle: { width: "849px" },
+                    attrs: {
+                      dir: "ltr",
+                      "data-select2-id": "select2-data-1-qqwv"
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "selection" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "select2-selection select2-selection--multiple",
+                          attrs: {
+                            role: "combobox",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false",
+                            tabindex: "-1",
+                            "aria-disabled": "false"
+                          }
+                        },
+                        [
+                          _c("ul", {
+                            staticClass: "select2-selection__rendered",
+                            attrs: { id: "select2-fields_consult_id-container" }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "select2-search select2-search--inline"
+                            },
+                            [
+                              _c("input", {
+                                staticClass: "select2-search__field",
+                                staticStyle: { width: "0.75em" },
+                                attrs: {
+                                  type: "search",
+                                  tabindex: "0",
+                                  autocorrect: "off",
+                                  autocapitalize: "none",
+                                  spellcheck: "false",
+                                  role: "searchbox",
+                                  "aria-autocomplete": "list",
+                                  autocomplete: "off",
+                                  "aria-describedby":
+                                    "select2-fields_consult_id-container",
+                                  placeholder: ""
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "dropdown-wrapper",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "select-arrow",
+                  attrs: {
+                    src:
+                      "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "issues_consult_id" } }, [
+                  _vm._v("Which issues can you consult on?")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "js-example-disabled-results form-control select2-hidden-accessible",
+                    attrs: {
+                      name: "issues_consult_id[]",
+                      id: "issues_consult_id",
+                      multiple: "",
+                      "data-select2-id": "select2-data-issues_consult_id",
+                      tabindex: "-1",
+                      "aria-hidden": "true"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "8" } }, [
+                      _vm._v("Strategy ")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [
+                      _vm._v("Business analytics")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [
+                      _vm._v("Technology")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("AI")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "select2 select2-container select2-container--default",
+                    staticStyle: { width: "849px" },
+                    attrs: {
+                      dir: "ltr",
+                      "data-select2-id": "select2-data-2-lh5f"
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "selection" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "select2-selection select2-selection--multiple",
+                          attrs: {
+                            role: "combobox",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false",
+                            tabindex: "-1",
+                            "aria-disabled": "false"
+                          }
+                        },
+                        [
+                          _c("ul", {
+                            staticClass: "select2-selection__rendered",
+                            attrs: { id: "select2-issues_consult_id-container" }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "select2-search select2-search--inline"
+                            },
+                            [
+                              _c("input", {
+                                staticClass: "select2-search__field",
+                                staticStyle: { width: "0.75em" },
+                                attrs: {
+                                  type: "search",
+                                  tabindex: "0",
+                                  autocorrect: "off",
+                                  autocapitalize: "none",
+                                  spellcheck: "false",
+                                  role: "searchbox",
+                                  "aria-autocomplete": "list",
+                                  autocomplete: "off",
+                                  "aria-describedby":
+                                    "select2-issues_consult_id-container",
+                                  placeholder: ""
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "dropdown-wrapper",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "select-arrow",
+                  attrs: {
+                    src:
+                      "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "div",
+                { staticClass: "alert alert-warning alert-dismissible" },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        href: "#",
+                        "data-dismiss": "alert",
+                        "aria-label": "close"
+                      }
+                    },
+                    [_vm._v("×")]
+                  ),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v("warning!")]),
+                  _vm._v(
+                    "  file_text_for_mentor                    \r\n                "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-md-12 st-logo",
+                staticStyle: { "margin-right": "20px" }
+              },
+              [
+                _c("input", {
+                  staticClass: "filestyle",
+                  staticStyle: {
+                    position: "absolute",
+                    clip: "rect(0px, 0px, 0px, 0px)"
+                  },
+                  attrs: {
+                    type: "file",
+                    id: "image",
+                    name: "image",
+                    tabindex: "-1"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "bootstrap-filestyle input-group" }, [
+                  _c("div", {
+                    staticStyle: {
+                      position: "absolute",
+                      width: "100%",
+                      height: "131px",
+                      "z-index": "-1"
+                    },
+                    attrs: { name: "filedrag" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "group-span-filestyle ",
+                      attrs: { tabindex: "0" }
+                    },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "btn  ",
+                          staticStyle: { "margin-bottom": "0" },
+                          attrs: { for: "image" }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "st-logo-img",
+                            attrs: {
+                              src:
+                                "https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "buttonText" }, [
+                            _vm._v("Drag your logo here, or browse")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn", attrs: { type: "submit", id: "submit" } },
+              [_vm._v("Get started ")]
+            )
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/startup.vue?vue&type=template&id=71b82e72&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/startup.vue?vue&type=template&id=71b82e72& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pt-2" }, [
+      _c("div", { staticClass: "sign-title" }, [
+        _vm._v("\r\n        Startup registration         \r\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sign-desc" }, [
+        _vm._v(
+          "\r\n    \tFind investment opportunities from leading Venture Funds, Angels and Accelerators, apply with the one click        \r\n    "
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "sign-form",
+          attrs: {
+            action: "",
+            id: "startup-form",
+            method: "post",
+            enctype: "multipart/form-data",
+            novalidate: "novalidate"
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "title" } }, [
+                _vm._v("Startup Name")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "title",
+                  name: "title",
+                  value: "",
+                  placeholder: "Startup Name"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "founded" } }, [_vm._v("Founded")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "founded",
+                  name: "founded",
+                  value: "",
+                  placeholder: "Year"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "founded_number" } }, [
+                _vm._v("Number of Founders")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "founded_number",
+                  name: "founded_number",
+                  value: "",
+                  placeholder: "Number"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "ceo" } }, [_vm._v("Full Name")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "ceo",
+                  name: "ceo",
+                  value: "",
+                  placeholder: "Full Name"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-2" }, [
+              _c("label", { attrs: { for: "phone_index" } }, [
+                _vm._v("Phone index")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { name: "phone_index", id: "phone_index" }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "+93" } }, [
+                    _vm._v(" Afghanistan ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "+355" } }, [
+                    _vm._v(" Albania ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c("label", { attrs: { for: "ceo_mobile" } }, [
+                _vm._v("CEO mobile number")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "ceo_mobile",
+                  name: "ceo_mobile",
+                  value: "",
+                  placeholder: "XXX XX XX XX"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3" }, [
+              _c("label", { attrs: { for: "ceo_email" } }, [
+                _vm._v("CEO e-mail")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "ceo_email",
+                  name: "ceo_email",
+                  value: "",
+                  placeholder: "Email address"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6  " }, [
+              _c("label", { attrs: { for: "startup_email" } }, [
+                _vm._v("Startup email")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "startup_email",
+                  name: "startup_email",
+                  value: "",
+                  placeholder: "Email address"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6  " }, [
+              _c("label", { attrs: { for: "website" } }, [_vm._v("Website")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "website",
+                  name: "website",
+                  value: "",
+                  placeholder: "Website address"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "what_your_company_does" } }, [
+                _vm._v("What your company does?")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control h160",
+                attrs: {
+                  name: "what_your_company_does",
+                  id: "what_your_company_does",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "describe_your_product_text" } }, [
+                _vm._v("Describe your product and what it does or will do")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control h160",
+                attrs: {
+                  name: "describe_your_product_text",
+                  id: "describe_your_product_text",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", { attrs: { for: "what_is_your_innovation" } }, [
+                _vm._v(
+                  "What is your innovation - what are you doing in an absolutely new or significantly improved way?"
+                )
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control h160",
+                attrs: {
+                  name: "what_is_your_innovation",
+                  id: "what_is_your_innovation",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "what_is_your_current_stage" } }, [
+                _vm._v("What is your current stage ?")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "what_is_your_current_stage",
+                    id: "what_is_your_current_stage"
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "2" } }, [
+                    _vm._v(" Idea Stage ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "3" } }, [
+                    _vm._v(" Prototype ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "4" } }, [
+                    _vm._v(" Users ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "your_business_model" } }, [
+                _vm._v("Your business model")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "your_business_model",
+                    id: "your_business_model"
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "1" } }, [
+                    _vm._v(" SAAS ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "2" } }, [
+                    _vm._v(" E-commerce ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "3" } }, [
+                    _vm._v(" Enterprise ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "target_audience" } }, [
+                _vm._v("Target Audience")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { name: "target_audience", id: "target_audience" }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "1" } }, [
+                    _vm._v(" B2B (Business to Business) ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "2" } }, [
+                    _vm._v(" B2C (Business to Customer) ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "3" } }, [
+                    _vm._v(" B2G (Business to Government) ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "do_you_have_traction" } }, [
+                _vm._v("Do you have traction ?")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "do_you_have_traction",
+                    id: "do_you_have_traction"
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "1" } }, [_vm._v(" Yes")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" No")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8" }, [
+              _c(
+                "label",
+                { attrs: { for: "what_kind_of_traction_do_you_have" } },
+                [_vm._v("What kind of traction do you have ?")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "what_kind_of_traction_do_you_have",
+                  name: "what_kind_of_traction_do_you_have",
+                  value: "",
+                  placeholder: "Type here"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("label", [_vm._v("Who are your competitors?")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "company_name_one",
+                      name: "company_name_one",
+                      value: "",
+                      placeholder: "Company Name"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "company_address_one",
+                      name: "company_address_one",
+                      value: "",
+                      placeholder: "Company Address"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "company_name_two",
+                      name: "company_name_two",
+                      value: "",
+                      placeholder: "Company Name"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "company_address_two",
+                      name: "company_address_two",
+                      value: "",
+                      placeholder: "Company Address"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "company_name_three",
+                      name: "company_name_three",
+                      value: "",
+                      placeholder: "Company Name"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "company_address_three",
+                      name: "company_address_three",
+                      value: "",
+                      placeholder: "Company Address"
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c(
+                  "label",
+                  { attrs: { for: "which_markets_are_you_interested_in" } },
+                  [_vm._v("Which markets are you interested in?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "js-example-disabled-results form-control select2-hidden-accessible",
+                    attrs: {
+                      name: "which_markets_are_you_interested_in[]",
+                      id: "which_markets_are_you_interested_in",
+                      multiple: "",
+                      "data-select2-id":
+                        "select2-data-which_markets_are_you_interested_in",
+                      tabindex: "-1",
+                      "aria-hidden": "true"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("Western Europe")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [
+                      _vm._v("Eastern Europe")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [
+                      _vm._v("Scandinavia")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("CIS ")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "select2 select2-container select2-container--default",
+                    staticStyle: { width: "1147px" },
+                    attrs: {
+                      dir: "ltr",
+                      "data-select2-id": "select2-data-1-o2au"
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "selection" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "select2-selection select2-selection--multiple",
+                          attrs: {
+                            role: "combobox",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false",
+                            tabindex: "-1",
+                            "aria-disabled": "false"
+                          }
+                        },
+                        [
+                          _c("ul", {
+                            staticClass: "select2-selection__rendered",
+                            attrs: {
+                              id:
+                                "select2-which_markets_are_you_interested_in-container"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "select2-search select2-search--inline"
+                            },
+                            [
+                              _c("input", {
+                                staticClass: "select2-search__field",
+                                staticStyle: { width: "0.75em" },
+                                attrs: {
+                                  type: "search",
+                                  tabindex: "0",
+                                  autocorrect: "off",
+                                  autocapitalize: "none",
+                                  spellcheck: "false",
+                                  role: "searchbox",
+                                  "aria-autocomplete": "list",
+                                  autocomplete: "off",
+                                  "aria-describedby":
+                                    "select2-which_markets_are_you_interested_in-container",
+                                  placeholder: ""
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "dropdown-wrapper",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "select-arrow",
+                  attrs: {
+                    src:
+                      "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c(
+                  "label",
+                  { attrs: { for: "which_markets_are_you_interested_in" } },
+                  [_vm._v("Industries")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass:
+                      "js-example-disabled-results form-control select2-hidden-accessible",
+                    attrs: {
+                      name: "geography_on_which_you_startup_is_orientied[]",
+                      id: "geography_on_which_you_startup_is_orientied",
+                      multiple: "",
+                      "data-select2-id":
+                        "select2-data-geography_on_which_you_startup_is_orientied",
+                      tabindex: "-1",
+                      "aria-hidden": "true"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "14" } }, [
+                      _vm._v("Travel")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "27" } }, [
+                      _vm._v("Hosting")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "26" } }, [_vm._v("Music")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "select2 select2-container select2-container--default",
+                    staticStyle: { width: "1147px" },
+                    attrs: {
+                      dir: "ltr",
+                      "data-select2-id": "select2-data-2-fl2g"
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "selection" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "select2-selection select2-selection--multiple",
+                          attrs: {
+                            role: "combobox",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false",
+                            tabindex: "-1",
+                            "aria-disabled": "false"
+                          }
+                        },
+                        [
+                          _c("ul", {
+                            staticClass: "select2-selection__rendered",
+                            attrs: {
+                              id:
+                                "select2-geography_on_which_you_startup_is_orientied-container"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "select2-search select2-search--inline"
+                            },
+                            [
+                              _c("input", {
+                                staticClass: "select2-search__field",
+                                staticStyle: { width: "0.75em" },
+                                attrs: {
+                                  type: "search",
+                                  tabindex: "0",
+                                  autocorrect: "off",
+                                  autocapitalize: "none",
+                                  spellcheck: "false",
+                                  role: "searchbox",
+                                  "aria-autocomplete": "list",
+                                  autocomplete: "off",
+                                  "aria-describedby":
+                                    "select2-geography_on_which_you_startup_is_orientied-container",
+                                  placeholder: ""
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "dropdown-wrapper",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "select-arrow",
+                  attrs: {
+                    src:
+                      "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
+                    alt: ""
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "country_id" } }, [
+                  _vm._v("Country")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    staticClass: "form-control",
+                    attrs: { name: "country_id", id: "country_id" }
+                  },
+                  [
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Azerbaijan")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Georgia")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("Armenia")])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c(
+                "label",
+                { attrs: { for: "did_you_already_received_investment" } },
+                [_vm._v("Did you already receive the investment?")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "did_you_already_received_investment",
+                    id: "did_you_already_received_investment"
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "1" } }, [_vm._v(" Yes")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" No")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "how_much" } }, [
+                _vm._v("How Much ?")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { name: "how_much", id: "how_much" }
+                },
+                [
+                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "1" } }, [
+                    _vm._v(" 10000-20000 ")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("label", { attrs: { for: "what_are_you_looking_for" } }, [
+                _vm._v("What are you looking for?")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass:
+                    "js-example-disabled-results form-control select2-hidden-accessible",
+                  attrs: {
+                    name: "what_are_you_looking_for[]",
+                    id: "what_are_you_looking_for",
+                    multiple: "",
+                    "data-select2-id": "select2-data-what_are_you_looking_for",
+                    tabindex: "-1",
+                    "aria-hidden": "true"
+                  }
+                },
+                [
+                  _c("option", { attrs: { id: "", value: "1" } }, [
+                    _vm._v(" Investment ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "2" } }, [
+                    _vm._v(" Mentoring ")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { id: "", value: "3" } }, [
+                    _vm._v(" Visibility ")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass:
+                    "select2 select2-container select2-container--default",
+                  staticStyle: { width: "362.333px" },
+                  attrs: {
+                    dir: "ltr",
+                    "data-select2-id": "select2-data-3-ni1q"
+                  }
+                },
+                [
+                  _c("span", { staticClass: "selection" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "select2-selection select2-selection--multiple",
+                        attrs: {
+                          role: "combobox",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false",
+                          tabindex: "-1",
+                          "aria-disabled": "false"
+                        }
+                      },
+                      [
+                        _c("ul", {
+                          staticClass: "select2-selection__rendered",
+                          attrs: {
+                            id: "select2-what_are_you_looking_for-container"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticClass: "select2-search select2-search--inline"
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "select2-search__field",
+                              staticStyle: { width: "0.75em" },
+                              attrs: {
+                                type: "search",
+                                tabindex: "0",
+                                autocorrect: "off",
+                                autocapitalize: "none",
+                                spellcheck: "false",
+                                role: "searchbox",
+                                "aria-autocomplete": "list",
+                                autocomplete: "off",
+                                "aria-describedby":
+                                  "select2-what_are_you_looking_for-container",
+                                placeholder: ""
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", {
+                    staticClass: "dropdown-wrapper",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "select-arrow",
+                attrs: {
+                  src:
+                    "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "div",
+                { staticClass: "alert alert-warning alert-dismissible" },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        href: "#",
+                        "data-dismiss": "alert",
+                        "aria-label": "close"
+                      }
+                    },
+                    [_vm._v("×")]
+                  ),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v("warning!")]),
+                  _vm._v(
+                    "   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    \r\n                "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-md-3 st-logo",
+                staticStyle: { "margin-right": "20px" }
+              },
+              [
+                _c("input", {
+                  staticClass: "filestyle",
+                  staticStyle: {
+                    position: "absolute",
+                    clip: "rect(0px, 0px, 0px, 0px)"
+                  },
+                  attrs: {
+                    type: "file",
+                    id: "image",
+                    name: "image",
+                    tabindex: "-1"
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "bootstrap-filestyle input-group" }, [
+                  _c("div", {
+                    staticStyle: {
+                      position: "absolute",
+                      width: "100%",
+                      height: "103px",
+                      "z-index": "-1"
+                    },
+                    attrs: { name: "filedrag" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "group-span-filestyle ",
+                      attrs: { tabindex: "0" }
+                    },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "btn  ",
+                          staticStyle: { "margin-bottom": "0" },
+                          attrs: { for: "image" }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "st-logo-img",
+                            attrs: {
+                              src:
+                                "https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg",
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "buttonText" }, [
+                            _vm._v("Drag your logo here, or browse")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8 st-logo" }, [
+              _c("input", {
+                staticClass: "filestyle",
+                staticStyle: {
+                  position: "absolute",
+                  clip: "rect(0px, 0px, 0px, 0px)"
+                },
+                attrs: { type: "file", id: "pdf", name: "pdf", tabindex: "-1" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "bootstrap-filestyle input-group" }, [
+                _c("div", {
+                  staticStyle: {
+                    position: "absolute",
+                    width: "100%",
+                    height: "103px",
+                    "z-index": "-1"
+                  },
+                  attrs: { name: "filedrag" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "group-span-filestyle ",
+                    attrs: { tabindex: "0" }
+                  },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "btn  ",
+                        staticStyle: { "margin-bottom": "0" },
+                        attrs: { for: "pdf" }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "st-logo-img",
+                          attrs: {
+                            src:
+                              "https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg",
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "buttonText" }, [
+                          _vm._v("Drag your presentation here, or browse")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn", attrs: { type: "submit", id: "submit" } },
+              [_vm._v("Get started ")]
+            )
+          ])
+        ]
+      )
     ])
   }
 ]

@@ -26,6 +26,10 @@ Vue.component('user-registration', require('./components/registration/index.vue'
 Vue.component('browse-startups', require('./components/browse/startups.vue').default);
 Vue.component('browse-mentors', require('./components/browse/mentors.vue').default);
 Vue.component('filter-list', require('./components/browse/filter.vue').default);
+Vue.component('choose-side', require('./components/choose_side/index.vue').default);
+Vue.component('create-startup', require('./components/choose_side/startup.vue').default);
+Vue.component('create-investor', require('./components/choose_side/investor.vue').default);
+Vue.component('create-mentor', require('./components/choose_side/mentor.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
