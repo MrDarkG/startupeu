@@ -21,10 +21,6 @@
                 <textarea name="experience_text" id="experience_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
             </div>
             <div class="col-md-12">
-                <label for="companies_worked_text">What companies have I worked in?</label>
-                <textarea name="companies_worked_text" id="companies_worked_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
-            </div>
-            <div class="col-md-12">
                 <div class="form-group">
                     <label for="country_id">Country</label>
                     <select name="country_id" class="form-control" id="country_id">

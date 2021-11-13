@@ -2501,6 +2501,229 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/startup.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/startup.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      input: {
+        startup: {
+          name: "",
+          email: ""
+        },
+        founded: {
+          year: "",
+          number: ""
+        },
+        full_name: "",
+        phone: {
+          index: "",
+          number: ""
+        },
+        ceo_email: "",
+        website: "",
+        about: {
+          company: "",
+          product: "",
+          innovation: ""
+        },
+        current_stage: "",
+        business_model: "",
+        target_audience: "",
+        industries: "",
+        country: "",
+        receive_investment: "",
+        how_much: "",
+        what_are_you_looking: "",
+        image: ""
+      }
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/registration/index.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/registration/index.vue?vue&type=script&lang=js& ***!
@@ -42798,15 +43021,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./startup.vue?vue&type=template&id=71b82e72& */ "./resources/js/components/choose_side/startup.vue?vue&type=template&id=71b82e72&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _startup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./startup.vue?vue&type=script&lang=js& */ "./resources/js/components/choose_side/startup.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _startup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__.render,
   _startup_vue_vue_type_template_id_71b82e72___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -43019,6 +43244,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/index.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/choose_side/startup.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/choose_side/startup.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_startup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./startup.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/choose_side/startup.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_startup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -43795,7 +44036,7 @@ var render = function() {
             ])
           : _c(
               "div",
-              { staticClass: "col-md-8 right" },
+              { staticClass: "col-md-8 right mt-3" },
               [
                 _c("div", [
                   _c(
@@ -44385,23 +44626,6 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-12" }, [
-              _c("label", { attrs: { for: "companies_worked_text" } }, [
-                _vm._v("What companies have I worked in?")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control h160",
-                attrs: {
-                  name: "companies_worked_text",
-                  id: "companies_worked_text",
-                  cols: "30",
-                  rows: "10",
-                  placeholder: "Type here"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "country_id" } }, [
                   _vm._v("Country")
@@ -44812,1046 +45036,976 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "pt-2" }, [
+    _c("div", { staticClass: "sign-title" }, [
+      _vm._v("\r\n        Startup registration         \r\n    ")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "sign-desc" }, [
+      _vm._v(
+        "\r\n    \tFind investment opportunities from leading Venture Funds, Angels and Accelerators, apply with the one click        \r\n    "
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "title" } }, [_vm._v("Startup Name")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.startup.name,
+              expression: "input.startup.name"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "title",
+            name: "title",
+            placeholder: "Startup Name"
+          },
+          domProps: { value: _vm.input.startup.name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.startup, "name", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "founded" } }, [_vm._v("Founded")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.founded.year,
+              expression: "input.founded.year"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "founded",
+            name: "founded",
+            placeholder: "Year"
+          },
+          domProps: { value: _vm.input.founded.year },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.founded, "year", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "founded_number" } }, [
+          _vm._v("Number of Founders")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.founded.number,
+              expression: "input.founded.number"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "founded_number",
+            name: "founded_number",
+            placeholder: "Number"
+          },
+          domProps: { value: _vm.input.founded.number },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.founded, "number", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "ceo" } }, [_vm._v("Full Name")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.full_name,
+              expression: "input.full_name"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "ceo",
+            name: "ceo",
+            placeholder: "Full Name"
+          },
+          domProps: { value: _vm.input.full_name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input, "full_name", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-2" }, [
+        _c("label", { attrs: { for: "phone_index" } }, [_vm._v("Phone index")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input.phone.index,
+                expression: "input.phone.index"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { name: "phone_index", id: "phone_index" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.input.phone,
+                  "index",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "+93" } }, [
+              _vm._v(" Afghanistan ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "+355" } }, [
+              _vm._v(" Albania ")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("label", { attrs: { for: "ceo_mobile" } }, [
+          _vm._v("CEO mobile number")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.phone.number,
+              expression: "input.phone.number"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "ceo_mobile",
+            name: "ceo_mobile",
+            placeholder: "XXX XX XX XX"
+          },
+          domProps: { value: _vm.input.phone.number },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.phone, "number", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6  " }, [
+        _c("label", { attrs: { for: "startup_email" } }, [
+          _vm._v("Startup email")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.startup.email,
+              expression: "input.startup.email"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "startup_email",
+            name: "startup_email",
+            placeholder: "Email address"
+          },
+          domProps: { value: _vm.input.startup.email },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.startup, "email", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6  " }, [
+        _c("label", { attrs: { for: "website" } }, [_vm._v("Website")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.website,
+              expression: "input.website"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            id: "website",
+            name: "website",
+            placeholder: "Website address"
+          },
+          domProps: { value: _vm.input.website },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input, "website", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("label", { attrs: { for: "what_your_company_does" } }, [
+          _vm._v("What your company does?")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.about.company,
+              expression: "input.about.company"
+            }
+          ],
+          staticClass: "form-control h160",
+          attrs: {
+            name: "what_your_company_does",
+            id: "what_your_company_does",
+            cols: "30",
+            rows: "10",
+            placeholder: "Type here"
+          },
+          domProps: { value: _vm.input.about.company },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.about, "company", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("label", { attrs: { for: "describe_your_product_text" } }, [
+          _vm._v("Describe your product and what it does or will do")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.about.product,
+              expression: "input.about.product"
+            }
+          ],
+          staticClass: "form-control h160",
+          attrs: {
+            name: "describe_your_product_text",
+            id: "describe_your_product_text",
+            cols: "30",
+            rows: "10",
+            placeholder: "Type here"
+          },
+          domProps: { value: _vm.input.about.product },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.about, "product", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("label", { attrs: { for: "what_is_your_innovation" } }, [
+          _vm._v(
+            "What is your innovation - what are you doing in an absolutely new or significantly improved way?"
+          )
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input.about.innovation,
+              expression: "input.about.innovation"
+            }
+          ],
+          staticClass: "form-control h160",
+          attrs: {
+            name: "what_is_your_innovation",
+            id: "what_is_your_innovation",
+            cols: "30",
+            rows: "10",
+            placeholder: "Type here"
+          },
+          domProps: { value: _vm.input.about.innovation },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.input.about, "innovation", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "what_is_your_current_stage" } }, [
+          _vm._v("What is your current stage ?")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input.current_stage,
+                expression: "input.current_stage"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              name: "what_is_your_current_stage",
+              id: "what_is_your_current_stage"
+            },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.input,
+                  "current_stage",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "2" } }, [
+              _vm._v(" Idea Stage ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "3" } }, [
+              _vm._v(" Prototype ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "4" } }, [_vm._v(" Users ")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "your_business_model" } }, [
+          _vm._v("Your business model")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input.business_model,
+                expression: "input.business_model"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { name: "your_business_model", id: "your_business_model" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.input,
+                  "business_model",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "1" } }, [_vm._v(" SAAS ")]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "2" } }, [
+              _vm._v(" E-commerce ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "3" } }, [
+              _vm._v(" Enterprise ")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "target_audience" } }, [
+          _vm._v("Target Audience")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input.target_audience,
+                expression: "input.target_audience"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { name: "target_audience", id: "target_audience" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.input,
+                  "target_audience",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "1" } }, [
+              _vm._v(" B2B (Business to Business) ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "2" } }, [
+              _vm._v(" B2C (Business to Customer) ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "3" } }, [
+              _vm._v(" B2G (Business to Government) ")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "label",
+            { attrs: { for: "which_markets_are_you_interested_in" } },
+            [_vm._v("Industries")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.input.industries,
+                  expression: "input.industries"
+                }
+              ],
+              staticClass:
+                "js-example-disabled-results form-control select2-hidden-accessible",
+              attrs: { id: "geography_on_which_you_startup_is_orientied" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.input,
+                    "industries",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "14" } }, [_vm._v("Travel")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "27" } }, [_vm._v("Hosting")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "26" } }, [_vm._v("Music")])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "country_id" } }, [_vm._v("Country")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.input.country,
+                  expression: "input.country"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { name: "country_id", id: "country_id" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.input,
+                    "country",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "3" } }, [_vm._v("Azerbaijan")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "1" } }, [_vm._v("Georgia")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2" } }, [_vm._v("Armenia")])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "did_you_already_received_investment" } }, [
+          _vm._v("Did you already receive the investment?")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input.receive_investment,
+                expression: "input.receive_investment"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              name: "did_you_already_received_investment",
+              id: "did_you_already_received_investment"
+            },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.input,
+                  "receive_investment",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "1" } }, [_vm._v(" Yes")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "0" } }, [_vm._v(" No")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "how_much" } }, [_vm._v("How Much ?")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input.how_much,
+                expression: "input.how_much"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { name: "how_much", id: "how_much" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.input,
+                  "how_much",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "1" } }, [
+              _vm._v(" 10000-20000 ")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("label", { attrs: { for: "what_are_you_looking_for" } }, [
+          _vm._v("What are you looking for?")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input.what_are_you_looking,
+                expression: "input.what_are_you_looking"
+              }
+            ],
+            staticClass:
+              "js-example-disabled-results form-control select2-hidden-accessible",
+            attrs: { id: "what_are_you_looking_for" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.input,
+                  "what_are_you_looking",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { id: "", value: "1" } }, [
+              _vm._v(" Investment ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "2" } }, [
+              _vm._v(" Mentoring ")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { id: "", value: "3" } }, [
+              _vm._v(" Visibility ")
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "select-arrow",
+          attrs: {
+            src:
+              "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
+            alt: ""
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-md-3 st-logo",
+          staticStyle: { "margin-right": "20px" }
+        },
+        [
+          _c("input", {
+            staticClass: "filestyle",
+            staticStyle: {
+              position: "absolute",
+              clip: "rect(0px, 0px, 0px, 0px)"
+            },
+            attrs: { type: "file", id: "image", name: "image", tabindex: "-1" },
+            on: { change: function($event) {} }
+          }),
+          _vm._v(" "),
+          _vm._m(3)
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn", attrs: { type: "submit", id: "submit" } },
+        [_vm._v("Get started ")]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pt-2" }, [
-      _c("div", { staticClass: "sign-title" }, [
-        _vm._v("\r\n        Startup registration         \r\n    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sign-desc" }, [
-        _vm._v(
-          "\r\n    \tFind investment opportunities from leading Venture Funds, Angels and Accelerators, apply with the one click        \r\n    "
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          staticClass: "sign-form",
-          attrs: {
-            action: "",
-            id: "startup-form",
-            method: "post",
-            enctype: "multipart/form-data",
-            novalidate: "novalidate"
-          }
-        },
-        [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "title" } }, [
-                _vm._v("Startup Name")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "title",
-                  name: "title",
-                  value: "",
-                  placeholder: "Startup Name"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "founded" } }, [_vm._v("Founded")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "founded",
-                  name: "founded",
-                  value: "",
-                  placeholder: "Year"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "founded_number" } }, [
-                _vm._v("Number of Founders")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "founded_number",
-                  name: "founded_number",
-                  value: "",
-                  placeholder: "Number"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "ceo" } }, [_vm._v("Full Name")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "ceo",
-                  name: "ceo",
-                  value: "",
-                  placeholder: "Full Name"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-2" }, [
-              _c("label", { attrs: { for: "phone_index" } }, [
-                _vm._v("Phone index")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: { name: "phone_index", id: "phone_index" }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "+93" } }, [
-                    _vm._v(" Afghanistan ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "+355" } }, [
-                    _vm._v(" Albania ")
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("label", { attrs: { for: "ceo_mobile" } }, [
-                _vm._v("CEO mobile number")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "ceo_mobile",
-                  name: "ceo_mobile",
-                  value: "",
-                  placeholder: "XXX XX XX XX"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("label", { attrs: { for: "ceo_email" } }, [
-                _vm._v("CEO e-mail")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "ceo_email",
-                  name: "ceo_email",
-                  value: "",
-                  placeholder: "Email address"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6  " }, [
-              _c("label", { attrs: { for: "startup_email" } }, [
-                _vm._v("Startup email")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "startup_email",
-                  name: "startup_email",
-                  value: "",
-                  placeholder: "Email address"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6  " }, [
-              _c("label", { attrs: { for: "website" } }, [_vm._v("Website")]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "website",
-                  name: "website",
-                  value: "",
-                  placeholder: "Website address"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("label", { attrs: { for: "what_your_company_does" } }, [
-                _vm._v("What your company does?")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control h160",
-                attrs: {
-                  name: "what_your_company_does",
-                  id: "what_your_company_does",
-                  cols: "30",
-                  rows: "10",
-                  placeholder: "Type here"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("label", { attrs: { for: "describe_your_product_text" } }, [
-                _vm._v("Describe your product and what it does or will do")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control h160",
-                attrs: {
-                  name: "describe_your_product_text",
-                  id: "describe_your_product_text",
-                  cols: "30",
-                  rows: "10",
-                  placeholder: "Type here"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("label", { attrs: { for: "what_is_your_innovation" } }, [
-                _vm._v(
-                  "What is your innovation - what are you doing in an absolutely new or significantly improved way?"
-                )
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                staticClass: "form-control h160",
-                attrs: {
-                  name: "what_is_your_innovation",
-                  id: "what_is_your_innovation",
-                  cols: "30",
-                  rows: "10",
-                  placeholder: "Type here"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "what_is_your_current_stage" } }, [
-                _vm._v("What is your current stage ?")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "what_is_your_current_stage",
-                    id: "what_is_your_current_stage"
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "2" } }, [
-                    _vm._v(" Idea Stage ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "3" } }, [
-                    _vm._v(" Prototype ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "4" } }, [
-                    _vm._v(" Users ")
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "your_business_model" } }, [
-                _vm._v("Your business model")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "your_business_model",
-                    id: "your_business_model"
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "1" } }, [
-                    _vm._v(" SAAS ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "2" } }, [
-                    _vm._v(" E-commerce ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "3" } }, [
-                    _vm._v(" Enterprise ")
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "target_audience" } }, [
-                _vm._v("Target Audience")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: { name: "target_audience", id: "target_audience" }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "1" } }, [
-                    _vm._v(" B2B (Business to Business) ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "2" } }, [
-                    _vm._v(" B2C (Business to Customer) ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "3" } }, [
-                    _vm._v(" B2G (Business to Government) ")
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "do_you_have_traction" } }, [
-                _vm._v("Do you have traction ?")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "do_you_have_traction",
-                    id: "do_you_have_traction"
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "1" } }, [_vm._v(" Yes")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "0" } }, [_vm._v(" No")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8" }, [
-              _c(
-                "label",
-                { attrs: { for: "what_kind_of_traction_do_you_have" } },
-                [_vm._v("What kind of traction do you have ?")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "what_kind_of_traction_do_you_have",
-                  name: "what_kind_of_traction_do_you_have",
-                  value: "",
-                  placeholder: "Type here"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("label", [_vm._v("Who are your competitors?")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "company_name_one",
-                      name: "company_name_one",
-                      value: "",
-                      placeholder: "Company Name"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "company_address_one",
-                      name: "company_address_one",
-                      value: "",
-                      placeholder: "Company Address"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "company_name_two",
-                      name: "company_name_two",
-                      value: "",
-                      placeholder: "Company Name"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "company_address_two",
-                      name: "company_address_two",
-                      value: "",
-                      placeholder: "Company Address"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "company_name_three",
-                      name: "company_name_three",
-                      value: "",
-                      placeholder: "Company Name"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "company_address_three",
-                      name: "company_address_three",
-                      value: "",
-                      placeholder: "Company Address"
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c(
-                  "label",
-                  { attrs: { for: "which_markets_are_you_interested_in" } },
-                  [_vm._v("Which markets are you interested in?")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "js-example-disabled-results form-control select2-hidden-accessible",
-                    attrs: {
-                      name: "which_markets_are_you_interested_in[]",
-                      id: "which_markets_are_you_interested_in",
-                      multiple: "",
-                      "data-select2-id":
-                        "select2-data-which_markets_are_you_interested_in",
-                      tabindex: "-1",
-                      "aria-hidden": "true"
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "4" } }, [
-                      _vm._v("Western Europe")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "5" } }, [
-                      _vm._v("Eastern Europe")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "6" } }, [
-                      _vm._v("Scandinavia")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "7" } }, [_vm._v("CIS ")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "select2 select2-container select2-container--default",
-                    staticStyle: { width: "1147px" },
-                    attrs: {
-                      dir: "ltr",
-                      "data-select2-id": "select2-data-1-o2au"
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "selection" }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "select2-selection select2-selection--multiple",
-                          attrs: {
-                            role: "combobox",
-                            "aria-haspopup": "true",
-                            "aria-expanded": "false",
-                            tabindex: "-1",
-                            "aria-disabled": "false"
-                          }
-                        },
-                        [
-                          _c("ul", {
-                            staticClass: "select2-selection__rendered",
-                            attrs: {
-                              id:
-                                "select2-which_markets_are_you_interested_in-container"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "select2-search select2-search--inline"
-                            },
-                            [
-                              _c("input", {
-                                staticClass: "select2-search__field",
-                                staticStyle: { width: "0.75em" },
-                                attrs: {
-                                  type: "search",
-                                  tabindex: "0",
-                                  autocorrect: "off",
-                                  autocapitalize: "none",
-                                  spellcheck: "false",
-                                  role: "searchbox",
-                                  "aria-autocomplete": "list",
-                                  autocomplete: "off",
-                                  "aria-describedby":
-                                    "select2-which_markets_are_you_interested_in-container",
-                                  placeholder: ""
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "dropdown-wrapper",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "select-arrow",
-                  attrs: {
-                    src:
-                      "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
-                    alt: ""
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c(
-                  "label",
-                  { attrs: { for: "which_markets_are_you_interested_in" } },
-                  [_vm._v("Industries")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "js-example-disabled-results form-control select2-hidden-accessible",
-                    attrs: {
-                      name: "geography_on_which_you_startup_is_orientied[]",
-                      id: "geography_on_which_you_startup_is_orientied",
-                      multiple: "",
-                      "data-select2-id":
-                        "select2-data-geography_on_which_you_startup_is_orientied",
-                      tabindex: "-1",
-                      "aria-hidden": "true"
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "14" } }, [
-                      _vm._v("Travel")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "27" } }, [
-                      _vm._v("Hosting")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "26" } }, [_vm._v("Music")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "select2 select2-container select2-container--default",
-                    staticStyle: { width: "1147px" },
-                    attrs: {
-                      dir: "ltr",
-                      "data-select2-id": "select2-data-2-fl2g"
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "selection" }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "select2-selection select2-selection--multiple",
-                          attrs: {
-                            role: "combobox",
-                            "aria-haspopup": "true",
-                            "aria-expanded": "false",
-                            tabindex: "-1",
-                            "aria-disabled": "false"
-                          }
-                        },
-                        [
-                          _c("ul", {
-                            staticClass: "select2-selection__rendered",
-                            attrs: {
-                              id:
-                                "select2-geography_on_which_you_startup_is_orientied-container"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "select2-search select2-search--inline"
-                            },
-                            [
-                              _c("input", {
-                                staticClass: "select2-search__field",
-                                staticStyle: { width: "0.75em" },
-                                attrs: {
-                                  type: "search",
-                                  tabindex: "0",
-                                  autocorrect: "off",
-                                  autocapitalize: "none",
-                                  spellcheck: "false",
-                                  role: "searchbox",
-                                  "aria-autocomplete": "list",
-                                  autocomplete: "off",
-                                  "aria-describedby":
-                                    "select2-geography_on_which_you_startup_is_orientied-container",
-                                  placeholder: ""
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "dropdown-wrapper",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "select-arrow",
-                  attrs: {
-                    src:
-                      "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
-                    alt: ""
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "country_id" } }, [
-                  _vm._v("Country")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass: "form-control",
-                    attrs: { name: "country_id", id: "country_id" }
-                  },
-                  [
-                    _c("option", { attrs: { value: "3" } }, [
-                      _vm._v("Azerbaijan")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("Georgia")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [_vm._v("Armenia")])
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c(
-                "label",
-                { attrs: { for: "did_you_already_received_investment" } },
-                [_vm._v("Did you already receive the investment?")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "did_you_already_received_investment",
-                    id: "did_you_already_received_investment"
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "1" } }, [_vm._v(" Yes")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "0" } }, [_vm._v(" No")])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "how_much" } }, [
-                _vm._v("How Much ?")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass: "form-control",
-                  attrs: { name: "how_much", id: "how_much" }
-                },
-                [
-                  _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "1" } }, [
-                    _vm._v(" 10000-20000 ")
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("label", { attrs: { for: "what_are_you_looking_for" } }, [
-                _vm._v("What are you looking for?")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass:
-                    "js-example-disabled-results form-control select2-hidden-accessible",
-                  attrs: {
-                    name: "what_are_you_looking_for[]",
-                    id: "what_are_you_looking_for",
-                    multiple: "",
-                    "data-select2-id": "select2-data-what_are_you_looking_for",
-                    tabindex: "-1",
-                    "aria-hidden": "true"
-                  }
-                },
-                [
-                  _c("option", { attrs: { id: "", value: "1" } }, [
-                    _vm._v(" Investment ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "2" } }, [
-                    _vm._v(" Mentoring ")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { id: "", value: "3" } }, [
-                    _vm._v(" Visibility ")
-                  ])
-                ]
-              ),
+    return _c("div", { staticClass: "col-md-3" }, [
+      _c("label", { attrs: { for: "ceo_email" } }, [_vm._v("CEO e-mail")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "select2 select2-container select2-container--default",
+        staticStyle: { width: "362.333px" },
+        attrs: { dir: "ltr", "data-select2-id": "select2-data-3-ni1q" }
+      },
+      [
+        _c("span", { staticClass: "selection" }, [
+          _c(
+            "span",
+            {
+              staticClass: "select2-selection select2-selection--multiple",
+              attrs: {
+                role: "combobox",
+                "aria-haspopup": "true",
+                "aria-expanded": "false",
+                tabindex: "-1",
+                "aria-disabled": "false"
+              }
+            },
+            [
+              _c("ul", {
+                staticClass: "select2-selection__rendered",
+                attrs: { id: "select2-what_are_you_looking_for-container" }
+              }),
               _vm._v(" "),
               _c(
                 "span",
-                {
-                  staticClass:
-                    "select2 select2-container select2-container--default",
-                  staticStyle: { width: "362.333px" },
-                  attrs: {
-                    dir: "ltr",
-                    "data-select2-id": "select2-data-3-ni1q"
-                  }
-                },
+                { staticClass: "select2-search select2-search--inline" },
                 [
-                  _c("span", { staticClass: "selection" }, [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "select2-selection select2-selection--multiple",
-                        attrs: {
-                          role: "combobox",
-                          "aria-haspopup": "true",
-                          "aria-expanded": "false",
-                          tabindex: "-1",
-                          "aria-disabled": "false"
-                        }
-                      },
-                      [
-                        _c("ul", {
-                          staticClass: "select2-selection__rendered",
-                          attrs: {
-                            id: "select2-what_are_you_looking_for-container"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass: "select2-search select2-search--inline"
-                          },
-                          [
-                            _c("input", {
-                              staticClass: "select2-search__field",
-                              staticStyle: { width: "0.75em" },
-                              attrs: {
-                                type: "search",
-                                tabindex: "0",
-                                autocorrect: "off",
-                                autocapitalize: "none",
-                                spellcheck: "false",
-                                role: "searchbox",
-                                "aria-autocomplete": "list",
-                                autocomplete: "off",
-                                "aria-describedby":
-                                  "select2-what_are_you_looking_for-container",
-                                placeholder: ""
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("span", {
-                    staticClass: "dropdown-wrapper",
-                    attrs: { "aria-hidden": "true" }
+                  _c("input", {
+                    staticClass: "select2-search__field",
+                    staticStyle: { width: "0.75em" },
+                    attrs: {
+                      type: "search",
+                      tabindex: "0",
+                      autocorrect: "off",
+                      autocapitalize: "none",
+                      spellcheck: "false",
+                      role: "searchbox",
+                      "aria-autocomplete": "list",
+                      autocomplete: "off",
+                      "aria-describedby":
+                        "select2-what_are_you_looking_for-container",
+                      placeholder: ""
+                    }
                   })
                 ]
-              ),
-              _vm._v(" "),
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass: "dropdown-wrapper",
+          attrs: { "aria-hidden": "true" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "alert alert-warning alert-dismissible" }, [
+        _c(
+          "a",
+          {
+            staticClass: "close",
+            attrs: { href: "#", "data-dismiss": "alert", "aria-label": "close" }
+          },
+          [_vm._v("×")]
+        ),
+        _vm._v(" "),
+        _c("strong", [_vm._v("warning!")]),
+        _vm._v(
+          "   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    \r\n            "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bootstrap-filestyle input-group" }, [
+      _c("div", {
+        staticStyle: {
+          position: "absolute",
+          width: "100%",
+          height: "103px",
+          "z-index": "-1"
+        },
+        attrs: { name: "filedrag" }
+      }),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "group-span-filestyle ", attrs: { tabindex: "0" } },
+        [
+          _c(
+            "label",
+            {
+              staticClass: "btn  ",
+              staticStyle: { "margin-bottom": "0" },
+              attrs: { for: "image" }
+            },
+            [
               _c("img", {
-                staticClass: "select-arrow",
+                staticClass: "st-logo-img",
                 attrs: {
                   src:
-                    "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
+                    "https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg",
                   alt: ""
                 }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [
-              _c(
-                "div",
-                { staticClass: "alert alert-warning alert-dismissible" },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        href: "#",
-                        "data-dismiss": "alert",
-                        "aria-label": "close"
-                      }
-                    },
-                    [_vm._v("×")]
-                  ),
-                  _vm._v(" "),
-                  _c("strong", [_vm._v("warning!")]),
-                  _vm._v(
-                    "   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    \r\n                "
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col-md-3 st-logo",
-                staticStyle: { "margin-right": "20px" }
-              },
-              [
-                _c("input", {
-                  staticClass: "filestyle",
-                  staticStyle: {
-                    position: "absolute",
-                    clip: "rect(0px, 0px, 0px, 0px)"
-                  },
-                  attrs: {
-                    type: "file",
-                    id: "image",
-                    name: "image",
-                    tabindex: "-1"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "bootstrap-filestyle input-group" }, [
-                  _c("div", {
-                    staticStyle: {
-                      position: "absolute",
-                      width: "100%",
-                      height: "103px",
-                      "z-index": "-1"
-                    },
-                    attrs: { name: "filedrag" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      staticClass: "group-span-filestyle ",
-                      attrs: { tabindex: "0" }
-                    },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "btn  ",
-                          staticStyle: { "margin-bottom": "0" },
-                          attrs: { for: "image" }
-                        },
-                        [
-                          _c("img", {
-                            staticClass: "st-logo-img",
-                            attrs: {
-                              src:
-                                "https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg",
-                              alt: ""
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "buttonText" }, [
-                            _vm._v("Drag your logo here, or browse")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-8 st-logo" }, [
-              _c("input", {
-                staticClass: "filestyle",
-                staticStyle: {
-                  position: "absolute",
-                  clip: "rect(0px, 0px, 0px, 0px)"
-                },
-                attrs: { type: "file", id: "pdf", name: "pdf", tabindex: "-1" }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "bootstrap-filestyle input-group" }, [
-                _c("div", {
-                  staticStyle: {
-                    position: "absolute",
-                    width: "100%",
-                    height: "103px",
-                    "z-index": "-1"
-                  },
-                  attrs: { name: "filedrag" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "group-span-filestyle ",
-                    attrs: { tabindex: "0" }
-                  },
-                  [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "btn  ",
-                        staticStyle: { "margin-bottom": "0" },
-                        attrs: { for: "pdf" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "st-logo-img",
-                          attrs: {
-                            src:
-                              "https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg",
-                            alt: ""
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "buttonText" }, [
-                          _vm._v("Drag your presentation here, or browse")
-                        ])
-                      ]
-                    )
-                  ]
-                )
+              _c("span", { staticClass: "buttonText" }, [
+                _vm._v("Drag your logo here, or browse")
               ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn", attrs: { type: "submit", id: "submit" } },
-              [_vm._v("Get started ")]
-            )
-          ])
+            ]
+          )
         ]
       )
     ])
