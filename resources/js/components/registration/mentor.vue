@@ -118,22 +118,6 @@
                     >
                     </cropper>
                 </div>
-                <!-- <div class="mr-2 col-md-1 d-flex flex-column justify-content-between"> -->
-<!--                     <div>
-                        <div class="d-flex align-bottom mt-2">
-                            <div style="height:150px;width:150px;z-index:5;border:solid 1px black;border-radius:100%;position-relative">
-                                <img :src="img.edited" alt="None" v-if="img.edited !== ''" style="" class="profile_medium_img position-absolute" style="position:absolute;">
-                                <img :src="img.uploaded" alt="None" v-else style="position:absolute;" class="profile_medium_img position-absolute">
-                            </div>
-                        </div>
-                    </div> -->
-              <!--       <div>
-                        <button class="btn btn-success mt-4" @click="closemodal()">
-                            Save
-                        </button>
-                    </div>
-                </div>
-                <div> -->
             </div>
             <div class="float-right mt-2 mr-3">   
                 <button class="btn btn-success mt-4" @click="$modal.hide('croppermodal')">
@@ -144,25 +128,8 @@
     </div>
 </template>
 <script>
-import 'vue-multiselect/dist/vue-multiselect.min.css'
-import VueFileAgent from 'vue-file-agent'
-import { CircleStencil,Cropper } from 'vue-advanced-cropper'
-import 'vue-advanced-cropper/dist/style.css'
-import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css'
-import Multiselect from 'vue-multiselect'
-import VueToastify from "vue-toastify"
-import VModal from 'vue-js-modal'
-
-Vue.use(VueFileAgent)
-Vue.use(VueToastify)
-Vue.component('multiselect', Multiselect)
-Vue.use(VModal, { componentName: 'modal',dynamicDefault: { draggable: true, resizable: false }  })
-
 export default {
     props:['data','countries'],
-    components: {
-        Cropper, CircleStencil,Multiselect 
-    },
     data () {
       return {
         input:{

@@ -9,23 +9,23 @@
     <div class="row sign-form">
         <div class="col-md-4">
             <label for="title">Startup Name</label>
-            <input type="text" id="title" name="title" v-model="input.startup.name" class="form-control" placeholder="Startup Name">
+            <input type="text" id="title" name="title" v-model="input.startup.name" :class="setClassByValue(input.startup.name)" class="form-control" placeholder="Startup Name">
         </div>
         <div class="col-md-4">
             <label for="founded">Founded</label>
-            <input type="text" id="founded" name="founded" v-model="input.founded.year"  class="form-control" placeholder="Year">
+            <input type="text" id="founded" name="founded" v-model="input.founded.year" :class="setClassByValue(input.founded.year)"  class="form-control" placeholder="Year">
         </div>
         <div class="col-md-4">
             <label for="founded_number">Number of Founders</label>
-            <input type="text" id="founded_number" v-model="input.founded.number" name="founded_number"  class="form-control" placeholder="Number">
+            <input type="text" id="founded_number" v-model="input.founded.number" :class="setClassByValue(input.founded.number)" name="founded_number"  class="form-control" placeholder="Number">
         </div>
         <div class="col-md-4">
             <label for="ceo">Full Name</label>
-            <input type="text" id="ceo" name="ceo" v-model="input.full_name"  class="form-control" placeholder="Full Name">
+            <input type="text" id="ceo" name="ceo" v-model="input.full_name" :class="setClassByValue(input.full_name)" class="form-control" placeholder="Full Name">
         </div>
         <div class="col-md-4">
             <label for="phone_index">Phone index</label>
-            <select name="phone_index" v-model="input.phone.index" class="form-control" id="phone_index">
+            <select name="phone_index" v-model="input.phone.index" :class="setClassByValue(input.phone.index)" class="form-control" id="phone_index">
                 <option value="0"> Choose </option>
                 <option id="" value="+93"> Afghanistan </option>
                 <option id="" value="+355"> Albania </option>
@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-4">
             <label for="ceo_mobile">CEO mobile number</label>
-            <input type="text" id="ceo_mobile" v-model="input.phone.number" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
+            <input type="text" id="ceo_mobile" v-model="input.phone.number" :class="setClassByValue(input.phone.number)" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
         </div>
         <!-- <div class="col-md-3">
             <label for="ceo_email">CEO e-mail</label>
@@ -41,27 +41,27 @@
         </div> -->
         <div class="col-md-6  ">
             <label for="startup_email">Startup email</label>
-            <input type="text" id="startup_email" v-model="input.startup.email" name="startup_email" class="form-control" placeholder="Email address">
+            <input type="text" id="startup_email" v-model="input.startup.email" :class="setClassByValue(input.startup.email)" name="startup_email" class="form-control" placeholder="Email address">
         </div>
         <div class="col-md-6  ">
             <label for="website">Website</label>
-            <input type="text" id="website" v-model="input.website" name="website" class="form-control" placeholder="Website address">
+            <input type="text" id="website" v-model="input.website" :class="setClassByValue(input.website)" name="website" class="form-control" placeholder="Website address">
         </div>
         <div class="col-md-12">
             <label for="what_your_company_does">What your company does?</label>
-            <textarea name="what_your_company_does" v-model="input.about.company" id="what_your_company_does" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+            <textarea name="what_your_company_does" v-model="input.about.company" :class="setClassByValue(input.about.company)" id="what_your_company_does" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
         <div class="col-md-12">
             <label for="describe_your_product_text">Describe your product and what it does or will do</label>
-            <textarea name="describe_your_product_text" v-model="input.about.product" id="describe_your_product_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+            <textarea name="describe_your_product_text" v-model="input.about.product" :class="setClassByValue(input.about.product)" id="describe_your_product_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
         <div class="col-md-12">
             <label for="what_is_your_innovation">What is your innovation - what are you doing in an absolutely new or significantly improved way?</label>
-            <textarea name="what_is_your_innovation" v-model="input.about.innovation" id="what_is_your_innovation" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+            <textarea name="what_is_your_innovation" v-model="input.about.innovation" :class="setClassByValue(input.about.innovation)" id="what_is_your_innovation" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
         <div class="col-md-4">
             <label for="what_is_your_current_stage">What is your current stage ?</label>
-            <select name="what_is_your_current_stage" v-model="input.current_stage" id="what_is_your_current_stage" class="form-control">
+            <select name="what_is_your_current_stage"  v-model="input.current_stage" :class="setClassByValue(input.current_stage)" id="what_is_your_current_stage" class="form-control">
                 <option value="0"> Choose </option>
                 <option id="" value="2"> Idea Stage </option>
                 <option id="" value="3"> Prototype </option>
@@ -70,7 +70,7 @@
         </div>
         <div class="col-md-4">
             <label for="your_business_model">Your business model</label>
-            <select name="your_business_model" v-model="input.business_model" id="your_business_model" class="form-control">
+            <select name="your_business_model" v-model="input.business_model" :class="setClassByValue(input.business_model)" id="your_business_model" class="form-control">
                 <option value="0"> Choose </option>
                 <option id="" value="1"> SAAS </option>
                 <option id="" value="2"> E-commerce </option>
@@ -79,7 +79,7 @@
         </div>
         <div class="col-md-4">
             <label for="target_audience">Target Audience</label>
-            <select name="target_audience" v-model="input.target_audience" id="target_audience" class="form-control">
+            <select name="target_audience" v-model="input.target_audience" :class="setClassByValue(input.target_audience)" id="target_audience" class="form-control">
                 <option value="0"> Choose </option>
                 <option id="" value="1"> B2B (Business to Business) </option>
                 <option id="" value="2"> B2C (Business to Customer) </option>
@@ -91,6 +91,7 @@
                 <label for="which_markets_are_you_interested_in">Industries</label>
                 <select 
                     v-model="input.industries" 
+                    :class="setClassByValue(input.industries)"
                     class="js-example-disabled-results form-control select2-hidden-accessible" 
                     id="geography_on_which_you_startup_is_orientied" 
                 >
@@ -103,7 +104,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label for="country_id">Country</label>
-                <select name="country_id" v-model="input.country" class="form-control" id="country_id">
+                <select name="country_id" v-model="input.country" :class="setClassByValue(input.country)" class="form-control" id="country_id">
                     <option value="3">Azerbaijan</option>
                     <option value="1">Georgia</option>
                     <option value="2">Armenia</option>
@@ -112,14 +113,14 @@
         </div>
         <div class="col-md-4">
             <label for="did_you_already_received_investment">Did you already receive the investment?</label>
-            <select name="did_you_already_received_investment" v-model="input.receive_investment" class="form-control" id="did_you_already_received_investment">
+            <select name="did_you_already_received_investment" v-model="input.receive_investment" :class="setClassByValue(input.receive_investment)" class="form-control" id="did_you_already_received_investment">
                 <option value="1"> Yes</option>
                 <option value="0"> No</option>
             </select>
         </div>
         <div class="col-md-4">
             <label for="how_much">How Much ?</label>
-            <select name="how_much" v-model="input.how_much" class="form-control" id="how_much">
+            <select name="how_much" v-model="input.how_much" :class="setClassByValue(input.how_much)" class="form-control" id="how_much">
                 <option value="0"> Choose </option>
                 <option id="" value="1"> 10000-20000 </option>                  
             </select>
@@ -130,6 +131,7 @@
                 v-model="input.what_are_you_looking" 
                 class="js-example-disabled-results form-control select2-hidden-accessible" 
                 id="what_are_you_looking_for"
+                :class="setClassByValue(input.what_are_you_looking)"
             >
                 <option id="" value="1"> Investment </option>
                 <option id="" value="2"> Mentoring </option>
@@ -143,26 +145,74 @@
                 <strong>warning!</strong>   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    
             </div>
         </div>
-        <div class="col-md-3 st-logo" style="margin-right: 20px;">
-            <input type="file" id="image" @change="" class="filestyle" name="image" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1">
-            <div class="bootstrap-filestyle input-group">
-                <div name="filedrag" style="position: absolute; width: 100%; height: 103px; z-index: -1;"></div>
-                <span class="group-span-filestyle " tabindex="0">
-                    <label for="image" style="margin-bottom: 0;" class="btn  ">
-                        <img class="st-logo-img" src="https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg" alt="">
-                        <span class="buttonText">Drag your logo here, or browse</span>
-                    </label>
-                </span>
+        <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited)" style="margin-right: 20px;height:100%;">
+            <VueFileAgent 
+                :accept="'image/*'"
+                :maxSize="'10MB'"
+                :multiple="false"
+                :deletable="true"
+                :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
+                :errorText="{
+                  type: 'Invalid file type. Only images or zip Allowed',
+                  size: 'Files should not exceed 10MB in size',
+                }"
+                :uploadUrl="image.uploaded"
+                @select="onImageUpload" 
+
+                class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
+                v-model="fileRecords"
+            ></VueFileAgent>
+        </div>
+    </div>
+    <div>
+        <button id="submit" class="btn btn-success" @click="button = true;sendToSave()">
+            Get started
+        </button>
+    </div>
+    <modal name="chose_side_image_modal" id="choose_side_image_modal">
+        <div class="row p-4">
+            <div class="col-md-8 position-relative">
+                <cropper 
+                    :src="image.uploaded"
+                    :stencil-props="{
+                        aspectRatio: 1/1
+                    }"
+                    @change="change"
+                    :stencil-component="$options.components.CircleStencil"
+                    class="col-7  d-flex justify-content-center align-items-center"
+                >
+                </cropper>
+            </div>
+            <div class="col-md-4 p-3">
+                <div class="d-flex justify-content-center align-items-center">   
+                    <div>
+                        <div>
+                            <span style="font-weight:bold;">
+                                შეცვალეთ სურათი სურვილისამებრ და დააჭირეთ დამახსოვრება ღილაკს.
+                            </span>
+                        </div>
+                        <div class="mt-3 float-right">
+                            <button class="btn btn-success" @click="$modal.hide('chose_side_image_modal')">
+                                დამახსოვრება
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <button type="submit" id="submit" class="btn">Get started </button>
-    </div>
+    </modal>
 </div>
 </template>
 <script>
-export default{
+export default{ 
     data(){
         return {
+            button:false,
+            fileRecords:[],
+            image:{
+                uploaded:'',
+                edited:'',
+            },
             input:{
                 startup:{
                     name:"",
@@ -195,6 +245,84 @@ export default{
                 image:"",
             },
         }
-    }
+    },
+    methods:{
+        setClassByValue(input){
+            if (this.button) {
+                return (input !== "" && input !== " ")?'':'border-danger'
+            }
+        },
+        onImageUpload(event){
+            this.image.uploaded = event[0].urlResized
+            this.$modal.show('chose_side_image_modal')
+        },
+        change(file){
+            this.image.edited = file.canvas.toDataURL('image/jpeg')
+        },
+        checkStringValidation(array){
+            let counter = 1
+            array.map((str)=>{
+                if(str !== "" && str !== " " && str.length > 0){
+                    counter+=1
+                }
+            })
+            return counter === array.length
+        },
+        isInputsValid(){
+            let array = [
+                this.input.startup.name,
+                this.input.startup.email,
+                this.input.founded.year,
+                this.input.founded.number,
+                this.input.full_name,
+                this.input.phone.index,
+                this.input.phone.number,
+                this.input.ceo_email,
+                this.input.website,
+                this.input.about.company,
+                this.input.about.product,
+                this.input.about.innovation,
+                this.input.current_stage,
+                this.input.business_model,
+                this.input.target_audience,
+                this.input.industries,
+                this.input.country,
+                this.input.receive_investment,
+                this.input.how_much,
+                this.input.what_are_you_looking,
+                this.input.image,
+            ]
+            return this.checkStringValidation(array)
+        },
+        sendToSave(){
+            this.input.image = this.image.edited
+            if(this.isInputsValid()){
+                axios.post('/register/startup',this.input)
+                .then((response)=>{
+                    console.log('წარმატებით დაემატა!')
+                }).catch(()=>{
+                    console.log('წარუმატებელი მოთხოვნა!')
+                })
+            }
+        },
+    },
 };
 </script>
+<style>
+.position-relative{
+    position:relative;
+}
+.vm--modal{
+    height: unset!important;
+    top:120px!important;
+}
+.choose_side_image_modal .vm--modal{
+    height:100%!important;
+}
+.choose_image_side_startup .grid-block-wrapper.vue-file-agent.file-input-wrapper.is-single{
+    border:none;
+}
+.choose_image_side_startup .vfa-demo .file-preview-wrapper::before {
+    background: none!important;
+}
+</style>
