@@ -6,7 +6,7 @@
     <div class="sign-desc">
     	Find investment opportunities from leading Venture Funds, Angels and Accelerators, apply with the one click        
     </div>
-    <div class="row">
+    <div class="row sign-form">
         <div class="col-md-4">
             <label for="title">Startup Name</label>
             <input type="text" id="title" name="title" v-model="input.startup.name" class="form-control" placeholder="Startup Name">

@@ -1723,19 +1723,13 @@ a:hover{
 }
 
 .sign-title {
-    /* Title 1 Bold */
-
     font-family: FiraGO-bold;
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
     line-height: 34px;
-    /* identical to box height */
-
     letter-spacing: 0.36px;
-
     color: rgba(0, 0, 0, 0.87);
-
 }
 
 .sign-form {
@@ -1818,19 +1812,14 @@ a:hover{
 .sign-desc {
     width: 592px;
     height: 44px;
-
-
     font-family: FiraGO-regular;
     font-style: normal;
     font-weight: normal;
     font-size: 17px;
     line-height: 22px;
-    /* or 129% */
-
     letter-spacing: -0.408px;
     margin-top: 16px;
     color: rgba(0, 0, 0, 0.6);
-
 }
 
 .type_list {

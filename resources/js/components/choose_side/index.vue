@@ -42,7 +42,7 @@
 	    	</div>
 			<div class="col-md-8 right mt-3" v-else>
 				<div>
-					<button class="btn btn-primary" @click="types.map((type)=>type.is_selected = false);selected.type = {}">
+					<button class="btn btn-light login-btn" @click="types.map((type)=>type.is_selected = false);selected.type = {}">
 						<!-- <i class="fa fa-arrow-left"></i> -->
 						< back
 					</button>
