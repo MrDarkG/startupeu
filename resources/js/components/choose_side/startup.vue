@@ -143,26 +143,75 @@
                 <strong>warning!</strong>   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    
             </div>
         </div>
-        <div class="col-md-3 st-logo" style="margin-right: 20px;">
-            <input type="file" id="image" @change="" class="filestyle" name="image" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1">
-            <div class="bootstrap-filestyle input-group">
-                <div name="filedrag" style="position: absolute; width: 100%; height: 103px; z-index: -1;"></div>
-                <span class="group-span-filestyle " tabindex="0">
-                    <label for="image" style="margin-bottom: 0;" class="btn  ">
-                        <img class="st-logo-img" src="https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg" alt="">
-                        <span class="buttonText">Drag your logo here, or browse</span>
-                    </label>
-                </span>
+        <div class="col-md-6 st-logo position-relative" style="margin-right: 20px;height:100%;">
+            <VueFileAgent 
+                :accept="'image/*'"
+                :maxSize="'10MB'"
+                :multiple="false"
+                :deletable="true"
+                :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
+                :errorText="{
+                  type: 'Invalid file type. Only images or zip Allowed',
+                  size: 'Files should not exceed 10MB in size',
+                }"
+                :uploadUrl="image.uploaded"
+                @select="onImageUpload" 
+                class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
+                v-model="fileRecords"
+            ></VueFileAgent>
+        </div>
+    </div>
+    <div>
+        <button id="submit" class="btn btn-success" @click="is_selected.button = true;sendToSave()">
+            Get started
+        </button>
+    </div>
+    <modal name="chose_side_image_modal" id="choose_side_image_modal">
+        <div class="row p-4">
+            <div class="col-md-8 position-relative">
+                <cropper 
+                    :src="image.uploaded"
+                    :stencil-props="{
+                        aspectRatio: 1/1
+                    }"
+                    @change="change"
+                    :stencil-component="$options.components.CircleStencil"
+                    class="col-7  d-flex justify-content-center align-items-center"
+                >
+                </cropper>
+            </div>
+            <div class="col-md-4 p-3">
+                <div class="d-flex justify-content-center align-items-center">   
+                    <div>
+                        <div>
+                            <span style="font-weight:bold;">
+                                შეცვალეთ სურათი სურვილისამებრ და დააჭირეთ დამახსოვრება ღილაკს.
+                            </span>
+                        </div>
+                        <div class="mt-3 float-right">
+                            <button class="btn btn-success" @click="$modal.hide('chose_side_image_modal')">
+                                დამახსოვრება
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <button type="submit" id="submit" class="btn">Get started </button>
-    </div>
+    </modal>
 </div>
 </template>
 <script>
-export default{
+export default{ 
     data(){
         return {
+            is_selected:{
+                button:false,
+            },
+            fileRecords:[],
+            image:{
+                uploaded:'',
+                edited:'',
+            },
             input:{
                 startup:{
                     name:"",
@@ -195,6 +244,78 @@ export default{
                 image:"",
             },
         }
-    }
+    },
+    methods:{
+        onImageUpload(event){
+            this.image.uploaded = event[0].urlResized
+            this.$modal.show('chose_side_image_modal')
+        },
+        change(file){
+            this.image.edited = file.canvas.toDataURL('image/jpeg')
+        },
+        checkStringValidation(array){
+            let counter = 1
+            array.map((str)=>{
+                if(str !== "" && str !== " " && str.length > 0){
+                    counter+=1
+                }
+            })
+            return counter === array.length
+        },
+        isInputsValid(){
+            let array = [
+                this.input.startup.name,
+                this.input.startup.email,
+                this.input.founded.year,
+                this.input.founded.number,
+                this.input.full_name,
+                this.input.phone.index,
+                this.input.phone.number,
+                this.input.ceo_email,
+                this.input.website,
+                this.input.about.company,
+                this.input.about.product,
+                this.input.about.innovation,
+                this.input.current_stage,
+                this.input.business_model,
+                this.input.target_audience,
+                this.input.industries,
+                this.input.country,
+                this.input.receive_investment,
+                this.input.how_much,
+                this.input.what_are_you_looking,
+                this.input.image,
+            ]
+            return this.checkStringValidation(array)
+        },
+        sendToSave(){
+            if(this.isInputsValid()){
+                axios.post('/register/startup',this.input)
+                .then((response)=>{
+                    console.log('წარმატებით დაემატა!')
+                }).catch(()=>{
+                    console.log('წარუმატებელი მოთხოვნა!')
+                })
+            }
+        },
+    },
 };
 </script>
+<style>
+.position-relative{
+    position:relative;
+}
+.vm--modal{
+    height: unset!important;
+    top:120px!important;
+}
+.choose_side_image_modal .vm--modal{
+    height:100%!important;
+}
+.choose_image_side_startup .grid-block-wrapper.vue-file-agent.file-input-wrapper.is-single{
+    border:none;
+}
+.choose_image_side_startup .vfa-demo .file-preview-wrapper::before {
+    background: none!important;
+}
+</style>
