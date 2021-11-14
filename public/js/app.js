@@ -2752,9 +2752,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      industries: [{
+        name: 1
+      }, {
+        name: 2
+      }, {
+        name: 3
+      }, {
+        name: 4
+      }],
       button: false,
       fileRecords: [],
       image: {
@@ -2787,7 +2804,6 @@ __webpack_require__.r(__webpack_exports__);
         target_audience: "",
         industries: "",
         country: "",
-        receive_investment: "",
         how_much: "",
         what_are_you_looking: "",
         image: ""
@@ -2796,8 +2812,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setClassByValue: function setClassByValue(input) {
+      var is_multiselect = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       if (this.button) {
-        return input !== "" && input !== " " ? '' : 'border-danger';
+        var bol = is_multiselect ? {
+          border: 'solid 1.5px red!important',
+          borderRadius: '5px'
+        } : 'border-danger';
+        return input !== "" && input !== " " ? '' : bol;
       }
     },
     onImageUpload: function onImageUpload(event) {
@@ -2817,7 +2839,7 @@ __webpack_require__.r(__webpack_exports__);
       return counter === array.length;
     },
     isInputsValid: function isInputsValid() {
-      var array = [this.input.startup.name, this.input.startup.email, this.input.founded.year, this.input.founded.number, this.input.full_name, this.input.phone.index, this.input.phone.number, this.input.ceo_email, this.input.website, this.input.about.company, this.input.about.product, this.input.about.innovation, this.input.current_stage, this.input.business_model, this.input.target_audience, this.input.industries, this.input.country, this.input.receive_investment, this.input.how_much, this.input.what_are_you_looking, this.input.image];
+      var array = [this.input.startup.name, this.input.startup.email, this.input.founded.year, this.input.founded.number, this.input.full_name, this.input.phone.index, this.input.phone.number, this.input.ceo_email, this.input.website, this.input.about.company, this.input.about.product, this.input.about.innovation, this.input.current_stage, this.input.business_model, this.input.target_audience, this.input.industries, this.input.country, this.input.how_much, this.input.what_are_you_looking, this.input.image];
       return this.checkStringValidation(array);
     },
     sendToSave: function sendToSave() {
@@ -43828,7 +43850,23 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-9 pb-150" }, [
-          _vm._m(1),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-6 list-type-style" }, [
+                _vm._v(
+                  "\r\n                            Mentors                        \r\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6 list-type-count" }, [
+                _vm._v(
+                  "\r\n                            Showing : " +
+                    _vm._s(_vm.custom_mentors.length) +
+                    " Mentors                         \r\n                        "
+                )
+              ])
+            ])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-12" }, [
             _vm.mentors
@@ -43859,7 +43897,7 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
-                          _vm._m(2, true)
+                          _vm._m(1, true)
                         ]
                       )
                     ])
@@ -43905,26 +43943,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "right" }, [
           _c("button", { attrs: { type: "submit" } }, [_vm._v("Search")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6 list-type-style" }, [
-          _vm._v(
-            "\r\n                            Mentors                        \r\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6 list-type-count" }, [
-          _vm._v(
-            "\r\n                            Showing  :2 Mentors                         \r\n                        "
-          )
         ])
       ])
     ])
@@ -45606,430 +45624,205 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c("label", { attrs: { for: "what_is_your_current_stage" } }, [
-            _vm._v("What is your current stage ?")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.current_stage,
-                  expression: "input.current_stage"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.setClassByValue(_vm.input.current_stage),
+        _c(
+          "div",
+          { staticClass: "col-md-4" },
+          [
+            _c("label", { attrs: { for: "what_is_your_current_stage" } }, [
+              _vm._v("What is your current stage ?")
+            ]),
+            _vm._v(" "),
+            _c("multiselect", {
+              style: _vm.setClassByValue(_vm.input.current_stage, true),
               attrs: {
-                name: "what_is_your_current_stage",
-                id: "what_is_your_current_stage"
+                "track-by": "name",
+                label: "name",
+                options: _vm.industries,
+                multiple: false
               },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.input,
-                    "current_stage",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+              model: {
+                value: _vm.input.current_stage,
+                callback: function($$v) {
+                  _vm.$set(_vm.input, "current_stage", $$v)
+                },
+                expression: "input.current_stage"
               }
-            },
-            [
-              _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "2" } }, [
-                _vm._v(" Idea Stage ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "3" } }, [
-                _vm._v(" Prototype ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "4" } }, [
-                _vm._v(" Users ")
-              ])
-            ]
-          )
-        ]),
+            })
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c("label", { attrs: { for: "your_business_model" } }, [
-            _vm._v("Your business model")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.business_model,
-                  expression: "input.business_model"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.setClassByValue(_vm.input.business_model),
-              attrs: { name: "your_business_model", id: "your_business_model" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.input,
-                    "business_model",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+        _c(
+          "div",
+          { staticClass: "col-md-4" },
+          [
+            _c("label", { attrs: { for: "your_business_model" } }, [
+              _vm._v("Your business model")
+            ]),
+            _vm._v(" "),
+            _c("multiselect", {
+              style: _vm.setClassByValue(_vm.input.business_model, true),
+              attrs: {
+                "track-by": "name",
+                label: "name",
+                options: _vm.industries,
+                multiple: false
+              },
+              model: {
+                value: _vm.input.business_model,
+                callback: function($$v) {
+                  _vm.$set(_vm.input, "business_model", $$v)
+                },
+                expression: "input.business_model"
               }
-            },
-            [
-              _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "1" } }, [
-                _vm._v(" SAAS ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "2" } }, [
-                _vm._v(" E-commerce ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "3" } }, [
-                _vm._v(" Enterprise ")
-              ])
-            ]
-          )
-        ]),
+            })
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c("label", { attrs: { for: "target_audience" } }, [
-            _vm._v("Target Audience")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.target_audience,
-                  expression: "input.target_audience"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.setClassByValue(_vm.input.target_audience),
-              attrs: { name: "target_audience", id: "target_audience" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.input,
-                    "target_audience",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+        _c(
+          "div",
+          { staticClass: "col-md-4" },
+          [
+            _c("label", { attrs: { for: "target_audience" } }, [
+              _vm._v("Target Audience")
+            ]),
+            _vm._v(" "),
+            _c("multiselect", {
+              style: _vm.setClassByValue(_vm.input.target_audience, true),
+              attrs: {
+                "track-by": "name",
+                label: "name",
+                options: _vm.industries,
+                multiple: false
+              },
+              model: {
+                value: _vm.input.target_audience,
+                callback: function($$v) {
+                  _vm.$set(_vm.input, "target_audience", $$v)
+                },
+                expression: "input.target_audience"
               }
-            },
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "div",
+            { staticClass: "form-group" },
             [
-              _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
+              _c(
+                "label",
+                { attrs: { for: "which_markets_are_you_interested_in" } },
+                [_vm._v("Industries")]
+              ),
               _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "1" } }, [
-                _vm._v(" B2B (Business to Business) ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "2" } }, [
-                _vm._v(" B2C (Business to Customer) ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "3" } }, [
-                _vm._v(" B2G (Business to Government) ")
-              ])
-            ]
+              _c("multiselect", {
+                style: _vm.setClassByValue(_vm.input.industries, true),
+                attrs: {
+                  "track-by": "name",
+                  label: "name",
+                  options: _vm.industries,
+                  multiple: true
+                },
+                model: {
+                  value: _vm.input.industries,
+                  callback: function($$v) {
+                    _vm.$set(_vm.input, "industries", $$v)
+                  },
+                  expression: "input.industries"
+                }
+              })
+            ],
+            1
           )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "label",
-              { attrs: { for: "which_markets_are_you_interested_in" } },
-              [_vm._v("Industries")]
-            ),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.input.industries,
-                    expression: "input.industries"
-                  }
-                ],
-                staticClass:
-                  "js-example-disabled-results form-control select2-hidden-accessible",
-                class: _vm.setClassByValue(_vm.input.industries),
-                attrs: { id: "geography_on_which_you_startup_is_orientied" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.input,
-                      "industries",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("label", { attrs: { for: "country_id" } }, [
+                _vm._v("Country")
+              ]),
+              _vm._v(" "),
+              _c("multiselect", {
+                style: _vm.setClassByValue(_vm.input.country, true),
+                attrs: {
+                  "track-by": "name",
+                  label: "name",
+                  options: _vm.industries,
+                  multiple: false
+                },
+                model: {
+                  value: _vm.input.country,
+                  callback: function($$v) {
+                    _vm.$set(_vm.input, "country", $$v)
+                  },
+                  expression: "input.country"
                 }
-              },
-              [
-                _c("option", { attrs: { value: "14" } }, [_vm._v("Travel")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "27" } }, [_vm._v("Hosting")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "26" } }, [_vm._v("Music")])
-              ]
-            )
-          ])
+              })
+            ],
+            1
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "country_id" } }, [_vm._v("Country")]),
+        _c(
+          "div",
+          { staticClass: "col-md-4" },
+          [
+            _c("label", { attrs: { for: "how_much" } }, [_vm._v("How Much ?")]),
             _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.input.country,
-                    expression: "input.country"
-                  }
-                ],
-                staticClass: "form-control",
-                class: _vm.setClassByValue(_vm.input.country),
-                attrs: { name: "country_id", id: "country_id" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.input,
-                      "country",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { value: "3" } }, [_vm._v("Azerbaijan")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "1" } }, [_vm._v("Georgia")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "2" } }, [_vm._v("Armenia")])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c(
-            "label",
-            { attrs: { for: "did_you_already_received_investment" } },
-            [_vm._v("Did you already receive the investment?")]
-          ),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.receive_investment,
-                  expression: "input.receive_investment"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.setClassByValue(_vm.input.receive_investment),
+            _c("multiselect", {
+              style: _vm.setClassByValue(_vm.input.how_much, true),
               attrs: {
-                name: "did_you_already_received_investment",
-                id: "did_you_already_received_investment"
+                "track-by": "name",
+                label: "name",
+                options: _vm.industries,
+                multiple: false
               },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.input,
-                    "receive_investment",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+              model: {
+                value: _vm.input.how_much,
+                callback: function($$v) {
+                  _vm.$set(_vm.input, "how_much", $$v)
+                },
+                expression: "input.how_much"
               }
-            },
-            [
-              _c("option", { attrs: { value: "1" } }, [_vm._v(" Yes")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "0" } }, [_vm._v(" No")])
-            ]
-          )
-        ]),
+            })
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c("label", { attrs: { for: "how_much" } }, [_vm._v("How Much ?")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.how_much,
-                  expression: "input.how_much"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.setClassByValue(_vm.input.how_much),
-              attrs: { name: "how_much", id: "how_much" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.input,
-                    "how_much",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+        _c(
+          "div",
+          { staticClass: "col-md-4" },
+          [
+            _c("label", { attrs: { for: "what_are_you_looking_for" } }, [
+              _vm._v("What are you looking for?")
+            ]),
+            _vm._v(" "),
+            _c("multiselect", {
+              style: _vm.setClassByValue(_vm.input.how_much, true),
+              attrs: {
+                "track-by": "name",
+                label: "name",
+                options: _vm.industries,
+                multiple: true
+              },
+              model: {
+                value: _vm.input.what_are_you_looking,
+                callback: function($$v) {
+                  _vm.$set(_vm.input, "what_are_you_looking", $$v)
+                },
+                expression: "input.what_are_you_looking"
               }
-            },
-            [
-              _c("option", { attrs: { value: "0" } }, [_vm._v(" Choose ")]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "1" } }, [
-                _vm._v(" 10000-20000 ")
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
-          _c("label", { attrs: { for: "what_are_you_looking_for" } }, [
-            _vm._v("What are you looking for?")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.what_are_you_looking,
-                  expression: "input.what_are_you_looking"
-                }
-              ],
-              staticClass:
-                "js-example-disabled-results form-control select2-hidden-accessible",
-              class: _vm.setClassByValue(_vm.input.what_are_you_looking),
-              attrs: { id: "what_are_you_looking_for" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.input,
-                    "what_are_you_looking",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { id: "", value: "1" } }, [
-                _vm._v(" Investment ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "2" } }, [
-                _vm._v(" Mentoring ")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { id: "", value: "3" } }, [
-                _vm._v(" Visibility ")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "select-arrow",
-            attrs: {
-              src:
-                "https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg",
-              alt: ""
-            }
-          })
-        ]),
+            })
+          ],
+          1
+        ),
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
@@ -46168,7 +45961,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
+    return _c("div", { staticClass: "col-md-12 mt-4" }, [
       _c("div", { staticClass: "alert alert-warning alert-dismissible" }, [
         _c(
           "a",

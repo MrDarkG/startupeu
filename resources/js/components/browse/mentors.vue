@@ -30,7 +30,7 @@
                             Mentors                        
                         </div>
                         <div class="col-md-6 list-type-count">
-                            Showing  :2 Mentors                         
+                            Showing : {{ custom_mentors.length }} Mentors                         
                         </div>
                     </div>
                 </div>

@@ -59,87 +59,95 @@
             <label for="what_is_your_innovation">What is your innovation - what are you doing in an absolutely new or significantly improved way?</label>
             <textarea name="what_is_your_innovation" v-model="input.about.innovation" :class="setClassByValue(input.about.innovation)" id="what_is_your_innovation" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" :class="">
             <label for="what_is_your_current_stage">What is your current stage ?</label>
-            <select name="what_is_your_current_stage"  v-model="input.current_stage" :class="setClassByValue(input.current_stage)" id="what_is_your_current_stage" class="form-control">
-                <option value="0"> Choose </option>
-                <option id="" value="2"> Idea Stage </option>
-                <option id="" value="3"> Prototype </option>
-                <option id="" value="4"> Users </option>
-            </select>
+            <multiselect
+                v-model="input.current_stage"
+                :style="setClassByValue(input.current_stage,true)"
+                track-by="name" 
+                label="name"
+                :options="industries"
+                :multiple="false"
+            >
+            </multiselect>
         </div>
         <div class="col-md-4">
             <label for="your_business_model">Your business model</label>
-            <select name="your_business_model" v-model="input.business_model" :class="setClassByValue(input.business_model)" id="your_business_model" class="form-control">
-                <option value="0"> Choose </option>
-                <option id="" value="1"> SAAS </option>
-                <option id="" value="2"> E-commerce </option>
-                <option id="" value="3"> Enterprise </option>                
-            </select>
+            <multiselect
+                v-model="input.business_model"
+                :style="setClassByValue(input.business_model,true)"
+                track-by="name" 
+                label="name"
+                :options="industries"
+                :multiple="false"
+            >
+            </multiselect>
         </div>
         <div class="col-md-4">
             <label for="target_audience">Target Audience</label>
-            <select name="target_audience" v-model="input.target_audience" :class="setClassByValue(input.target_audience)" id="target_audience" class="form-control">
-                <option value="0"> Choose </option>
-                <option id="" value="1"> B2B (Business to Business) </option>
-                <option id="" value="2"> B2C (Business to Customer) </option>
-                <option id="" value="3"> B2G (Business to Government) </option>
-            </select>
+            <multiselect
+                v-model="input.target_audience"
+                :style="setClassByValue(input.target_audience,true)"
+                track-by="name" 
+                label="name"
+                :options="industries"
+                :multiple="false"
+            >
+            </multiselect>
         </div>
         <div class="col-md-12">
             <div class="form-group">
                 <label for="which_markets_are_you_interested_in">Industries</label>
-                <select 
-                    v-model="input.industries" 
-                    :class="setClassByValue(input.industries)"
-                    class="js-example-disabled-results form-control select2-hidden-accessible" 
-                    id="geography_on_which_you_startup_is_orientied" 
+                <multiselect
+                    v-model="input.industries"
+                    :style="setClassByValue(input.industries,true)"
+                    track-by="name" 
+                    label="name"
+                    :options="industries"
+                    :multiple="true"
                 >
-                    <option value="14">Travel</option>
-                    <option value="27">Hosting</option>
-                    <option value="26">Music</option>
-                </select>
+                </multiselect>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
                 <label for="country_id">Country</label>
-                <select name="country_id" v-model="input.country" :class="setClassByValue(input.country)" class="form-control" id="country_id">
-                    <option value="3">Azerbaijan</option>
-                    <option value="1">Georgia</option>
-                    <option value="2">Armenia</option>
-                </select>
+                <multiselect
+                    v-model="input.country"
+                    :style="setClassByValue(input.country,true)"
+                    track-by="name" 
+                    label="name"
+                    :options="industries"
+                    :multiple="false"
+                >
+                </multiselect>
             </div>
         </div>
         <div class="col-md-4">
-            <label for="did_you_already_received_investment">Did you already receive the investment?</label>
-            <select name="did_you_already_received_investment" v-model="input.receive_investment" :class="setClassByValue(input.receive_investment)" class="form-control" id="did_you_already_received_investment">
-                <option value="1"> Yes</option>
-                <option value="0"> No</option>
-            </select>
-        </div>
-        <div class="col-md-4">
             <label for="how_much">How Much ?</label>
-            <select name="how_much" v-model="input.how_much" :class="setClassByValue(input.how_much)" class="form-control" id="how_much">
-                <option value="0"> Choose </option>
-                <option id="" value="1"> 10000-20000 </option>                  
-            </select>
+            <multiselect
+                v-model="input.how_much"
+                :style="setClassByValue(input.how_much,true)"
+                track-by="name" 
+                label="name"
+                :options="industries"
+                :multiple="false"
+            >
+            </multiselect>
         </div>
         <div class="col-md-4">
             <label for="what_are_you_looking_for">What are you looking for?</label>
-            <select 
-                v-model="input.what_are_you_looking" 
-                class="js-example-disabled-results form-control select2-hidden-accessible" 
-                id="what_are_you_looking_for"
-                :class="setClassByValue(input.what_are_you_looking)"
+            <multiselect
+                v-model="input.what_are_you_looking"
+                :style="setClassByValue(input.how_much,true)"
+                track-by="name" 
+                label="name"
+                :options="industries"
+                :multiple="true"
             >
-                <option id="" value="1"> Investment </option>
-                <option id="" value="2"> Mentoring </option>
-                <option id="" value="3"> Visibility </option>                  
-            </select>
-            <img src="https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg" alt="" class="select-arrow">
+            </multiselect>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 mt-4">
             <div class="alert alert-warning alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                 <strong>warning!</strong>   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    
@@ -207,6 +215,20 @@
 export default{ 
     data(){
         return {
+            industries:[
+                {
+                    name:1,
+                },
+                {
+                    name:2,
+                },
+                {
+                    name:3,
+                },
+                {
+                    name:4,
+                },
+            ],
             button:false,
             fileRecords:[],
             image:{
@@ -239,7 +261,6 @@ export default{
                 target_audience:"",
                 industries:"",
                 country:"",
-                receive_investment:"",
                 how_much:"",
                 what_are_you_looking:"",
                 image:"",
@@ -247,9 +268,14 @@ export default{
         }
     },
     methods:{
-        setClassByValue(input){
+        setClassByValue(input, is_multiselect=false){
             if (this.button) {
-                return (input !== "" && input !== " ")?'':'border-danger'
+                let bol = (is_multiselect)?{
+                    border:'solid 1.5px red!important',
+                    borderRadius:'5px'
+                }:'border-danger'
+
+                return (input !== "" && input !== " ")?'':bol
             }
         },
         onImageUpload(event){
@@ -287,7 +313,6 @@ export default{
                 this.input.target_audience,
                 this.input.industries,
                 this.input.country,
-                this.input.receive_investment,
                 this.input.how_much,
                 this.input.what_are_you_looking,
                 this.input.image,
