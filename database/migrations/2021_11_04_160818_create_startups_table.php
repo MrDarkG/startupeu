@@ -17,7 +17,6 @@ class CreateStartupsTable extends Migration
             $table->id();
             $table->string("name");
             $table->integer("founded");
-            $table->integer("founded");
             $table->string("full_name");
             $table->integer("phone_index");
             $table->string("number");
