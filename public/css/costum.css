@@ -5060,3 +5060,6 @@ a:hover{
     cursor: pointer;
 
 }
+.das-menu li a.active span{
+    color: #6200EE
+}
