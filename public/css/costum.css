@@ -5006,3 +5006,17 @@ a:hover{
     color: #34C759;
     line-height: 50px;
 }
+
+
+.sidebar{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.sidebar .menubar{
+   background: #FFFFFF;
+    box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.16);
+    border-radius: 36px; 
+}

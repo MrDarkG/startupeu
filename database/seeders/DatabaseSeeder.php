@@ -19,5 +19,8 @@ class DatabaseSeeder extends Seeder
         FaqCuntrySeeder::run();
         FieldSeeder::run();
         IssueSeeder::run();
+        InvestorTypeSeeders::run();
+        IndustrySeeder::run();
     }
+
 }

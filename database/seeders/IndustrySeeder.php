@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Investor_type;
-
-class InvestorTypeSeeders extends Seeder
+use App\Models\Industry;
+class IndustrySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,13 +13,13 @@ class InvestorTypeSeeders extends Seeder
      */
     static public function run()
     {
-        $types=[
-           "Venture Funds",
-           "Angels", 
-           "Acclerators" 
+        $industries=[
+            "Travel",
+            "Hosting",
+            "Music"
         ];
-        foreach ($types as  $value) {
-            Investor_type::create([
+        foreach ($industries as $value) {
+            Industry::create([
                 "title"=>$value
             ]);
         }
