@@ -8,17 +8,41 @@
         <link rel="stylesheet" type="text/css" href="/css/app.css">
         <link rel="stylesheet" type="text/css" href="/css/costum.css">
     </head>
-    <body class="antialiased">
-      <div class="col-3">
-        <div class="sidebar">
+    <body class="">
+      <div class="col-3 ">
+        <div class="sidebar pl-4">
           <div>
             <img src="/logo.svg">
           </div>
           <div class="menubar">
-            menubar
+            <div>
+              <ul class="das-menu">
+                <li>
+                    <a href="https://www.startupcentraleurasia.com/en/dashboard/">
+                        <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/dashboard.svg" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/get-investment.svg" alt="">
+                        <span>Offers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.startupcentraleurasia.com/en/dashboard/startUpAccount">
+                        <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/myaccount.svg" alt="">
+                        <span>My account</span>
+                    </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div>
-            logout
+          <div class="sidebar-logout">
+            <img src="/assets/images/power-off.png" alt="" height="30px" style="opacity:0.6">
+
+            Logout
           </div>
           
         </div>

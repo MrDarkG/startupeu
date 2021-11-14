@@ -34,7 +34,10 @@ html, body {
     overflow-x: hidden;
 }
 
-body {
+body{
+    background-color: #E5E5E5;
+}
+body.antialiased {
     zoom: 85%;
     background: url("/assets/images/bg.svg");
     background-color: #E5E5E5;
@@ -2646,7 +2649,7 @@ a:hover{
 .dashboard {
 }
 
-.dashboard .dash-navbar {
+.dashboard .menubar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -2673,10 +2676,10 @@ a:hover{
 }
 
 
-.dash-navbar .das-menu {
+.menubar .das-menu {
 }
 
-.dash-navbar .das-menu li {
+.menubar .das-menu li {
     display: flex;
     align-items: center;
     padding: 0px;
@@ -2687,16 +2690,16 @@ a:hover{
 }
 
 
-.dash-navbar .das-menu li:hover span {
+.menubar .das-menu li:hover span {
     color: #6200EE;
 }
 
-.dash-navbar .das-menu li:hover img {
+.menubar .das-menu li:hover img {
     fill: #6200EE;
 }
 
 
-.dash-navbar .das-menu li span {
+.menubar .das-menu li span {
     font-family: FiraGO-regular;
     font-style: normal;
     font-weight: normal;
@@ -2879,7 +2882,7 @@ a:hover{
     padding-top: 11px
 }
 
-.investor-dash-navbar {
+.investor-menubar {
 
     height: 85px;
     left: 512px;
@@ -2891,29 +2894,29 @@ a:hover{
 
 }
 
-.investor-dash-navbar .chek-list {
+.investor-menubar .chek-list {
     display: flex;
     width: 350px;
     float: left;
 }
 
-.investor-dash-navbar .chek-list ul {
+.investor-menubar .chek-list ul {
     list-style-type: none;
     padding-top: 30px;
     padding-left: 48px;
 }
 
-.investor-dash-navbar .chek-list ul li {
+.investor-menubar .chek-list ul li {
     float: left;
     margin-right: 35px;
 }
 
-.investor-dash-navbar .form-check-input {
+.investor-menubar .form-check-input {
     margin-top: 0.4rem !important;
 }
 
 
-.investor-dash-navbar .addInvestment {
+.investor-menubar .addInvestment {
     width: 290px;
     height: 53px;
     cursor: pointer;
@@ -5014,9 +5017,46 @@ a:hover{
     flex-direction: column;
     justify-content: space-around;
 
+
 }
 .sidebar .menubar{
-   background: #FFFFFF;
+    background: #FFFFFF;
     box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.16);
     border-radius: 36px; 
+    height: 70vh;
+    width: 90%;
+    /*margin: 0 40px;*/
+}
+.menubar .das-menu {
+}
+
+.menubar .das-menu li {
+    align-items: left;
+    padding: 0px;
+    height: 32px;
+    border-radius: 13px;
+    margin: 32px 0px;
+
+}
+
+
+.menubar .das-menu li:hover span {
+    color: #6200EE;
+}
+
+.menubar .das-menu li:hover img {
+    fill: #6200EE;
+}
+.sidebar-logout{
+    width: 90%;
+    padding-left: 20px;
+    /*margin: 0 40px;*/
+    font-family: FiraGO-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+
 }
