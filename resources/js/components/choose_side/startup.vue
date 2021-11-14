@@ -135,17 +135,6 @@
                 <option id="" value="2"> Mentoring </option>
                 <option id="" value="3"> Visibility </option>                  
             </select>
-            <!-- <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-3-ni1q" style="width: 362.333px;">
-                <span class="selection">
-                    <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false">
-                        <ul class="select2-selection__rendered" id="select2-what_are_you_looking_for-container"></ul>
-                        <span class="select2-search select2-search--inline">
-                            <input class="select2-search__field" type="search" tabindex="0" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" autocomplete="off" aria-describedby="select2-what_are_you_looking_for-container" placeholder="" style="width: 0.75em;">
-                        </span>
-                    </span>
-                </span>
-                <span class="dropdown-wrapper" aria-hidden="true"></span>
-            </span> -->
             <img src="https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg" alt="" class="select-arrow">
         </div>
         <div class="col-md-12">
