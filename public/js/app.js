@@ -2749,12 +2749,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      is_selected: {
-        button: false
-      },
+      button: false,
       fileRecords: [],
       image: {
         uploaded: '',
@@ -2794,6 +2795,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    setClassByValue: function setClassByValue(input) {
+      if (this.button) {
+        return input !== "" && input !== " " ? '' : 'border-danger';
+      }
+    },
     onImageUpload: function onImageUpload(event) {
       this.image.uploaded = event[0].urlResized;
       this.$modal.show('chose_side_image_modal');
@@ -2815,6 +2821,8 @@ __webpack_require__.r(__webpack_exports__);
       return this.checkStringValidation(array);
     },
     sendToSave: function sendToSave() {
+      this.input.image = this.image.edited;
+
       if (this.isInputsValid()) {
         axios.post('/register/startup', this.input).then(function (response) {
           console.log('წარმატებით დაემატა!');
@@ -45223,6 +45231,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
+            class: _vm.setClassByValue(_vm.input.startup.name),
             attrs: {
               type: "text",
               id: "title",
@@ -45254,6 +45263,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
+            class: _vm.setClassByValue(_vm.input.founded.year),
             attrs: {
               type: "text",
               id: "founded",
@@ -45287,6 +45297,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
+            class: _vm.setClassByValue(_vm.input.founded.number),
             attrs: {
               type: "text",
               id: "founded_number",
@@ -45318,6 +45329,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
+            class: _vm.setClassByValue(_vm.input.full_name),
             attrs: {
               type: "text",
               id: "ceo",
@@ -45353,6 +45365,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
+              class: _vm.setClassByValue(_vm.input.phone.index),
               attrs: { name: "phone_index", id: "phone_index" },
               on: {
                 change: function($event) {
@@ -45401,6 +45414,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
+            class: _vm.setClassByValue(_vm.input.phone.number),
             attrs: {
               type: "text",
               id: "ceo_mobile",
@@ -45434,6 +45448,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
+            class: _vm.setClassByValue(_vm.input.startup.email),
             attrs: {
               type: "text",
               id: "startup_email",
@@ -45465,6 +45480,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
+            class: _vm.setClassByValue(_vm.input.website),
             attrs: {
               type: "text",
               id: "website",
@@ -45498,6 +45514,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control h160",
+            class: _vm.setClassByValue(_vm.input.about.company),
             attrs: {
               name: "what_your_company_does",
               id: "what_your_company_does",
@@ -45532,6 +45549,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control h160",
+            class: _vm.setClassByValue(_vm.input.about.product),
             attrs: {
               name: "describe_your_product_text",
               id: "describe_your_product_text",
@@ -45568,6 +45586,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control h160",
+            class: _vm.setClassByValue(_vm.input.about.innovation),
             attrs: {
               name: "what_is_your_innovation",
               id: "what_is_your_innovation",
@@ -45604,6 +45623,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
+              class: _vm.setClassByValue(_vm.input.current_stage),
               attrs: {
                 name: "what_is_your_current_stage",
                 id: "what_is_your_current_stage"
@@ -45661,6 +45681,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
+              class: _vm.setClassByValue(_vm.input.business_model),
               attrs: { name: "your_business_model", id: "your_business_model" },
               on: {
                 change: function($event) {
@@ -45715,6 +45736,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
+              class: _vm.setClassByValue(_vm.input.target_audience),
               attrs: { name: "target_audience", id: "target_audience" },
               on: {
                 change: function($event) {
@@ -45773,6 +45795,7 @@ var render = function() {
                 ],
                 staticClass:
                   "js-example-disabled-results form-control select2-hidden-accessible",
+                class: _vm.setClassByValue(_vm.input.industries),
                 attrs: { id: "geography_on_which_you_startup_is_orientied" },
                 on: {
                   change: function($event) {
@@ -45819,6 +45842,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
+                class: _vm.setClassByValue(_vm.input.country),
                 attrs: { name: "country_id", id: "country_id" },
                 on: {
                   change: function($event) {
@@ -45868,6 +45892,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
+              class: _vm.setClassByValue(_vm.input.receive_investment),
               attrs: {
                 name: "did_you_already_received_investment",
                 id: "did_you_already_received_investment"
@@ -45913,6 +45938,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
+              class: _vm.setClassByValue(_vm.input.how_much),
               attrs: { name: "how_much", id: "how_much" },
               on: {
                 change: function($event) {
@@ -45960,6 +45986,7 @@ var render = function() {
               ],
               staticClass:
                 "js-example-disabled-results form-control select2-hidden-accessible",
+              class: _vm.setClassByValue(_vm.input.what_are_you_looking),
               attrs: { id: "what_are_you_looking_for" },
               on: {
                 change: function($event) {
@@ -46010,6 +46037,7 @@ var render = function() {
           "div",
           {
             staticClass: "col-md-6 st-logo position-relative",
+            class: _vm.setClassByValue(_vm.image.edited),
             staticStyle: { "margin-right": "20px", height: "100%" }
           },
           [
@@ -46050,7 +46078,7 @@ var render = function() {
             attrs: { id: "submit" },
             on: {
               click: function($event) {
-                _vm.is_selected.button = true
+                _vm.button = true
                 _vm.sendToSave()
               }
             }
