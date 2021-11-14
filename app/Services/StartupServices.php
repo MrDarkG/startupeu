@@ -2,6 +2,9 @@
 namespace App\Services;
 
 use App\Models\Startup;
+use App\Models\Startup_industries;
+use App\Models\Startup_looking_for;
+
 use Auth; 
 use Illuminate\Http\Request;
 use Storage;
@@ -67,7 +70,7 @@ use Storage;
 	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
 	        $data = base64_decode($data);
 			Storage::disk('startups_logos')->put($filaname,$data);
-			Startup::create([
+			$startup=Startup::create([
 				"name"=>$request->input("startup.name"),
 		        "founded"=>$request->input("founded.year"),
 		        "full_name"=>$request->input("full_name"),
@@ -88,6 +91,23 @@ use Storage;
 		        "user_id"=>$Auth::user()->id,
 		        "logo"=>"/startup/".$filaname
 			]);
+
+			foreach ($industries as $key => $value) {
+				Startup_industries::create([
+					"industry_id"=>$value->id,
+        			"startup_id"=>$startup->id,
+        			"user_id"=>Auth::user()->id
+				]);
+			}
+			foreach ($looking_for as $key => $value) {
+
+				Startup_looking_for::create([
+					"industry_id"=>$value->id,
+					"startup_id"=>$startup->id,
+        			"user_id"=>Auth::user()->id
+				]);
+			}
+
 			return [
 	            "status"=>"1",
 	            "description"=>"Information stored Successfully"

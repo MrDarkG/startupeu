@@ -29,9 +29,9 @@ class CreateStartupsTable extends Migration
             $table->integer("stage_id");
             $table->integer("bussiness_model");
             $table->integer("target_audience");
-            $table->integer("industries_id");
+            // $table->integer("industries_id");
             $table->integer("country_id");
-            $table->integer("looking_for_id");
+            // $table->integer("looking_for_id");
             $table->integer("user_id");
             $table->string("logo");
             $table->timestamps();
