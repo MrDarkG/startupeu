@@ -23,16 +23,10 @@ class Startup extends Model
         "stage_id",
         "bussiness_model",
         "target_audience",
-        "traction_id",
-        "traction",
-        "markets_interested_in_id",
         "industries_id",
         "country_id",
-        "recieved_investments",
-        "investment_amount_id",
         "looking_for_id",
         "user_id",
-        "logo",
-        "presentation"
+        "logo"
     ];
 }

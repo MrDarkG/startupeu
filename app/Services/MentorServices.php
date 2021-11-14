@@ -28,6 +28,7 @@ class MentorServices extends MainServices
 	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
 	        $data = base64_decode($data);
 			Storage::disk('mentors_avatar')->put($filaname,$data);
+			$filaname="/mentors/".$filename;
 		}
 		else{
 			$filaname=self::getMyImageName();
@@ -41,7 +42,7 @@ class MentorServices extends MainServices
         	'country_id'=>$request->input("multiselect.country.is_selected"),
         	'fields_id'=>$request->input("multiselect.country.is_selected"),
         	'issues_id'=>$request->input("multiselect.country.is_selected"),
-        	'logo'=>'/mentors/'.$filaname
+        	'logo'=>$filaname
 		]);
 		return [
             "status"=>"1",
