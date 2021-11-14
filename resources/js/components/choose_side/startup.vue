@@ -23,7 +23,7 @@
             <label for="ceo">Full Name</label>
             <input type="text" id="ceo" name="ceo" v-model="input.full_name"  class="form-control" placeholder="Full Name">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
             <label for="phone_index">Phone index</label>
             <select name="phone_index" v-model="input.phone.index" class="form-control" id="phone_index">
                 <option value="0"> Choose </option>
@@ -31,14 +31,14 @@
                 <option id="" value="+355"> Albania </option>
             </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <label for="ceo_mobile">CEO mobile number</label>
             <input type="text" id="ceo_mobile" v-model="input.phone.number" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
         </div>
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
             <label for="ceo_email">CEO e-mail</label>
             <input type="text" id="ceo_email" v-model="input.phone.number" name="ceo_email"  class="form-control" placeholder="Email address"
-        </div>
+        </div> -->
         <div class="col-md-6  ">
             <label for="startup_email">Startup email</label>
             <input type="text" id="startup_email" v-model="input.startup.email" name="startup_email" class="form-control" placeholder="Email address">
@@ -135,7 +135,7 @@
                 <option id="" value="2"> Mentoring </option>
                 <option id="" value="3"> Visibility </option>                  
             </select>
-            <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-3-ni1q" style="width: 362.333px;">
+            <!-- <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-3-ni1q" style="width: 362.333px;">
                 <span class="selection">
                     <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false">
                         <ul class="select2-selection__rendered" id="select2-what_are_you_looking_for-container"></ul>
@@ -145,7 +145,7 @@
                     </span>
                 </span>
                 <span class="dropdown-wrapper" aria-hidden="true"></span>
-            </span>
+            </span> -->
             <img src="https://startupcentraleurasia.com/themes/application/Components/svg/drop-down-arrow.svg" alt="" class="select-arrow">
         </div>
         <div class="col-md-12">

@@ -45249,7 +45249,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-2" }, [
+      _c("div", { staticClass: "col-md-4" }, [
         _c("label", { attrs: { for: "phone_index" } }, [_vm._v("Phone index")]),
         _vm._v(" "),
         _c(
@@ -45297,7 +45297,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
+      _c("div", { staticClass: "col-md-4" }, [
         _c("label", { attrs: { for: "ceo_mobile" } }, [
           _vm._v("CEO mobile number")
         ]),
@@ -45329,8 +45329,6 @@ var render = function() {
           }
         })
       ]),
-      _vm._v(" "),
-      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6  " }, [
         _c("label", { attrs: { for: "startup_email" } }, [
@@ -45901,8 +45899,6 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
         _c("img", {
           staticClass: "select-arrow",
           attrs: {
@@ -45913,7 +45909,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
@@ -45932,7 +45928,7 @@ var render = function() {
             on: { change: function($event) {} }
           }),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(1)
         ]
       ),
       _vm._v(" "),
@@ -45945,79 +45941,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3" }, [
-      _c("label", { attrs: { for: "ceo_email" } }, [_vm._v("CEO e-mail")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass: "select2 select2-container select2-container--default",
-        staticStyle: { width: "362.333px" },
-        attrs: { dir: "ltr", "data-select2-id": "select2-data-3-ni1q" }
-      },
-      [
-        _c("span", { staticClass: "selection" }, [
-          _c(
-            "span",
-            {
-              staticClass: "select2-selection select2-selection--multiple",
-              attrs: {
-                role: "combobox",
-                "aria-haspopup": "true",
-                "aria-expanded": "false",
-                tabindex: "-1",
-                "aria-disabled": "false"
-              }
-            },
-            [
-              _c("ul", {
-                staticClass: "select2-selection__rendered",
-                attrs: { id: "select2-what_are_you_looking_for-container" }
-              }),
-              _vm._v(" "),
-              _c(
-                "span",
-                { staticClass: "select2-search select2-search--inline" },
-                [
-                  _c("input", {
-                    staticClass: "select2-search__field",
-                    staticStyle: { width: "0.75em" },
-                    attrs: {
-                      type: "search",
-                      tabindex: "0",
-                      autocorrect: "off",
-                      autocapitalize: "none",
-                      spellcheck: "false",
-                      role: "searchbox",
-                      "aria-autocomplete": "list",
-                      autocomplete: "off",
-                      "aria-describedby":
-                        "select2-what_are_you_looking_for-container",
-                      placeholder: ""
-                    }
-                  })
-                ]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "dropdown-wrapper",
-          attrs: { "aria-hidden": "true" }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
