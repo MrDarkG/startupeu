@@ -3689,24 +3689,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    investors: Array
+    investors: Array,
+    types: Array
   },
   data: function data() {
     return {
+      custom_investors: [],
       menu_list: [{
         title: 'All',
         is_active: true
-      }, {
-        title: 'Venture Funds',
-        is_active: false
-      }, {
-        title: 'Angels',
-        is_active: false
-      }, {
-        title: 'Accelerators',
-        is_active: false
       }]
     };
+  },
+  created: function created() {
+    this.setCustomMenuList();
+  },
+  methods: {
+    setCustomMenuList: function setCustomMenuList() {
+      var _this = this;
+
+      this.types.map(function (type) {
+        var object = type;
+        object.is_active = false;
+
+        _this.menu_list.push(object);
+      });
+    },
+    searchByMenuTitle: function searchByMenuTitle(menu_id) {
+      var _this2 = this;
+
+      var is_menu_id_exists = menu_id !== undefined ? '?type=' + menu_id : '';
+      axios.get('/startup/dashboard' + is_menu_id_exists).then(function (response) {
+        _this2.custom_investors = response.data;
+      });
+    }
   }
 });
 
@@ -48497,6 +48513,7 @@ var render = function() {
                         return (m.is_active = false)
                       })
                       menu.is_active = true
+                      _vm.searchByMenuTitle(menu.id)
                     }
                   }
                 },

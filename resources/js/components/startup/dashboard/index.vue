@@ -13,7 +13,7 @@
                     class="text-center col-sm p-2 single_menu_div" 
                     :class="{'shadow-sm':menu.is_active,'mr-1':(index+1!==menu_list.length)}" 
                     style="border-radius:14px;cursor:pointer;"
-                    @click="menu_list.map((m)=>m.is_active = false);menu.is_active=true"
+                    @click="menu_list.map((m)=>m.is_active = false);menu.is_active=true;searchByMenuTitle(menu.id)"
                     :style="(menu.is_active)?'color:#6200ee;background:white;':''"
                 >
                     {{ menu.title }}
@@ -53,29 +53,39 @@
 export default{
     props:{
         investors:Array,
+        types:Array,
     },
     data(){
         return{
+            custom_investors:[],
             menu_list:[
                 {
                     title:'All',
                     is_active:true
                 },
-                {
-                    title:'Venture Funds',
-                    is_active:false
-                },
-                {
-                    title:'Angels',
-                    is_active:false
-                },
-                {
-                    title:'Accelerators',
-                    is_active:false
-                },
             ],
         }
-    }
+    },
+    created(){
+        this.setCustomMenuList()
+    },
+    methods:{
+        setCustomMenuList(){
+            this.types.map((type)=>{
+                let object = type
+                object.is_active = false
+                this.menu_list.push(object)
+            })
+        },
+        searchByMenuTitle(menu_id){
+            let is_menu_id_exists = (menu_id !== undefined)?'?type='+menu_id:''
+            
+            axios.get('/startup/dashboard'+is_menu_id_exists)
+            .then((response)=>{
+                this.custom_investors = response.data
+            })
+        },
+    },
 }
 </script>
 <style>
