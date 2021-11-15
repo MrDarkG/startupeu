@@ -3664,6 +3664,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     investors: Array
@@ -48663,37 +48665,45 @@ var render = function() {
               "div",
               { staticClass: "dash-list" },
               _vm._l(_vm.investors, function(investor) {
-                return _c("div", { staticClass: "item d-flex" }, [
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png",
-                      alt: "Logo"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "txts" }, [
-                    _c("div", { staticClass: "title" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(investor.company_name) +
-                          " - " +
-                          _vm._s(investor.name) +
-                          "\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "desc" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(investor.about) +
-                          "\n                        "
-                      )
+                return _c(
+                  "a",
+                  {
+                    attrs: { href: "/startup/dashboard/apply/" + investor.id }
+                  },
+                  [
+                    _c("div", { staticClass: "item d-flex" }, [
+                      _c("img", {
+                        attrs: {
+                          src:
+                            "https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png",
+                          alt: "Logo"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "txts" }, [
+                        _c("div", { staticClass: "title" }, [
+                          _vm._v(
+                            "\n\t                            " +
+                              _vm._s(investor.company_name) +
+                              " - " +
+                              _vm._s(investor.name) +
+                              "\n\t                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "desc" }, [
+                          _vm._v(
+                            "\n\t                            " +
+                              _vm._s(investor.about) +
+                              "\n\t                        "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(0, true)
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(0, true)
-                ])
+                  ]
+                )
               }),
               0
             )
@@ -48724,7 +48734,7 @@ var staticRenderFns = [
         },
         [
           _vm._v(
-            "\n                            Apply for investment\n                        "
+            "\n\t                            Apply for investment\n\t                        "
           )
         ]
       )

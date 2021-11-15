@@ -24,4 +24,8 @@ class DashboardController extends Controller
         $investors=Investor::allInvestors();
         return $investors;
     }
+    public function show($id)
+    {
+        return Investor::with(["type","ranges"])->find($id);
+    }
 }
