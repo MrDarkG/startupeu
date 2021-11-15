@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index($value='')
     {
         $types=Investor_type::get();
-        $investors=Investor::allInvestors()->with("type");
+        $investors=Investor::allInvestors();
         
         return view("startup.dashboard",[
             'investors' => $investors,

@@ -32,11 +32,16 @@ class Investor extends Model
             \App\QueryFilters\Interest::class,
             \App\QueryFilters\Market::class,
             \App\QueryFilters\Type::class,
-        ])->thenReturn()->get();
+        ])->thenReturn()->with(["ranges"])->get();
     }
 
     public function type($value='')
     {
         return $this->belongsTo(Investor_type::class,"type_id");
+    }
+
+    public function ranges()
+    {
+        return $this->hasOne(Range::class,"id",'range_id');
     }
 }
