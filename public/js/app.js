@@ -48645,59 +48645,61 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass:
-          "tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content",
-        attrs: {
-          id: "tabs-0",
-          "aria-labelledby": "ui-id-1",
-          role: "tabpanel",
-          "aria-hidden": "false"
-        }
-      },
-      [
-        _c(
+    _vm.investors.length > 0
+      ? _c(
           "div",
-          { staticClass: "dash-list" },
-          _vm._l(_vm.investors, function(investor) {
-            return _c("div", { staticClass: "item d-flex" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png",
-                  alt: "Logo"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "txts" }, [
-                _c("div", { staticClass: "title" }, [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(investor.company_name) +
-                      " - " +
-                      _vm._s(investor.name) +
-                      "\n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "desc" }, [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(investor.about) +
-                      "\n                        "
-                  )
+          {
+            staticClass:
+              "tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content",
+            attrs: {
+              id: "tabs-0",
+              "aria-labelledby": "ui-id-1",
+              role: "tabpanel",
+              "aria-hidden": "false"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "dash-list" },
+              _vm._l(_vm.investors, function(investor) {
+                return _c("div", { staticClass: "item d-flex" }, [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        "https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png",
+                      alt: "Logo"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "txts" }, [
+                    _c("div", { staticClass: "title" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(investor.company_name) +
+                          " - " +
+                          _vm._s(investor.name) +
+                          "\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "desc" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(investor.about) +
+                          "\n                        "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0, true)
                 ])
-              ]),
-              _vm._v(" "),
-              _vm._m(0, true)
-            ])
-          }),
-          0
+              }),
+              0
+            )
+          ]
         )
-      ]
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
