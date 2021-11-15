@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         IssueSeeder::run();
         InvestorTypeSeeders::run();
         IndustrySeeder::run();
+        RangeSeeder::run();
     }
 
 }
