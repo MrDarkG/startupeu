@@ -10,8 +10,10 @@ class DashboardController extends Controller
 {
     public function index($value='')
     {
-        return view("layouts.main");
-        return $investor=Investor::allInvestors();
-
+        $investors=Investor::allInvestors();
+        
+        return view("startup.dashboard",[
+            'investors' => $investors,
+        ]);
     }
 }

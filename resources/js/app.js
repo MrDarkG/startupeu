@@ -30,6 +30,7 @@ Vue.component('choose-side', require('./components/choose_side/index.vue').defau
 Vue.component('create-startup', require('./components/choose_side/startup.vue').default);
 Vue.component('create-investor', require('./components/choose_side/investor.vue').default);
 Vue.component('create-mentor', require('./components/choose_side/mentor.vue').default);
+Vue.component('startup-dashboard', require('./components/startup/dashboard/index.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
