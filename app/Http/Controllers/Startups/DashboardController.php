@@ -19,4 +19,9 @@ class DashboardController extends Controller
             'types' => $types
         ]);
     }
+    public function cards()
+    {
+        $investors=Investor::allInvestors();
+        return $investors;
+    }
 }

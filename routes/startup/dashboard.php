@@ -16,4 +16,5 @@ use App\Http\Controllers\Startups\DashboardController;
 */
 
 Route::get('/', [DashboardController::class,"index"]);
+Route::get('/cards', [DashboardController::class,"cards"]);
 

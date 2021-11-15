@@ -31,6 +31,7 @@ Vue.component('create-startup', require('./components/choose_side/startup.vue').
 Vue.component('create-investor', require('./components/choose_side/investor.vue').default);
 Vue.component('create-mentor', require('./components/choose_side/mentor.vue').default);
 Vue.component('startup-dashboard', require('./components/startup/dashboard/index.vue').default);
+Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

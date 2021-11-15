@@ -20,32 +20,10 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-0" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false">
-                <div class="dash-list">
-                    <div class="item d-flex" v-for="investor in investors">
-                        <img src="https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png" alt="Logo">
-                        <div class="txts">
-                            <div class="title">
-                                {{ investor.company_name }} - {{ investor.name }}
-                            </div>
-                            <div class="desc">
-                                {{ investor.about }}
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div class="range">
-                                <p>Investment range:</p>
-                                <span>10000-20000</span>
-                            </div>
-                            <a href="https://startupcentraleurasia.com/en/investors/v/1/27" class="btn">
-                                Apply for investment
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <startup-cards 
+        :investors="custom_investors">
+            
+        </startup-cards>
     </div>
 </div>
 </template>
@@ -61,26 +39,29 @@ export default{
             menu_list:[
                 {
                     title:'All',
-                    is_active:true
+                    is_active:true,
+                    url:""
                 },
             ],
         }
     },
     created(){
         this.setCustomMenuList()
+        this.custom_investors=this.investors
     },
     methods:{
         setCustomMenuList(){
             this.types.map((type)=>{
                 let object = type
                 object.is_active = false
+                object.url = "/startup/dashboard?type="+type.id
                 this.menu_list.push(object)
             })
         },
         searchByMenuTitle(menu_id){
             let is_menu_id_exists = (menu_id !== undefined)?'?type='+menu_id:''
             
-            axios.get('/startup/dashboard'+is_menu_id_exists)
+            axios.get('/startup/dashboard/cards'+is_menu_id_exists)
             .then((response)=>{
                 this.custom_investors = response.data
             })
