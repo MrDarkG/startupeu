@@ -26,6 +26,9 @@ class DashboardController extends Controller
     }
     public function show($id)
     {
-        return Investor::with(["type","ranges"])->find($id);
+        $investor=Investor::with(["type","ranges"])->where("id",$id)->firstOrFail();
+        return view("startup.apply",[
+            "investor" => $investor
+        ]);
     }
 }

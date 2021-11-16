@@ -16,26 +16,26 @@
               </div>
               <div class="menubar">
                 <div>
-                  <ul class="das-menu">
-                    <li>
-                        <a href="https://www.startupcentraleurasia.com/en/dashboard/">
-                            <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/dashboard.svg" alt="">
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/get-investment.svg" alt="">
-                            <span>Offers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.startupcentraleurasia.com/en/dashboard/startUpAccount">
-                            <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/myaccount.svg" alt="">
-                            <span>My account</span>
-                        </a>
-                    </li>
-                  </ul>
+                    <ul class="das-menu">
+                        <li>
+                            <a href="https://www.startupcentraleurasia.com/en/dashboard/" @if(str_contains(url()->current(), "/startup/dashboard")) class="active" @endif>
+                                <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/dashboard.svg" alt="">
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" @if(str_contains(url()->current(), "/startup/offers")) class="active" @endif>
+                                <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/get-investment.svg" alt="">
+                                <span>Offers</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.startupcentraleurasia.com/en/dashboard/startUpAccount" @if(str_contains(url()->current(), "/startup/account")) class="active" @endif>
+                                <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/myaccount.svg" alt="">
+                                <span>My account</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
               </div>
               <div class="sidebar-logout">

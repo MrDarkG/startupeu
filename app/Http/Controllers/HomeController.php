@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Investor_type;
+use App\Models\Country;
+use App\Models\Range;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('choose_side.index');
+        $types=Investor_type::get();
+        $country=Country::get();
+        $range=Range::get();
+        return view('choose_side.index',[
+            "types"=$types,
+            "country"=$country,
+            "range"=$range,
+        ]);
     }
 }

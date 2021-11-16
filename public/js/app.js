@@ -3666,6 +3666,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     investors: Array
@@ -48671,32 +48673,34 @@ var render = function() {
                     attrs: { href: "/startup/dashboard/apply/" + investor.id }
                   },
                   [
-                    _c("div", { staticClass: "item d-flex" }, [
-                      _c("img", {
-                        attrs: {
-                          src:
-                            "https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png",
-                          alt: "Logo"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "txts" }, [
-                        _c("div", { staticClass: "title" }, [
-                          _vm._v(
-                            "\n\t                            " +
-                              _vm._s(investor.company_name) +
-                              " - " +
-                              _vm._s(investor.name) +
-                              "\n\t                        "
-                          )
-                        ]),
+                    _c("div", { staticClass: "item row" }, [
+                      _c("div", { staticClass: "col-md-9 d-flex" }, [
+                        _c("img", {
+                          attrs: {
+                            src:
+                              "https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png",
+                            alt: "Logo"
+                          }
+                        }),
                         _vm._v(" "),
-                        _c("div", { staticClass: "desc" }, [
-                          _vm._v(
-                            "\n\t                            " +
-                              _vm._s(investor.about) +
-                              "\n\t                        "
-                          )
+                        _c("div", { staticClass: "txts" }, [
+                          _c("div", { staticClass: "title" }, [
+                            _vm._v(
+                              "\n\t\t                            " +
+                                _vm._s(investor.company_name) +
+                                " - " +
+                                _vm._s(investor.name) +
+                                "\n\t\t                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "desc" }, [
+                            _vm._v(
+                              "\n\t\t                            " +
+                                _vm._s(investor.about) +
+                                "\n\t\t                        "
+                            )
+                          ])
                         ])
                       ]),
                       _vm._v(" "),
@@ -48717,28 +48721,35 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right" }, [
-      _c("div", { staticClass: "range" }, [
-        _c("p", [_vm._v("Investment range:")]),
+    return _c(
+      "div",
+      {
+        staticClass:
+          "right col-md-3 d-flex justify-content-center align-items-center flex-column"
+      },
+      [
+        _c("div", { staticClass: "range" }, [
+          _c("p", [_vm._v("Investment range:")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("10000-20000")])
+        ]),
         _vm._v(" "),
-        _c("span", [_vm._v("10000-20000")])
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn",
-          attrs: {
-            href: "https://startupcentraleurasia.com/en/investors/v/1/27"
-          }
-        },
-        [
-          _vm._v(
-            "\n\t                            Apply for investment\n\t                        "
-          )
-        ]
-      )
-    ])
+        _c(
+          "a",
+          {
+            staticClass: "btn",
+            attrs: {
+              href: "https://startupcentraleurasia.com/en/investors/v/1/27"
+            }
+          },
+          [
+            _vm._v(
+              "\n\t                            Apply for investment\n\t                        "
+            )
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

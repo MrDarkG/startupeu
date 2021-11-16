@@ -125,9 +125,7 @@ a:hover{
 
 }
 
-.right {
-    float: right;
-}
+
 
 
 .c-search img {
@@ -729,13 +727,7 @@ a:hover{
     border-radius: 20px;
 }
 
-.long-item .right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 696px;
-    margin: 0px 32px;
-}
+
 
 .long-item .right .createdDate {
     /* Subheadline */
@@ -1719,11 +1711,6 @@ a:hover{
 }
 
 
-.sign-up .right {
-    margin-top: 100px;
-    padding-left: 60px;
-
-}
 
 .sign-title {
     font-family: FiraGO-bold;
@@ -2245,7 +2232,7 @@ a:hover{
 
 .l-box {
     background: #3A3A3C;
-    width: 280px;
+    /*width: 280px;*/
     height: 120px;
     display: flex;
     flex-direction: column;
@@ -2783,10 +2770,10 @@ a:hover{
 }
 
 .dash-list .item .txts {
-    width: 765px;
+    /*width: 765px;*/
     float: left;
     margin-top: 25px;
-    border-right: 2px solid #EFEFF4;
+    /*border-right: 2px solid #EFEFF4;*/
 }
 
 .dash-list .item img {
@@ -2830,10 +2817,7 @@ a:hover{
 
 }
 
-.dash-list .item .right {
-    padding-top: 14px;
-    margin: 0px 32px;
-}
+
 
 .dash-list .item .right .range p {
     font-family: FiraGO-regular;
@@ -4463,7 +4447,7 @@ a:hover{
 }
 
 .in-det {
-    height: 200px;
+    /*height: 200px;*/
 }
 
 .in-det .s-ul li {
@@ -4488,11 +4472,11 @@ a:hover{
 }
 
 .inv-Apply {
-    width: 216px;
+    /*width: 216px;*/
     height: 62px;
-    position: absolute;
-    right: 65px;
-    top: 103px;
+    /*position: absolute;*/
+    /*right: 65px;*/
+    /*top: 103px;*/
     font-family: FiraGO-regular;
     font-style: normal;
     font-weight: 600;
