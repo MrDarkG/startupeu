@@ -30,9 +30,9 @@ class HomeController extends Controller
         $country=Country::get();
         $range=Range::get();
         return view('choose_side.index',[
-            "types"=$types,
-            "country"=$country,
-            "range"=$range,
+            "types" => $types,
+            "country" => $country,
+            "range" => $range,
         ]);
     }
 }
