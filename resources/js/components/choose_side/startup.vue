@@ -25,11 +25,16 @@
         </div>
         <div class="col-md-4">
             <label for="phone_index">Phone index</label>
-            <select name="phone_index" v-model="input.phone.index" :class="setClassByValue(input.phone.index)" class="form-control" id="phone_index">
-                <option value="0"> Choose </option>
-                <option id="" value="+93"> Afghanistan </option>
-                <option id="" value="+355"> Albania </option>
-            </select>
+            <multiselect
+                id="phone_index"
+                v-model="input.phone.index"
+                :style="setClassByValue(input.phone.index,true)"
+                track-by="name" 
+                label="name"
+                :options="industries"
+                :multiple="false"
+            >
+            </multiselect>
         </div>
         <div class="col-md-4">
             <label for="ceo_mobile">CEO mobile number</label>
@@ -62,6 +67,7 @@
         <div class="col-md-4" :class="">
             <label for="what_is_your_current_stage">What is your current stage ?</label>
             <multiselect
+                id="what_is_your_current_stage"
                 v-model="input.current_stage"
                 :style="setClassByValue(input.current_stage,true)"
                 track-by="name" 
@@ -74,6 +80,7 @@
         <div class="col-md-4">
             <label for="your_business_model">Your business model</label>
             <multiselect
+                id="your_business_model"
                 v-model="input.business_model"
                 :style="setClassByValue(input.business_model,true)"
                 track-by="name" 
@@ -86,6 +93,7 @@
         <div class="col-md-4">
             <label for="target_audience">Target Audience</label>
             <multiselect
+                id="target_audience"
                 v-model="input.target_audience"
                 :style="setClassByValue(input.target_audience,true)"
                 track-by="name" 
@@ -99,6 +107,7 @@
             <div class="form-group">
                 <label for="which_markets_are_you_interested_in">Industries</label>
                 <multiselect
+                    id="which_markets_are_you_interested_in"
                     v-model="input.industries"
                     :style="setClassByValue(input.industries,true)"
                     track-by="name" 
@@ -113,6 +122,7 @@
             <div class="form-group">
                 <label for="country_id">Country</label>
                 <multiselect
+                    id="country_id"
                     v-model="input.country"
                     :style="setClassByValue(input.country,true)"
                     track-by="name" 
@@ -123,9 +133,10 @@
                 </multiselect>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="how_much">How Much ?</label>
             <multiselect
+                id="how_much"
                 v-model="input.how_much"
                 :style="setClassByValue(input.how_much,true)"
                 track-by="name" 
@@ -135,11 +146,12 @@
             >
             </multiselect>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="what_are_you_looking_for">What are you looking for?</label>
             <multiselect
+                id="what_are_you_looking_for"
                 v-model="input.what_are_you_looking"
-                :style="setClassByValue(input.how_much,true)"
+                :style="setClassByValue(input.what_are_you_looking,true)"
                 track-by="name" 
                 label="name"
                 :options="industries"
@@ -172,10 +184,8 @@
             ></VueFileAgent>
         </div>
     </div>
-    <div>
-        <button id="submit" class="btn btn-success" @click="button = true;sendToSave()">
-            Get started
-        </button>
+    <div class="float-right">
+        <button type="submit" @click="button = true;sendToSave()" id="submit" class="btn">Get started </button>
     </div>
     <modal name="chose_side_image_modal" id="choose_side_image_modal">
         <div class="row p-4">
@@ -275,7 +285,8 @@ export default{
                     borderRadius:'5px'
                 }:'border-danger'
 
-                return (input !== "" && input !== " ")?'':bol
+                let is_array = (Array.isArray(input) && input.length === 0)?bol:''
+                return (input !== null && input !== "" && input !== " ")?is_array:bol
             }
         },
         onImageUpload(event){
@@ -286,36 +297,38 @@ export default{
             this.image.edited = file.canvas.toDataURL('image/jpeg')
         },
         checkStringValidation(array){
-            let counter = 1
-            array.map((str)=>{
-                if(str !== "" && str !== " " && str.length > 0){
+            let counter = 0
+            array.map((str, index)=>{
+                if(Array.isArray(str) && str.length > 0){
+                    counter+=1
+                }else if(str !== undefined && str !== null && str !== "" && !Array.isArray(str)){
                     counter+=1
                 }
             })
             return counter === array.length
         },
         isInputsValid(){
+            let input = this.input
             let array = [
-                this.input.startup.name,
-                this.input.startup.email,
-                this.input.founded.year,
-                this.input.founded.number,
-                this.input.full_name,
-                this.input.phone.index,
-                this.input.phone.number,
-                this.input.ceo_email,
-                this.input.website,
-                this.input.about.company,
-                this.input.about.product,
-                this.input.about.innovation,
-                this.input.current_stage,
-                this.input.business_model,
-                this.input.target_audience,
-                this.input.industries,
-                this.input.country,
-                this.input.how_much,
-                this.input.what_are_you_looking,
-                this.input.image,
+                input.startup.name,
+                input.startup.email,
+                input.founded.year,
+                input.founded.number,
+                input.full_name,
+                input.phone.index,
+                input.phone.number,
+                input.website,
+                input.about.company,
+                input.about.product,
+                input.about.innovation,
+                input.current_stage,
+                input.business_model,
+                input.target_audience,
+                input.industries,
+                input.country,
+                input.how_much,
+                input.what_are_you_looking,
+                input.image,
             ]
             return this.checkStringValidation(array)
         },

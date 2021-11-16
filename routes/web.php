@@ -31,9 +31,9 @@ Route::group(['prefix' => '{language_id}',], function () {
 
 
 Route::get("/mentor/info",[ProfileController::class,"index"]);
-Route::get("/investor",function(){
-    return view("registration.investor");
-});
+// Route::get("/investor",function(){
+//     return view("registration.investor");
+// });
 Route::prefix("/browse")->group(function(){
     Route::get("/mentors" ,[GuestController::class,'index']);
     Route::get("/startups" ,[GuestController::class,'startupPage']);
