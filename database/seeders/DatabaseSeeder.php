@@ -13,15 +13,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        LangaugesSeeder::run();
-        PhoneIndexSeeder::run();
-        CountrySeeder::run();
-        FaqCuntrySeeder::run();
-        FieldSeeder::run();
-        IssueSeeder::run();
-        InvestorTypeSeeders::run();
-        IndustrySeeder::run();
-        RangeSeeder::run();
+        $this->call([
+            DataTypesTableSeeder::class,
+            DataRowsTableSeeder::class,
+            MenusTableSeeder::class,
+            MenuItemsTableSeeder::class,
+            RolesTableSeeder::class,
+            PermissionsTableSeeder::class,
+            PermissionRoleTableSeeder::class,
+            SettingsTableSeeder::class,
+            LangaugesSeeder::class,
+            PhoneIndexSeeder::class,
+            CountrySeeder::class,
+            FaqCuntrySeeder::class,
+            FieldSeeder::class,
+            IssueSeeder::class,
+            InvestorTypeSeeders::class,
+            IndustrySeeder::class,
+            RangeSeeder::class,
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
+        ]);
+        
+       
     }
 
 }

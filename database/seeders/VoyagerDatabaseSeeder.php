@@ -11,7 +11,7 @@ class VoyagerDatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    static public function run()
     {
         $this->call([
             DataTypesTableSeeder::class,
