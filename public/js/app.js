@@ -50061,7 +50061,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container ml-3 pl-0" }, [
+  return _c("div", { staticClass: "ml-3" }, [
     _c(
       "div",
       {
