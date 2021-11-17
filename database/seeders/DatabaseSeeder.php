@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         RangeSeeder::run();
         RolesTableSeeder::run();
         UsersTableSeeder::run();
-        VoyagerDatabaseSeeder::run();
+       
     }
 
 }
