@@ -10,7 +10,7 @@ class RolesTableSeeder extends Seeder
     /**
      * Auto generated seed file.
      */
-    public function run()
+    static public function run()
     {
         $role = Role::firstOrNew(['name' => 'admin']);
         if (!$role->exists) {

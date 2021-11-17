@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
         InvestorTypeSeeders::run();
         IndustrySeeder::run();
         RangeSeeder::run();
+        RolesTableSeeder::run();
+        UsersTableSeeder::run();
+        VoyagerDatabaseSeeder::run();
     }
 
 }
