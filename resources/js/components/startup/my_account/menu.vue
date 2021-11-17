@@ -1,6 +1,6 @@
 <template>
    <div class="container ml-3 pl-0">
-      <div class="row p-1" style="background:#d8d8dc;border-radius:16px;width:70%;">
+      <div class="row p-1" style="background:#d8d8dc;border-radius:16px;">
           <div  
               v-for="(menu, index) in menu_list" :id="menu.id" 
               class="text-center col-sm p-2 single_menu_div" 

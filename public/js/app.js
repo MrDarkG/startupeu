@@ -50066,11 +50066,7 @@ var render = function() {
       "div",
       {
         staticClass: "row p-1",
-        staticStyle: {
-          background: "#d8d8dc",
-          "border-radius": "16px",
-          width: "70%"
-        }
+        staticStyle: { background: "#d8d8dc", "border-radius": "16px" }
       },
       _vm._l(_vm.menu_list, function(menu, index) {
         return _c(
