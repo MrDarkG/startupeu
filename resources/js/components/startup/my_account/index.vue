@@ -1,6 +1,6 @@
 <template>
 <div class="dash-container">
-	<div>
+	<div class="account-info">
 		<startup-account-menu
             :menu_list="menu_list"
             @getActive="setActiveMenu"
@@ -11,7 +11,7 @@
             </general-info>
         </div>
         <div class="ment-box box-active sign-form" v-if="menu_list[1].is_active">
-            <div class="col-md-12 additional-form">
+            <div class="col-md-12 additional-form p-0">
                 <additional-info>
 				</additional-info>
             </div>

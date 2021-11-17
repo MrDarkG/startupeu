@@ -50007,6 +50007,7 @@ var render = function() {
   return _c("div", { staticClass: "dash-container" }, [
     _c(
       "div",
+      { staticClass: "account-info" },
       [
         _c("startup-account-menu", {
           attrs: { menu_list: _vm.menu_list },
@@ -50026,7 +50027,7 @@ var render = function() {
           ? _c("div", { staticClass: "ment-box box-active sign-form" }, [
               _c(
                 "div",
-                { staticClass: "col-md-12 additional-form" },
+                { staticClass: "col-md-12 additional-form p-0" },
                 [_c("additional-info")],
                 1
               )
