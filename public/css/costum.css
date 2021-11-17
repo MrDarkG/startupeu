@@ -5092,6 +5092,13 @@ a:hover{
     .account-info{
         margin-left: 4px!important;
     }
+    .additional-form > div > .row >  div{
+        margin-bottom: 20px;
+    }
+    .additional-form > div > .row >  div > .startup-form-btn{
+        margin-right: 0px;
+width: 100%;
+    }
 
 
 }
