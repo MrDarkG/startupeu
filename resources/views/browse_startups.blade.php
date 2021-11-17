@@ -4,5 +4,6 @@
         :issues="{{ json_encode($issues) }}"
         :fields="{{ json_encode($fields) }}"
         :mentors="{{ json_encode($mentors) }}"
+        :startups="{{ json_encode($startups) }}"
     ></browse-startups>
 @endsection

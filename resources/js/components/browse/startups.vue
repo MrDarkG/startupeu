@@ -31,18 +31,22 @@
 		                        Startups                        
 		                    </div>
 		                    <div class="col-md-6 list-type-count">
-		                        Showing  :60 Startups                        
+		                        Showing  :{{ startups.length }} Startups                        
 		                    </div>
 		                </div>
 		            </div>
 		            <div class="col-md-12">
 		                <div class="row">
-		                    <div class="col-md-4">
+		                    <div class="col-md-4" v-for="startup in startups">
 		                        <div class="list-item" style="height: 235px">
-		                            <a href="https://beta.startupcentraleurasia.com/en/startups/v/25">
-		                                <img src="https://beta.startupcentraleurasia.com/themes/application/Components/images/application-no-image.png" alt="" style="    width: 62px;">
-		                                <div class="title">Intelliants </div>
-		                                <div class="desc">A software development company in the web segment....</div>
+		                            <a href="#">
+		                                <img :src="startup.logo" alt="Logo" style="width: 62px;">
+		                                <div class="title">
+		                                	{{ startup.name }} - {{ startup.what_your_company_does }}
+		                                </div>
+		                                <div class="desc" :title="startup.description">
+		                                	{{ setShortDescription(startup.description) }}
+		                                </div>
 		                            </a>
 		            			</div>
 		                    </div>
@@ -60,7 +64,7 @@ export default{
 	props:{
 		fields:Array,
 		issues:Array,
-		mentors:Object
+		startups:Object
 	},
 	data(){
 		return{
@@ -91,6 +95,9 @@ export default{
 	methods:{
 		setSelectedFilters(filters){
 			console.log(filters)
+		},
+		setShortDescription(string){
+			return (string.length > 172)?string.slice(0,169)+' ...':string
 		},
 	},
 };
