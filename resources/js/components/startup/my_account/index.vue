@@ -1,6 +1,6 @@
 <template>
 <div class="dash-container">
-	<div class="account-info">
+	<div>
 		<startup-account-menu
             :menu_list="menu_list"
             @getActive="setActiveMenu"

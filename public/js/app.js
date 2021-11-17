@@ -50007,7 +50007,6 @@ var render = function() {
   return _c("div", { staticClass: "dash-container" }, [
     _c(
       "div",
-      { staticClass: "account-info" },
       [
         _c("startup-account-menu", {
           attrs: { menu_list: _vm.menu_list },
