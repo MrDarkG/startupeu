@@ -5047,3 +5047,51 @@ a:hover{
 .das-menu li a.active span{
     color: #6200EE
 }
+.logo-min{
+        display: none;
+    }
+@media only screen and (max-width: 1200px) {
+    .sidebar > .menubar > div > .das-menu  > li > a > span,
+    .logo,
+    .logout-btn{
+        display: none;
+    }
+    .sidebar > .menubar > div > .das-menu,
+    .sidebar-logout {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 0px;
+    }
+    .sidebar .menubar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 76px;
+    }
+    
+    .logo-min{
+        display: block;
+    }
+    .sidebar > .logo-container{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        min-width: 76px;
+
+    }
+    .account-info{
+        margin-left: 10px!important;
+    }
+}
+@media only screen and (max-width: 676px) {
+    .sidebar {
+        padding-left: 0px!important;
+    }
+    .account-info{
+        margin-left: 4px!important;
+    }
+
+
+}

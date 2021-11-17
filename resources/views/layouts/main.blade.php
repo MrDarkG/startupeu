@@ -11,8 +11,9 @@
     <body class="row">
         <div class="col-3">
             <div class="sidebar pl-4">
-              <div>
-                <img src="/logo.svg">
+              <div class="logo-container">
+                <img src="/logo.svg" class="logo">
+                <img src="/mini-logo.svg" class="logo-min">
               </div>
               <div class="menubar">
                 <div>
@@ -30,7 +31,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/startup/dashboard/account" @if(str_contains(url()->current(), "/startup/dashboard/account")) class="active" @endif>
+                            <a href="/startup/dashboard/account" @if(str_contains(url()->current(), "/startup/account")) class="active" @endif>
                                 <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/myaccount.svg" alt="">
                                 <span>My account</span>
                             </a>
@@ -40,7 +41,10 @@
               </div>
               <div class="sidebar-logout">
                 <img src="/assets/images/power-off.png" alt="" height="30px" style="opacity:0.6">
-                Logout
+                <span class="logout-btn">
+                    
+                    Logout
+                </span>
               </div>
             </div>
         </div>
