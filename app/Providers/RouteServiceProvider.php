@@ -35,8 +35,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $filter=implode("|",\App\Models\Language::pluck("slug")->toArray());
-        $filter=["en"];
+        $filter=implode("|",\App\Models\Language::pluck("slug")->toArray());
 
         $this->configureRateLimiting();
         Route::pattern("language_id",$filter);
