@@ -2366,11 +2366,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     fields: Array,
     issues: Array,
-    mentors: Object
+    startups: Object
   },
   data: function data() {
     return {
@@ -2395,6 +2399,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     setSelectedFilters: function setSelectedFilters(filters) {
       console.log(filters);
+    },
+    setShortDescription: function setShortDescription(string) {
+      return string.length > 172 ? string.slice(0, 169) + ' ...' : string;
     }
   }
 });
@@ -44609,7 +44616,79 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _c("div", { staticClass: "col-md-9 pb-150" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 list-type-style" }, [
+                  _vm._v(
+                    "\r\n\t\t                        Startups                        \r\n\t\t                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 list-type-count" }, [
+                  _vm._v(
+                    "\r\n\t\t                        Showing  :" +
+                      _vm._s(_vm.startups.length) +
+                      " Startups                        \r\n\t\t                    "
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.startups, function(startup) {
+                  return _c("div", { staticClass: "col-md-4" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "list-item",
+                        staticStyle: { height: "235px" }
+                      },
+                      [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            staticStyle: { width: "62px" },
+                            attrs: { src: startup.logo, alt: "Logo" }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "title" }, [
+                            _vm._v(
+                              "\r\n\t\t                                \t" +
+                                _vm._s(startup.name) +
+                                " - " +
+                                _vm._s(startup.what_your_company_does) +
+                                "\r\n\t\t                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "desc",
+                              attrs: { title: startup.description }
+                            },
+                            [
+                              _vm._v(
+                                "\r\n\t\t                                \t" +
+                                  _vm._s(
+                                    _vm.setShortDescription(startup.description)
+                                  ) +
+                                  "\r\n\t\t                                "
+                              )
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "clb" })
@@ -44649,70 +44728,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "right" }, [
           _c("button", { attrs: { tyzxpe: "submit" } }, [_vm._v("Search")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-9 pb-150" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 list-type-style" }, [
-            _vm._v(
-              "\r\n\t\t                        Startups                        \r\n\t\t                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 list-type-count" }, [
-            _vm._v(
-              "\r\n\t\t                        Showing  :60 Startups                        \r\n\t\t                    "
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-4" }, [
-            _c(
-              "div",
-              { staticClass: "list-item", staticStyle: { height: "235px" } },
-              [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href:
-                        "https://beta.startupcentraleurasia.com/en/startups/v/25"
-                    }
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { width: "62px" },
-                      attrs: {
-                        src:
-                          "https://beta.startupcentraleurasia.com/themes/application/Components/images/application-no-image.png",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "title" }, [
-                      _vm._v("Intelliants ")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "desc" }, [
-                      _vm._v(
-                        "A software development company in the web segment...."
-                      )
-                    ])
-                  ]
-                )
-              ]
-            )
-          ])
         ])
       ])
     ])
