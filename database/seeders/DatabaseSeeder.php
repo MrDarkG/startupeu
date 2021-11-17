@@ -22,17 +22,17 @@ class DatabaseSeeder extends Seeder
             PermissionsTableSeeder::class,
             PermissionRoleTableSeeder::class,
             SettingsTableSeeder::class,
-            LangaugesSeeder::class;
-            PhoneIndexSeeder::class;
-            CountrySeeder::class;
-            FaqCuntrySeeder::class;
-            FieldSeeder::class;
-            IssueSeeder::class;
-            InvestorTypeSeeders::class;
-            IndustrySeeder::class;
-            RangeSeeder::class;
-            RolesTableSeeder::class;
-            UsersTableSeeder::class;
+            LangaugesSeeder::class,
+            PhoneIndexSeeder::class,
+            CountrySeeder::class,
+            FaqCuntrySeeder::class,
+            FieldSeeder::class,
+            IssueSeeder::class,
+            InvestorTypeSeeders::class,
+            IndustrySeeder::class,
+            RangeSeeder::class,
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
         ]);
         
        
