@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function class
+    public function run
     {
         $this->call([
             DataTypesTableSeeder::class,
