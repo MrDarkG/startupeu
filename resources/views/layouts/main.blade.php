@@ -30,7 +30,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.startupcentraleurasia.com/en/dashboard/startUpAccount" @if(str_contains(url()->current(), "/startup/account")) class="active" @endif>
+                            <a href="/startup/dashboard/account" @if(str_contains(url()->current(), "/startup/dashboard/account")) class="active" @endif>
                                 <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/myaccount.svg" alt="">
                                 <span>My account</span>
                             </a>

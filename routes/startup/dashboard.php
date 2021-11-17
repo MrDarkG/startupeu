@@ -19,3 +19,4 @@ Route::get('/', [DashboardController::class,"index"]);
 Route::get('/cards', [DashboardController::class,"cards"]);
 Route::get('/apply/{id}', [DashboardController::class,"show"]);
 
+Route::get('/account', [DashboardController::class,"my_account"]);

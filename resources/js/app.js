@@ -32,6 +32,12 @@ Vue.component('create-investor', require('./components/choose_side/investor.vue'
 Vue.component('create-mentor', require('./components/choose_side/mentor.vue').default);
 Vue.component('startup-dashboard', require('./components/startup/dashboard/index.vue').default);
 Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue').default);
+// STARTUP MY_ACCOUNT
+    Vue.component('startup-account-menu', require('./components/startup/my_account/menu.vue').default);
+    Vue.component('my-account', require('./components/startup/my_account/index.vue').default);
+    Vue.component('general-info', require('./components/startup/my_account/general.vue').default);
+    Vue.component('additional-info', require('./components/startup/my_account/additional_info.vue').default);
+    Vue.component('team-info', require('./components/startup/my_account/team.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

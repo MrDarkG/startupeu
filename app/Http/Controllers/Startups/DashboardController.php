@@ -19,6 +19,17 @@ class DashboardController extends Controller
             'types' => $types
         ]);
     }
+    public function my_account()
+    {
+        // $types=Investor_type::get();
+        // $investors=Investor::allInvestors();
+        
+        // return view("startup.my_account",[
+        //     'investors' => $investors,
+        //     'types' => $types
+        // ]);
+        return view("startup.my_account");
+    }
     public function cards()
     {
         $investors=Investor::allInvestors();
