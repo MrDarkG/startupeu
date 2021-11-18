@@ -5051,6 +5051,7 @@ a:hover{
         display: none;
     }
 @media only screen and (max-width: 1200px) {
+
     .sidebar > .menubar > div > .das-menu  > li > a > span,
     .logo,
     .logout-btn{
@@ -5086,6 +5087,10 @@ a:hover{
     }
 }
 @media only screen and (max-width: 676px) {
+    .investor-startup-card{
+        padding-left:0px!important;
+        padding-right:0px!important;
+    }
     .sidebar {
         padding-left: 0px!important;
     }
@@ -5101,4 +5106,11 @@ width: 100%;
     }
 
 
+}
+
+@media only screen and (max-width: 767px) {
+    .investor-startup-card{
+        padding-left:0px!important;
+        padding-right:0px!important;
+    }
 }
