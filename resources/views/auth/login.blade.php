@@ -1,8 +1,8 @@
 @extends("layouts.guest.guest")
 @section("content")
-<div class="container">
-    <div class="row sign-up">
-        <div class="col-md-4 left">
+<div class="container-fluid">
+    <div class="row sign-up ml-0 mr-0 justify-content-between">
+        <div class="col-xl-3 col-md-4 left">
             <a href="http://beta.startupcentraleurasia.com/en/" class="sign-logo">
                 <img src="http://beta.startupcentraleurasia.com/themes/application/Components/svg/sign-logo.svg" alt="">
             </a>
@@ -13,16 +13,16 @@
                 </p>
             </div>
         </div>
-        <div class="col-md-8 right">
+        <div class="col-xl-8 col-md-7 right d-flex flex-column justify-content-center ">
             <div class="sign-title">
                 Sign in        
             </div>
             <form action="/login" class="sign-form" method="post" id="login-form" novalidate="novalidate">
-                <div class="row">
+                <div class="row flex-column">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group col-md-6">
-                            <label for="email" class="col-md-4 col-form-label text-md-right p-0 pb-2">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label  p-0 pb-2">{{ __('E-Mail Address') }}</label>
                             <div class="">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 

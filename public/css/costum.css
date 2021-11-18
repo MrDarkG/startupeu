@@ -1655,7 +1655,8 @@ a:hover{
 }
 
 .sign-up .left {
-    height: 889px;
+    height: calc(100vh - 156px);
+
     background: url(../svg/sign-bg.svg) #6200EE no-repeat;
     border-radius: 36px;
     background-position: bottom;
@@ -1777,7 +1778,7 @@ a:hover{
     padding: 16px 20px;
     width: 201px;
     height: 44px;
-    background: #03DAC5;
+    background: #6200EE;
     border-radius: 16px;
     font-family: FiraGO-regular;
     font-style: normal;
@@ -5102,15 +5103,22 @@ a:hover{
     }
     .additional-form > div > .row >  div > .startup-form-btn{
         margin-right: 0px;
-width: 100%;
+        width: 100%;
     }
 
 
 }
-
 @media only screen and (max-width: 767px) {
     .investor-startup-card{
         padding-left:0px!important;
         padding-right:0px!important;
     }
+}
+.register-btn {
+    background: #03DAC5;
+    height: 56px;
+    border-radius: 16px;
+    color: white;
+    font-weight: bold;
+    padding: 16px 48px;
 }
