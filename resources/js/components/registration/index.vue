@@ -1,6 +1,6 @@
 <template>
-<div class="row sign-up">
-    <div class="col-md-4 left">
+<div class="row sign-up ml-0 mr-0 justify-content-between">
+    <div class="col-xl-3 col-md-4 left">
         <a href="http://beta.startupcentraleurasia.com/en/" class="sign-logo">
             <img src="http://beta.startupcentraleurasia.com/themes/application/Components/svg/sign-logo.svg" alt="">
         </a>
@@ -9,7 +9,7 @@
             <p>Already have an account?<a href="/login">Login</a></p>
         </div>
     </div>
-    <div class="col-md-8 right">
+    <div class="col-md-7 col-xl-8 right d-flex justify-content-center flex-column">
         <div class="sign-title">
             sign up        
         </div>
@@ -38,10 +38,11 @@
                     <label for="re_password">Repeat password</label>
                     <input type="password" :class="isInputFilled(input.password.repeat)" v-model="input.password.repeat" id="re_password"  class="form-control">
                 </div>
-                <button type="submit" id="submit" class="btn">
-                    Create an account
-                </button>
-                <div class="clear"></div>
+                <div class="col-md-6 ">
+                    <button type="submit" class="btn register-btn">
+                        Create an account
+                    </button>
+                </div>
                 <div class="social-sign">
                     <a href="" class="g-btn">
                         <img src="http://beta.startupcentraleurasia.com/themes/application/Components/svg/g-sign.svg" alt="">
