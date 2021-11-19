@@ -42,7 +42,8 @@ class MentorServices extends MainServices
         	'country_id'=>$request->input("multiselect.country.is_selected"),
         	'fields_id'=>$request->input("multiselect.country.is_selected"),
         	'issues_id'=>$request->input("multiselect.country.is_selected"),
-        	'logo'=>$filaname
+        	'logo'=>'/mentors/'.$filaname
+        	
 		]);
 		return [
             "status"=>"1",
