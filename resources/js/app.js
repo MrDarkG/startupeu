@@ -38,6 +38,9 @@ Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue
     Vue.component('general-info', require('./components/startup/my_account/general.vue').default);
     Vue.component('additional-info', require('./components/startup/my_account/additional_info.vue').default);
     Vue.component('team-info', require('./components/startup/my_account/team.vue').default);
+// INVESTOR DASHBOARD
+    Vue.component('investor-dashboard', require('./components/investor/index.vue').default);
+    Vue.component('investor-startup-cards', require('./components/investor/card.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
