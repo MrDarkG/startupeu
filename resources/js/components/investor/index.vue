@@ -25,7 +25,7 @@
 	        		</div>
 	        	</div>
 	        	<div>
-	        		<button class="btn text-white p-2" style="background:#6200ee;border-radius:16px;">
+	        		<button @click="$modal.show('add_investment_opportunities')" class="btn text-white p-2" style="background:#6200ee;border-radius:16px;">
 	        			<span class="text-white" style="font-size:16px;">+</span> Add Investment Oportunities
 	        		</button>
 	        	</div>
@@ -36,12 +36,25 @@
 	        </investor-startup-cards>
 	    </div>
 	</div>
+	<modal class="add_investment_opportunities" name="add_investment_opportunities">
+		<div style="position:relative;" class="d-flex justify-content-end p-1">
+			<div class="position-fixed bg-danger text-white d-flex justify-content-center align-items-center" @click="$modal.hide('add_investment_opportunities')" style="height:30px;width:30px;z-index:10000;border-radius:5px;font-weight:bold;cursor:pointer;">
+				X
+			</div>
+		</div>
+		<investment-register>
+		</investment-register>
+	</modal>
 </div>
 </template>
 <script>
-export default{
+export default{	
+	mounted(){
+		this.$modal.show('add_investment_opportunities')
+	},
 	data(){
 		return {
+			value:[10000,15000],
 			custom_investors:[
 				{name:1},
 				{name:2},
@@ -52,3 +65,13 @@ export default{
 	}
 };
 </script>
+<style>
+.add_investment_opportunities .vm--modal{
+	overflow-y:auto;
+	top:15px!important;
+	left:15px!important;
+	width:98%!important;
+	height:97vh!important;
+	background:#ebebeb;
+}
+</style>
