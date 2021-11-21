@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="title">Choose opportunity title</label>
-                        <input type="text" id="title" v-model="input.choose_opportunity" name="title" class="form-control" placeholder="Full Name">
+                        <input type="text" id="title" :class="setClassByValue(input.choose_opportunity)" v-model="input.choose_opportunity" name="title" class="form-control" placeholder="Full Name">
                     </div>
                     <div class="col-md-6">
                         <label for="interest_martket_id">Which markets are you interested in?</label>
@@ -166,16 +166,16 @@
                                 <span>I am interested in MRR range:</span>
                                 <div class="chosen-radio d-flex align-items-center w-100">
                                     <div>
-                                       {{ value[0] }} 
+                                       {{ input.range[0] }} 
                                     </div>
                                     <vue-slider 
                                         class="investor_mmr_slider ml-2  w-100"
-                                        v-model="value" 
+                                        v-model="input.range" 
                                         :min="10000" 
                                         :max="15000"
                                     />
                                     <div class="ml-2">
-                                       {{ value[1] }} 
+                                       {{ input.range[1] }} 
                                     </div>
                                 </div>
                             </div>
@@ -269,8 +269,8 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="btns ">
-                            <button class="add-publish-btn btn" type="submit">
+                        <div class="btns" @click="button=true;sendToSave()">
+                            <button class="add-publish-btn btn">
                                 Publish
                             </button>
                         </div>
@@ -294,8 +294,8 @@ export default{
             menu:{
                 hovered:true,
             },
-			value:[10000,15000],
             input:{
+			    range:[10000,15000],
                 choose_opportunity:"",
                 which:{
                     markets:"",
@@ -356,8 +356,8 @@ export default{
                 input.additional_info.problem_solving,
                 input.additional_info.expected_revenue,
                 input.additional_info.arr_data,
-                this.value[0],
-                this.value[1],
+                input.range[0],
+                input.range[1],
                 input.additional_info.do_you_need_cac,
                 input.additional_info.startup_have_prototype,
                 input.additional_info.should_startup_has_experience,
@@ -368,7 +368,7 @@ export default{
             return this.checkStringValidation(array)
         },
         checkStringValidation(array){
-            let counter = 0
+            let counter = 1
             array.map((str, index)=>{
                 if(Array.isArray(str) && str.length > 0){
                     counter+=1
@@ -380,14 +380,16 @@ export default{
         },
         sendToSave(){
             if(this.isInputsValid()){
-                axios.post('/register/investor',this.input)
+                axios.post('/register/investment',this.input)
                 .then((response)=>{
                     console.log('წარმატებით დაემატა!')
                 }).catch(()=>{
                     console.log('წარუმატებელი მოთხოვნა!')
                 })
+                this.$modal.hide('add_investment_opportunities')
+            }else{
+                document.getElementsByClassName('vm--modal')[0].scrollTo(0,0)
             }
-
         },
         hoverMenu(){
             this.menu.hovered = !this.menu.hovered
