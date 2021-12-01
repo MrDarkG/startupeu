@@ -41,6 +41,7 @@ Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue
 
 // INVESTOR DASHBOARD
     Vue.component('investor-dashboard', require('./components/investor/index.vue').default);
+    Vue.component('investor-account', require('./components/investor/account.vue').default);
     Vue.component('investor-startup-cards', require('./components/investor/card.vue').default);
 
 // INVESTMENT

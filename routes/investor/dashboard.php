@@ -18,4 +18,4 @@ use App\Http\Controllers\InvestorDashboardController;
 Route::get('/index', [InvestorDashboardController::class,"index"]);
 Route::get('/opportunities', [InvestorDashboardController::class,"opportunities"]);
 Route::get('/startups', [InvestorDashboardController::class,"startups"]);
-Route::get('/my_account', [InvestorDashboardController::class,"my_account"]);
+Route::get('/account', [InvestorDashboardController::class,"my_account"]);

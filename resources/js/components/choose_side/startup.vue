@@ -9,26 +9,26 @@
     <div class="row sign-form">
         <div class="col-md-4">
             <label for="title">Startup Name</label>
-            <input type="text" id="title" name="title" v-model="input.startup.name" :class="setClassByValue(input.startup.name)" class="form-control" placeholder="Startup Name">
+            <input type="text" id="title" name="title" v-model="input.startup.name" :class="setClassByValue(input.startup.name,false,button)" class="form-control" placeholder="Startup Name">
         </div>
         <div class="col-md-4">
             <label for="founded">Founded</label>
-            <input type="text" id="founded" name="founded" v-model="input.founded.year" :class="setClassByValue(input.founded.year)"  class="form-control" placeholder="Year">
+            <input type="text" id="founded" name="founded" v-model="input.founded.year" :class="setClassByValue(input.founded.year,false,button)"  class="form-control" placeholder="Year">
         </div>
         <div class="col-md-4">
             <label for="founded_number">Number of Founders</label>
-            <input type="text" id="founded_number" v-model="input.founded.number" :class="setClassByValue(input.founded.number)" name="founded_number"  class="form-control" placeholder="Number">
+            <input type="text" id="founded_number" v-model="input.founded.number" :class="setClassByValue(input.founded.number,false,button)" name="founded_number"  class="form-control" placeholder="Number">
         </div>
         <div class="col-md-4">
             <label for="ceo">Full Name</label>
-            <input type="text" id="ceo" name="ceo" v-model="input.full_name" :class="setClassByValue(input.full_name)" class="form-control" placeholder="Full Name">
+            <input type="text" id="ceo" name="ceo" v-model="input.full_name" :class="setClassByValue(input.full_name,false,button)" class="form-control" placeholder="Full Name">
         </div>
         <div class="col-md-4">
             <label for="phone_index">Phone index</label>
             <multiselect
                 id="phone_index"
                 v-model="input.phone.index"
-                :style="setClassByValue(input.phone.index,true)"
+                :style="setClassByValue(input.phone.index,true,button)"
                 track-by="name" 
                 label="name"
                 :options="industries"
@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-4">
             <label for="ceo_mobile">CEO mobile number</label>
-            <input type="text" id="ceo_mobile" v-model="input.phone.number" :class="setClassByValue(input.phone.number)" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
+            <input type="text" id="ceo_mobile" v-model="input.phone.number" :class="setClassByValue(input.phone.number,false,button)" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
         </div>
         <!-- <div class="col-md-3">
             <label for="ceo_email">CEO e-mail</label>
@@ -46,30 +46,30 @@
         </div> -->
         <div class="col-md-6  ">
             <label for="startup_email">Startup email</label>
-            <input type="text" id="startup_email" v-model="input.startup.email" :class="setClassByValue(input.startup.email)" name="startup_email" class="form-control" placeholder="Email address">
+            <input type="text" id="startup_email" v-model="input.startup.email" :class="setClassByValue(input.startup.email,false,button)" name="startup_email" class="form-control" placeholder="Email address">
         </div>
         <div class="col-md-6  ">
             <label for="website">Website</label>
-            <input type="text" id="website" v-model="input.website" :class="setClassByValue(input.website)" name="website" class="form-control" placeholder="Website address">
+            <input type="text" id="website" v-model="input.website" :class="setClassByValue(input.website,false,button)" name="website" class="form-control" placeholder="Website address">
         </div>
         <div class="col-md-12">
             <label for="what_your_company_does">What your company does?</label>
-            <textarea name="what_your_company_does" v-model="input.about.company" :class="setClassByValue(input.about.company)" id="what_your_company_does" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+            <textarea name="what_your_company_does" v-model="input.about.company" :class="setClassByValue(input.about.company,false,button)" id="what_your_company_does" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
         <div class="col-md-12">
             <label for="describe_your_product_text">Describe your product and what it does or will do</label>
-            <textarea name="describe_your_product_text" v-model="input.about.product" :class="setClassByValue(input.about.product)" id="describe_your_product_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+            <textarea name="describe_your_product_text" v-model="input.about.product" :class="setClassByValue(input.about.product,false,button)" id="describe_your_product_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
         <div class="col-md-12">
             <label for="what_is_your_innovation">What is your innovation - what are you doing in an absolutely new or significantly improved way?</label>
-            <textarea name="what_is_your_innovation" v-model="input.about.innovation" :class="setClassByValue(input.about.innovation)" id="what_is_your_innovation" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+            <textarea name="what_is_your_innovation" v-model="input.about.innovation" :class="setClassByValue(input.about.innovation,false,button)" id="what_is_your_innovation" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
         <div class="col-md-4" :class="">
             <label for="what_is_your_current_stage">What is your current stage ?</label>
             <multiselect
                 id="what_is_your_current_stage"
                 v-model="input.current_stage"
-                :style="setClassByValue(input.current_stage,true)"
+                :style="setClassByValue(input.current_stage,true,button)"
                 track-by="name" 
                 label="name"
                 :options="industries"
@@ -82,7 +82,7 @@
             <multiselect
                 id="your_business_model"
                 v-model="input.business_model"
-                :style="setClassByValue(input.business_model,true)"
+                :style="setClassByValue(input.business_model,true,button)"
                 track-by="name" 
                 label="name"
                 :options="industries"
@@ -95,7 +95,7 @@
             <multiselect
                 id="target_audience"
                 v-model="input.target_audience"
-                :style="setClassByValue(input.target_audience,true)"
+                :style="setClassByValue(input.target_audience,true,button)"
                 track-by="name" 
                 label="name"
                 :options="industries"
@@ -109,7 +109,7 @@
                 <multiselect
                     id="which_markets_are_you_interested_in"
                     v-model="input.industries"
-                    :style="setClassByValue(input.industries,true)"
+                    :style="setClassByValue(input.industries,true,button)"
                     track-by="name" 
                     label="name"
                     :options="industries"
@@ -124,7 +124,7 @@
                 <multiselect
                     id="country_id"
                     v-model="input.country"
-                    :style="setClassByValue(input.country,true)"
+                    :style="setClassByValue(input.country,true,button)"
                     track-by="name" 
                     label="name"
                     :options="industries"
@@ -138,7 +138,7 @@
             <multiselect
                 id="how_much"
                 v-model="input.how_much"
-                :style="setClassByValue(input.how_much,true)"
+                :style="setClassByValue(input.how_much,true,button)"
                 track-by="name" 
                 label="name"
                 :options="industries"
@@ -151,7 +151,7 @@
             <multiselect
                 id="what_are_you_looking_for"
                 v-model="input.what_are_you_looking"
-                :style="setClassByValue(input.what_are_you_looking,true)"
+                :style="setClassByValue(input.what_are_you_looking,true,button)"
                 track-by="name" 
                 label="name"
                 :options="industries"
@@ -165,7 +165,7 @@
                 <strong>warning!</strong>   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    
             </div>
         </div>
-        <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited)" style="margin-right: 20px;height:100%;">
+        <div class="col-md-6 st-logo position-relative" :class="setClassByValue(input.image,false,button)" style="margin-right: 20px;height:100%;">
             <VueFileAgent 
                 :accept="'image/*'"
                 :maxSize="'10MB'"
@@ -185,7 +185,7 @@
         </div>
     </div>
     <div class="float-right">
-        <button type="submit" @click="button = true;sendToSave()" id="submit" class="btn">Get started </button>
+        <button type="submit" @click="button = true;sendToSave('/register/startup',input,'container-fluid')" id="submit" class="btn">Get started </button>
     </div>
     <modal name="chose_side_image_modal" id="choose_side_image_modal">
         <div class="row p-4">
@@ -222,7 +222,9 @@
 </div>
 </template>
 <script>
-export default{ 
+import helper from '../../mixin/helper.vue'
+export default{
+    mixins:[helper],
     data(){
         return {
             industries:[
@@ -259,7 +261,6 @@ export default{
                     index:"",
                     number:"",
                 },
-                ceo_email:"",
                 website:"",
                 about:{
                     company:"",
@@ -269,79 +270,21 @@ export default{
                 current_stage:"",
                 business_model:"",
                 target_audience:"",
-                industries:"",
+                industries:[],
                 country:"",
                 how_much:"",
-                what_are_you_looking:"",
+                what_are_you_looking:[],
                 image:"",
             },
         }
     },
     methods:{
-        setClassByValue(input, is_multiselect=false){
-            if (this.button) {
-                let bol = (is_multiselect)?{
-                    border:'solid 1.5px red!important',
-                    borderRadius:'5px'
-                }:'border-danger'
-
-                let is_array = (Array.isArray(input) && input.length === 0)?bol:''
-                return (input !== null && input !== "" && input !== " ")?is_array:bol
-            }
-        },
         onImageUpload(event){
             this.image.uploaded = event[0].urlResized
             this.$modal.show('chose_side_image_modal')
         },
         change(file){
-            this.image.edited = file.canvas.toDataURL('image/jpeg')
-        },
-        checkStringValidation(array){
-            let counter = 0
-            array.map((str, index)=>{
-                if(Array.isArray(str) && str.length > 0){
-                    counter+=1
-                }else if(str !== undefined && str !== null && str !== "" && !Array.isArray(str)){
-                    counter+=1
-                }
-            })
-            return counter === array.length
-        },
-        isInputsValid(){
-            let input = this.input
-            let array = [
-                input.startup.name,
-                input.startup.email,
-                input.founded.year,
-                input.founded.number,
-                input.full_name,
-                input.phone.index,
-                input.phone.number,
-                input.website,
-                input.about.company,
-                input.about.product,
-                input.about.innovation,
-                input.current_stage,
-                input.business_model,
-                input.target_audience,
-                input.industries,
-                input.country,
-                input.how_much,
-                input.what_are_you_looking,
-                input.image,
-            ]
-            return this.checkStringValidation(array)
-        },
-        sendToSave(){
-            this.input.image = this.image.edited
-            if(this.isInputsValid()){
-                axios.post('/register/startup',this.input)
-                .then((response)=>{
-                    console.log('წარმატებით დაემატა!')
-                }).catch(()=>{
-                    console.log('წარუმატებელი მოთხოვნა!')
-                })
-            }
+            this.input.image = file.canvas.toDataURL('image/jpeg')
         },
     },
 };

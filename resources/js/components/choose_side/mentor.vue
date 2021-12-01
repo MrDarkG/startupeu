@@ -10,15 +10,15 @@
         <div class="row">
             <div class="col-md-6">
                 <label for="full_name">Full Name</label>
-                <input type="text" id="full_name" name="full_name" v-model="input.name" :class="setClassByValue(input.name)" class="form-control" placeholder="Full Name">
+                <input type="text" id="full_name" name="full_name" v-model="input.name" :class="setClassByValue(input.name,false,button)" class="form-control" placeholder="Full Name">
             </div>
             <div class="col-md-6">
                 <label for="linkedin_address">Linkedin profile</label>
-                <input type="text" id="linkedin_address" name="linkedin_address" v-model="input.linkedin" :class="setClassByValue(input.linkedin)" class="form-control" placeholder="Linkedin profile">
+                <input type="text" id="linkedin_address" name="linkedin_address" v-model="input.linkedin" :class="setClassByValue(input.linkedin,false,button)" class="form-control" placeholder="Linkedin profile">
             </div>
             <div class="col-md-12">
                 <label for="experience_text">What experience do I have and what proccesses did I improve?</label>
-                <textarea name="experience_text" v-model="input.experience" :class="setClassByValue(input.experience)" id="experience_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+                <textarea name="experience_text" v-model="input.experience" :class="setClassByValue(input.experience,false,button)" id="experience_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
@@ -26,7 +26,7 @@
                     <multiselect
                         id="country_id"
                         v-model="input.country"
-                        :style="setClassByValue(input.country,true)"
+                        :style="setClassByValue(input.country,true,button)"
                         track-by="name" 
                         label="name"
                         :options="countries"
@@ -41,7 +41,7 @@
                     <multiselect
                         id="fields_consult_id"
                         v-model="input.which.field"
-                        :style="setClassByValue(input.which.field,true)"
+                        :style="setClassByValue(input.which.field,true,button)"
                         track-by="name" 
                         label="name"
                         :options="countries"
@@ -56,7 +56,7 @@
                     <multiselect
                         id="issues_consult_id"
                         v-model="input.which.issue"
-                        :style="setClassByValue(input.which.issue,true)"
+                        :style="setClassByValue(input.which.issue,true,button)"
                         track-by="name" 
                         label="name"
                         :options="countries"
@@ -71,7 +71,7 @@
                     <strong>warning!</strong>  file_text_for_mentor                    
                 </div>
             </div>
-                <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited)" style="height:100%;">
+                <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited,false,button)" style="height:100%;">
                     <VueFileAgent 
                         :accept="'image/*'"
                         :maxSize="'10MB'"
@@ -90,7 +90,9 @@
                 </div>
         </div>
         <div class="float-right">
-            <button type="submit" id="submit" @click="button = true;sendToSave()" class="btn">Get started </button>
+            <button @click="button = true;sendToSave('/register/mentor',input)" class="btn">
+                Get started 
+            </button>
         </div>
     </div>
     <modal name="chose_side_mentor_image_modal" id="chose_side_mentor_image_modal">
@@ -128,7 +130,9 @@
 </div>
 </template>
 <script>
+import helper from '../../mixin/helper.vue'
 export default{
+    mixins:[helper],
     data(){
         return {
             fileRecords:[],
@@ -165,51 +169,6 @@ export default{
         }
     },
     methods:{
-        checkStringValidation(array){
-            let counter = 0
-            array.map((str, index)=>{
-                if(Array.isArray(str) && str.length > 0){
-                    counter+=1
-                }else if(str !== undefined && str !== null && str !== "" && !Array.isArray(str)){
-                    counter+=1
-                }
-            })
-            return counter === array.length
-        },
-        isInputsValid(){
-            let input = this.input
-            let array = [
-                input.name,
-                input.linkedin,
-                input.experience,
-                input.country,
-                input.which.field,
-                input.which.issue,
-                input.image
-            ]
-            return this.checkStringValidation(array)
-        },
-        setClassByValue(input, is_multiselect=false){
-            if (this.button) {
-                let bol = (is_multiselect)?{
-                    border:'solid 1.5px red!important',
-                    borderRadius:'5px'
-                }:'border-danger'
-
-                let is_array = (Array.isArray(input) && input.length === 0)?bol:''
-                return (input !== null && input !== "" && input !== " ")?is_array:bol
-            }
-        },
-        sendToSave(){
-            if(this.isInputsValid()){
-                axios.post('/register/mentor',this.input)
-                .then((response)=>{
-                    console.log('წარმატებით დაემატა!')
-                }).catch(()=>{
-                    console.log('წარუმატებელი მოთხოვნა!')
-                })
-            }
-        },
         onImageUpload(event){
             this.image.uploaded = event[0].urlResized
             this.$modal.show('chose_side_mentor_image_modal')

@@ -19,7 +19,7 @@
                 <div>
                     <ul class="das-menu">
                         <li>
-                            <a href="https://www.startupcentraleurasia.com/en/dashboard/" @if(str_contains(url()->current(), "/investor/dashboard")) class="active" @endif>
+                            <a href="/investor/index" @if(str_contains(url()->current(), "/investor/index")) class="active" @endif>
                                 <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/dashboard.svg" alt="">
                                 <span>Dashboard</span>
                             </a>
@@ -37,7 +37,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/startup/dashboard/account" @if(str_contains(url()->current(), "/investor/account")) class="active" @endif>
+                            <a href="/investor/account" @if(str_contains(url()->current(), "/investor/account")) class="active" @endif>
                                 <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/myaccount.svg" alt="">
                                 <span>My account</span>
                             </a>

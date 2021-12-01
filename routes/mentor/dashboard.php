@@ -17,4 +17,4 @@ use App\Http\Controllers\MentorDashboardController;
 
 Route::get('/index', [MentorDashboardController::class,"index"]);
 Route::get('/calendar', [MentorDashboardController::class,"opportunities"]);
-Route::get('/my_account', [MentorDashboardController::class,"my_account"]);
+Route::get('/account', [MentorDashboardController::class,"my_account"]);

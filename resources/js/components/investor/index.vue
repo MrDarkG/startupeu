@@ -50,7 +50,7 @@
 <script>
 export default{	
 	mounted(){
-		this.$modal.show('add_investment_opportunities')
+		// this.$modal.show('add_investment_opportunities')
 	},
 	data(){
 		return {

@@ -20,6 +20,6 @@ class InvestorDashboardController extends Controller
     }
     public function my_account()
     {
-        return view('investor.dashboard');
+        return view('investor.account');
     }
 }

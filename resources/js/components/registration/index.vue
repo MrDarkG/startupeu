@@ -14,29 +14,29 @@
             sign up        
         </div>
 
-        <form action="register" @submit.prevent="submit=true;register()" class="sign-form" method="post">
+        <form action="register" @submit.prevent="submit=true;sendToSave('/register',input)" class="sign-form" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" :class="isInputFilled(input.email)" v-model="input.email" class="form-control">
+                    <input type="text" id="email" name="email" :class="setClassByValue(input.email, false, submit)" v-model="input.email" class="form-control">
                 </div>
                 <div class="col-md-2">
                     <label for="phone_index">Phone index</label>
-                    <select name="phone_index" class="form-control" :class="isInputFilled(input.phone.index)" v-model="input.phone.index" id="phone_index">
+                    <select name="phone_index" class="form-control" :class="setClassByValue(input.phone.index, false, submit)" v-model="input.phone.index" id="phone_index">
                         <option :value="index.id" v-for="index in phone_index">{{ index.code }}</option>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" name="phone" :class="isInputFilled(input.phone.number)" v-model="input.phone.number" class="form-control">
+                    <input type="text" id="phone" name="phone" :class="setClassByValue(input.phone.number, false, submit)" v-model="input.phone.number" class="form-control">
                 </div>
                 <div class="col-md-6  ">
                     <label for="password">Password</label>
-                    <input type="password" :class="isInputFilled(input.password.main)" v-model="input.password.main" id="password" class="form-control ">
+                    <input type="password" :class="setClassByValue(input.password.main, false, submit)" v-model="input.password.main" id="password" class="form-control ">
                 </div>
                 <div class="col-md-6 ">
                     <label for="re_password">Repeat password</label>
-                    <input type="password" :class="isInputFilled(input.password.repeat)" v-model="input.password.repeat" id="re_password"  class="form-control">
+                    <input type="password" :class="setClassByValue(input.password.repeat, false, submit)" v-model="input.password.repeat" id="re_password"  class="form-control">
                 </div>
                 <div class="col-md-6 ">
                     <button type="submit" class="btn register-btn">
@@ -70,7 +70,10 @@ Vue.use(VueFileAgent)
 Vue.use(VueToastify)
 Vue.component('multiselect', Multiselect)
 Vue.use(VModal, { componentName: 'modal',dynamicDefault: { draggable: true, resizable: false }  })
-export default{
+
+import helper from '../../mixin/helper.vue'
+export default{ 
+    mixins:[helper],
     components: {
         Cropper, CircleStencil,Multiselect 
     },
@@ -95,12 +98,6 @@ export default{
         isInputFilled(string){
             let is_error = (string !== "" && string !== " " &&  string !== undefined)?"":"border-danger"
             return this.submit?is_error:''
-        },
-        register(){
-            axios.post("/register",this.input)
-            .then(()=>{
-
-            })
         },
     },
     created(){

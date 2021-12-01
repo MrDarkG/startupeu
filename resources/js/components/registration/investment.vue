@@ -12,14 +12,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="title">Choose opportunity title</label>
-                        <input type="text" id="title" :class="setClassByValue(input.choose_opportunity)" v-model="input.choose_opportunity" name="title" class="form-control" placeholder="Full Name">
+                        <input type="text" id="title" :class="setClassByValue(input.choose_opportunity, false, button)" v-model="input.choose_opportunity" name="title" class="form-control" placeholder="Full Name">
                     </div>
                     <div class="col-md-6">
                         <label for="interest_martket_id">Which markets are you interested in?</label>
                        <multiselect
                             id="interest_martket_id"
                             v-model="input.which.markets"
-                            :style="setClassByValue(input.which.markets,true)"
+                            :style="setClassByValue(input.which.markets,true,button)"
                             track-by="name" 
                             label="name"
                             :options="countries"
@@ -32,7 +32,7 @@
                         <multiselect
                             id="industries"
                             v-model="input.which.industries"
-                            :style="setClassByValue(input.which.industries,true)"
+                            :style="setClassByValue(input.which.industries,true,button)"
                             track-by="name" 
                             label="name"
                             :options="countries"
@@ -63,12 +63,12 @@
                             <div class="info-bar-inv">
                                 <span>Are you interested in team info?</span>
                                 <div class="chosen-radio">
-                                    <input id="radio1-1" v-model="input.additional_info.interested_team_info" :class="setClassByValue(input.additional_info.interested_team_info)" class="radio-style" name="are_you_interested_in_team_info" type="radio" checked="" value="1">
+                                    <input id="radio1-1" v-model="input.additional_info.interested_team_info" :class="setClassByValue(input.additional_info.interested_team_info, false, button)" class="radio-style" name="are_you_interested_in_team_info" type="radio" checked="" value="1">
                                     <label for="radio1-1" class="radio-style-2-label">Yes</label>
                                 </div>
 
                                 <div class="chosen-radio">
-                                    <input id="radio1-2" v-model="input.additional_info.interested_team_info" :class="setClassByValue(input.additional_info.interested_team_info)" class="radio-style" name="are_you_interested_in_team_info" type="radio" checked="" value="0">
+                                    <input id="radio1-2" v-model="input.additional_info.interested_team_info" :class="setClassByValue(input.additional_info.interested_team_info, false, button)" class="radio-style" name="are_you_interested_in_team_info" type="radio" checked="" value="0">
                                     <label for="radio1-2" class="radio-style-2-label">No</label>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="btns" @click="button=true;sendToSave()">
+                        <div class="btns" @click="button=true;sendToSave('/register/investment' ,input ,'vm--modal')">
                             <button class="add-publish-btn btn">
                                 Publish
                             </button>
@@ -284,7 +284,9 @@
 <script>
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/antd.css'
+import helper from '../../mixin/helper.vue'
 export default{
+    mixins:[helper],
 	components:{
         VueSlider
     },
@@ -332,65 +334,7 @@ export default{
             ],
 		}
 	},
-    methods:{
-        setClassByValue(input, is_multiselect=false){
-            if (this.button) {
-                let bol = (is_multiselect)?{
-                    border:'solid 1.5px red!important',
-                    borderRadius:'5px'
-                }:'border-danger'
-
-                let is_array = (Array.isArray(input) && input.length === 0)?bol:''
-                return (input !== null && input !== "" && input !== " ")?is_array:bol
-            }
-        },
-        isInputsValid(){
-            let input = this.input
-            let array = [
-                input.choose_opportunity,
-                input.which.markets,
-                input.which.industries,,
-                input.additional_info.interested_team_info,
-                input.additional_info.churn_rate,
-                input.additional_info.interested_traction,
-                input.additional_info.problem_solving,
-                input.additional_info.expected_revenue,
-                input.additional_info.arr_data,
-                input.range[0],
-                input.range[1],
-                input.additional_info.do_you_need_cac,
-                input.additional_info.startup_have_prototype,
-                input.additional_info.should_startup_has_experience,
-                input.additional_info.should_startup_mention_how_much_money,
-                input.additional_info.what_is_your_retention,
-                input.additional_info.how_much_percent_they_need,
-            ]
-            return this.checkStringValidation(array)
-        },
-        checkStringValidation(array){
-            let counter = 1
-            array.map((str, index)=>{
-                if(Array.isArray(str) && str.length > 0){
-                    counter+=1
-                }else if(str !== undefined && str !== null && str !== "" && !Array.isArray(str)){
-                    counter+=1
-                }
-            })
-            return counter === array.length
-        },
-        sendToSave(){
-            if(this.isInputsValid()){
-                axios.post('/register/investment',this.input)
-                .then((response)=>{
-                    console.log('წარმატებით დაემატა!')
-                }).catch(()=>{
-                    console.log('წარუმატებელი მოთხოვნა!')
-                })
-                this.$modal.hide('add_investment_opportunities')
-            }else{
-                document.getElementsByClassName('vm--modal')[0].scrollTo(0,0)
-            }
-        },
+    methods:{ 
         hoverMenu(){
             this.menu.hovered = !this.menu.hovered
             let is_rotate = (this.menu.hovered)?'0':'180'

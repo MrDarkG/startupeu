@@ -10,34 +10,34 @@
         <div class="row">
             <div class="col-md-6">
                 <label for="full_name">Full Name</label>
-                <input type="text" id="full_name" name="full_name" v-model="input.name.full" :class="setClassByValue(input.about.investments)" class="form-control" placeholder="Full Name">
+                <input type="text" id="full_name" name="full_name" v-model="input.name.full" :class="setClassByValue(input.about.investments, false, button)" class="form-control" placeholder="Full Name">
             </div>
             <div class="col-md-6">
                 <label for="company_name">Company name</label>
-                <input type="text" id="company_name" name="company_name" v-model="input.name.company" :class="setClassByValue(input.about.investments)" class="form-control" placeholder="Company name">
+                <input type="text" id="company_name" name="company_name" v-model="input.name.company" :class="setClassByValue(input.about.investments, false, button)" class="form-control" placeholder="Company name">
             </div>
             <div class="col-md-12">
                 <label for="successful_investments">Successful investments</label>
-                <textarea name="successful_investments" v-model="input.about.investments" :class="setClassByValue(input.about.investments)" id="successful_investments" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+                <textarea name="successful_investments" v-model="input.about.investments" :class="setClassByValue(input.about.investments, false, button)" id="successful_investments" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
             </div>
             <div class="col-md-12">
                 <label for="successful_investments">About Investor</label>
-                <textarea name="about_investor" v-model="input.about.investor" :class="setClassByValue(input.about.investor)" id="about_investor" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
+                <textarea name="about_investor" v-model="input.about.investor" :class="setClassByValue(input.about.investor, false, button)" id="about_investor" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
             </div>
             <div class="col-md-4">
                 <label for="website">Website</label>
-                <input type="text" id="website" name="website" v-model="input.website" :class="setClassByValue(input.website)" class="form-control" placeholder="Website address">
+                <input type="text" id="website" name="website" v-model="input.website" :class="setClassByValue(input.website, false, button)" class="form-control" placeholder="Website address">
             </div>
             <div class="col-md-4">
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" v-model="input.email" :class="setClassByValue(input.email)" class="form-control" placeholder="Email address">
+                <input type="text" id="email" name="email" v-model="input.email" :class="setClassByValue(input.email, false, button)" class="form-control" placeholder="Email address">
             </div>
             <div class="col-md-4">
                 <label for="investment_range">Investment range</label>
                 <multiselect
                     id="investment_range"
                     v-model="input.investment_range"
-                    :style="setClassByValue(input.investment_range,true)"
+                    :style="setClassByValue(input.investment_range,true,button)"
                     track-by="name" 
                     label="name"
                     :options="countries"
@@ -50,7 +50,7 @@
                 <multiselect
                     id="interest_martket_id"
                     v-model="input.which.market"
-                    :style="setClassByValue(input.which.market,true)"
+                    :style="setClassByValue(input.which.market,true,button)"
                     track-by="name" 
                     label="name"
                     :options="countries"
@@ -63,7 +63,7 @@
                 <multiselect
                     id="interest_stage_id"
                     v-model="input.which.stage"
-                    :style="setClassByValue(input.which.stage,true)"
+                    :style="setClassByValue(input.which.stage,true,button)"
                     track-by="name" 
                     label="name"
                     :options="countries"
@@ -77,7 +77,7 @@
                     <multiselect
                         id="country_id"
                         v-model="input.country"
-                        :style="setClassByValue(input.country,true)"
+                        :style="setClassByValue(input.country,true,button)"
                         track-by="name" 
                         label="name"
                         :options="countries"
@@ -105,7 +105,7 @@
                     <strong>warning!</strong>  Image file formats - JPG,PNG,JPEG; Size - 2MB                    
                 </div>
             </div>
-            <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited)" style="margin-right: 20px;height:100%;">
+            <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited, false, button)" style="margin-right: 20px;height:100%;">
                 <VueFileAgent 
                     :accept="'image/*'"
                     :maxSize="'10MB'"
@@ -125,7 +125,9 @@
             </div>
         </div>
         <div class="float-right">
-            <button type="submit" id="submit" class="btn" @click="button = true;sendToSave()">Get started </button>
+            <button class="btn" @click="button = true;sendToSave('/register/investor',input)">
+                Get started 
+            </button>
         </div>
     </div>
     <modal name="chose_side_investor_image_modal" id="chose_side_investor_image_modal">
@@ -163,7 +165,9 @@
 </div>
 </template>
 <script>
-export default {
+import helper from '../../mixin/helper.vue'
+export default{
+    mixins:[helper],
     data () {
       return {
         image:{
@@ -211,46 +215,6 @@ export default {
       }
     },
     methods:{
-        checkStringValidation(array){
-            let counter = 0
-            array.map((str, index)=>{
-                if(Array.isArray(str) && str.length > 0){
-                    counter+=1
-                }else if(str !== undefined && str !== null && str !== "" && !Array.isArray(str)){
-                    counter+=1
-                }
-            })
-            return counter === array.length
-        },
-        isInputsValid(){
-            let input = this.input
-            let array = [
-                input.name.full,
-                input.name.company,
-                input.about.investments,
-                input.about.investor,
-                input.website,
-                input.email,
-                input.investment_range.name,
-                input.which.market.name,
-                input.which.stage.name,
-                input.country.name,
-                input.investor_type.name,
-                input.image,
-            ]
-            return this.checkStringValidation(array)
-        },
-        setClassByValue(input, is_multiselect=false){
-            if (this.button) {
-                let bol = (is_multiselect)?{
-                    border:'solid 1.5px red!important',
-                    borderRadius:'5px'
-                }:'border-danger'
-
-                let is_array = (Array.isArray(input) && input.length === 0)?bol:''
-                return (input !== null && input !== "" && input !== " ")?is_array:bol
-            }
-        },
         onImageUpload(event){
             this.image.uploaded = event[0].urlResized
             this.$modal.show('chose_side_investor_image_modal')
@@ -258,17 +222,6 @@ export default {
         change(file){
             this.input.image = file.canvas.toDataURL('image/jpeg')
             this.image.edited = file.canvas.toDataURL('image/jpeg')
-        },
-        sendToSave(){
-            if(this.isInputsValid()){
-                axios.post('/register/investor',this.input)
-                .then((response)=>{
-                    console.log('წარმატებით დაემატა!')
-                }).catch(()=>{
-                    console.log('წარუმატებელი მოთხოვნა!')
-                })
-            }
-
         },
     }
 };
