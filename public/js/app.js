@@ -2937,7 +2937,10 @@ __webpack_require__.r(__webpack_exports__);
         name: "",
         linkedin: "",
         experience: "",
-        country: "",
+        country: {
+          data: "",
+          is_required: false
+        },
         which: {
           field: "",
           issue: ""
@@ -5094,20 +5097,22 @@ __webpack_require__.r(__webpack_exports__);
       Object.entries(input).map(function (value, key) {
         var val = value[1];
 
-        if (Array.isArray(val) && !val instanceof Object) {
-          array.push(val[1]);
-        } else if (val instanceof Object) {
-          Object.entries(val).map(function (v, index) {
-            if (v[1] instanceof Object) {
-              Object.entries(v[1]).map(function (v_2) {
-                array.push(v_2[1]);
-              });
-            } else {
-              array.push(v[1]);
-            }
-          });
-        } else {
-          array.push(val);
+        if (val.is_required === undefined) {
+          if (Array.isArray(val) && !val instanceof Object) {
+            array.push(val[1]);
+          } else if (val instanceof Object) {
+            Object.entries(val).map(function (v, index) {
+              if (v[1] instanceof Object) {
+                Object.entries(v[1]).map(function (v_2) {
+                  array.push(v_2[1]);
+                });
+              } else {
+                array.push(v[1]);
+              }
+            });
+          } else {
+            array.push(val);
+          }
         }
       });
       return this.checkStringValidation(array);
@@ -47560,7 +47565,11 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("multiselect", {
-                style: _vm.setClassByValue(_vm.input.investor_type, true),
+                style: _vm.setClassByValue(
+                  _vm.input.investor_type,
+                  true,
+                  _vm.button
+                ),
                 attrs: {
                   id: "investor_type",
                   "track-by": "name",
@@ -47776,7 +47785,7 @@ var render = function() {
       _c("div", { staticClass: "sign-form", attrs: { id: "startup-form" } }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6" }, [
-            _c("label", { attrs: { for: "full_name" } }, [_vm._v("Full Name")]),
+            _vm._m(0),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -47808,9 +47817,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-6" }, [
-            _c("label", { attrs: { for: "linkedin_address" } }, [
-              _vm._v("Linkedin profile")
-            ]),
+            _vm._m(1),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -47842,11 +47849,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-12" }, [
-            _c("label", { attrs: { for: "experience_text" } }, [
-              _vm._v(
-                "What experience do I have and what proccesses did I improve?"
-              )
-            ]),
+            _vm._m(2),
             _vm._v(" "),
             _c("textarea", {
               directives: [
@@ -47892,11 +47895,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("multiselect", {
-                  style: _vm.setClassByValue(
-                    _vm.input.country,
-                    true,
-                    _vm.button
-                  ),
                   attrs: {
                     id: "country_id",
                     "track-by": "name",
@@ -47905,11 +47903,11 @@ var render = function() {
                     multiple: false
                   },
                   model: {
-                    value: _vm.input.country,
+                    value: _vm.input.country.data,
                     callback: function($$v) {
-                      _vm.$set(_vm.input, "country", $$v)
+                      _vm.$set(_vm.input.country, "data", $$v)
                     },
-                    expression: "input.country"
+                    expression: "input.country.data"
                   }
                 })
               ],
@@ -47922,9 +47920,7 @@ var render = function() {
               "div",
               { staticClass: "form-group" },
               [
-                _c("label", { attrs: { for: "fields_consult_id" } }, [
-                  _vm._v("Which fields can you consult in?")
-                ]),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("multiselect", {
                   style: _vm.setClassByValue(
@@ -47957,9 +47953,7 @@ var render = function() {
               "div",
               { staticClass: "form-group" },
               [
-                _c("label", { attrs: { for: "issues_consult_id" } }, [
-                  _vm._v("Which issues can you consult on?")
-                ]),
+                _vm._m(4),
                 _vm._v(" "),
                 _c("multiselect", {
                   style: _vm.setClassByValue(
@@ -47987,7 +47981,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(5),
           _vm._v(" "),
           _c(
             "div",
@@ -47997,6 +47991,10 @@ var render = function() {
               staticStyle: { height: "100%" }
             },
             [
+              _c("span", { staticClass: "text-danger float-right" }, [
+                _vm._v("*")
+              ]),
+              _vm._v(" "),
               _c("VueFileAgent", {
                 staticClass:
                   "bootstrap-filestyle choose_image_side_startup cursor-pointer",
@@ -48122,6 +48120,51 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "full_name" } }, [
+      _vm._v("Full Name "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "linkedin_address" } }, [
+      _vm._v("Linkedin profile "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "experience_text" } }, [
+      _vm._v("What experience do I have and what proccesses did I improve? "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "fields_consult_id" } }, [
+      _vm._v("Which fields can you consult in? "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "issues_consult_id" } }, [
+      _vm._v("Which issues can you consult on? "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

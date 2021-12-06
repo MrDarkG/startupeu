@@ -91,7 +91,7 @@
                 <multiselect
                     id="investor_type"
                     v-model="input.investor_type"
-                    :style="setClassByValue(input.investor_type,true)"
+                    :style="setClassByValue(input.investor_type,true,button)"
                     track-by="name" 
                     label="name"
                     :options="countries"

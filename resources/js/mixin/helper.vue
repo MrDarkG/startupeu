@@ -28,20 +28,22 @@ export default{
             let array = []
             Object.entries(input).map((value ,key)=>{
                 let val = value[1]
-                if(Array.isArray(val) && !val instanceof Object){
-                    array.push(val[1])
-                }else if(val instanceof Object){
-                    Object.entries(val).map((v, index)=>{
-                        if(v[1] instanceof Object){
-                            Object.entries(v[1]).map((v_2)=>{
-                                array.push(v_2[1])
-                            })
-                        }else{
-                            array.push(v[1])
-                        }
-                    })
-                }else{
-                    array.push(val)
+                if (val.is_required === undefined) {
+                    if(Array.isArray(val) && !val instanceof Object){
+                        array.push(val[1])
+                    }else if(val instanceof Object){
+                        Object.entries(val).map((v, index)=>{
+                            if(v[1] instanceof Object){
+                                Object.entries(v[1]).map((v_2)=>{
+                                    array.push(v_2[1])
+                                })
+                            }else{
+                                array.push(v[1])
+                            }
+                        })
+                    }else{
+                        array.push(val)
+                    }
                 }
             })
             return this.checkStringValidation(array)

@@ -9,15 +9,15 @@
     <div class="sign-form" id="startup-form">
         <div class="row">
             <div class="col-md-6">
-                <label for="full_name">Full Name</label>
+                <label for="full_name">Full Name <span class="text-danger">*</span></label>
                 <input type="text" id="full_name" name="full_name" v-model="input.name" :class="setClassByValue(input.name,false,button)" class="form-control" placeholder="Full Name">
             </div>
             <div class="col-md-6">
-                <label for="linkedin_address">Linkedin profile</label>
+                <label for="linkedin_address">Linkedin profile <span class="text-danger">*</span></label>
                 <input type="text" id="linkedin_address" name="linkedin_address" v-model="input.linkedin" :class="setClassByValue(input.linkedin,false,button)" class="form-control" placeholder="Linkedin profile">
             </div>
             <div class="col-md-12">
-                <label for="experience_text">What experience do I have and what proccesses did I improve?</label>
+                <label for="experience_text">What experience do I have and what proccesses did I improve? <span class="text-danger">*</span></label>
                 <textarea name="experience_text" v-model="input.experience" :class="setClassByValue(input.experience,false,button)" id="experience_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
             </div>
             <div class="col-md-12">
@@ -25,8 +25,7 @@
                     <label for="country_id">Country</label>
                     <multiselect
                         id="country_id"
-                        v-model="input.country"
-                        :style="setClassByValue(input.country,true,button)"
+                        v-model="input.country.data"
                         track-by="name" 
                         label="name"
                         :options="countries"
@@ -37,7 +36,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="fields_consult_id">Which fields can you consult in?</label>
+                    <label for="fields_consult_id">Which fields can you consult in? <span class="text-danger">*</span></label>
                     <multiselect
                         id="fields_consult_id"
                         v-model="input.which.field"
@@ -52,7 +51,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="issues_consult_id">Which issues can you consult on?</label>
+                    <label for="issues_consult_id">Which issues can you consult on? <span class="text-danger">*</span></label>
                     <multiselect
                         id="issues_consult_id"
                         v-model="input.which.issue"
@@ -72,6 +71,7 @@
                 </div>
             </div>
                 <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited,false,button)" style="height:100%;">
+                    <span class="text-danger float-right">*</span>
                     <VueFileAgent 
                         :accept="'image/*'"
                         :maxSize="'10MB'"
@@ -145,7 +145,10 @@ export default{
                 name:"",
                 linkedin:"",
                 experience:"",
-                country:"",
+                country:{
+                    data:"",
+                    is_required:false,
+                },
                 which:{
                     field:"",
                     issue:""
