@@ -37,6 +37,9 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/browse/mentors">Find mentors</a>
               </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/browse/mentors">Find mentors</a>
+              </li>
             </ul>
             <div class="d-sm-none d-xl-block">
                 <form class="form-inline my-2 ">

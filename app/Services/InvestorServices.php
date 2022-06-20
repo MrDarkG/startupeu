@@ -18,10 +18,10 @@ class InvestorServices extends MainServices
 	}
 	static public function getMyImageName($value='')
 	{
-		return Investor::::where("user_id",Auth::user()->id)->first()->logo;
+		return Investor::where("user_id",Auth::user()->id)->first()->logo;
 	}
 
-	static public function updateMyProfileInfo($request)
+	static public function updateMyProfileInfo($request){
 		if ($request->input("image")) {
 			$filaname=parent::generateRandomString().".jpg";
 			$base64_image = $request->input("image");

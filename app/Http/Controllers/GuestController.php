@@ -9,7 +9,7 @@ use App\Models\Field;
 use App\Models\Mentor;
 use App\Models\Faq_country;
 use App\Models\Startup;
-
+use App\Models\News;
 class GuestController extends Controller
 {
     /**
@@ -17,6 +17,13 @@ class GuestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function home($value='')
+    {
+        $news = News::orderBy('created_at')->take(4)->get();
+        return view('welcome',[ 
+            'news' => $news,
+        ]);
+    }
     public function index()
     {
         $issues=Issue::orderBy('title')->get();
