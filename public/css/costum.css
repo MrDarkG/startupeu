@@ -401,7 +401,7 @@ a:hover{
     display: block;
 }
 
-.main-section h3 {
+.main-section .main-text {
     /* Ecosystem guide */
 
     font-family: 'FiraGO-bold';

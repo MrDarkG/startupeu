@@ -62,8 +62,6 @@
         <div id="app">
             @yield("content")
         </div>
-
-
     <script type="text/javascript" src="/js/app.js"></script>
     </body>
 </html>
