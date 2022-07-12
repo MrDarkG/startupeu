@@ -14,7 +14,7 @@
             sign up        
         </div>
 
-        <form action="register" @submit.prevent="submit=true;sendToSave('/register',input)" class="sign-form" method="post">
+        <form action="register" @submit.prevent="submit=true;sendToSave('/register' ,input ,null ,'/home')" class="sign-form" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <label for="email">Email</label>

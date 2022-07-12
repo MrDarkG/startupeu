@@ -48,11 +48,14 @@ export default{
             })
             return this.checkStringValidation(array)
         },
-        sendToSave(url ,inputs ,div_class=null){
+        sendToSave(url ,inputs ,div_class=null ,redirect=undefined){
             if(this.isInputsValid(inputs)){
                 axios.post(url ,inputs)
                 .then((response)=>{
                     console.log('წარმატებით დაემატა!')
+                    if(redirect){
+                        window.location.replace(redirect)
+                    }
                 }).catch(()=>{
                     console.log('წარუმატებელი მოთხოვნა!')
                     this.$modal.hide('add_investment_opportunities')
