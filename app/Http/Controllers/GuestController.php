@@ -83,9 +83,11 @@ class GuestController extends Controller
      */
     public function show($slug, $id)
     {
-        return $news = News::where('id',$id)->firstOrFail();
+        $news = News::where('id',$id)->firstOrFail();
+        $otherNews = News::orderBy('created_at')->where('id',"<>",$id)->take(4)->get();
         return view('news.details',[
             'news' => $news,
+            'otherNews' => $otherNews,
         ]);
     }
 
