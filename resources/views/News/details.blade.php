@@ -13,7 +13,7 @@
                 {!! $news->text !!}
             </div>
             <div class="col-md-3">
-                <span class="more-news-text mt-0 mb-0">More news</span> 
+                <span class="more-news-text mt-0 mb-0">More news</span>
                 @foreach($otherNews as $other)
                     <div >
                         <a class="news-more-item" href="{{ route("news.details", [
