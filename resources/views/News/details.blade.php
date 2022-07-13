@@ -18,7 +18,7 @@
                     <div >
                         <a class="news-more-item" href="{{ route("news.details", [
                                 "id" => $other->id,
-                                'slug' => $other->title
+                                'slug' => generateSlug($other->title)
                                 ]) }}">
                             <img src="{{asset('uploads').'/'. $other->image}}" alt="{{ $other->title }}" width="100%">
                             <span>
