@@ -1,5 +1,4 @@
-<script>
-export default{
+Vue.mixin({
     methods:{
         setClassByValue(input, is_multiselect=false, button=false){
             if (button) {
@@ -67,5 +66,4 @@ export default{
             }
         },
     }
-};
-</script>
+})

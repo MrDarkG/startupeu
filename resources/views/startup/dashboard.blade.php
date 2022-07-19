@@ -15,6 +15,5 @@ use App\Services\DataService;
 		:LookingFor="{{ json_encode(DataService::getAllLookingFor()) }}"
 		:Markets="{{ json_encode(DataService::getAllMarkets()) }}"
 		:InvestorTypes="{{ json_encode(DataService::getAllInvestorTypes()) }}"
-	>
-	</startup-dashboard>
+	></startup-dashboard>
 @endsection

@@ -58,7 +58,9 @@
 </template>
 <script>
 export default{
-    props:["phone_index"],
+    props:[
+        "phone_index",
+    ],
     data(){
         return {
             submit:false,

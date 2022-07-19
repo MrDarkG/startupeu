@@ -178,7 +178,6 @@
                 }"
                 :uploadUrl="image.uploaded"
                 @select="onImageUpload" 
-
                 class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
                 v-model="fileRecords"
             ></VueFileAgent>

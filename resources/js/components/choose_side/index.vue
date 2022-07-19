@@ -47,7 +47,14 @@
 						< back
 					</button>
 				</div>
-				<create-startup class="pt-2" v-if="selected.type.index === 0"/>
+				<create-startup 
+					:stages="stages" 
+					:countries="countries" 
+					:industries="industries" 
+					:bussines_models="bussinesModels" 
+					class="pt-2" 
+					v-if="selected.type.index === 0"
+				/>
 				<create-investor class="pt-2" v-if="selected.type.index === 1"/>
 				<create-mentor class="pt-2" v-if="selected.type.index === 2"/>
 			</div>
@@ -57,6 +64,17 @@
 </template>
 <script>
 export default{
+	props:[
+        "phone_index",
+        "stages",
+        "bussinesModels",
+        "countries",
+        "industries",
+        "ranges",
+        "lookingFor",
+        "markets",
+        "investorTypes"
+    ],
 	created(){
 	},
 	data(){

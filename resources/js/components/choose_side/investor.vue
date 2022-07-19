@@ -165,9 +165,7 @@
 </div>
 </template>
 <script>
-import helper from '../../mixin/helper.vue'
 export default{
-    mixins:[helper],
     data () {
       return {
         image:{
