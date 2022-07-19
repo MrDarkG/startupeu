@@ -282,14 +282,7 @@
 </div>
 </template>
 <script>
-import VueSlider from 'vue-slider-component'
-import 'vue-slider-component/theme/antd.css'
-import helper from '../../mixin/helper.vue'
 export default{
-    mixins:[helper],
-	components:{
-        VueSlider
-    },
 	data(){
 		return{
             button:false,
