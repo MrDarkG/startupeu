@@ -15,13 +15,15 @@ class GuestController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
-    public function home($value='')
+    public function home()
     {
         $news = News::orderBy('created_at')->take(4)->get();
-        return view('welcome',[ 
+        $startups = Startup::get();
+        return view('welcome',[
             'news' => $news,
+            'startups' => $startups,
         ]);
     }
     public function index()
@@ -77,11 +79,16 @@ class GuestController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
-    public function show($id)
+    public function show($slug, $id)
     {
-        //
+        $news = News::where('id',$id)->firstOrFail();
+        $otherNews = News::orderBy('created_at')->where('id',"<>",$id)->take(4)->get();
+        return view('News.details',[
+            'news' => $news,
+            'otherNews' => $otherNews,
+        ]);
     }
 
     /**

@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $filter=implode("|",\App\Models\Language::pluck("slug")->toArray());
         // $filter="";
-        
+
         $this->configureRateLimiting();
         Route::pattern("language_id",$filter);
         $this->routes(function () {

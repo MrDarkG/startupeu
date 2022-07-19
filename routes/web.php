@@ -27,6 +27,8 @@ Route::prefix("/browse")->group(function(){
     Route::get("/mentors" ,[GuestController::class,'index']);
     Route::get("/startups" ,[GuestController::class,'startupPage']);
 });
+
+Route::get('/news/{slug}.{id}', [GuestController::class, 'show'])->name('news.details');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
