@@ -22,9 +22,20 @@
                 </div>
                 <div class="col-md-2">
                     <label for="phone_index">Phone index</label>
-                    <select name="phone_index" class="form-control" :class="setClassByValue(input.phone.index, false, submit)" v-model="input.phone.index" id="phone_index">
+                    <multiselect
+                        id="investment_range"
+                        v-model="input.phone.index"
+                        :style="setClassByValue(input.phone.index,true,submit)"
+                        track-by="code" 
+                        label="code"
+                        :searchable="true"
+                        :allow-empty="false"
+                        :options="phone_index"
+                        :multiple="false"
+                    ></multiselect>
+                   <!--  <select name="phone_index" class="form-control" :class="setClassByValue(input.phone.index, false, submit)" v-model="input.phone.index" id="phone_index">
                         <option :value="index.id" v-for="index in phone_index">{{ index.code }}</option>
-                    </select>
+                    </select> -->
                 </div>
                 <div class="col-md-4">
                     <label for="phone">Phone Number</label>
@@ -58,9 +69,9 @@
 </template>
 <script>
 export default{
-    props:[
-        "phone_index",
-    ],
+    props:{
+        phone_index:Array
+    },
     data(){
         return {
             submit:false,

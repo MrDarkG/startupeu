@@ -51,12 +51,27 @@
 					:stages="stages" 
 					:countries="countries" 
 					:industries="industries" 
-					:bussines_models="bussinesModels" 
+					:looking_for="looking_for" 
+					:investment_range="investment_range"
+					:investor_types="investor_types" 
+					:bussines_models="bussines_models" 
 					class="pt-2" 
 					v-if="selected.type.index === 0"
 				/>
-				<create-investor class="pt-2" v-if="selected.type.index === 1"/>
-				<create-mentor class="pt-2" v-if="selected.type.index === 2"/>
+				<create-investor
+					:investor_types="investor_types" 
+					:looking_for="looking_for" 
+					:investment_range="investment_range" 
+					:markets="markets" 
+					:countries="countries" 
+					:stages="stages" 
+					class="pt-2" 
+					v-if="selected.type.index === 1"
+				/>
+				<create-mentor 
+					class="pt-2" 
+					v-if="selected.type.index === 2"
+				/>
 			</div>
 		</div>
 	</div>
@@ -65,18 +80,15 @@
 <script>
 export default{
 	props:[
-        "phone_index",
         "stages",
-        "bussinesModels",
+        "bussines_models",
         "countries",
         "industries",
-        "ranges",
-        "lookingFor",
+        "investment_range",
+        "looking_for",
         "markets",
-        "investorTypes"
+        "investor_types"
     ],
-	created(){
-	},
 	data(){
 		return {
 			selected:{

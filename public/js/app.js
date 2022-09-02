@@ -2483,9 +2483,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["phone_index", "stages", "bussinesModels", "countries", "industries", "ranges", "lookingFor", "markets", "investorTypes"],
-  created: function created() {},
+  props: ["stages", "bussines_models", "countries", "industries", "investment_range", "looking_for", "markets", "investor_types"],
   data: function data() {
     return {
       selected: {
@@ -2691,9 +2705,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['looking_for', 'stages', 'markets', 'countries', 'industries', 'investor_types', 'bussines_models', 'investment_range'],
   data: function data() {
     return {
       image: {
@@ -2723,19 +2736,16 @@ __webpack_require__.r(__webpack_exports__);
       },
       button: false,
       selected: null,
-      options: ['list', 'of', 'options'],
-      countries: [{
-        name: "Azerbaijan"
-      }, {
-        name: "Georgia"
-      }, {
-        name: "Armenia"
-      }, {
-        name: "Khazakhstan"
-      }]
+      options: ['list', 'of', 'options']
     };
   },
   methods: {
+    sendData: function sendData() {
+      this.button = true;
+      axios.post('/register/investor', this.input).then(function (response) {
+        console.log(response.data);
+      });
+    },
     onImageUpload: function onImageUpload(event) {
       this.image.uploaded = event[0].urlResized;
       this.$modal.show('chose_side_investor_image_modal');
@@ -3166,24 +3176,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['industries', 'stages', 'countries', 'looking_for', 'investment_range', 'bussines_models', 'investor_types'],
   data: function data() {
     return {
-      industries: [{
-        name: 1
-      }, {
-        name: 2
-      }, {
-        name: 3
-      }, {
-        name: 4
-      }],
       button: false,
       fileRecords: [],
       image: {
@@ -3861,8 +3857,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["phone_index"],
+  props: {
+    phone_index: Array
+  },
   data: function data() {
     return {
       submit: false,
@@ -47259,13 +47268,26 @@ var render = function() {
                         stages: _vm.stages,
                         countries: _vm.countries,
                         industries: _vm.industries,
-                        bussines_models: _vm.bussinesModels
+                        looking_for: _vm.looking_for,
+                        investment_range: _vm.investment_range,
+                        investor_types: _vm.investor_types,
+                        bussines_models: _vm.bussines_models
                       }
                     })
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.selected.type.index === 1
-                  ? _c("create-investor", { staticClass: "pt-2" })
+                  ? _c("create-investor", {
+                      staticClass: "pt-2",
+                      attrs: {
+                        investor_types: _vm.investor_types,
+                        looking_for: _vm.looking_for,
+                        investment_range: _vm.investment_range,
+                        markets: _vm.markets,
+                        countries: _vm.countries,
+                        stages: _vm.stages
+                      }
+                    })
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.selected.type.index === 2
@@ -47589,9 +47611,9 @@ var render = function() {
                 ),
                 attrs: {
                   id: "investment_range",
-                  "track-by": "name",
-                  label: "name",
-                  options: _vm.countries,
+                  "track-by": "id",
+                  label: "title",
+                  options: _vm.investment_range,
                   multiple: false
                 },
                 model: {
@@ -47622,9 +47644,9 @@ var render = function() {
                 ),
                 attrs: {
                   id: "interest_martket_id",
-                  "track-by": "name",
-                  label: "name",
-                  options: _vm.countries,
+                  "track-by": "id",
+                  label: "title",
+                  options: _vm.markets,
                   multiple: false
                 },
                 model: {
@@ -47655,9 +47677,9 @@ var render = function() {
                 ),
                 attrs: {
                   id: "interest_stage_id",
-                  "track-by": "name",
-                  label: "name",
-                  options: _vm.countries,
+                  "track-by": "id",
+                  label: "title",
+                  options: _vm.stages,
                   multiple: false
                 },
                 model: {
@@ -47689,8 +47711,8 @@ var render = function() {
                   ),
                   attrs: {
                     id: "country_id",
-                    "track-by": "name",
-                    label: "name",
+                    "track-by": "id",
+                    label: "title",
                     options: _vm.countries,
                     multiple: false
                   },
@@ -47723,9 +47745,9 @@ var render = function() {
                 ),
                 attrs: {
                   id: "investor_type",
-                  "track-by": "name",
-                  label: "name",
-                  options: _vm.countries,
+                  "track-by": "id",
+                  label: "title",
+                  options: _vm.investor_types,
                   multiple: false
                 },
                 model: {
@@ -47746,7 +47768,7 @@ var render = function() {
             "div",
             {
               staticClass: "col-md-6 st-logo position-relative",
-              class: _vm.setClassByValue(_vm.image.edited, false, _vm.button),
+              class: _vm.setClassByValue(_vm.image.uploaded, false, _vm.button),
               staticStyle: { "margin-right": "20px", height: "100%" }
             },
             [
@@ -47783,11 +47805,10 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn",
+              staticClass: "btn btn-success",
               on: {
                 click: function($event) {
-                  _vm.button = true
-                  _vm.sendToSave("/register/investor", _vm.input)
+                  return _vm.sendData()
                 }
               }
             },
@@ -48792,9 +48813,9 @@ var render = function() {
               ),
               attrs: {
                 id: "what_is_your_current_stage",
-                "track-by": "name",
-                label: "name",
-                options: _vm.industries,
+                "track-by": "id",
+                label: "title",
+                options: _vm.stages,
                 multiple: false
               },
               model: {
@@ -48825,9 +48846,9 @@ var render = function() {
               ),
               attrs: {
                 id: "your_business_model",
-                "track-by": "name",
-                label: "name",
-                options: _vm.industries,
+                "track-by": "id1",
+                label: "title",
+                options: _vm.bussines_models,
                 multiple: false
               },
               model: {
@@ -48858,9 +48879,9 @@ var render = function() {
               ),
               attrs: {
                 id: "target_audience",
-                "track-by": "name",
-                label: "name",
-                options: _vm.industries,
+                "track-by": "id",
+                label: "title",
+                options: _vm.investor_types,
                 multiple: false
               },
               model: {
@@ -48894,8 +48915,8 @@ var render = function() {
                 ),
                 attrs: {
                   id: "which_markets_are_you_interested_in",
-                  "track-by": "name",
-                  label: "name",
+                  "track-by": "id",
+                  label: "title",
                   options: _vm.industries,
                   multiple: true
                 },
@@ -48925,9 +48946,9 @@ var render = function() {
                 style: _vm.setClassByValue(_vm.input.country, true, _vm.button),
                 attrs: {
                   id: "country_id",
-                  "track-by": "name",
-                  label: "name",
-                  options: _vm.industries,
+                  "track-by": "id",
+                  label: "title",
+                  options: _vm.countries,
                   multiple: false
                 },
                 model: {
@@ -48953,9 +48974,9 @@ var render = function() {
               style: _vm.setClassByValue(_vm.input.how_much, true, _vm.button),
               attrs: {
                 id: "how_much",
-                "track-by": "name",
-                label: "name",
-                options: _vm.industries,
+                "track-by": "id",
+                label: "title",
+                options: _vm.investment_range,
                 multiple: false
               },
               model: {
@@ -50408,57 +50429,40 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-2" }, [
-                  _c("label", { attrs: { for: "phone_index" } }, [
-                    _vm._v("Phone index")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.input.phone.index,
-                          expression: "input.phone.index"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      class: _vm.setClassByValue(
+                _c(
+                  "div",
+                  { staticClass: "col-md-2" },
+                  [
+                    _c("label", { attrs: { for: "phone_index" } }, [
+                      _vm._v("Phone index")
+                    ]),
+                    _vm._v(" "),
+                    _c("multiselect", {
+                      style: _vm.setClassByValue(
                         _vm.input.phone.index,
-                        false,
+                        true,
                         _vm.submit
                       ),
-                      attrs: { name: "phone_index", id: "phone_index" },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.input.phone,
-                            "index",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
+                      attrs: {
+                        id: "investment_range",
+                        "track-by": "code",
+                        label: "code",
+                        searchable: true,
+                        "allow-empty": false,
+                        options: _vm.phone_index,
+                        multiple: false
+                      },
+                      model: {
+                        value: _vm.input.phone.index,
+                        callback: function($$v) {
+                          _vm.$set(_vm.input.phone, "index", $$v)
+                        },
+                        expression: "input.phone.index"
                       }
-                    },
-                    _vm._l(_vm.phone_index, function(index) {
-                      return _c("option", { domProps: { value: index.id } }, [
-                        _vm._v(_vm._s(index.code))
-                      ])
-                    }),
-                    0
-                  )
-                ]),
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-4" }, [
                   _c("label", { attrs: { for: "phone" } }, [

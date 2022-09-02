@@ -5,12 +5,12 @@
 @endphp
     <choose-side
         :stages="{{ json_encode(DataService::getAllStages()) }}"
-        :bussinesModels = "{{ json_encode(DataService::getAllBussinessModels()) }}"
+        :bussines_models = "{{ json_encode(DataService::getAllBussinessModels()) }}"
         :countries = "{{ json_encode(DataService::getAllCountry()) }}"
         :industries = "{{ json_encode(DataService::getAllIndustries()) }}"
-        :ranges = "{{ json_encode(DataService::getAllRanges()) }}"
-        :lookingFor = "{{ json_encode(DataService::getAllLookingFor()) }}"
-        :markets = "{{ json_encode(DataService::getAllMarkets()) }}"
-        :investorTypes = "{{ json_encode(DataService::getAllInvestorTypes()) }}"
+        :investment_range = "{{ json_encode(DataService::getAllRanges()) }}"
+        :looking_for = "{{ json_encode(DataService::getAllLookingFor()) }}"
+        :markets = "{{ json_encode(DataService::geAllMarkets()) }}"
+        :investor_types = "{{ json_encode(DataService::geAllInvestorTypes()) }}"
     ></choose-side>
 @endsection

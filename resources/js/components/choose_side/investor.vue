@@ -38,12 +38,11 @@
                     id="investment_range"
                     v-model="input.investment_range"
                     :style="setClassByValue(input.investment_range,true,button)"
-                    track-by="name" 
-                    label="name"
-                    :options="countries"
+                    track-by="id" 
+                    label="title"
+                    :options="investment_range"
                     :multiple="false"
-                >
-                </multiselect>
+                ></multiselect>
             </div>
             <div class="col-md-12 mt-2">
                 <label for="interest_martket_id">Which markets are you interested in?</label>
@@ -51,12 +50,11 @@
                     id="interest_martket_id"
                     v-model="input.which.market"
                     :style="setClassByValue(input.which.market,true,button)"
-                    track-by="name" 
-                    label="name"
-                    :options="countries"
+                    track-by="id" 
+                    label="title"
+                    :options="markets"
                     :multiple="false"
-                >
-                </multiselect>
+                ></multiselect>
             </div>
             <div class="col-md-12 mt-2">
                 <label for="interest_stage_id">Which stages are you interested in?</label>
@@ -64,12 +62,11 @@
                     id="interest_stage_id"
                     v-model="input.which.stage"
                     :style="setClassByValue(input.which.stage,true,button)"
-                    track-by="name" 
-                    label="name"
-                    :options="countries"
+                    track-by="id" 
+                    label="title"
+                    :options="stages"
                     :multiple="false"
-                >
-                </multiselect>
+                ></multiselect>
             </div>
             <div class="col-md-12 mt-2">
                 <div class="form-group">
@@ -78,12 +75,11 @@
                         id="country_id"
                         v-model="input.country"
                         :style="setClassByValue(input.country,true,button)"
-                        track-by="name" 
-                        label="name"
+                        track-by="id" 
+                        label="title"
                         :options="countries"
                         :multiple="false"
-                    >
-                    </multiselect>
+                    ></multiselect>
                 </div>
             </div>
             <div class="col-md-12 mt-2">
@@ -92,12 +88,11 @@
                     id="investor_type"
                     v-model="input.investor_type"
                     :style="setClassByValue(input.investor_type,true,button)"
-                    track-by="name" 
-                    label="name"
-                    :options="countries"
+                    track-by="id" 
+                    label="title"
+                    :options="investor_types"
                     :multiple="false"
-                >
-                </multiselect>
+                ></multiselect>
             </div>
             <div class="col-md-12 mt-2">
                 <div class="alert alert-warning alert-dismissible">
@@ -105,7 +100,11 @@
                     <strong>warning!</strong>  Image file formats - JPG,PNG,JPEG; Size - 2MB                    
                 </div>
             </div>
-            <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited, false, button)" style="margin-right: 20px;height:100%;">
+            <div 
+                class="col-md-6 st-logo position-relative" 
+                :class="setClassByValue(image.uploaded, false, button)" 
+                style="margin-right: 20px;height:100%;"
+            >
                 <VueFileAgent 
                     :accept="'image/*'"
                     :maxSize="'10MB'"
@@ -125,7 +124,7 @@
             </div>
         </div>
         <div class="float-right">
-            <button class="btn" @click="button = true;sendToSave('/register/investor',input)">
+            <button class="btn btn-success" @click="sendData()">
                 Get started 
             </button>
         </div>
@@ -141,8 +140,7 @@
                     @change="change"
                     :stencil-component="$options.components.CircleStencil"
                     class="col-7  d-flex justify-content-center align-items-center"
-                >
-                </cropper>
+                ></cropper>
             </div>
             <div class="col-md-4 p-3">
                 <div class="d-flex justify-content-center align-items-center">   
@@ -166,6 +164,16 @@
 </template>
 <script>
 export default{
+    props:[
+      'looking_for',  
+      'stages',  
+      'markets',  
+      'countries',  
+      'industries',  
+      'investor_types',  
+      'bussines_models',
+      'investment_range',  
+    ],
     data () {
       return {
         image:{
@@ -196,23 +204,16 @@ export default{
         button:false,
         selected: null,
         options: ['list', 'of', 'options'],
-        countries:[
-            {
-                name:"Azerbaijan",
-            },
-            {
-                name:"Georgia",
-            },
-            {
-                name:"Armenia",
-            },
-            {
-                name:"Khazakhstan",
-            },
-        ]
       }
     },
     methods:{
+        sendData(){
+            this.button = true
+            axios.post('/register/investor',this.input)
+            .then((response)=>{
+                console.log(response.data)
+            })
+        },
         onImageUpload(event){
             this.image.uploaded = event[0].urlResized
             this.$modal.show('chose_side_investor_image_modal')

@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use App\Models\Investor;
-use Auth;
 use Illuminate\Http\Request;
 use Storage;
+use Auth;
 class InvestorServices extends MainServices
 {
 	static public function getMyProfileInfo($value='')
@@ -55,29 +55,30 @@ class InvestorServices extends MainServices
 
 	static public function createProfile($request)
 	{
-		$filaname=parent::generateRandomString().".jpg";
+		$filename ='/investor/'.parent::generateRandomString().".jpg";
 		$base64_image = $request->input("image");
         $data = substr($base64_image, strpos($base64_image, ',') + 1);
         $data = base64_decode($data);
-		Storage::disk('investors_avatar')->put($filaname,$data);
-		Mentor::create([
+		Storage::disk('investors_avatar')->put($filename ,$data);
+		Investor::create([
 			"name"=>$request->input("name.full"),
+			"user_id"=>Auth::user()->id,
 	        "company_name"=>$request->input("name.company"),
 	        "investments"=>$request->input("about.investments"),
 	        "about"=>$request->input("about.investor"),
 	        "website"=>$request->input("website"),
 	        "email"=>$request->input("email"),
-	        "range_id"=>$request->input("investment_range"),
-	        "market_id"=>$request->input("which.market"),
-	        "interest_id"=>$request->input("which.stage"),
-	        "country_id"=>$request->input("country"),
-	        "type_id"=>$request->input("investor_type"),
-	        "logo"=>'/investor/'.$filaname
+	        "range_id"=>$request->input("investment_range.id"),
+	        "market_id"=>$request->input("which.market.id"),
+	        "interest_id"=>$request->input("which.stage.id"),
+	        "country_id"=>$request->input("country.id"),
+	        "type_id"=>$request->input("investor_type.id"),
+	        "logo"=>$filename
 		]);
+
 		return [
             "status"=>"1",
             "description"=>"Information stored Successfully"
         ];
 	}
-
 }

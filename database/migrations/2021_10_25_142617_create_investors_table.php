@@ -16,6 +16,7 @@ class CreateInvestorsTable extends Migration
         Schema::create('investors', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("user_id");
             $table->string("company_name");
             $table->text("investments");
             $table->text("about");

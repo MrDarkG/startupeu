@@ -70,12 +70,11 @@
                 id="what_is_your_current_stage"
                 v-model="input.current_stage"
                 :style="setClassByValue(input.current_stage,true,button)"
-                track-by="name" 
-                label="name"
-                :options="industries"
+                track-by="id" 
+                label="title"
+                :options="stages"
                 :multiple="false"
-            >
-            </multiselect>
+            ></multiselect>
         </div>
         <div class="col-md-4">
             <label for="your_business_model">Your business model</label>
@@ -83,12 +82,11 @@
                 id="your_business_model"
                 v-model="input.business_model"
                 :style="setClassByValue(input.business_model,true,button)"
-                track-by="name" 
-                label="name"
-                :options="industries"
+                track-by="id1" 
+                label="title"
+                :options="bussines_models"
                 :multiple="false"
-            >
-            </multiselect>
+            ></multiselect>
         </div>
         <div class="col-md-4">
             <label for="target_audience">Target Audience</label>
@@ -96,12 +94,11 @@
                 id="target_audience"
                 v-model="input.target_audience"
                 :style="setClassByValue(input.target_audience,true,button)"
-                track-by="name" 
-                label="name"
-                :options="industries"
+                track-by="id" 
+                label="title"
+                :options="investor_types"
                 :multiple="false"
-            >
-            </multiselect>
+            ></multiselect>
         </div>
         <div class="col-md-12">
             <div class="form-group">
@@ -110,12 +107,11 @@
                     id="which_markets_are_you_interested_in"
                     v-model="input.industries"
                     :style="setClassByValue(input.industries,true,button)"
-                    track-by="name" 
-                    label="name"
+                    track-by="id" 
+                    label="title"
                     :options="industries"
                     :multiple="true"
-                >
-                </multiselect>
+                ></multiselect>
             </div>
         </div>
         <div class="col-md-12">
@@ -125,12 +121,11 @@
                     id="country_id"
                     v-model="input.country"
                     :style="setClassByValue(input.country,true,button)"
-                    track-by="name" 
-                    label="name"
-                    :options="industries"
+                    track-by="id" 
+                    label="title"
+                    :options="countries"
                     :multiple="false"
-                >
-                </multiselect>
+                ></multiselect>
             </div>
         </div>
         <div class="col-md-6">
@@ -139,9 +134,9 @@
                 id="how_much"
                 v-model="input.how_much"
                 :style="setClassByValue(input.how_much,true,button)"
-                track-by="name" 
-                label="name"
-                :options="industries"
+                track-by="id" 
+                label="title"
+                :options="investment_range"
                 :multiple="false"
             >
             </multiselect>
@@ -156,8 +151,7 @@
                 label="name"
                 :options="industries"
                 :multiple="true"
-            >
-            </multiselect>
+            ></multiselect>
         </div>
         <div class="col-md-12 mt-4">
             <div class="alert alert-warning alert-dismissible">
@@ -222,22 +216,9 @@
 </template>
 <script>
 export default{
+    props:['industries','stages','countries','looking_for','investment_range','bussines_models','investor_types'],
     data(){
         return {
-            industries:[
-                {
-                    name:1,
-                },
-                {
-                    name:2,
-                },
-                {
-                    name:3,
-                },
-                {
-                    name:4,
-                },
-            ],
             button:false,
             fileRecords:[],
             image:{
