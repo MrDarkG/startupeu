@@ -4,9 +4,8 @@
 		<startup-account-menu
             :menu_list="menu_list"
             @getActive="setActiveMenu"
-		>
-		</startup-account-menu>
-        <div style="margin-top: 15px;" v-if="menu_list[0].is_active"> 
+		></startup-account-menu>
+        <div style="margin-top: 15px;" v-if="menu_list[0].is_active">
             <general-info>
             </general-info>
         </div>
@@ -15,7 +14,7 @@
                 <additional-info>
 				</additional-info>
             </div>
-        </div> 
+        </div>
     </div>
 </div>
 </template>

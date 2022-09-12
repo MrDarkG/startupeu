@@ -1,104 +1,71 @@
 <template>
-<div class="container-fluid">
-    <form action="" id="startupSearch">
-	    <div class="container-fluid startup-list-search">
-	        <div class="list-search">
-	            <div class="left">
-	                <img src="https://beta.startupcentraleurasia.com/themes/application/Components/svg/search.svg" alt="" width="20">
-	                <label for="search">
-	                    <input type="text" id="search" placeholder="Search..." name="s" value="">
-	                </label>
-	            </div>
-	            <div class="right">
-	                <button tyzxpe="submit">Search</button>
-	            </div>
-	        </div>
-	    </div>
-	    <div class="clb"></div>
-		<div class="container">
-			<div class="row startup-list">
-			    <div class="col-md-3 left-search">
-					<filter-list
-	        			:data="filter_data"
-	        			@getSelectedFilters="setSelectedFilters"
-	        		>
-	        		</filter-list> 
-			    </div>
-		        <div class="col-md-9 pb-150">
-		            <div class="col-md-12">
-		                <div class="row">
-		                    <div class="col-md-6 list-type-style">
-		                        Startups                        
-		                    </div>
-		                    <div class="col-md-6 list-type-count">
-		                        Showing  :{{ startups.length }} Startups                        
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="col-md-12">
-		                <div class="row">
-		                    <div class="col-md-4" v-for="startup in startups">
-		                        <div class="list-item" style="height: 235px">
-		                            <a href="#">
-		                                <img :src="startup.logo" alt="Logo" style="width: 62px;">
-		                                <div class="title">
-		                                	{{ startup.name }} - {{ startup.what_your_company_does }}
-		                                </div>
-		                                <div class="desc" :title="startup.description">
-		                                	{{ setShortDescription(startup.description) }}
-		                                </div>
-		                            </a>
-		            			</div>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		    <div class="clb"></div>
-		</div>
-	</form>
-</div>
+    <browse-index
+        title="Startups"
+        :fields="fields"
+        :issues="issues"
+        :countries="countries"
+        :data="data"
+        @setSearchedData="setSearchedData"
+        @setFilteredData="setFilteredData"
+    >
+        <div class="row m-0" v-if="data">
+            <div class="col-12 col-md-6 col-lg-4 p-2" v-if="startup.is_disabled === false" v-for="startup in data">
+                <div class="list-item p-4" style="height: 235px; min-width:unset!important;">
+                    <a href="#">
+                        <img :src="startup.logo" alt="Logo" style="width: 62px;">
+                        <div class="title">
+                            {{ startup.name }} - {{ startup.what_your_company_does }}
+                        </div>
+                        <div class="desc" :title="startup.description">
+                            {{ setShortDescription(startup.description) }}
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </browse-index>
 </template>
 <script>
 export default{
-	props:{
-		fields:Array,
-		issues:Array,
-		startups:Object
-	},
-	data(){
-		return{
-			filter_data:[
-				{
-					title:'Countries',
-					prop:'contries[]=',
-					data:[
-						{
-							title:'Not Available At This Moment',
-							is_disabled:true,
-						}
-					]
-				},
-				{
-					title:'Industry',
-					prop:'issues[]=',
-					data:this.issues
-				},
-				{
-					title:'Startup Stage',
-					prop:'fields[]=',
-					data:this.fields
-				},
-			],
-		}
-	},
-	methods:{
-		setSelectedFilters(filters){
-			console.log(filters)
-		},
-		setShortDescription(string){
-			return (string.length > 172)?string.slice(0,169)+' ...':string
-		},
-	},
+    props:{
+        countries:Array,
+        fields:Array,
+        issues:Array,
+        startups:Array
+    },
+    data(){
+        return {
+            data:[],
+        }
+    },
+    created(){
+        this.setCustomData()
+    },
+    methods:{
+        setSearchedData(input){
+            console.log(input)
+            this.data.map((item)=>{
+                item.is_disabled = true
+                let array = ['full_name', 'name', 'ceo_email']
+                array.forEach((arr)=>{
+                    if(item[arr].toLowerCase().includes(input.toLowerCase())){
+                        item.is_disabled = false
+                    }
+                })
+            })
+        },
+        setShortDescription(string){
+            return (string.length > 172)?string.slice(0,169)+' ...':string
+        },
+        setFilteredData(response){
+            this.data = response
+        },
+        setCustomData(){
+            this.startups.map((item)=>{
+                item['is_disabled'] = false
+                this.data.push(item)
+            })
+        },
+    },
 };
 </script>

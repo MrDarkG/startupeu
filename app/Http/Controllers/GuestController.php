@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Investor;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Issue;
@@ -31,27 +32,45 @@ class GuestController extends Controller
         $issues=Issue::orderBy('title')->get();
         $fields=Field::orderBy('title')->get();
         $mentors=Mentor::paginatedMentors(10);
-        $contries=Faq_country::orderBy('title')->get();
+        $countries=Faq_country::orderBy('title')->get();
 
-        return view("browse_mentors",[
+        return view("browse.mentors",[
             'issues' => $issues,
             'fields' => $fields,
-            'contries' => $contries,
+            'countries' => $countries,
             'mentors' => $mentors
+        ]);
+    }
+    public function investorsPage()
+    {
+        $issues=Issue::orderBy('title')->get();
+        $fields=Field::orderBy('title')->get();
+        $investors=Investor::paginatedInvestors(10);
+        $startups=Startup::get();
+        $countries=Faq_country::orderBy('title')->get();
+
+        return view("browse.investors",[
+            'issues' => $issues,
+            'fields' => $fields,
+            'investors' => $investors,
+            'countries' => $countries,
+            'startups' => $startups
         ]);
     }
     public function startupPage()
     {
-        $issues=Issue::orderBy('title')->get();
-        $fields=Field::orderBy('title')->get();
         $mentors=Mentor::paginatedMentors(10);
         $startups=Startup::get();
+        $issues=Issue::orderBy('title')->get();
+        $fields=Field::orderBy('title')->get();
+        $countries=Faq_country::orderBy('title')->get();
 
-        return view("browse_startups",[
+        return view("browse.startups",[
             'issues' => $issues,
             'fields' => $fields,
             'mentors' => $mentors,
-            'startups' => $startups
+            'startups' => $startups,
+            'countries' => $countries
         ]);
     }
     /**

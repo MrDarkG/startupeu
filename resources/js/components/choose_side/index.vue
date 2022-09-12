@@ -17,15 +17,15 @@
 		    </div>
 		    <div class="col-md-8 right"  v-if="selected.type.index === undefined">
 		        <div class="sign-title">
-		            Choose the type of your account        
+		            Choose the type of your account
 		        </div>
 		        <div class="sign-desc">
-		        	Few clicks away from your Ecosystem        
+		        	Few clicks away from your Ecosystem
 		        </div>
 		        <div class="type_list">
-		            <a 
-		            	v-for="(type, index) in types" 
-		            	@click="types.map((tp)=>tp.is_selected = false);type.is_selected=true;selected.type = type;selected.type.index = index" 
+		            <a
+		            	v-for="(type, index) in types"
+		            	@click="types.map((tp)=>tp.is_selected = false);type.is_selected=true;selected.type = type;selected.type.index = index"
 		            	class="item"
 	            	>
 		                <img :src="type.src" alt="">
@@ -47,29 +47,33 @@
 						< back
 					</button>
 				</div>
-				<create-startup 
-					:stages="stages" 
-					:countries="countries" 
-					:industries="industries" 
-					:looking_for="looking_for" 
+				<create-startup
+					:stages="stages"
+                    :phone_index="phone_index"
+					:countries="countries"
+					:industries="industries"
+					:looking_for="looking_for"
 					:investment_range="investment_range"
-					:investor_types="investor_types" 
-					:bussines_models="bussines_models" 
-					class="pt-2" 
+					:investor_types="investor_types"
+					:bussines_models="bussines_models"
+					class="pt-2"
 					v-if="selected.type.index === 0"
 				/>
 				<create-investor
-					:investor_types="investor_types" 
-					:looking_for="looking_for" 
-					:investment_range="investment_range" 
-					:markets="markets" 
-					:countries="countries" 
-					:stages="stages" 
-					class="pt-2" 
+					:investor_types="investor_types"
+					:looking_for="looking_for"
+					:investment_range="investment_range"
+					:markets="markets"
+					:countries="countries"
+					:stages="stages"
+					class="pt-2"
 					v-if="selected.type.index === 1"
 				/>
-				<create-mentor 
-					class="pt-2" 
+				<create-mentor
+                    :issues="issues"
+                    :fields="fields"
+                    :countries="countries"
+                    class="pt-2"
 					v-if="selected.type.index === 2"
 				/>
 			</div>
@@ -82,12 +86,15 @@ export default{
 	props:[
         "stages",
         "bussines_models",
+        "phone_index",
         "countries",
         "industries",
         "investment_range",
         "looking_for",
         "markets",
-        "investor_types"
+        "investor_types",
+        "issues",
+        "fields"
     ],
 	data(){
 		return {

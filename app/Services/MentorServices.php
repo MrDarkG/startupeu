@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace App\Services;
 
 use App\Models\Mentor;
+use App\Models\Mentor_issues;
 use Auth;
 use Illuminate\Http\Request;
 use Storage;
@@ -35,16 +36,24 @@ class MentorServices extends MainServices
 		}
 
 		Mentor::where("user_id",Auth::user()->id)->update([
-			'name'=>$request->input("input.full_name"),
-        	'linnkedin'=>$request->input("input.linkedin_address"),
-        	'question1'=>$request->input("input.experience_text"),
-        	'question2'=>$request->input("input.companies_worked_text"),
-        	'country_id'=>$request->input("multiselect.country.is_selected"),
-        	'fields_id'=>$request->input("multiselect.country.is_selected"),
-        	'issues_id'=>$request->input("multiselect.country.is_selected"),
-        	'logo'=>'/mentors/'.$filaname
-        	
+            'name'=>$request->input("name"),
+            'linnkedin'=>$request->input("linkedin"),
+            'question1'=>$request->input("experience"),
+            'question2'=>$request->input("experience"),
+            'country_id'=>$request->input("country.data.id"),
+            'fields_id'=>$request->input("which.field.id"),
+            'issues_id'=>0,
+            'logo'=>'/mentors/'.$filaname
 		]);
+        Mentor_issues::where("mentor_id",Auth::user()->id)->delete();
+
+        foreach($request->input("which.issue") as $issue){
+            Mentor_issues::create([
+                "mentor_id"=>Auth::user()->id,
+                "issue_id"=>$issue['id']
+            ]);
+        }
+
 		return [
             "status"=>"1",
             "description"=>"Information updated Successfully"
@@ -59,17 +68,26 @@ class MentorServices extends MainServices
         $data = substr($base64_image, strpos($base64_image, ',') + 1);
         $data = base64_decode($data);
 		Storage::disk('mentors_avatar')->put($filaname,$data);
+
 		Mentor::create([
-			'name'=>$request->input("input.full_name"),
-        	'linnkedin'=>$request->input("input.linkedin_address"),
-        	'question1'=>$request->input("input.experience_text"),
-        	'question2'=>$request->input("input.companies_worked_text"),
-        	'country_id'=>$request->input("multiselect.country.is_selected"),
-        	'fields_id'=>$request->input("multiselect.country.is_selected"),
-        	'issues_id'=>$request->input("multiselect.country.is_selected"),
+			'name'=>$request->input("name"),
+        	'linnkedin'=>$request->input("linkedin"),
+        	'question1'=>$request->input("experience"),
+        	'question2'=>$request->input("experience"),
+        	'country_id'=>$request->input("country.data.id"),
+        	'fields_id'=>$request->input("which.field.id"),
+        	'issues_id'=>0,
         	'user_id'=>Auth::user()->id,
         	'logo'=>'/mentors/'.$filaname
 		]);
+
+        foreach($request->input("which.issue") as $issue){
+            Mentor_issues::create([
+                "mentor_id"=>Auth::user()->id,
+                "issue_id"=>$issue['id']
+            ]);
+        }
+
 		return [
             "status"=>"1",
             "description"=>"Information stored Successfully"

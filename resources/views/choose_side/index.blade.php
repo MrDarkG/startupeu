@@ -4,6 +4,9 @@
     use App\Services\DataService;
 @endphp
     <choose-side
+        :issues="{{ json_encode($issues) }}"
+        :fields="{{ json_encode($fields) }}"
+        :phone_index="{{ json_encode($phone_index) }}"
         :stages="{{ json_encode(DataService::getAllStages()) }}"
         :bussines_models = "{{ json_encode(DataService::getAllBussinessModels()) }}"
         :countries = "{{ json_encode(DataService::getAllCountry()) }}"

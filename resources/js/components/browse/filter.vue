@@ -7,7 +7,7 @@
                 <div class="form-check">
                     <input @[event]="setCustomUrl" class="form-check-input country-check" type="checkbox" :id="response.id+response.title" :disabled="response.is_disabled">
                     <label class="form-check-label" :for="response.id+response.title">
-                        {{ response.title }}                    
+                        {{ response.title }}
                     </label>
                 </div>
             </li>
@@ -30,12 +30,14 @@ export default{
         getSelectedFilters(){
             let filters = []
             this.data.map((data)=>{
-                data.data.map((filter)=>{
-                    let object = filter
-                    object.checked = document.getElementById(filter.id+filter.title).checked
-                    object.url = data.prop+filter.id
-                    filters.push(object)
-                })
+                if (data.data){
+                    data.data.map((filter)=>{
+                        let object = filter
+                        object.checked = document.getElementById(filter.id+filter.title).checked
+                        object.url = data.prop+filter.id
+                        filters.push(object)
+                    })
+                }
             })
             return filters.filter((filter)=>filter.checked)
         },

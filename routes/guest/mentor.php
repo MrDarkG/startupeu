@@ -9,4 +9,4 @@ use App\Http\Controllers\GuestController;
 
 Route::get("/",[GuestController::class,"index"]);
 Route::get('/search',[SearchController::class,"mentors"]);
-Route::get('/search/investor',[SearchController::class,"investors"]);
+Route::get('/investor/investor',[SearchController::class,"investors"]);

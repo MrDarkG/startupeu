@@ -11,7 +11,7 @@ class ProfileController extends Controller
     {
         StartupServices::getMyProfileInfo();
     }
-    public function update($value='')
+    public function update(Request $request)
     {
         if (StartupServices::checkIfStartupHaveProfileCompleted()) {
             return StartupServices::updateMyProfileInfo($request);

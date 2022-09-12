@@ -1,10 +1,10 @@
 <template>
 <div class="pt-2" >
     <div class="sign-title">
-        Startup registration         
+        Startup registration
     </div>
     <div class="sign-desc">
-    	Find investment opportunities from leading Venture Funds, Angels and Accelerators, apply with the one click        
+    	Find investment opportunities from leading Venture Funds, Angels and Accelerators, apply with the one click
     </div>
     <div class="row sign-form">
         <div class="col-md-4">
@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-4">
             <label for="founded">Founded</label>
-            <input type="text" id="founded" name="founded" v-model="input.founded.year" :class="setClassByValue(input.founded.year,false,button)"  class="form-control" placeholder="Year">
+            <input type="date" id="founded" name="founded" v-model="input.founded.year" :class="setClassByValue(input.founded.year,false,button)"  class="form-control" placeholder="Year">
         </div>
         <div class="col-md-4">
             <label for="founded_number">Number of Founders</label>
@@ -29,16 +29,16 @@
                 id="phone_index"
                 v-model="input.phone.index"
                 :style="setClassByValue(input.phone.index,true,button)"
-                track-by="name" 
-                label="name"
-                :options="industries"
+                track-by="id"
+                label="code"
+                :options="phone_index"
                 :multiple="false"
             >
             </multiselect>
         </div>
         <div class="col-md-4">
             <label for="ceo_mobile">CEO mobile number</label>
-            <input type="text" id="ceo_mobile" v-model="input.phone.number" :class="setClassByValue(input.phone.number,false,button)" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
+            <input type="text" id="ceo_mobile" v-model="input.startup.number" :class="setClassByValue(input.startup.number,false,button)" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
         </div>
         <!-- <div class="col-md-3">
             <label for="ceo_email">CEO e-mail</label>
@@ -70,19 +70,19 @@
                 id="what_is_your_current_stage"
                 v-model="input.current_stage"
                 :style="setClassByValue(input.current_stage,true,button)"
-                track-by="id" 
+                track-by="id"
                 label="title"
                 :options="stages"
                 :multiple="false"
             ></multiselect>
         </div>
         <div class="col-md-4">
-            <label for="your_business_model">Your business model</label>
+            <label for="your_bussiness_model">Your business model</label>
             <multiselect
-                id="your_business_model"
-                v-model="input.business_model"
-                :style="setClassByValue(input.business_model,true,button)"
-                track-by="id1" 
+                id="your_bussiness_model"
+                v-model="input.bussiness_model"
+                :style="setClassByValue(input.bussiness_model,true,button)"
+                track-by="id1"
                 label="title"
                 :options="bussines_models"
                 :multiple="false"
@@ -94,7 +94,7 @@
                 id="target_audience"
                 v-model="input.target_audience"
                 :style="setClassByValue(input.target_audience,true,button)"
-                track-by="id" 
+                track-by="id"
                 label="title"
                 :options="investor_types"
                 :multiple="false"
@@ -107,7 +107,7 @@
                     id="which_markets_are_you_interested_in"
                     v-model="input.industries"
                     :style="setClassByValue(input.industries,true,button)"
-                    track-by="id" 
+                    track-by="id"
                     label="title"
                     :options="industries"
                     :multiple="true"
@@ -121,7 +121,7 @@
                     id="country_id"
                     v-model="input.country"
                     :style="setClassByValue(input.country,true,button)"
-                    track-by="id" 
+                    track-by="id"
                     label="title"
                     :options="countries"
                     :multiple="false"
@@ -134,7 +134,7 @@
                 id="how_much"
                 v-model="input.how_much"
                 :style="setClassByValue(input.how_much,true,button)"
-                track-by="id" 
+                track-by="id"
                 label="title"
                 :options="investment_range"
                 :multiple="false"
@@ -147,20 +147,20 @@
                 id="what_are_you_looking_for"
                 v-model="input.what_are_you_looking"
                 :style="setClassByValue(input.what_are_you_looking,true,button)"
-                track-by="name" 
-                label="name"
-                :options="industries"
+                track-by="id"
+                label="title"
+                :options="looking_for"
                 :multiple="true"
             ></multiselect>
         </div>
         <div class="col-md-12 mt-4">
             <div class="alert alert-warning alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                <strong>warning!</strong>   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;                    
+                <strong>warning!</strong>   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;
             </div>
         </div>
         <div class="col-md-6 st-logo position-relative" :class="setClassByValue(input.image,false,button)" style="margin-right: 20px;height:100%;">
-            <VueFileAgent 
+            <VueFileAgent
                 :accept="'image/*'"
                 :maxSize="'10MB'"
                 :multiple="false"
@@ -171,19 +171,19 @@
                   size: 'Files should not exceed 10MB in size',
                 }"
                 :uploadUrl="image.uploaded"
-                @select="onImageUpload" 
+                @select="onImageUpload"
                 class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
                 v-model="fileRecords"
             ></VueFileAgent>
         </div>
     </div>
     <div class="float-right">
-        <button type="submit" @click="button = true;sendToSave('/register/startup',input,'container-fluid')" id="submit" class="btn">Get started </button>
+        <button type="submit" @click="saveStartup()" id="submit" class="btn">Get started </button>
     </div>
     <modal name="chose_side_image_modal" id="choose_side_image_modal">
         <div class="row p-4">
             <div class="col-md-8 position-relative">
-                <cropper 
+                <cropper
                     :src="image.uploaded"
                     :stencil-props="{
                         aspectRatio: 1/1
@@ -195,7 +195,7 @@
                 </cropper>
             </div>
             <div class="col-md-4 p-3">
-                <div class="d-flex justify-content-center align-items-center">   
+                <div class="d-flex justify-content-center align-items-center">
                     <div>
                         <div>
                             <span style="font-weight:bold;">
@@ -216,7 +216,7 @@
 </template>
 <script>
 export default{
-    props:['industries','stages','countries','looking_for','investment_range','bussines_models','investor_types'],
+    props:['industries','stages','countries','looking_for','investment_range','bussines_models','investor_types','phone_index'],
     data(){
         return {
             button:false,
@@ -246,7 +246,7 @@ export default{
                     innovation:"",
                 },
                 current_stage:"",
-                business_model:"",
+                bussiness_model:"",
                 target_audience:"",
                 industries:[],
                 country:"",
@@ -257,6 +257,18 @@ export default{
         }
     },
     methods:{
+        saveStartup(){
+            this.button = true
+            axios.post('/register/startup' ,this.input)
+            .then((response)=>{
+                console.log('წარმატებით დაემატა!')
+                if(redirect){
+                    window.location.replace(redirect)
+                }
+            }).catch(()=>{
+                console.log('წარუმატებელი მოთხოვნა!')
+            })
+        },
         onImageUpload(event){
             this.image.uploaded = event[0].urlResized
             this.$modal.show('chose_side_image_modal')

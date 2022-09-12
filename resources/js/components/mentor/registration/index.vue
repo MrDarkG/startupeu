@@ -1,10 +1,10 @@
 <template>
 <div>
     <div class="sign-title">
-        Mentor Registration         
+        Mentor Registration
     </div>
     <div class="sign-desc">
-        Plan your mentorship sessions easily        
+        Plan your mentorship sessions easily
     </div>
     <div class="sign-form" id="startup-form">
         <div class="row">
@@ -26,12 +26,12 @@
                     <multiselect
                         id="country_id"
                         v-model="input.country.data"
-                        track-by="name" 
-                        label="name"
+                        track-by="id"
+                        label="title"
+                        :style="setClassByValue(input.country.data,true,button)"
                         :options="countries"
                         :multiple="false"
-                    >
-                    </multiselect>
+                    ></multiselect>
                 </div>
             </div>
             <div class="col-md-12">
@@ -41,12 +41,11 @@
                         id="fields_consult_id"
                         v-model="input.which.field"
                         :style="setClassByValue(input.which.field,true,button)"
-                        track-by="name" 
-                        label="name"
-                        :options="countries"
+                        track-by="id"
+                        label="title"
+                        :options="fields"
                         :multiple="false"
-                    >
-                    </multiselect>
+                    ></multiselect>
                 </div>
             </div>
             <div class="col-md-12">
@@ -56,23 +55,22 @@
                         id="issues_consult_id"
                         v-model="input.which.issue"
                         :style="setClassByValue(input.which.issue,true,button)"
-                        track-by="name" 
-                        label="name"
-                        :options="countries"
+                        track-by="id"
+                        label="title"
+                        :options="issues"
                         :multiple="true"
-                    >
-                    </multiselect>
+                    ></multiselect>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="alert alert-warning alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                    <strong>warning!</strong>  file_text_for_mentor                    
+                    <strong>warning!</strong>  file_text_for_mentor
                 </div>
             </div>
                 <div class="col-md-6 st-logo position-relative" :class="setClassByValue(image.edited,false,button)" style="height:100%;">
                     <span class="text-danger float-right">*</span>
-                    <VueFileAgent 
+                    <VueFileAgent
                         :accept="'image/*'"
                         :maxSize="'10MB'"
                         :multiple="false"
@@ -83,22 +81,22 @@
                           size: 'Files should not exceed 10MB in size',
                         }"
                         :uploadUrl="image.uploaded"
-                        @select="onImageUpload" 
+                        @select="onImageUpload"
                         class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
                         v-model="fileRecords"
                     ></VueFileAgent>
                 </div>
         </div>
-        <div class="float-right">
-            <button @click="button = true;sendToSave('/register/mentor',input)" class="btn">
-                Get started 
+        <div class="float-right mt-3">
+            <button @click="sendData()" class="pl-3 pr-3 pt-2 pb-2 btn btn-primary">
+                Get started
             </button>
         </div>
     </div>
     <modal name="chose_side_mentor_image_modal" id="chose_side_mentor_image_modal">
         <div class="row p-4">
             <div class="col-md-8 position-relative">
-                <cropper 
+                <cropper
                     :src="image.uploaded"
                     :stencil-props="{
                         aspectRatio: 1/1
@@ -106,11 +104,10 @@
                     @change="change"
                     :stencil-component="$options.components.CircleStencil"
                     class="col-7  d-flex justify-content-center align-items-center"
-                >
-                </cropper>
+                ></cropper>
             </div>
             <div class="col-md-4 p-3">
-                <div class="d-flex justify-content-center align-items-center">   
+                <div class="d-flex justify-content-center align-items-center">
                     <div>
                         <div>
                             <span style="font-weight:bold;">
@@ -131,6 +128,7 @@
 </template>
 <script>
 export default{
+    props:['countries','fields','issues'],
     data(){
         return {
             fileRecords:[],
@@ -153,23 +151,16 @@ export default{
                 },
                 image:""
             },
-            countries:[
-                {
-                    name:"Azerbaijan",
-                },
-                {
-                    name:"Georgia",
-                },
-                {
-                    name:"Armenia",
-                },
-                {
-                    name:"Khazakhstan",
-                },
-            ],
         }
     },
     methods:{
+        sendData(){
+            this.button = true
+            axios.post('/register/mentor',this.input)
+                .then((response)=>{
+                    console.log(response.data)
+                })
+        },
         onImageUpload(event){
             this.image.uploaded = event[0].urlResized
             this.$modal.show('chose_side_mentor_image_modal')

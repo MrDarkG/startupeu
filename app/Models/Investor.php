@@ -34,7 +34,18 @@ class Investor extends Model
             \App\QueryFilters\Type::class,
         ])->thenReturn()->with(["ranges"])->get();
     }
-
+    static public function paginatedInvestors($count)
+    {
+        return $pipeline=app(Pipeline::class)
+            ->send(self::query())
+            ->through([
+                \App\QueryFilters\Countries::class,
+                \App\QueryFilters\Sort::class,
+                \App\QueryFilters\Name::class,
+                \App\QueryFilters\Fields::class,
+                \App\QueryFilters\Issues::class,
+            ])->thenReturn()->paginate($count);
+    }
     public function type($value='')
     {
         return $this->belongsTo(Investor_type::class,"type_id");
@@ -44,4 +55,5 @@ class Investor extends Model
     {
         return $this->hasOne(Range::class,"id",'range_id');
     }
+
 }

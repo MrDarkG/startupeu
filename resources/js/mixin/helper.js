@@ -58,7 +58,7 @@ Vue.mixin({
                 }).catch(()=>{
                     console.log('წარუმატებელი მოთხოვნა!')
                     this.$modal.hide('add_investment_opportunities')
-                }) 
+                })
             }else{
                 if(div_class){
                     document.getElementsByClassName(div_class)[0].scrollTo(0,0)

@@ -25,6 +25,7 @@ Route::group(['prefix' => '{language_id}',], function () {
 Route::get("/mentor/info",[ProfileController::class,"index"]);
 Route::prefix("/browse")->group(function(){
     Route::get("/mentors" ,[GuestController::class,'index']);
+    Route::get("/investors" ,[GuestController::class,'investorsPage']);
     Route::get("/startups" ,[GuestController::class,'startupPage']);
 });
 

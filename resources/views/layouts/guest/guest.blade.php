@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="/css/costum.css">
     </head>
     <body class="antialiased">
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent p-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent p-4" style="z-index: 1">
             <div>
                 <a class="navbar-brand d-none d-sm-none d-md-inline-block d-xl-inline-block" href="#">
                   <img src="/assets/images/logo.svg" id="logo">
@@ -33,7 +33,7 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/browse/funding">Seek funding </a>
               </li>
-              
+
               <li class="nav-item active">
                 <a class="nav-link" href="/browse/mentors">Find mentors</a>
               </li>
