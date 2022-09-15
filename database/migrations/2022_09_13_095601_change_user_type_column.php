@@ -14,7 +14,7 @@ class ChangeUserTypeColumn extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string("user_type")->change();
+            $table->string("user_type");
         });
     }
 
