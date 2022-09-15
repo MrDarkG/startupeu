@@ -21,43 +21,54 @@
                   <img src="/assets/images/lil-logo.svg" id="logo">
                 </a>
             </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/browse/startups">Browse startups</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/browse/funding">Seek funding </a>
-              </li>
-
-              <li class="nav-item active">
-                <a class="nav-link" href="/browse/mentors">Find mentors</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/browse/mentors">Find mentors</a>
-              </li>
-            </ul>
-            <div class="d-sm-none d-xl-block">
-                <form class="form-inline my-2 ">
-                  <input class="form-control mr-sm-2 login-input-search" type="search" placeholder="Search" aria-label="Search">
-                </form>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+    {{--              <li class="nav-item active">--}}
+    {{--                <a class="nav-link" href="/browse/startups">--}}
+    {{--                    <span>--}}
+    {{--                        Browse startups--}}
+    {{--                    </span>--}}
+    {{--                </a>--}}
+    {{--              </li>--}}
+    {{--              <li class="nav-item active">--}}
+    {{--                <a class="nav-link" href="/browse/funding">Seek funding </a>--}}
+    {{--              </li>--}}
+    {{--              <li class="nav-item active">--}}
+    {{--                <a class="nav-link" href="/browse/mentors">Find mentors</a>--}}
+    {{--              </li>--}}
+                    <li class="nav-item active">
+                        <a class="nav-link text-danger font-weight-bolder" href="/startup/kpi">
+                            Startup KPIs Day
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-sm-none d-xl-block">
+                    <form class="form-inline my-2 ">
+                      <input class="form-control mr-sm-2 login-input-search" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+                @guest
+{{--                  <button class="btn btn-light login-btn">--}}
+{{--                    <a href="/login">Login</a>--}}
+{{--                    <span class="login-text-primary"> / </span>--}}
+{{--                    <a href="/register">Register</a>--}}
+{{--                  </button>--}}
+                @else
+                  <button class="btn btn-light login-btn">
+                      @php
+                          $user_type = Auth::user()->user_type;
+                      @endphp
+                      @if($user_type !== null)
+                          <a href="{{$user_type}}/dashboard/index">Dashboard</a>
+                      @else
+                          <a href="/home">Dashboard</a>
+                      @endif
+                  </button>
+                @endguest
             </div>
-            @guest
-              <button class="btn btn-light login-btn">
-                <a href="/login">Login</a>
-                <span class="login-text-primary"> / </span>
-                <a href="/register">Register</a>
-              </button>
-            @else
-              <button class="btn btn-light login-btn">
-                <a href="/home">Dashboard</a>
-              </button>
-            @endguest
-          </div>
         </nav>
         <div id="app">
             @yield("content")

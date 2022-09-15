@@ -2624,6 +2624,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["stages", "bussines_models", "phone_index", "countries", "industries", "investment_range", "looking_for", "markets", "investor_types", "issues", "fields"],
+  methods: {
+    onTypeClick: function onTypeClick(index, type) {
+      this.types.map(function (tp) {
+        return tp.is_selected = false;
+      });
+      this.selected.type = type;
+      this.selected.type.index = index; // this.changeUserType(index)
+    }
+  },
   data: function data() {
     return {
       selected: {
@@ -4015,6 +4024,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4443,6 +4454,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['industries', 'stages', 'countries', 'looking_for', 'investment_range', 'bussines_models', 'investor_types', 'phone_index'],
   data: function data() {
@@ -4489,10 +4502,7 @@ __webpack_require__.r(__webpack_exports__);
       this.button = true;
       axios.post('/register/startup', this.input).then(function (response) {
         console.log('წარმატებით დაემატა!');
-
-        if (redirect) {
-          window.location.replace(redirect);
-        }
+        window.location.replace(response.data);
       })["catch"](function () {
         console.log('წარუმატებელი მოთხოვნა!');
       });
@@ -4696,6 +4706,9 @@ Vue.use(vue_advanced_cropper__WEBPACK_IMPORTED_MODULE_2__.CircleStencil);
 
 Vue.mixin({
   methods: {
+    changeUserType: function changeUserType(type) {
+      axios.get("/change_user_type/" + type);
+    },
     setClassByValue: function setClassByValue(input) {
       var is_multiselect = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       var button = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -9278,7 +9291,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.rounded-2{\r\n\tborder-radius: 1.5rem!important;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.rounded-2{\n\tborder-radius: 1.5rem!important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46666,12 +46679,8 @@ var render = function() {
                       staticClass: "item",
                       on: {
                         click: function($event) {
-                          _vm.types.map(function(tp) {
-                            return (tp.is_selected = false)
-                          })
+                          _vm.onTypeClick(index, type)
                           type.is_selected = true
-                          _vm.selected.type = type
-                          _vm.selected.type.index = index
                         }
                       }
                     },
@@ -46879,7 +46888,7 @@ var render = function() {
                       _c("img", {
                         staticClass: "col-md-12 p-0",
                         attrs: {
-                          src: "/uploads/" + item.image,
+                          src: "/assets/images/news/" + item.image,
                           alt: item.image
                         }
                       })
@@ -46900,9 +46909,9 @@ var render = function() {
                       item.created_at
                         ? _c("div", { staticClass: "text-black-50" }, [
                             _vm._v(
-                              "\r\n\t\t\t\t\t\t" +
+                              "\n\t\t\t\t\t\t" +
                                 _vm._s(_vm.setCustomDate(item.created_at)) +
-                                "\r\n\t\t\t\t\t"
+                                "\n\t\t\t\t\t"
                             )
                           ])
                         : _vm._e(),
@@ -49552,7 +49561,7 @@ var render = function() {
         [
           _c("label", { attrs: { for: "are_you_interested_in_traction" } }, [
             _vm._v(
-              "\r\n            \tWhat kind of traction do you have ?\r\n            "
+              "\n            \tWhat kind of traction do you have ?\n            "
             )
           ]),
           _vm._v(" "),
@@ -50002,94 +50011,100 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c(
-          "label",
-          { attrs: { for: "should_startup_mention_how_much_money_they_need" } },
-          [_vm._v("How much do you need ?")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 money-range" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.how_much_do_you_need.start,
-                  expression: "input.how_much_do_you_need.start"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.setClassByValue(_vm.input.how_much_do_you_need.start),
-              attrs: {
-                type: "text",
-                id: "should_startup_mention_how_much_money_they_need",
-                placeholder: "From"
-              },
-              domProps: { value: _vm.input.how_much_do_you_need.start },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.input.how_much_do_you_need,
-                    "start",
-                    $event.target.value
-                  )
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              attrs: {
-                src:
-                  "https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg",
-                alt: ""
-              }
-            })
-          ]),
+      _c("div", { staticClass: "col-md-4 d-flex align-items-center" }, [
+        _c("div", [
+          _c(
+            "label",
+            {
+              attrs: { for: "should_startup_mention_how_much_money_they_need" }
+            },
+            [_vm._v("How much do you need ?")]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 money-range" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.input.how_much_do_you_need.end,
-                  expression: "input.how_much_do_you_need.end"
-                }
-              ],
-              staticClass: "form-control",
-              class: _vm.setClassByValue(_vm.input.how_much_do_you_need.end),
-              attrs: {
-                type: "text",
-                id: "should_startup_mention_how_much_money_they_need",
-                placeholder: "To"
-              },
-              domProps: { value: _vm.input.how_much_do_you_need.end },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6 money-range" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input.how_much_do_you_need.start,
+                    expression: "input.how_much_do_you_need.start"
                   }
-                  _vm.$set(
-                    _vm.input.how_much_do_you_need,
-                    "end",
-                    $event.target.value
-                  )
+                ],
+                staticClass: "form-control",
+                class: _vm.setClassByValue(
+                  _vm.input.how_much_do_you_need.start
+                ),
+                attrs: {
+                  type: "text",
+                  id: "should_startup_mention_how_much_money_they_need",
+                  placeholder: "From"
+                },
+                domProps: { value: _vm.input.how_much_do_you_need.start },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.input.how_much_do_you_need,
+                      "start",
+                      $event.target.value
+                    )
+                  }
                 }
-              }
-            }),
+              }),
+              _vm._v(" "),
+              _c("img", {
+                attrs: {
+                  src:
+                    "https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg",
+                  alt: ""
+                }
+              })
+            ]),
             _vm._v(" "),
-            _c("img", {
-              attrs: {
-                src:
-                  "https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg",
-                alt: ""
-              }
-            })
+            _c("div", { staticClass: "col-md-6 money-range" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input.how_much_do_you_need.end,
+                    expression: "input.how_much_do_you_need.end"
+                  }
+                ],
+                staticClass: "form-control",
+                class: _vm.setClassByValue(_vm.input.how_much_do_you_need.end),
+                attrs: {
+                  type: "text",
+                  id: "should_startup_mention_how_much_money_they_need",
+                  placeholder: "To"
+                },
+                domProps: { value: _vm.input.how_much_do_you_need.end },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.input.how_much_do_you_need,
+                      "end",
+                      $event.target.value
+                    )
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("img", {
+                attrs: {
+                  src:
+                    "https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg",
+                  alt: ""
+                }
+              })
+            ])
           ])
         ])
       ]),
@@ -51974,11 +51989,11 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "float-right" }, [
+      _c("div", { staticClass: "float-right pt-3" }, [
         _c(
           "button",
           {
-            staticClass: "btn",
+            staticClass: "btn btn-primary",
             attrs: { type: "submit", id: "submit" },
             on: {
               click: function($event) {
@@ -51986,7 +52001,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Get started ")]
+          [_vm._v("\n            Get started\n        ")]
         )
       ]),
       _vm._v(" "),

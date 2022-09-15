@@ -1,5 +1,8 @@
 Vue.mixin({
     methods:{
+        changeUserType(type){
+            axios.get("/change_user_type/"+type)
+        },
         setClassByValue(input, is_multiselect=false, button=false){
             if (button) {
                 let bol = (is_multiselect)?{

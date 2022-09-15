@@ -9,7 +9,7 @@
                 id="interest_martket_id"
                 v-model="input.what.traction"
                 :style="setClassByValue(input.what.traction,true)"
-                track-by="title" 
+                track-by="title"
                 label="title"
                 :options="default_data"
                 :multiple="false"
@@ -22,7 +22,7 @@
                 id="interest_martket_id"
                 v-model="input.what.problem_solve"
                 :style="setClassByValue(input.what.problem_solve,true)"
-                track-by="title" 
+                track-by="title"
                 label="title"
                 :options="default_data"
                 :multiple="false"
@@ -86,7 +86,7 @@
                 id="interest_martket_id"
                 v-model="input.prototype"
                 :style="setClassByValue(input.prototype,true)"
-                track-by="title" 
+                track-by="title"
                 label="title"
                 :options="default_data"
                 :multiple="false"
@@ -97,17 +97,19 @@
             <label for="should_startup_has_experience">How many years of experience do you have ?</label>
             <input type="text" id="should_startup_has_experience" v-model="input.experience" :class="setClassByValue(input.experience)" name="should_startup_has_experience" value="0" class="form-control" f="" placeholder="Number of years">
         </div>
-        <div class="col-md-4">
-            <label for="should_startup_mention_how_much_money_they_need">How much do you need ?</label>
-            <div class="row">
-                <div class="col-md-6 money-range">
-                    <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.start" :class="setClassByValue(input.how_much_do_you_need.start)" class="form-control" placeholder="From">
-                    <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg" alt="">
-                </div>
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <label for="should_startup_mention_how_much_money_they_need">How much do you need ?</label>
+                <div class="row">
+                    <div class="col-md-6 money-range">
+                        <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.start" :class="setClassByValue(input.how_much_do_you_need.start)" class="form-control" placeholder="From">
+                        <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg" alt="">
+                    </div>
 
-                <div class="col-md-6 money-range">
-                    <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.end" :class="setClassByValue(input.how_much_do_you_need.end)" class="form-control" placeholder="To">
-                    <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg" alt="">
+                    <div class="col-md-6 money-range">
+                        <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.end" :class="setClassByValue(input.how_much_do_you_need.end)" class="form-control" placeholder="To">
+                        <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg" alt="">
+                    </div>
                 </div>
             </div>
         </div>

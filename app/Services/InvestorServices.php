@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace App\Services;
 
 use App\Models\Investor;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Storage;
 use Auth;
@@ -47,10 +48,8 @@ class InvestorServices extends MainServices
 	        "type_id"=>$request->input("investor_type"),
 	        "logo"=>'/investor/'.$filaname
 		]);
-		return [
-            "status"=>"1",
-            "description"=>"Information updated Successfully"
-        ];
+
+        return UserService::setUserType("investor");
 	}
 
 	static public function createProfile($request)
@@ -76,9 +75,11 @@ class InvestorServices extends MainServices
 	        "logo"=>$filename
 		]);
 
-		return [
-            "status"=>"1",
-            "description"=>"Information stored Successfully"
-        ];
+        return UserService::setUserType("investor");
+//
+//		return [
+//            "status"=>"1",
+//            "description"=>"Information stored Successfully"
+//        ];
 	}
 }

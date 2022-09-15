@@ -50,7 +50,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-
             Route::middleware('web')
                 // ->namespace($this->namespace)
                 ->prefix("/mentor/")
@@ -61,19 +60,19 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix("/register/")
                 ->group(base_path('routes/register.php'));
 
-            Route::middleware('web')
+            Route::middleware(['web','auth'])
                 // ->namespace($this->namespace)
-                ->prefix("/startup/")
+                ->prefix("/startup/dashboard")
                 ->group(base_path('routes/startup/dashboard.php'));
 
-            Route::middleware('web')
+            Route::middleware(['web','auth'])
                 // ->namespace($this->namespace)
-                ->prefix("/investor/")
+                ->prefix("/investor/dashboard")
                 ->group(base_path('routes/investor/dashboard.php'));
 
-            Route::middleware('web')
+            Route::middleware(['web','auth'])
                 // ->namespace($this->namespace)
-                ->prefix("/mentor/")
+                ->prefix("/mentor/dashboard")
                 ->group(base_path('routes/mentor/dashboard.php'));
         });
     }

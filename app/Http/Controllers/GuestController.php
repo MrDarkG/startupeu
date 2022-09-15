@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Events;
 use App\Models\Investor;
+use App\Models\Startup_ecosystem;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Issue;
@@ -22,9 +24,13 @@ class GuestController extends Controller
     {
         $news = News::orderBy('created_at')->take(4)->get();
         $startups = Startup::get();
+        $startup_ecosystem = Startup_ecosystem::get();
+        $events = Events::get();
         return view('welcome',[
             'news' => $news,
             'startups' => $startups,
+            'ecosystem' => $startup_ecosystem,
+            'events' => $events
         ]);
     }
     public function index()

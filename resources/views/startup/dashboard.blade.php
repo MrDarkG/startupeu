@@ -8,7 +8,7 @@ use App\Services\DataService;
 		:types="{{ json_encode($types) }}"
 		:stages="{{ json_encode(DataService::getAllStages()) }}"
 		:bussiness_models="{{ json_encode(DataService::getAllBussinessModels()) }}"
-		:TargetAudienc="{{ json_encode(DataService::getAllTargetAudienc()) }}"
+		:TargetAudienc="{{ json_encode(DataService::getAllTargetAudience()) }}"
 		:Industries="{{ json_encode(DataService::getAllIndustries()) }}"
 		:country="{{ json_encode(DataService::getAllCountry()) }}"
 		:ranges="{{ json_encode(DataService::getAllRanges()) }}"

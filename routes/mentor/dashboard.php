@@ -14,7 +14,6 @@ use App\Http\Controllers\MentorDashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/index', [MentorDashboardController::class,"index"]);
 Route::get('/calendar', [MentorDashboardController::class,"opportunities"]);
 Route::get('/account', [MentorDashboardController::class,"my_account"]);

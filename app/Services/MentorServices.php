@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Mentor;
 use App\Models\Mentor_issues;
+use App\Services\UserService;
 use Auth;
 use Illuminate\Http\Request;
 use Storage;
@@ -54,10 +55,7 @@ class MentorServices extends MainServices
             ]);
         }
 
-		return [
-            "status"=>"1",
-            "description"=>"Information updated Successfully"
-        ];
+        return UserService::setUserType("mentor");
 
 	}
 
@@ -88,9 +86,11 @@ class MentorServices extends MainServices
             ]);
         }
 
-		return [
-            "status"=>"1",
-            "description"=>"Information stored Successfully"
-        ];
+        return UserService::setUserType("mentor");
+
+//		return [
+//            "status"=>"1",
+//            "description"=>"Information stored Successfully"
+//        ];
 	}
 }

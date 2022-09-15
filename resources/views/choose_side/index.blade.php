@@ -13,7 +13,7 @@
         :industries = "{{ json_encode(DataService::getAllIndustries()) }}"
         :investment_range = "{{ json_encode(DataService::getAllRanges()) }}"
         :looking_for = "{{ json_encode(DataService::getAllLookingFor()) }}"
-        :markets = "{{ json_encode(DataService::geAllMarkets()) }}"
-        :investor_types = "{{ json_encode(DataService::geAllInvestorTypes()) }}"
+        :markets = "{{ json_encode(DataService::getAllMarkets()) }}"
+        :investor_types = "{{ json_encode(DataService::getAllInvestorTypes()) }}"
     ></choose-side>
 @endsection

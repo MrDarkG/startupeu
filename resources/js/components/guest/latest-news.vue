@@ -18,7 +18,7 @@
 						'col-md-12':item_i > 0,
 					}"
 				>
-					<img class="col-md-12 p-0" :src="`/uploads/${item.image}`" :alt="item.image">
+					<img class="col-md-12 p-0" :src="`/assets/images/news/${item.image}`" :alt="item.image">
 				</div>
 				<div
 					class="col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-start"

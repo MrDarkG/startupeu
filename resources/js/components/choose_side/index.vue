@@ -25,7 +25,7 @@
 		        <div class="type_list">
 		            <a
 		            	v-for="(type, index) in types"
-		            	@click="types.map((tp)=>tp.is_selected = false);type.is_selected=true;selected.type = type;selected.type.index = index"
+		            	@click="onTypeClick(index, type);type.is_selected=true;"
 		            	class="item"
 	            	>
 		                <img :src="type.src" alt="">
@@ -96,6 +96,14 @@ export default{
         "issues",
         "fields"
     ],
+    methods:{
+      onTypeClick(index ,type){
+          this.types.map((tp)=>tp.is_selected = false)
+          this.selected.type = type
+          this.selected.type.index = index
+          // this.changeUserType(index)
+      },
+    },
 	data(){
 		return {
 			selected:{

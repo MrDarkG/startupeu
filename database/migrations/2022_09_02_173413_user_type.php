@@ -15,6 +15,7 @@ class UserType extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->integer('user_type')->after('role_id')->nullable()->default(null);
         });
     }
 
@@ -26,7 +27,7 @@ class UserType extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('user_type')->after('role_id')->default(null);
+            //
         });
     }
 }

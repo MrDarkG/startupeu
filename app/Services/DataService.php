@@ -12,7 +12,7 @@ use App\Models\Looking_for;
 use App\Models\Market;
 use App\Models\Investor_type;
 
-use Auth; 
+use Auth;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -46,11 +46,11 @@ use Storage;
 		{
 			return Looking_for::get();
 		}
-		static public function geAllMarkets()
+		static public function getAllMarkets()
 		{
 			return Market::get();
 		}
-		static public function geAllInvestorTypes()
+		static public function getAllInvestorTypes()
 		{
 			return Investor_type::get();
 		}

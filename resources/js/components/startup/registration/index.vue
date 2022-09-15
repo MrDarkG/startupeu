@@ -177,8 +177,10 @@
             ></VueFileAgent>
         </div>
     </div>
-    <div class="float-right">
-        <button type="submit" @click="saveStartup()" id="submit" class="btn">Get started </button>
+    <div class="float-right pt-3">
+        <button type="submit" @click="saveStartup()" id="submit" class="btn btn-primary">
+            Get started
+        </button>
     </div>
     <modal name="chose_side_image_modal" id="choose_side_image_modal">
         <div class="row p-4">
@@ -262,9 +264,7 @@ export default{
             axios.post('/register/startup' ,this.input)
             .then((response)=>{
                 console.log('წარმატებით დაემატა!')
-                if(redirect){
-                    window.location.replace(redirect)
-                }
+                window.location.replace(response.data)
             }).catch(()=>{
                 console.log('წარუმატებელი მოთხოვნა!')
             })

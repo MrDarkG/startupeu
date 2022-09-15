@@ -14,7 +14,6 @@ use App\Http\Controllers\InvestorDashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/index', [InvestorDashboardController::class,"index"]);
 Route::get('/opportunities', [InvestorDashboardController::class,"opportunities"]);
 Route::get('/startups', [InvestorDashboardController::class,"startups"]);

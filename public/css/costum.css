@@ -10,7 +10,11 @@
     font-style: normal;
     font-display: swap;
 }
-
+.ecosystem-text{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
 @font-face {
     font-family: 'FiraGO-medium';
     src: url('/assets/fonts/FiraGO-Medium.woff2') format('woff2'),
@@ -54,7 +58,7 @@ a:hover{
 }
 .login-btn{
    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
-    border-radius: 16px; 
+    border-radius: 16px;
     padding: 10px 18px;
     font-size: 17px;
     color: #6200EE;
@@ -5007,7 +5011,7 @@ a:hover{
 .sidebar .menubar{
     background: #FFFFFF;
     box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.16);
-    border-radius: 36px; 
+    border-radius: 36px;
     height: 70vh;
     width: 90%;
     /*margin: 0 40px;*/
@@ -5072,7 +5076,7 @@ a:hover{
         align-items: center;
         min-width: 76px;
     }
-    
+
     .logo-min{
         display: block;
     }
@@ -5124,3 +5128,10 @@ a:hover{
     font-weight: bold;
     padding: 16px 48px;
 }
+
+@media only screen and (max-width: 575px) {
+    .event-card{
+        left: -30px!important;
+    }
+}
+

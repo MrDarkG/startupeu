@@ -2,14 +2,14 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Closure;
 use Illuminate\Http\Request;
-use App\Models\Users;
 use App\Models\Mentor;
 use App\Models\Investor;
 use App\Models\Startup;
-class ChooseSideMiddleware
-{
+
+class ChooseSideMiddleware{
     /**
      * Handle an incoming request.
      *
@@ -19,13 +19,10 @@ class ChooseSideMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Mentor::where('user_id', Auth::user()->id)->first()){
-            return redirect('/home')
-        }else if(Investor::where('user_id', Auth::user()->id)->first()){
-            return redirect('/home')
-        }else if(Startup::where('user_id', Auth::user()->id)->first()){
-            return redirect('/home')
+        $user_type = Auth::user()->user_type;
+        if($user_type == null){
+            return $next($request);
         }
-        return $next($request);
+        abort(403);
     }
 }

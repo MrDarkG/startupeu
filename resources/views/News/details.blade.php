@@ -20,7 +20,7 @@
                                 "id" => $other->id,
                                 'slug' => generateSlug($other->title)
                                 ]) }}">
-                            <img src="{{asset('uploads').'/'. $other->image}}" alt="{{ $other->title }}" width="100%">
+                            <img src="{{ asset('assets/images/news').'/'. $other->image}}" alt="{{ $other->title }}" width="100%">
                             <span>
                                 {{ $other->created_at->format("d M, Y") }}
                             </span>

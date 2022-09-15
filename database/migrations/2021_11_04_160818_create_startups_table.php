@@ -16,7 +16,7 @@ class CreateStartupsTable extends Migration
         Schema::create('startups', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("founded");
+            $table->text("founded");
             $table->string("full_name");
             $table->integer("phone_index");
             $table->string("number");

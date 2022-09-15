@@ -4,6 +4,7 @@ namespace App\Services;
 use App\Models\Startup;
 use App\Models\Startup_industries;
 use App\Models\Startup_looking_for;
+use App\Services\UserService;
 
 use Auth;
 use Illuminate\Http\Request;
@@ -43,7 +44,7 @@ use Storage;
                 "full_name"=>$request->input("full_name"),
                 "phone_index"=>$request->input("phone.index.id"),
                 "number"=>$request->input("startup.number"),
-                "ceo_email"=>$request->input("startup.mobile"),
+                "ceo_email"=>$request->input("startup.number"),
                 "startup_email"=>$request->input("startup.email"),
                 "website"=>$request->input("website"),
                 "what_your_company_does"=>$request->input("about.company"),
@@ -56,10 +57,13 @@ use Storage;
                 "user_id"=>Auth::user()->id,
                 "logo"=>"/startup/".$filaname
 			]);
-			return [
-	            "status"=>"1",
-	            "description"=>"Information updated Successfully"
-	        ];
+
+            return UserService::setUserType("startup");
+
+//			return [
+//	            "status"=>"1",
+//	            "description"=>"Information updated Successfully"
+//	        ];
 		}
 		static public function createProfile($request)
 		{
@@ -125,10 +129,12 @@ use Storage;
 				]);
 			}
 
-			return [
-	            "status"=>"1",
-	            "description"=>"Information stored Successfully"
-	        ];
+            return UserService::setUserType("startup");
+
+//			return [
+//	            "status"=>"1",
+//	            "description"=>"Information updated Successfully"
+//	        ];
 		}
 	}
 ?>
