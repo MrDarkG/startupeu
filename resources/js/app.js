@@ -55,6 +55,9 @@ Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue
 // MENTOR
     Vue.component('mentor-dashboard', require('./components/mentor/index.vue').default)
 
+// ADMIN
+    Vue.component('admin-events', require('./components/admin/events.vue').default)
+// END ADMIN
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
