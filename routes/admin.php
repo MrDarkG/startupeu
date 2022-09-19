@@ -13,3 +13,5 @@ use App\Http\Controllers\AdminController as AdminController;
 |
 */
 Route::get('/events', [AdminController::class, 'events'])->name('events');
+Route::post('/edit/event', [AdminController::class, 'editEvent'])->name('editEvent');
+Route::get('/delete/event/{event_id}', [AdminController::class, 'deleteEvent'])->name('deleteEvent');

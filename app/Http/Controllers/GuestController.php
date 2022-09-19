@@ -25,7 +25,7 @@ class GuestController extends Controller
         $news = News::orderBy('created_at')->take(4)->get();
         $startups = Startup::get();
         $startup_ecosystem = Startup_ecosystem::get();
-        $events = Events::get();
+        $events = Events::orderBy('created_at','Desc')->take(4)->get();
         return view('welcome',[
             'news' => $news,
             'startups' => $startups,

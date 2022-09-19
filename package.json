@@ -33,6 +33,7 @@
         "vue-multiselect": "^2.1.6",
         "vue-simple-range-slider": "^0.1.10",
         "vue-slider-component": "^3.2.15",
-        "vue-toastify": "^1.8.0"
+        "vue-toastify": "^1.8.0",
+        "vue2-editor": "^2.10.3"
     }
 }

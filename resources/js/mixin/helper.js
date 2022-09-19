@@ -1,4 +1,26 @@
 Vue.mixin({
+    data(){
+        return {
+            customToolbar: [
+                [{ 'font': [] }],
+                [{ 'header': [false, 1, 2, 3, 4, 5, 6, ] }],
+                // [{ 'size': ['small', false, 'large', 'huge'] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{'align': ''}, {'align': 'center'}, {'align': 'right'}, {'align': 'justify'}],
+                [{ 'header': 1 }, { 'header': 2 }],
+                // ['blockquote', 'code-block'],
+                ['blockquote'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+                // [{ 'script': 'sub'}, { 'script': 'super' }],
+                [{ 'indent': '-1'}, { 'indent': '+1' }],
+                [{ 'color': [] }, { 'background': [] }],
+                // ['link', 'image', 'video', 'formula'],
+                ['link'],
+                // [{ 'direction': 'rtl' }],
+                ['clean'],
+            ],
+        }
+    },
     methods:{
         changeUserType(type){
             axios.get("/change_user_type/"+type)

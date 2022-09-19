@@ -41,6 +41,12 @@ return [
             'url' => env('APP_URL')."/uploads",
             'visibility' => 'public',
         ],
+        'events'=>[
+            'driver' => 'local',
+            'root' => public_path('/assets/images/events/uploads'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
         'mentors_avatar'=>[
             'driver' => 'local',
             'root' => public_path('/mentors'),

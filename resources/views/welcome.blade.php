@@ -112,7 +112,7 @@
                                     class="position-absolute w-100 shadow event-card"
                                     style="
                                         background-color:white;
-                                        background:url('/assets/images/events/{{ $event->image }}');
+                                        background:url('/assets/images/events/uploads/{{ $event->image }}');
                                         background-repeat: no-repeat;
                                         background-size: cover!important;
                                         background-position: center;
