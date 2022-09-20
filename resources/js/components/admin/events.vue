@@ -1,15 +1,45 @@
 <template>
 <div>
-    <div class="mt-3 w-100 d-flex text-white flex-column p-2 bg-primary shadow rounded">
-        <div class="font-weight-bold">
-            <h4>Add event</h4>
+    <div class="mt-3 w-100 d-flex text-white flex-column p-2 shadow rounded"
+        :class="{
+            'bg-success':!is_active.add,
+            'bg-primary':is_active.add
+        }"
+    >
+        <div @click="is_active.add = !is_active.add" class="font-weight-bold d-flex align-items-center justify-content-between p-2">
+            <div>
+                <h4 class="m-0">Add event +</h4>
+            </div>
+            <div>
+                <div
+                    class="mr-2 pl-2 pr-2 pt-1 pb-1 d-flex align-items-center rounded bg-transparent border cursor-pointer"
+                    :class="{
+                        'border-white': is_active.add,
+                    }"
+                >
+                    <i
+                        class="fa text-white font-weight-bold"
+                        :class="{
+                            'fa-angle-down': !is_active.add,
+                            'fa fa-angle-up': is_active.add
+                        }"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+            </div>
         </div>
-        <div class="bg-white rounded text-black p-2">
+        <div v-if="is_active.add" class="bg-white rounded text-black p-2 events-main-content">
+            <div>
+                <label>
+                    Title:
+                </label>
+                <input type="text" placeholder="event title..." v-model="inputs.title" class="form-control">
+            </div>
             <div>
                 <label>
                     Card color:
                 </label>
-                <input type="color" @change="inputs.card_color = $event.target.value"  :value="inputs.card_color" class="form-control">
+                <input type="color" @change="inputs.card_color = $event.target.value"  v-model="inputs.card_color" class="form-control">
             </div>
             <div class="mt-3">
                 <label>
@@ -26,7 +56,7 @@
                 <label>
                     Date:
                 </label>
-                <input type="date" @change="inputs.date = $event.target.value" :value="inputs.date" class="form-control">
+                <input type="date" v-model="inputs.date" class="form-control">
             </div>
             <div class="mt-3">
                 <input type="file" @change="previewFile($event, 'add')">
@@ -34,6 +64,11 @@
                     <img id="addevent-image" width="300" src="/assets/images/events/towers.jpg">
                 </div>
             </div>
+        </div>
+        <div v-if="is_active.add" class="mt-2 d-flex align-items-center justify-content-end">
+            <button class="btn btn-success pl-5 pr-5 pt-2 pb-2" @click="addEvent">
+                Add
+            </button>
         </div>
     </div>
     <div
@@ -48,13 +83,6 @@
                 <span class="font-weight-bold" v-if="!event.is_active">
                     {{ event.title }}
                 </span>
-                <input
-                    v-else
-                    type="text"
-                    class="form-control text-black"
-                    @change="event.title = $event.target.value"
-                    :value="event.title"
-                >
             </div>
             <div class="d-flex align-items-center justify-content-between">
                 <div class="pr-3">
@@ -94,7 +122,13 @@
         </div>
         <div class="text-black bg-white mt-2 w-100 rounded p-1 events-main-content" v-if="event.is_active">
             <div class="pl-2 pr-2">
-                <div>
+                <div class="mt-2">
+                    <label>
+                        Title:
+                    </label>
+                    <input type="text" @change="event.title = $event.target.value" :value="event.title" class="form-control">
+                </div>
+                <div class="mt-2">
                     <label>
                         Card color:
                     </label>
@@ -141,11 +175,13 @@ export default {
     props:['events'],
     methods:{
         deleteEvent(e_index, event_id){
-            this.events.splice(e_index, 1)
-            axios.get('/admin/delete/event/'+event_id)
+            if(confirm("Are you sure you want to delete this event?")){
+                this.events.splice(e_index, 1)
+                axios.get('/admin/delete/event/'+event_id)
+            }
         },
         previewFile(image, event_id, index=null) {
-            const preview = document.getElementById(event_id+"event-image")
+            let preview = document.getElementById(event_id+"event-image")
             const file = image.target.files[0]
             const reader = new FileReader()
             reader.readAsDataURL(file)
@@ -159,9 +195,10 @@ export default {
                 }else{
                     this.inputs.image = response
                 }
+                //PREVIEW IMAGE
                 setTimeout(()=>{
                     preview.src = response
-                },500)
+                },100)
             })
         },
         editEvent(event){
@@ -169,7 +206,21 @@ export default {
                 id: event.id,
                 event: event
             })
-        }
+        },
+        addEvent(){
+            axios.post('/admin/add/event', this.inputs)
+            .then((response)=>{
+                response.data.is_active = false
+                this.events.push(response.data)
+                this.inputs = {
+                    title: '',
+                    description: '',
+                    date: '',
+                    image: '',
+                    card_color: '#ffffff'
+                }
+            })
+        },
     },
     created() {
         this.events = this.events.map((event) => {
@@ -187,7 +238,7 @@ export default {
                 card_color: '#ffffff'
             },
             is_active:{
-                add:true,
+                add:false,
             },
         }
     },

@@ -2231,12 +2231,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['events'],
   methods: {
     deleteEvent: function deleteEvent(e_index, event_id) {
-      this.events.splice(e_index, 1);
-      axios.get('/admin/delete/event/' + event_id);
+      if (confirm("Are you sure you want to delete this event?")) {
+        this.events.splice(e_index, 1);
+        axios.get('/admin/delete/event/' + event_id);
+      }
     },
     previewFile: function previewFile(image, event_id) {
       var _this = this;
@@ -2260,17 +2296,35 @@ __webpack_require__.r(__webpack_exports__);
           _this.events[index].image = response;
         } else {
           _this.inputs.image = response;
-        }
+        } //PREVIEW IMAGE
+
 
         setTimeout(function () {
           preview.src = response;
-        }, 500);
+        }, 100);
       });
     },
     editEvent: function editEvent(event) {
       axios.post('/admin/edit/event', {
         id: event.id,
         event: event
+      });
+    },
+    addEvent: function addEvent() {
+      var _this2 = this;
+
+      axios.post('/admin/add/event', this.inputs).then(function (response) {
+        response.data.is_active = false;
+
+        _this2.events.push(response.data);
+
+        _this2.inputs = {
+          title: '',
+          description: '',
+          date: '',
+          image: '',
+          card_color: '#ffffff'
+        };
       });
     }
   },
@@ -2290,7 +2344,7 @@ __webpack_require__.r(__webpack_exports__);
         card_color: '#ffffff'
       },
       is_active: {
-        add: true
+        add: false
       }
     };
   }
@@ -60147,82 +60201,213 @@ var render = function() {
         "div",
         {
           staticClass:
-            "mt-3 w-100 d-flex text-white flex-column p-2 bg-primary shadow rounded"
+            "mt-3 w-100 d-flex text-white flex-column p-2 shadow rounded",
+          class: {
+            "bg-success": !_vm.is_active.add,
+            "bg-primary": _vm.is_active.add
+          }
         },
         [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-white rounded text-black p-2" }, [
-            _c("div", [
-              _c("label", [
-                _vm._v("\n                    Card color:\n                ")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "color" },
-                domProps: { value: _vm.inputs.card_color },
-                on: {
-                  change: function($event) {
-                    _vm.inputs.card_color = $event.target.value
-                  }
+          _c(
+            "div",
+            {
+              staticClass:
+                "font-weight-bold d-flex align-items-center justify-content-between p-2",
+              on: {
+                click: function($event) {
+                  _vm.is_active.add = !_vm.is_active.add
                 }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mt-3" }, [
-              _c("label", [
-                _vm._v("\n                    Description:\n                ")
-              ]),
+              }
+            },
+            [
+              _vm._m(0),
               _vm._v(" "),
-              _c(
-                "div",
-                [
-                  _c("VueEditor", {
-                    attrs: { editorToolbar: _vm.customToolbar },
-                    model: {
-                      value: _vm.inputs.description,
-                      callback: function($$v) {
-                        _vm.$set(_vm.inputs, "description", $$v)
-                      },
-                      expression: "inputs.description"
+              _c("div", [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "mr-2 pl-2 pr-2 pt-1 pb-1 d-flex align-items-center rounded bg-transparent border cursor-pointer",
+                    class: {
+                      "border-white": _vm.is_active.add
                     }
-                  })
-                ],
-                1
+                  },
+                  [
+                    _c("i", {
+                      staticClass: "fa text-white font-weight-bold",
+                      class: {
+                        "fa-angle-down": !_vm.is_active.add,
+                        "fa fa-angle-up": _vm.is_active.add
+                      },
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _vm.is_active.add
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-white rounded text-black p-2 events-main-content"
+                },
+                [
+                  _c("div", [
+                    _c("label", [
+                      _vm._v("\n                    Title:\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.title,
+                          expression: "inputs.title"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "event title..." },
+                      domProps: { value: _vm.inputs.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.inputs, "title", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("label", [
+                      _vm._v(
+                        "\n                    Card color:\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.card_color,
+                          expression: "inputs.card_color"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "color" },
+                      domProps: { value: _vm.inputs.card_color },
+                      on: {
+                        change: function($event) {
+                          _vm.inputs.card_color = $event.target.value
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.inputs,
+                            "card_color",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-3" }, [
+                    _c("label", [
+                      _vm._v(
+                        "\n                    Description:\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("VueEditor", {
+                          attrs: { editorToolbar: _vm.customToolbar },
+                          model: {
+                            value: _vm.inputs.description,
+                            callback: function($$v) {
+                              _vm.$set(_vm.inputs, "description", $$v)
+                            },
+                            expression: "inputs.description"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-3" }, [
+                    _c("label", [
+                      _vm._v("\n                    Date:\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputs.date,
+                          expression: "inputs.date"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "date" },
+                      domProps: { value: _vm.inputs.date },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.inputs, "date", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-3" }, [
+                    _c("input", {
+                      attrs: { type: "file" },
+                      on: {
+                        change: function($event) {
+                          return _vm.previewFile($event, "add")
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ])
+                ]
               )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mt-3" }, [
-              _c("label", [
-                _vm._v("\n                    Date:\n                ")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "date" },
-                domProps: { value: _vm.inputs.date },
-                on: {
-                  change: function($event) {
-                    _vm.inputs.date = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mt-3" }, [
-              _c("input", {
-                attrs: { type: "file" },
-                on: {
-                  change: function($event) {
-                    return _vm.previewFile($event, "add")
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm._m(1)
-            ])
-          ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.is_active.add
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "mt-2 d-flex align-items-center justify-content-end"
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success pl-5 pr-5 pt-2 pb-2",
+                      on: { click: _vm.addEvent }
+                    },
+                    [_vm._v("\n                Add\n            ")]
+                  )
+                ]
+              )
+            : _vm._e()
         ]
       ),
       _vm._v(" "),
@@ -60250,16 +60435,7 @@ var render = function() {
                             "\n                "
                         )
                       ])
-                    : _c("input", {
-                        staticClass: "form-control text-black",
-                        attrs: { type: "text" },
-                        domProps: { value: event.title },
-                        on: {
-                          change: function($event) {
-                            event.title = $event.target.value
-                          }
-                        }
-                      })
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c(
@@ -60338,7 +60514,26 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "pl-2 pr-2" }, [
-                      _c("div", [
+                      _c("div", { staticClass: "mt-2" }, [
+                        _c("label", [
+                          _vm._v(
+                            "\n                        Title:\n                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: { type: "text" },
+                          domProps: { value: event.title },
+                          on: {
+                            change: function($event) {
+                              event.title = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-2" }, [
                         _c("label", [
                           _vm._v(
                             "\n                        Card color:\n                    "
@@ -60464,8 +60659,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "font-weight-bold" }, [
-      _c("h4", [_vm._v("Add event")])
+    return _c("div", [
+      _c("h4", { staticClass: "m-0" }, [_vm._v("Add event +")])
     ])
   },
   function() {

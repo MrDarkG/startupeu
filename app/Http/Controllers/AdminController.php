@@ -24,12 +24,27 @@ class AdminController extends Controller
 
         return $filaname;
     }
+    function addEvent(Request $request)
+    {
+        $this->validate($request,[
+            "title" => "required|string",
+            "description" => "required|string",
+            "date" => "required",
+            "image" => "required",
+            "card_color" => "required|string",
+        ]);
+        $event = $request->post();
+        $event['image'] = $this->setAndGetImageName($request->input('image'),"events");
+        return Events::create($event);
+    }
     function editEvent(Request $request)
     {
         $event = $request->post()['event'];
         unset($event['is_active']);
-        $event['image'] = $this->setAndGetImageName($request->input('event.image'),"events");
-
+        if (str_contains($request->input('event.image'), 'data:image')) {
+            Storage::disk('events')->delete($event['image']);
+            $event['image'] = $this->setAndGetImageName($request->input('event.image'),"events");
+        }
         Events::where('id', $request->input('id'))->update($event);
         return [
             'status' => 'success'
@@ -37,7 +52,9 @@ class AdminController extends Controller
     }
     function deleteEvent($event_id)
     {
-        Events::where('id', $event_id)->delete();
+        $event = Events::where('id', $event_id);
+        Storage::disk('events')->delete($event->first()->image);
+        $event->delete();
         return [
             'status' => 'success'
         ];
