@@ -79,6 +79,13 @@ class GuestController extends Controller
             'countries' => $countries
         ]);
     }
+    function eventSinglePage($event_id){
+        $event = Events::where('id' ,$event_id)->firstOrFail();
+        $event['date'] = date("F jS, Y", strtotime($event['date']));
+        return view('events.single-page',[
+            'event' => $event
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

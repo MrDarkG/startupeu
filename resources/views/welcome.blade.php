@@ -130,7 +130,15 @@
                                     {{ $event->title }}
                                 </div>
                                 <div>
-                                    <h6 class="m-0">Learn more</h6>
+                                    <a
+                                        href="{{
+                                            route('singleEvent',[
+                                                'event_id' => $event->id
+                                            ])
+                                        }}"
+                                    >
+                                        <h6 class="m-0">Learn more</h6>
+                                    </a>
                                 </div>
                             </div>
                         </div>

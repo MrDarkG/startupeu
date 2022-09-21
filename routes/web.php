@@ -28,6 +28,7 @@ Route::prefix("/browse")->group(function(){
     Route::get("/investors" ,[GuestController::class,'investorsPage']);
     Route::get("/startups" ,[GuestController::class,'startupPage']);
 });
+Route::get("/event/{event_id}" ,[GuestController::class,'eventSinglePage'])->name('singleEvent');
 
 Route::get('/news/{slug}.{id}', [GuestController::class, 'show'])->name('news.details');
 Route::group(['prefix' => 'admin'], function () {
