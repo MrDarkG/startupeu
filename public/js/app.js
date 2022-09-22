@@ -3076,8 +3076,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['categories'],
+  props: ['categories', 'ecosystem_id'],
   data: function data() {
     return {
       custom_categories: []
@@ -61943,13 +61944,19 @@ var render = function() {
                             "div",
                             { staticClass: "mt-3" },
                             _vm._l(question.answers, function(answer) {
-                              return _c("div", {
-                                staticClass: "pl-3 border-left border-success",
-                                staticStyle: {
-                                  "border-width": "0.25em!important"
-                                },
-                                domProps: { innerHTML: _vm._s(answer.answer) }
-                              })
+                              return answer.startup_ecosystem_id ==
+                                _vm.ecosystem_id
+                                ? _c("div", {
+                                    staticClass:
+                                      "pl-3 border-left border-success",
+                                    staticStyle: {
+                                      "border-width": "0.25em!important"
+                                    },
+                                    domProps: {
+                                      innerHTML: _vm._s(answer.answer)
+                                    }
+                                  })
+                                : _vm._e()
                             }),
                             0
                           )
