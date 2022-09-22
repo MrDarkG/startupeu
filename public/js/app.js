@@ -61922,9 +61922,12 @@ var render = function() {
                               }
                             })
                           : _vm._e()
-                      ]),
-                      _vm._v(" "),
-                      _c(
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  question.is_active
+                    ? _c(
                         "div",
                         { staticClass: "mt-3" },
                         _vm._l(question.answers, function(answer) {
@@ -61933,17 +61936,16 @@ var render = function() {
                             { staticClass: "pl-3 border-left border-success" },
                             [
                               _vm._v(
-                                "\n                        " +
-                                  _vm._s(answer.title) +
-                                  "\n                    "
+                                "\n                    " +
+                                  _vm._s(answer) +
+                                  "\n                "
                               )
                             ]
                           )
                         }),
                         0
                       )
-                    ]
-                  )
+                    : _vm._e()
                 ])
               }),
               0
