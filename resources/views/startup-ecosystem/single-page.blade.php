@@ -19,7 +19,7 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5 pt-5">
-                {{ serialize($startup_ecosystem->pdf)[0] }}
+                {{ serialize($startup_ecosystem->pdf) }}
                 <a href="/uploads/">
                     <div
                         class="btn pl-4 pr-4"
