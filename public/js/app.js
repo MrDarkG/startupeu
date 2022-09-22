@@ -3076,7 +3076,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories'],
   data: function data() {
@@ -61883,8 +61882,11 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "pl-4 pr-4 pt-2 pb-2 cursor-pointer shadow bg-white mt-3",
-                      staticStyle: { "border-radius": "28px", height: "97px" },
+                        "pl-4 pr-4 pt-2 pb-2 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column",
+                      staticStyle: {
+                        "border-radius": "28px",
+                        "min-height": "97px"
+                      },
                       style: {
                         border: question.is_active ? "#6200ee 2px solid" : ""
                       },
@@ -61941,23 +61943,13 @@ var render = function() {
                             "div",
                             { staticClass: "mt-3" },
                             _vm._l(question.answers, function(answer) {
-                              return _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "pl-3 border-left border-success",
-                                  staticStyle: {
-                                    "border-width": "0.25em!important"
-                                  }
+                              return _c("div", {
+                                staticClass: "pl-3 border-left border-success",
+                                staticStyle: {
+                                  "border-width": "0.25em!important"
                                 },
-                                [
-                                  _vm._v(
-                                    "\n                        " +
-                                      _vm._s(answer) +
-                                      "\n                    "
-                                  )
-                                ]
-                              )
+                                domProps: { innerHTML: _vm._s(answer.answer) }
+                              })
                             }),
                             0
                           )

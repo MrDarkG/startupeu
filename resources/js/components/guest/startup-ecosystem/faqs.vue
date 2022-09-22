@@ -26,12 +26,12 @@
             :key="c_index+category.title+q_index"
         >
             <div
-                 class="pl-4 pr-4 pt-2 pb-2 cursor-pointer shadow bg-white mt-3"
+                 class="pl-4 pr-4 pt-2 pb-2 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column"
                  :style="{
                     border:question.is_active?'#6200ee 2px solid':'',
                  }"
                  @click="question.is_active = !question.is_active"
-                 style="border-radius:28px;height:97px;"
+                 style="border-radius:28px;min-height:97px;"
             >
                 <div class="d-flex align-items-center justify-content-between">
                     <div>
@@ -49,9 +49,8 @@
                         class="pl-3 border-left border-success"
                         style="border-width: 0.25em!important"
                         v-for="answer in question.answers"
-                    >
-                        {{ answer }}
-                    </div>
+                        v-html="answer.answer"
+                    ></div>
                 </div>
             </div>
         </div>
