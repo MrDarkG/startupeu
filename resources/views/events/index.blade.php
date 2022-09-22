@@ -8,7 +8,7 @@
 @section("content")
     <div class="row pl-3 pr-3 m-0">
         @foreach($events as $event)
-            <div class="col-12 col-md-12 col-lg-6 mt-3 p-4">
+            <div class="col-12 col-md-12 col-lg-4 mt-3 p-4">
                 <div
                     class="pt-5 pb-5 pl-4 pr-4"
                     style="
