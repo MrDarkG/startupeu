@@ -55,7 +55,7 @@
                         <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;">
                             <div class="d-flex h-100 flex-column justify-content-between">
                                 <div>
-                                    <img width="40" src="{{ $eco->image }}">
+                                    <img width="40" src="/uploads/{{ $eco->image }}">
                                 </div>
                                 <div class="ecosystem-text">
                                     {{ $eco->title }}
