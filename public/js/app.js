@@ -61745,7 +61745,7 @@ var render = function() {
                       _c("img", {
                         staticClass: "col-md-12 p-0",
                         attrs: {
-                          src: "/assets/images/news/" + item.image,
+                          src: "/uploads/" + item.image,
                           alt: item.image
                         }
                       })
