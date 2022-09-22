@@ -95,7 +95,7 @@ class GuestController extends Controller
     }
     function singleStartupEcosystem($startup_ecosystem_id){
         $startup_ecosystem = Startup_ecosystem::where('id',$startup_ecosystem_id)->firstOrFail();
-        return json_decode($startup_ecosystem->pdf);
+        $startup_ecosystem->pdf = json_decode($startup_ecosystem->pdf)[0]->download_link;
         $categories = Faq_category::with('questions')->get();
 
         return view('startup-ecosystem.single-page',[
