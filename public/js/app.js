@@ -61938,7 +61938,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      question.is_active
+                      question.answers.length > 0 && question.is_active
                         ? _c(
                             "div",
                             { staticClass: "mt-3" },
