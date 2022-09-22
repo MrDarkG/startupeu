@@ -13,7 +13,7 @@ class AddEcosystemPdfColumn2 extends Migration
      */
     public function up()
     {
-        Schema::table('startup_ecosystem', function (Blueprint $table) {
+        Schema::table('startup_ecosystems', function (Blueprint $table) {
             //
             $table->string('pdf');
         });
@@ -26,7 +26,7 @@ class AddEcosystemPdfColumn2 extends Migration
      */
     public function down()
     {
-        Schema::table('startup_ecosystem', function (Blueprint $table) {
+        Schema::table('startup_ecosystems', function (Blueprint $table) {
             //
         });
     }
