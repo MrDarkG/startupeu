@@ -27,6 +27,7 @@ class AddEcosystemPdfColumn extends Migration
     {
         Schema::table('Startup_ecosystem', function (Blueprint $table) {
             //
+            $table->string('pdf');
         });
     }
 }
