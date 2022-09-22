@@ -3066,6 +3066,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories'],
   data: function data() {
@@ -61914,7 +61922,26 @@ var render = function() {
                               }
                             })
                           : _vm._e()
-                      ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "mt-3" },
+                        _vm._l(question.answers, function(answer) {
+                          return _c(
+                            "div",
+                            { staticClass: "pl-3 border-left border-success" },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(answer.title) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
                     ]
                   )
                 ])

@@ -42,6 +42,14 @@
                     <img v-if="!question.is_active" src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow-down.svg" alt="">
                     <img v-if="question.is_active" src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg" alt="">
                 </div>
+                <div class="mt-3">
+                    <div
+                        class="pl-3 border-left border-success"
+                        v-for="answer in question.answers"
+                    >
+                        {{ answer.title }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
