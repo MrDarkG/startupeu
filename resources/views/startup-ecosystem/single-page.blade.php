@@ -19,7 +19,7 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5 pt-5">
-                <a href="{{$startup_ecosystem->pdf['download_link']}}">
+                <a href="{{ $startup_ecosystem->pdf }}">
                     <div
                         class="btn pl-4 pr-4"
                         style="background:#e1d7f4;border-radius: 16px;"
