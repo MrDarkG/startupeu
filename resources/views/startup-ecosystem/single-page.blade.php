@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3 mt-5 pt-5">
                 @foreach(json_decode($startup_ecosystem->pdf) as $data)
-                    {{ $data }}
+                    {!! $data !!}
                 @endforeach
                 <a href="/uploads/">
                     <div
