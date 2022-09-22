@@ -5134,4 +5134,7 @@ a:hover{
         left: -30px!important;
     }
 }
+.cursor-pointer{
+    cursor:pointer!important;
+}
 

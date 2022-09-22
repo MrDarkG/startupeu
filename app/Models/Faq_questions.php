@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Faq_questions extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        "title",
+        "category_id"
+    ];
+    function answers(){
+        return $this->hasMany(Faq_questions::class,'id','question_id');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
+use App\Models\Faq_category;
 use App\Models\Investor;
 use App\Models\Startup_ecosystem;
 use Illuminate\Http\Request;
@@ -94,8 +95,10 @@ class GuestController extends Controller
     }
     function singleStartupEcosystem($startup_ecosystem_id){
         $startup_ecosystem = Startup_ecosystem::where('id',$startup_ecosystem_id)->firstOrFail();
+        $categories = Faq_category::with('questions')->get();
         return view('startup-ecosystem.single-page',[
-            'startup_ecosystem' => $startup_ecosystem
+            'startup_ecosystem' => $startup_ecosystem,
+            'categories' => $categories
         ]);
     }
     function allStartupEcosystem(){
