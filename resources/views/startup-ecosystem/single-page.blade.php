@@ -19,7 +19,7 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5 pt-5">
-                <a href="/uploads/{{ $startup_ecosystem->pdf }}">
+                <a href="/uploads/{{ $startup_ecosystem->pdf }}" target="_blank">
                     <div
                         class="btn pl-4 pr-4"
                         style="background:#e1d7f4;border-radius: 16px;"
