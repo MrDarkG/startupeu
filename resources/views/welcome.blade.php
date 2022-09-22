@@ -50,20 +50,20 @@
         </div>
         <div class="row m-0 mt-4">
             @foreach($ecosystem as $eco)
-                    <div class="col-md-3 mt-3">
-                        <a href="/startup-ecosystem/{{$eco->id}}">
-                            <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;">
-                                <div class="d-flex h-100 flex-column justify-content-between">
-                                    <div>
-                                        <img width="40" src="/assets/images/ecosystem/{{ $eco->image }}">
-                                    </div>
-                                    <div class="ecosystem-text">
-                                        {{ $eco->title }}
-                                    </div>
+                <div class="col-md-3 mt-3">
+                    <a href="/startup-ecosystem/{{$eco->id}}">
+                        <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;">
+                            <div class="d-flex h-100 flex-column justify-content-between">
+                                <div>
+                                    <img width="40" src="{{ $eco->image }}">
+                                </div>
+                                <div class="ecosystem-text">
+                                    {{ $eco->title }}
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
+                </div>
             @endforeach
         </div>
     </section>

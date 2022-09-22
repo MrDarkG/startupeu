@@ -19,23 +19,25 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5 pt-5">
-                <div
-                    class="btn pl-4 pr-4"
-                    style="background:#e1d7f4;border-radius: 16px;"
-                >
-                    <div class="d-flex align-items-center justify-content-between pt-1 pb-1">
-                        <div>
-                            <img src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow.svg" alt="">
-                        </div>
-                        <div
-                            class="border-white ml-2 mr-2"
-                            style="border-left:solid 2px black;color:#e1d7f4;"
-                        >.</div>
-                        <div>
-                            Download PDF
+                <a href="{{$startup_ecosystem->pdf}}">
+                    <div
+                        class="btn pl-4 pr-4"
+                        style="background:#e1d7f4;border-radius: 16px;"
+                    >
+                        <div class="d-flex align-items-center justify-content-between pt-1 pb-1">
+                            <div>
+                                <img src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow.svg" alt="">
+                            </div>
+                            <div
+                                class="border-white ml-2 mr-2"
+                                style="border-left:solid 2px black;color:#e1d7f4;"
+                            >.</div>
+                            <div>
+                                Download PDF
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="container n-details">
