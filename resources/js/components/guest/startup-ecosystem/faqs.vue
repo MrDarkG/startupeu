@@ -49,6 +49,7 @@
                         class="pl-3 border-left border-success"
                         style="border-width: 0.25em!important"
                         v-for="answer in question.answers"
+                        v-if="answer.startup_ecosystem_id == ecosystem_id"
                         v-html="answer.answer"
                     ></div>
                 </div>
@@ -59,7 +60,7 @@
 </template>
 <script>
 export default {
-    props:['categories'],
+    props:['categories','ecosystem_id'],
     data(){
       return {
           custom_categories:[],
