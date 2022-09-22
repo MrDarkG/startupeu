@@ -19,7 +19,7 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5 pt-5">
-                @foreach($startup_ecosystem->pdf as $data)
+                @foreach(json_decode($startup_ecosystem->pdf) as $data)
                     {{ $data }}
                 @endforeach
                 <a href="/uploads/">
