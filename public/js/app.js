@@ -3074,6 +3074,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories'],
   data: function data() {
@@ -61880,7 +61883,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "pl-4 pr-4 pt-2 pb-2 cursor-pointer shadow bg-white mt-3 d-flex align-items-center justify-content-between",
+                        "pl-4 pr-4 pt-2 pb-2 cursor-pointer shadow bg-white mt-3",
                       staticStyle: { "border-radius": "28px", height: "97px" },
                       style: {
                         border: question.is_active ? "#6200ee 2px solid" : ""
@@ -61892,60 +61895,75 @@ var render = function() {
                       }
                     },
                     [
-                      _c("div", [
-                        _c("h6", { staticClass: "m-0 font-weight-bold" }, [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(question.question) +
-                              "\n                    "
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "accordion-icon" }, [
-                        !question.is_active
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-down.svg",
-                                alt: ""
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        question.is_active
-                          ? _c("img", {
-                              attrs: {
-                                src:
-                                  "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg",
-                                alt: ""
-                              }
-                            })
-                          : _vm._e()
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  question.is_active
-                    ? _c(
+                      _c(
                         "div",
-                        { staticClass: "mt-3" },
-                        _vm._l(question.answers, function(answer) {
-                          return _c(
-                            "div",
-                            { staticClass: "pl-3 border-left border-success" },
-                            [
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between"
+                        },
+                        [
+                          _c("div", [
+                            _c("h6", { staticClass: "m-0 font-weight-bold" }, [
                               _vm._v(
-                                "\n                    " +
-                                  _vm._s(answer) +
-                                  "\n                "
+                                "\n                            " +
+                                  _vm._s(question.question) +
+                                  "\n                        "
                               )
-                            ]
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "accordion-icon" }, [
+                            !question.is_active
+                              ? _c("img", {
+                                  attrs: {
+                                    src:
+                                      "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-down.svg",
+                                    alt: ""
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            question.is_active
+                              ? _c("img", {
+                                  attrs: {
+                                    src:
+                                      "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg",
+                                    alt: ""
+                                  }
+                                })
+                              : _vm._e()
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      question.is_active
+                        ? _c(
+                            "div",
+                            { staticClass: "mt-3" },
+                            _vm._l(question.answers, function(answer) {
+                              return _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "pl-3 border-left border-success",
+                                  staticStyle: {
+                                    "border-width": "0.25em!important"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(answer) +
+                                      "\n                    "
+                                  )
+                                ]
+                              )
+                            }),
+                            0
                           )
-                        }),
-                        0
-                      )
-                    : _vm._e()
+                        : _vm._e()
+                    ]
+                  )
                 ])
               }),
               0
