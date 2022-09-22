@@ -19,7 +19,9 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5 pt-5">
-                {!! json_decode($startup_ecosystem->pdf) !!}
+                @foreach($startup_ecosystem->pdf as $data)
+                    {{ $data }}
+                @endforeach
                 <a href="/uploads/">
                     <div
                         class="btn pl-4 pr-4"
