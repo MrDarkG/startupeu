@@ -19,8 +19,7 @@
                 </h1>
             </div>
             <div class="mb-3 mt-5 pt-5">
-                    {{ json_decode($startup_ecosystem->pdf, true) }}
-                <a href="/uploads/">
+                <a href="/uploads/{{Storage::url((json_decode($startup_ecosystem->pdf))[0]->download_link)}}">
                     <div
                         class="btn pl-4 pr-4"
                         style="background:#e1d7f4;border-radius: 16px;"
