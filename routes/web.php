@@ -28,7 +28,16 @@ Route::prefix("/browse")->group(function(){
     Route::get("/investors" ,[GuestController::class,'investorsPage']);
     Route::get("/startups" ,[GuestController::class,'startupPage']);
 });
-Route::get("/event/{event_id}" ,[GuestController::class,'eventSinglePage'])->name('singleEvent');
+Route::prefix("/events")->group(function(){
+    Route::get("/{event_id}" ,[GuestController::class,'eventSinglePage'])->name('singleEvent');
+    Route::get("/" ,[GuestController::class,'allEvent'])->name('allEvent');
+});
+
+Route::prefix("/startup-ecosystem")->group(function(){
+    Route::get("/{startup_ecosystem_id}" ,[GuestController::class,'singleStartupEcosystem'])->name('singleStartupEcosystem');
+    Route::get("/" ,[GuestController::class,'allStartupEcosystem'])->name('allStartupEcosystem');
+});
+
 
 Route::get('/news/{slug}.{id}', [GuestController::class, 'show'])->name('news.details');
 Route::group(['prefix' => 'admin'], function () {

@@ -7,11 +7,9 @@
                 <h3 class="main-text">Ecosystem guide</h3>
                 <p>Get information for the regional growth, use smart matching tools for the startups and investors, find mentors !</p>
                 <div class="mt-4">
-
                     <a href="/register" class="c-started mt-4">Get Started</a>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <img class="main-b-image" src="/assets/images/sec-img.svg">
             </div>
@@ -52,18 +50,20 @@
         </div>
         <div class="row m-0 mt-4">
             @foreach($ecosystem as $eco)
-                <div class="col-md-3 mt-3">
-                    <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;">
-                        <div class="d-flex h-100 flex-column justify-content-between">
-                            <div>
-                                <img width="40" src="/assets/images/ecosystem/{{ $eco->image }}">
+                    <div class="col-md-3 mt-3">
+                        <a href="/startup-ecosystem/{{$eco->id}}">
+                            <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;">
+                                <div class="d-flex h-100 flex-column justify-content-between">
+                                    <div>
+                                        <img width="40" src="/assets/images/ecosystem/{{ $eco->image }}">
+                                    </div>
+                                    <div class="ecosystem-text">
+                                        {{ $eco->title }}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ecosystem-text">
-                                {{ $eco->title }}
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
             @endforeach
         </div>
     </section>
@@ -147,8 +147,8 @@
             @endforeach
         </div>
         <div class="mt-4 d-flex align-items-center justify-content-center">
-            <a style="color:white;background: #fb2c53;border-radius: 16px;" class="btn pl-5 pr-5 pt-3 pb-3 font-weight-bold" href="https://startupcentraleurasia.com/en/news">
-                Show All News
+            <a style="color:white;background: #fb2c53;border-radius: 16px;" class="btn pl-5 pr-5 pt-3 pb-3 font-weight-bold" href="/events">
+                Show All Events
             </a>
         </div>
     </section>

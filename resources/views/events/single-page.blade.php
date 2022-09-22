@@ -22,7 +22,12 @@
                     border-radius: 20px;
                 '
             >
-                <img class="w-100 shadow rounded" src="{{ asset('/assets/images/events/uploads')."/".$event->image }}" alt="">
+                <img
+                    class="w-100 shadow"
+                    src="{{ asset('/assets/images/events/uploads')."/".$event->image }}"
+                    alt=""
+                    style="border-radius: 20px;"
+                >
             </div>
             <div class="mt-3 mb-5 pb-5 event-description">
                 {!! $event->description !!}

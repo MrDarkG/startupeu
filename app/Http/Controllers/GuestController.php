@@ -86,6 +86,24 @@ class GuestController extends Controller
             'event' => $event
         ]);
     }
+    function allEvent(){
+        $events = Events::get();
+        return view('events.index',[
+            'events' => $events
+        ]);
+    }
+    function singleStartupEcosystem($startup_ecosystem_id){
+        $startup_ecosystem = Startup_ecosystem::where('id',$startup_ecosystem_id)->firstOrFail();
+        return view('startup-ecosystem.single-page',[
+            'startup_ecosystem' => $startup_ecosystem
+        ]);
+    }
+    function allStartupEcosystem(){
+        $startup_ecosystems = Startup_ecosystem::get();
+        return view('startup-ecosystem.index',[
+            'startup_ecosystems' => $startup_ecosystems
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
