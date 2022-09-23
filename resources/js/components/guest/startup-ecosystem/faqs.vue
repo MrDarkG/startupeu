@@ -48,7 +48,7 @@
                         <img v-if="question.is_active" src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg" alt="">
                     </div>
                 </div>
-                <div class="mt-3" style="animation-name:animate-faq-answer-box;animation-duration: 2s;" v-if="question.answers.length > 0 && question.is_active">
+                <div class="mt-3 answer-box" v-if="question.answers.length > 0 && question.is_active">
                     <div
                         class="pl-3 border-left border-success"
                         style="border-width: 0.25em!important"
@@ -119,6 +119,11 @@ export default {
 @keyframes animate-faq-border{
     from {width:0px;}
     to {width:100%;}
+}
+
+.answer-box{
+    animation-name:animate-faq-answer-box;
+    animation-duration: 1s;
 }
 @keyframes animate-faq-answer-box{
     from {height:0px;}

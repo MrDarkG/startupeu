@@ -11746,7 +11746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-faq{\n    border-bottom: solid 3px #1abc9c;\n    -webkit-animation-name: animate-faq-border;\n            animation-name: animate-faq-border;\n    -webkit-animation-duration: 1s;\n            animation-duration: 1s;\n}\n@-webkit-keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n@keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n@-webkit-keyframes animate-faq-answer-box{\nfrom {height:0px;}\nto {height:100%;}\n}\n@keyframes animate-faq-answer-box{\nfrom {height:0px;}\nto {height:100%;}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-faq{\n    border-bottom: solid 3px #1abc9c;\n    -webkit-animation-name: animate-faq-border;\n            animation-name: animate-faq-border;\n    -webkit-animation-duration: 1s;\n            animation-duration: 1s;\n}\n@-webkit-keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n@keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n.answer-box{\n    -webkit-animation-name:animate-faq-answer-box;\n            animation-name:animate-faq-answer-box;\n    -webkit-animation-duration: 1s;\n            animation-duration: 1s;\n}\n@-webkit-keyframes animate-faq-answer-box{\nfrom {height:0px;}\nto {height:100%;}\n}\n@keyframes animate-faq-answer-box{\nfrom {height:0px;}\nto {height:100%;}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -61950,13 +61950,7 @@ var render = function() {
                       question.answers.length > 0 && question.is_active
                         ? _c(
                             "div",
-                            {
-                              staticClass: "mt-3",
-                              staticStyle: {
-                                "animation-name": "animate-faq-answer-box",
-                                "animation-duration": "2s"
-                              }
-                            },
+                            { staticClass: "mt-3 answer-box" },
                             _vm._l(question.answers, function(answer) {
                               return answer.startup_ecosystem_id ==
                                 _vm.ecosystem_id
