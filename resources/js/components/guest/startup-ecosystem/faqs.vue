@@ -31,7 +31,7 @@
                     border:question.is_active?'#6200ee 2px solid':'',
                  }"
                  :class="{
-                    'pt-4 pb-4':question.is_active,
+                    'pt-4 pb-4 answer-box':question.is_active,
                     'pt-2 pb-2':!question.is_active,
                  }"
                  @click="question.is_active = !question.is_active"
@@ -48,7 +48,7 @@
                         <img v-if="question.is_active" src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg" alt="">
                     </div>
                 </div>
-                <div class="mt-3 answer-box" v-if="question.answers.length > 0 && question.is_active">
+                <div class="mt-3" v-if="question.answers.length > 0 && question.is_active">
                     <div
                         class="pl-3 border-left border-success"
                         style="border-width: 0.25em!important"
@@ -127,6 +127,6 @@ export default {
 }
 @keyframes animate-faq-answer-box{
     from {height:0px;}
-    to {height:100%;}
+    to {height:97px;}
 }
 </style>
