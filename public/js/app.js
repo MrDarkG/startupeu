@@ -3077,6 +3077,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories', 'ecosystem_id'],
   data: function data() {
@@ -11742,7 +11746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-faq{\n    border-bottom: solid 3px #1abc9c;\n    -webkit-animation-name: animate-faq-border;\n            animation-name: animate-faq-border;\n    -webkit-animation-duration: 1s;\n            animation-duration: 1s;\n}\n@-webkit-keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n@keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-faq{\n    border-bottom: solid 3px #1abc9c;\n    -webkit-animation-name: animate-faq-border;\n            animation-name: animate-faq-border;\n    -webkit-animation-duration: 1s;\n            animation-duration: 1s;\n}\n@-webkit-keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n@keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n@-webkit-keyframes animate-faq-answer-box{\nfrom {height:0px;}\nto {height:100%;}\n}\n@keyframes animate-faq-answer-box{\nfrom {height:0px;}\nto {height:100%;}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -61883,7 +61887,11 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "pl-4 pr-4 pt-2 pb-2 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column",
+                        "pl-4 pr-4 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column",
+                      class: {
+                        "pt-4 pb-4": question.is_active,
+                        "pt-2 pb-2": !question.is_active
+                      },
                       staticStyle: {
                         "border-radius": "28px",
                         "min-height": "97px"
@@ -61942,7 +61950,13 @@ var render = function() {
                       question.answers.length > 0 && question.is_active
                         ? _c(
                             "div",
-                            { staticClass: "mt-3" },
+                            {
+                              staticClass: "mt-3",
+                              staticStyle: {
+                                "animation-name": "animate-faq-answer-box",
+                                "animation-duration": "2s"
+                              }
+                            },
                             _vm._l(question.answers, function(answer) {
                               return answer.startup_ecosystem_id ==
                                 _vm.ecosystem_id
