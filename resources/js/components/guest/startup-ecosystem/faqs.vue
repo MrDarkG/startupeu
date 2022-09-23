@@ -132,8 +132,14 @@ export default {
     animation-duration: 2s;
 }
 @keyframes animate-faq-answer-box-active{
-    from {height:0px!important;}
-    to {height:100%!important;}
+    from {
+        display:none;
+        height:0px;
+    }
+    to {
+        display: block;
+        height:100%;
+    }
 }
 
 .answer-box-inactive{
@@ -141,7 +147,12 @@ export default {
     animation-duration: 2s;
 }
 @keyframes animate-faq-answer-box-inactive{
-    from {height:100%!important;}
-    to {height:0px!important;}
+    from {
+        height:100%;
+    }
+    to {
+        height:0px;
+        display:none;
+    }
 }
 </style>
