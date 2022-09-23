@@ -6,6 +6,7 @@ use App\Models\Events;
 use App\Models\Faq_category;
 use App\Models\Investor;
 use App\Models\Startup_ecosystem;
+use App\Models\WelcomeMenu;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Issue;
@@ -33,6 +34,9 @@ class GuestController extends Controller
             'ecosystem' => $startup_ecosystem,
             'events' => $events
         ]);
+    }
+    public function getWelcomeMenu(){
+        return WelcomeMenu::where('is_visible',1)->get();
     }
     public function index()
     {

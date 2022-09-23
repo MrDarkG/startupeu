@@ -43,3 +43,5 @@ Route::get('/news/{slug}.{id}', [GuestController::class, 'show'])->name('news.de
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/get/menu-items',[GuestController::class,'getWelcomeMenu']);

@@ -49,10 +49,6 @@
                     </div>
                 </div>
                 <div
-                    :class="{
-                        'answer-box-active':question.is_active,
-                        'answer-box-inactive':!question.is_active,
-                    }"
                     class="mt-3"
                     v-if="question.answers.length > 0 && question.is_active">
                     <div
@@ -125,34 +121,5 @@ export default {
 @keyframes animate-faq-border{
     from {width:0px;}
     to {width:100%;}
-}
-
-.answer-box-active{
-    animation-name:animate-faq-answer-box-active;
-    animation-duration: 2s;
-}
-@keyframes animate-faq-answer-box-active{
-    from {
-        display:none;
-        height:0px;
-    }
-    to {
-        display: block;
-        height:100%;
-    }
-}
-
-.answer-box-inactive{
-    animation-name:animate-faq-answer-box-inactive;
-    animation-duration: 2s;
-}
-@keyframes animate-faq-answer-box-inactive{
-    from {
-        height:100%;
-    }
-    to {
-        height:0px;
-        display:none;
-    }
 }
 </style>
