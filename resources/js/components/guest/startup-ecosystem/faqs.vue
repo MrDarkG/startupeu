@@ -127,6 +127,6 @@ export default {
 }
 @keyframes animate-faq-answer-box{
     from {height:0px;}
-    to {height:97px;}
+    to {height:calc(100% - 300px);}
 }
 </style>
