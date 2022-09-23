@@ -129,19 +129,19 @@ export default {
 
 .answer-box-active{
     animation-name:animate-faq-answer-box-active;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
 }
 @keyframes animate-faq-answer-box-active{
-    from {height:0%!important;}
+    from {height:0px!important;}
     to {height:100%!important;}
 }
 
 .answer-box-inactive{
     animation-name:animate-faq-answer-box-inactive;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
 }
 @keyframes animate-faq-answer-box-inactive{
     from {height:100%!important;}
-    to {height:0%!important;}
+    to {height:0px!important;}
 }
 </style>
