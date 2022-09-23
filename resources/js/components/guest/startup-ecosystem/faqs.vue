@@ -122,8 +122,9 @@ export default {
 }
 
 .answer-box{
-    animation-name:animate-faq-answer-box;
-    animation-duration: 1s;
+    animation-timing-function:ease-in-out;
+    /*animation-name:animate-faq-answer-box;*/
+    /*animation-duration: 1s;*/
 }
 @keyframes animate-faq-answer-box{
     from {height:0px;}
