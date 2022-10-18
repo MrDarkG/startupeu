@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaqAnswersTable extends Migration
+class EditStructureAnswerToText extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateFaqAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('faq_answers', function (Blueprint $table) {
-            $table->id();
-            $table->integer('question_id');
-            $table->integer('startup_ecosystem_id');
-            $table->text('answer');
-            $table->timestamps();
+        Schema::table('faq_answers', function (Blueprint $table) {
+            $table->text('answer')->change();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateFaqAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq_answers');
+        Schema::table('faq_answers', function (Blueprint $table) {
+            //
+        });
     }
 }

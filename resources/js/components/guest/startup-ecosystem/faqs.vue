@@ -23,6 +23,7 @@
     >
         <div
             v-for="(question, q_index) in category.questions"
+            v-if="question.answers.length > 0"
             :key="c_index+category.title+q_index"
         >
             <div

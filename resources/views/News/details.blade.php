@@ -1,4 +1,9 @@
 @extends("layouts.guest.guest")
+<style>
+    .news-single-description span{
+        margin: 0px!important;
+    }
+</style>
 @section("content")
     <section class="main-section container">
         <div class="row news-details justify-content-between">
@@ -10,7 +15,9 @@
                 <small>
                     {{ $news->created_at->format("d M, Y") }}
                 </small>
-                {!! $news->text !!}
+                <div class="news-single-description">
+                    {!! $news->text !!}
+                </div>
             </div>
             <div class="col-md-3">
                 <span class="more-news-text mt-0 mb-0">More news</span>
@@ -20,7 +27,7 @@
                                 "id" => $other->id,
                                 'slug' => generateSlug($other->title)
                                 ]) }}">
-                            <img src="{{ asset('assets/images/news').'/'. $other->image}}" alt="{{ $other->title }}" width="100%">
+                            <img src="{{ asset('/uploads/news/').'/'. $other->image}}" alt="{{ $other->title }}" width="100%">
                             <span>
                                 {{ $other->created_at->format("d M, Y") }}
                             </span>
