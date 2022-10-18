@@ -10,6 +10,7 @@
                 'pb-2': !category.is_active,
             }"
             v-for="category in custom_categories"
+            v-if="category.questions.length > 0"
         >
             {{ category.title }}
             <div class="custom-faq" v-if="category.is_active"></div>
@@ -18,7 +19,7 @@
     <div
         v-for="(category, c_index) in custom_categories"
         :key="c_index+category.title"
-        v-if="category.is_active && category.questions.length > 0"
+        v-if="category.is_active"
         class="pb-5 mb-5"
     >
         <div

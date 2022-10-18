@@ -3083,6 +3083,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories', 'ecosystem_id'],
   data: function data() {
@@ -61966,36 +61967,38 @@ var render = function() {
             "d-flex flex-wrap align-items-center justify-content-center"
         },
         _vm._l(_vm.custom_categories, function(category) {
-          return _c(
-            "div",
-            {
-              staticClass: "pl-3 pr-3 pt-2 font-weight-bold cursor-pointer",
-              class: {
-                "pb-1": category.is_active,
-                "pb-2": !category.is_active
-              },
-              staticStyle: { color: "#666666" },
-              on: {
-                click: function($event) {
-                  return _vm.setActiveCategory(category.id)
-                }
-              }
-            },
-            [
-              _vm._v(
-                "\n            " + _vm._s(category.title) + "\n            "
-              ),
-              category.is_active
-                ? _c("div", { staticClass: "custom-faq" })
-                : _vm._e()
-            ]
-          )
+          return category.questions.length > 0
+            ? _c(
+                "div",
+                {
+                  staticClass: "pl-3 pr-3 pt-2 font-weight-bold cursor-pointer",
+                  class: {
+                    "pb-1": category.is_active,
+                    "pb-2": !category.is_active
+                  },
+                  staticStyle: { color: "#666666" },
+                  on: {
+                    click: function($event) {
+                      return _vm.setActiveCategory(category.id)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(category.title) + "\n            "
+                  ),
+                  category.is_active
+                    ? _c("div", { staticClass: "custom-faq" })
+                    : _vm._e()
+                ]
+              )
+            : _vm._e()
         }),
         0
       ),
       _vm._v(" "),
       _vm._l(_vm.custom_categories, function(category, c_index) {
-        return category.is_active && category.questions.length > 0
+        return category.is_active
           ? _c(
               "div",
               { key: c_index + category.title, staticClass: "pb-5 mb-5" },
