@@ -10,7 +10,7 @@
                 'pb-2': !category.is_active,
             }"
             v-for="category in custom_categories"
-            v-if="category.questions.length > 0"
+            v-if="category.questions.length > 0 && category.questions.find((question)=>question.answers.length > 0)"
         >
             {{ category.title }}
             <div class="custom-faq" v-if="category.is_active"></div>

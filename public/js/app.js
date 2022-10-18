@@ -61967,7 +61967,10 @@ var render = function() {
             "d-flex flex-wrap align-items-center justify-content-center"
         },
         _vm._l(_vm.custom_categories, function(category) {
-          return category.questions.length > 0
+          return category.questions.length > 0 &&
+            category.questions.find(function(question) {
+              return question.answers.length > 0
+            })
             ? _c(
                 "div",
                 {
