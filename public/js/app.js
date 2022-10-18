@@ -61995,7 +61995,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm._l(_vm.custom_categories, function(category, c_index) {
-        return category.is_active
+        return category.is_active && category.questions.length > 0
           ? _c(
               "div",
               { key: c_index + category.title, staticClass: "pb-5 mb-5" },

@@ -18,7 +18,7 @@
     <div
         v-for="(category, c_index) in custom_categories"
         :key="c_index+category.title"
-        v-if="category.is_active"
+        v-if="category.is_active && category.questions.length > 0"
         class="pb-5 mb-5"
     >
         <div
