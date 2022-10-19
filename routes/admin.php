@@ -16,3 +16,9 @@ Route::get('/events', [AdminController::class, 'events'])->name('voyager.events.
 Route::post('/add/event', [AdminController::class, 'addEvent'])->name('addEvent');
 Route::post('/edit/event', [AdminController::class, 'editEvent'])->name('editEvent');
 Route::get('/delete/event/{event_id}', [AdminController::class, 'deleteEvent'])->name('deleteEvent');
+
+Route::prefix('single-page')->group(function() {
+    Route::get('/', [AdminController::class, 'singlePage'])->name('singlePage');
+    Route::post('/create', [AdminController::class, 'singlePageCreate'])->name('singlePageCreate');
+    Route::get('/delete', [AdminController::class, 'singlePageDelete'])->name('singlePageDelete');
+});

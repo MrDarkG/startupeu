@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Custom_event;
 use Illuminate\Http\Request;
-use App\Models\Events;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Events;
+use App\Models\News;
 
 class AdminController extends Controller
 {
@@ -58,5 +60,27 @@ class AdminController extends Controller
         return [
             'status' => 'success'
         ];
+    }
+    function singlePage(){
+        $singlePage = Custom_event::first();
+        $news = News::get();
+        return view("admin.single-page",[
+            'singlePage' => $singlePage,
+            'news' => $news
+        ]);
+    }
+    function singlePageCreate(Request $request){
+        $custom = new Custom_event;
+        $this->singlePageDelete();
+        return $custom->create([
+            'news_id' => $request->id
+        ]);
+    }
+    function singlePageDelete(){
+        $items = Custom_event::get();
+        foreach($items as $item) {
+            $item->delete();
+        }
+        return 1;
     }
 }
