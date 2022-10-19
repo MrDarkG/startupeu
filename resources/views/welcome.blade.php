@@ -52,7 +52,7 @@
             @foreach($ecosystem as $eco)
                 <div class="col-md-3 mt-3">
                     <a href="/startup-ecosystem/{{$eco->id}}">
-                        <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;">
+                        <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);">
                             <div class="d-flex h-100 flex-column justify-content-between">
                                 <div>
                                     <img width="40" src="/uploads/{{ $eco->image }}">
@@ -104,6 +104,7 @@
                             color:{{$event->card_color=='white'?'black':'white'}};
                             height: 358px;
                             border-radius: 36px;
+                            box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);
                         "
                     >
                         <div class="row m-0 h-100">

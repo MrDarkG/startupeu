@@ -61864,7 +61864,10 @@ var render = function() {
             [
               _c(
                 "div",
-                { staticClass: "bg-white row h-100 rounded-2 overflow-hidden" },
+                {
+                  staticClass: "bg-white row h-100 rounded-2 overflow-hidden",
+                  staticStyle: { "box-shadow": "0px 4px 32px rgb(0 0 0 / 16%)" }
+                },
                 [
                   _c(
                     "div",
@@ -61890,7 +61893,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between",
+                        "col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-start",
                       class: {
                         "col-md-6": item_i < 1,
                         "col-md-12": item_i > 0
