@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Custom_event;
+use App\Models\WelcomeMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Events;
@@ -72,6 +73,9 @@ class AdminController extends Controller
     function singlePageCreate(Request $request){
         $custom = new Custom_event;
         $this->singlePageDelete();
+        WelcomeMenu::where('id',4)->update([
+            'url' => '/news/'.$request->title.'.'.$request->id
+        ]);
         return $custom->create([
             'news_id' => $request->id
         ]);
