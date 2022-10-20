@@ -102,9 +102,7 @@ class GuestController extends Controller
         if (json_decode($startup_ecosystem->pdf)){
             $startup_ecosystem->pdf = json_decode($startup_ecosystem->pdf)[0]->download_link;
         }
-        $categories = Faq_category::with(['questions'=>function($query) use ($startup_ecosystem){
-            $query->where('startup_ecosystem_id',$startup_ecosystem->id);
-        }])->get();
+        $categories = Faq_category::with('questions')->get();
 
         return view('startup-ecosystem.single-page',[
             'startup_ecosystem' => $startup_ecosystem,
