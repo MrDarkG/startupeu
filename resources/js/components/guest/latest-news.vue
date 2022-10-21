@@ -3,10 +3,8 @@
 	<div
 		v-for="(item, item_i) in news"
 		:class="{
-			'p-4':item_i > 0,
-			'pl-4 pr-4':item_i < 1,
-			'col-md-12':item_i < 1,
-			'col-md-4':item_i > 0,
+			'col-md-12 h-100 pl-4 pr-4':item_i < 1,
+			'col-md-4 p-4':item_i > 0,
 		}"
 	>
 		<a :href="`/news/${item.title.replace(/[\/.#\\ \s]/g,'-')}.${item.id}`">

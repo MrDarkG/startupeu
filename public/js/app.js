@@ -3070,8 +3070,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['news'],
   methods: {
@@ -62086,10 +62084,8 @@ var render = function() {
         "div",
         {
           class: {
-            "p-4": item_i > 0,
-            "pl-4 pr-4": item_i < 1,
-            "col-md-12": item_i < 1,
-            "col-md-4": item_i > 0
+            "col-md-12 h-100 pl-4 pr-4": item_i < 1,
+            "col-md-4 p-4": item_i > 0
           }
         },
         [
