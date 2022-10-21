@@ -5,10 +5,10 @@
     }
 </style>
 @section("content")
-    <section class="main-section container">
+    <section class="main-section mt-5 container">
         <div class="row news-details justify-content-between">
             <div class="col-md-9">
-                <h1 class="mt-3 mb-3">
+                <h1 class="mb-3">
                     {{ $news->title }}
                 </h1>
                 <div class="mt-3 mb-3">
