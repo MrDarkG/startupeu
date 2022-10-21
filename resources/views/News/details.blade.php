@@ -42,7 +42,7 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="btn btn-primary">
+                <div class="btn w-100 pt-3 pb-3 btn-primary" style="background: #e1d7f3;color:#c1a1f2;">
                     See More News
                 </div>
             </div>
