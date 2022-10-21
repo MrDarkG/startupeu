@@ -3,7 +3,7 @@
 	<div
 		v-for="(item, item_i) in news"
 		:class="{
-			'col-md-12 h-100 pl-4 pr-4':item_i < 1,
+			'col-md-12 pl-4 pr-4':item_i < 1,
 			'col-md-4 p-4':item_i > 0,
 		}"
 	>
@@ -15,7 +15,7 @@
 						'col-md-12':item_i > 0,
 					}"
 				>
-					<img class="col-md-12 p-0" :src="`/uploads/${item.image}`" :alt="item.image">
+					<img class="col-md-12 h-100 p-0" :src="`/uploads/${item.image}`" :alt="item.image">
 				</div>
 				<div
 					class="d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"

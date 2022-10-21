@@ -62084,7 +62084,7 @@ var render = function() {
         "div",
         {
           class: {
-            "col-md-12 h-100 pl-4 pr-4": item_i < 1,
+            "col-md-12 pl-4 pr-4": item_i < 1,
             "col-md-4 p-4": item_i > 0
           }
         },
@@ -62119,7 +62119,7 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        staticClass: "col-md-12 p-0",
+                        staticClass: "col-md-12 h-100 p-0",
                         attrs: {
                           src: "/uploads/" + item.image,
                           alt: item.image
