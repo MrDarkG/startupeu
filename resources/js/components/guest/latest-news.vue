@@ -15,7 +15,13 @@
 						'col-md-12':item_i > 0,
 					}"
 				>
-					<img class="col-md-12 h-100 p-0" :src="`/uploads/${item.image}`" :alt="item.image">
+					<img
+                        :class="{
+                            'h-100':item_i < 1,
+                        }"
+                        class="col-md-12 p-0"
+                        :src="`/uploads/${item.image}`" :alt="item.image"
+                    >
 				</div>
 				<div
 					class="d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"

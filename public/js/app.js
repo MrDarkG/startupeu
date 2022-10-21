@@ -3070,6 +3070,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['news'],
   methods: {
@@ -62119,7 +62125,10 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        staticClass: "col-md-12 h-100 p-0",
+                        staticClass: "col-md-12 p-0",
+                        class: {
+                          "h-100": item_i < 1
+                        },
                         attrs: {
                           src: "/uploads/" + item.image,
                           alt: item.image
