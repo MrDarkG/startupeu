@@ -27,7 +27,7 @@
 					class="d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
 					:class="{
 						'col-md-6':item_i < 1,
-						'col-md-12 h-100':item_i > 0,
+						'col-md-12':item_i > 0,
 					}"
 				>
 					<div v-if="item.created_at" class="text-black-50">
