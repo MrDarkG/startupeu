@@ -1,8 +1,8 @@
 @extends("layouts.guest.guest")
 <style>
-    .news-single-description p ,span{
-        margin: 0px!important;
-    }
+    /*.news-single-description p ,span{*/
+    /*    margin: 0px!important;*/
+    /*}*/
 </style>
 @section("content")
     <section class="main-section mt-5 container">
