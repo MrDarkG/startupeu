@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-3 ">
                 <h2 class="mt-0 mb-0 font-weight-bold text-black m-0" style="font-size: 22px;">More news</h2>
-                @foreach($otherNews as $other)
+                @foreach($otherNews->take(3) as $other)
                     <div >
                         <a class="news-more-item" href="{{ route("news.details", [
                                 "id" => $other->id,
@@ -42,6 +42,9 @@
                         </a>
                     </div>
                 @endforeach
+                <div class="btn btn-primary">
+                    See More News
+                </div>
             </div>
         </div>
     </section>
