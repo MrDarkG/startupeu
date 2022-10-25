@@ -74,11 +74,13 @@ class AdminController extends Controller
         $custom = new Custom_event;
         $this->singlePageDelete();
         WelcomeMenu::where('id',4)->update([
-            'url' => '/news/'.$request->title.'.'.$request->id
+            'url' => '/news/'.urlencode($request->title).'.'.$request->id
         ]);
-        return $custom->create([
+        $custom->create([
             'news_id' => $request->id
         ]);
+
+        return '/news/'.urlencode($request->title).'.'.$request->id;
     }
     function singlePageDelete(){
         $items = Custom_event::get();

@@ -38,7 +38,7 @@ Route::prefix("/startup-ecosystem")->group(function(){
     Route::get("/" ,[GuestController::class,'allStartupEcosystem'])->name('allStartupEcosystem');
 });
 
-
+Route::get('/news', [GuestController::class, 'allNews'])->name('allNews');
 Route::get('/news/{slug}.{id}', [GuestController::class, 'show'])->name('news.details');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

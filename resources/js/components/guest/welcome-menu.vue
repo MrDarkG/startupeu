@@ -1,6 +1,6 @@
 <template>
 <ul class="navbar-nav mr-auto">
-    <li class="nav-item" v-for="item in menu">
+    <li class="nav-item" v-for="(item, item_i) in menu">
         <a
             class="nav-link"
            :href="item.url"

@@ -6,6 +6,9 @@
 			'col-md-12 pl-4 pr-4':item_i < 1,
 			'col-md-4 p-4':item_i > 0,
 		}"
+        :style="{
+            height:(item_i<1)?'280px':'404px'
+        }"
 	>
 		<a :href="`/news/${item.title.replace(/[\/.#\\ \s]/g,'-')}.${item.id}`">
 			<div class="bg-white row h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">

@@ -151,7 +151,13 @@ class GuestController extends Controller
             'otherNews' => $otherNews,
         ]);
     }
-
+    public function allNews()
+    {
+        $news = News::get();
+        return view('News.index',[
+            'news' => $news,
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

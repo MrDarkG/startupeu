@@ -50,7 +50,7 @@
         </div>
         <div class="row m-0 mt-4">
             @foreach($ecosystem as $eco)
-                <div class="col-md-3 mt-3">
+                <div class="col-md-3 mt-3" style="height:182px">
                     <a href="/startup-ecosystem/{{$eco->id}}">
                         <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);">
                             <div class="d-flex h-100 flex-column justify-content-between">
@@ -80,7 +80,7 @@
             :news="{{ json_encode($news) }}"
         ></latest-news>
         <div class="mt-4 d-flex align-items-center justify-content-center">
-            <a style="color:white;background: #03dac5;border-radius: 16px;" class="btn pl-5 pr-5 pt-3 pb-3 font-weight-bold" href="https://startupcentraleurasia.com/en/news">
+            <a style="color:white;background: #03dac5;border-radius: 16px;" class="btn pl-5 pr-5 pt-3 pb-3 font-weight-bold" href="/news">
                 Show All News
             </a>
         </div>

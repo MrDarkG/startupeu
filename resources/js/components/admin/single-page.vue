@@ -46,7 +46,7 @@ export default {
             if (news.id){
                 axios.post('/admin/single-page/create',news)
                 .then((response) => {
-                    window.location.href=`/news/${news.title}.${news.id}`
+                    window.location.href = response.data
                 })
             }
         },
