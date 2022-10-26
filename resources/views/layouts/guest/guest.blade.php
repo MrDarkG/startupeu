@@ -18,6 +18,21 @@
         </style>
     </head>
     <body style="height: 100%!important;" class="d-flex flex-column justify-content-between">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164883851-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-164883851-1');
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1763993,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
         <div >
             <div id="app" style="height: 100%;">
                 <nav class="navbar navbar-expand-lg navbar-light bg-transparent p-4" style="z-index: 1">
@@ -124,6 +139,7 @@
                 </div>
             </div>
         </footer>
+{{--        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>--}}
         <script type="text/javascript" src="/js/app.js"></script>
     </body>
 </html>
