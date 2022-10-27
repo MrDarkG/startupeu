@@ -36,7 +36,7 @@
                                 </b>
                             </div>
                             <div class="pt-2">
-                                <h6 class="text-black-50">
+                                <h6 class="text-black-50 latestnews-desc">
                                     {!! $item->description !!}
                                 </h6>
                             </div>
