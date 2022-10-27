@@ -14,9 +14,9 @@
             >
                 <a href="/news/{{urlencode($item->title)}}.{{$item->id}}">
                     <div class="bg-white row h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
-                        <div class="col-md-6 p-0 rounded rounded-2">
+                        <div class="col-md-12 p-0 rounded rounded-2">
                             <img
-                                class="col-md-12 p-0"
+                                class="w-100 p-0"
                                 src="/uploads/{{$item->image}}" alt="{{$item->image}}"
                             >
                         </div>
