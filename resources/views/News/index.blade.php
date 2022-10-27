@@ -25,7 +25,7 @@
                         >
                             @if($item->created_at)
                                 <div class="text-black-50">
-                                    {{ strtotime($item->created_at) }}
+                                    {{ date("F jS, Y", strtotime($item->created_at)) }}
                                 </div>
                             @endif
                             <div class="pt-2">
