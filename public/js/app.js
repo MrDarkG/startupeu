@@ -11872,7 +11872,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.rounded-2{\n\tborder-radius: 1.5rem!important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.rounded-2{\n\tborder-radius: 1.5rem!important;\n}\n.latestnews-desc p{\n    font-size: 16px!important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -62176,7 +62176,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "pt-2" }, [
                         _c("h6", {
-                          staticClass: "text-black-50",
+                          staticClass: "text-black-50 latestnews-desc",
                           staticStyle: { "font-size": "16px!important" },
                           domProps: { innerHTML: _vm._s(item.description) }
                         })

@@ -42,7 +42,7 @@
 						</b>
 					</div>
 					<div class="pt-2">
-						<h6 class="text-black-50" v-html="item.description" style="font-size:16px!important;"></h6>
+						<h6 class="text-black-50 latestnews-desc" v-html="item.description" style="font-size:16px!important;"></h6>
 					</div>
 				</div>
 			</div>
@@ -68,5 +68,8 @@ export default{
 <style>
 .rounded-2{
 	border-radius: 1.5rem!important;
+}
+.latestnews-desc p{
+    font-size: 16px!important;
 }
 </style>
