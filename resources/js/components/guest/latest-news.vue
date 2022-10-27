@@ -72,7 +72,7 @@ export default{
 .latestnews-desc p ,p span{
     font-size: 16px!important;
     margin-top:0px!important;
-    line-height: 20px!important;
+    line-height: 22px!important;
     color: #666666!Important;
 }
 </style>
