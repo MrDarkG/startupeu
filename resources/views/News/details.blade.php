@@ -20,8 +20,8 @@
             <div class="col-md-3"></div>
             <div class="col-md-9">
                 <img src="{{ asset('uploads').'/'.$news->image}}" alt="{{ $news->title }}" width="100%">
-                <div class="news-single-description" onclick="this.innerHTML = {{$news->text}}">
-
+                <div class="news-single-description">
+                    {!! $news->text !!}
                 </div>
             </div>
             <div class="col-md-3 ">
