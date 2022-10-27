@@ -69,7 +69,7 @@ export default{
 .rounded-2{
 	border-radius: 1.5rem!important;
 }
-.latestnews-desc p span{
+.latestnews-desc p ,p span{
     font-size: 16px!important;
     margin-top:0px!important;
     line-height: 20px!important;
