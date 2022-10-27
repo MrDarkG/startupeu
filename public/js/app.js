@@ -62168,6 +62168,7 @@ var render = function() {
                         _c("b", [
                           _c("h4", {
                             staticClass: "m-0 p-0",
+                            staticStyle: { "font-size": "22px!important" },
                             domProps: { textContent: _vm._s(item.title) }
                           })
                         ])
@@ -62176,6 +62177,7 @@ var render = function() {
                       _c("div", { staticClass: "pt-2" }, [
                         _c("h6", {
                           staticClass: "text-black-50",
+                          staticStyle: { "font-size": "16px!important" },
                           domProps: { innerHTML: _vm._s(item.description) }
                         })
                       ])

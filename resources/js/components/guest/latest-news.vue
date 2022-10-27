@@ -38,11 +38,11 @@
 					</div>
 					<div class="pt-2">
 						<b>
-							<h4 class="m-0 p-0" v-text="item.title"></h4>
+							<h4 class="m-0 p-0" v-text="item.title" style="font-size: 22px!important;"></h4>
 						</b>
 					</div>
 					<div class="pt-2">
-						<h6 class="text-black-50" v-html="item.description"></h6>
+						<h6 class="text-black-50" v-html="item.description" style="font-size:16px!important;"></h6>
 					</div>
 				</div>
 			</div>
