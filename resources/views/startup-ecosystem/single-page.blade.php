@@ -9,7 +9,7 @@
     <div class="container h-100">
         <div class="container n-details">
             <div class="row m-0">
-                <div class="col-md-6">
+                <div class="col-md-6 pl-0 pr-0">
                     <div class="mb-3">
                         <h3 class="m-0">
                             Market Information
@@ -21,7 +21,7 @@
                         </h1>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 pl-0 pr-0">
                     @if($startup_ecosystem->country_visual)
                         <img
                             src="{{ asset('uploads').'/'.$startup_ecosystem->country_visual }}"
