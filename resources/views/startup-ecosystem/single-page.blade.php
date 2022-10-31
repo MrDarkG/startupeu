@@ -22,10 +22,10 @@
                     </div>
                 </div>
                 <div class="col-md-6 pl-0 pr-0">
-                    @if($startup_ecosystem->country_visual)
+                    @if(!is_null($startup_ecosystem->country_visual))
                         <img
                             src="{{ asset('uploads').'/'.$startup_ecosystem->country_visual }}"
-                            alt="No image uploaded"
+                            alt=""
                             width="100%"
                         >
                     @endif
