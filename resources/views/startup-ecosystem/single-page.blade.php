@@ -8,15 +8,28 @@
 @section("content")
     <div class="container h-100">
         <div class="container n-details">
-            <div class="mb-3">
-                <h3 class="m-0">
-                    Market Information
-                </h3>
-            </div>
-            <div class="mb-5 pb-5">
-                <h1 class="m-0 font-weight-bold" style="color:#3700b3;">
-                    {{ $startup_ecosystem->title }}
-                </h1>
+            <div class="row m-0">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <h3 class="m-0">
+                            Market Information
+                        </h3>
+                    </div>
+                    <div class="mb-5 pb-5">
+                        <h1 class="m-0 font-weight-bold" style="color:#3700b3;">
+                            {{ $startup_ecosystem->title }}
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @if($startup_ecosystem->image)
+                        <img
+                            src="{{ asset('uploads').'/'.$startup_ecosystem->image }}"
+                            alt="{{ $startup_ecosystem->title }}"
+                            width="100%"
+                        >
+                    @endif
+                </div>
             </div>
             <div class="mb-3 mt-5 pt-5">
                 <a href="/uploads/{{ $startup_ecosystem->pdf }}" target="_blank">
