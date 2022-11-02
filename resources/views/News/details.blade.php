@@ -18,10 +18,23 @@
                 </div>
             </div>
             <div class="col-md-3"></div>
-            <div class="col-md-9">
-                <img src="{{ asset('uploads').'/'.$news->image}}" alt="{{ $news->title }}" width="100%">
-                <div class="news-single-description">
-                    {!! $news->text !!}
+            <div class="col-md-9 d-flex flex-column justify-content-between">
+                <div>
+                    <img src="{{ asset('uploads').'/'.$news->image}}" alt="{{ $news->title }}" width="100%">
+                    <div class="news-single-description">
+                        {!! $news->text !!}
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="event-det-btn m-0">
+                        123
+                    </div>
+                    <div class="event-det-btn m-0">
+                        321
+                    </div>
+                    <div class="event-det-btn m-0">
+                        456
+                    </div>
                 </div>
             </div>
             <div class="col-md-3 ">
@@ -43,7 +56,7 @@
                     </div>
                 @endforeach
                 <div
-                    class="btn w-100 pt-3 pb-3 btn-primary border-0 font-weight-bold"
+                    class="event-det-btn m-0 w-100 pt-3 pb-3 btn-primary border-0 font-weight-bold"
                     style="background: rgba(98, 0, 238, 0.1);border-radius: 16px;color:#6200EE;"
                 >
                     See More News

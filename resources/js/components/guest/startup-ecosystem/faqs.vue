@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="d-flex flex-wrap align-items-center justify-content-center">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
         <div
             @click="setActiveCategory(category.id)"
             class="pl-3 pr-3 pt-2 font-weight-bold cursor-pointer"
@@ -10,7 +10,6 @@
                 'pb-2': !category.is_active,
             }"
             v-for="category in custom_categories"
-            v-if="category.questions.length > 0 && category.questions.find((question)=>question.answers.length > 0)"
         >
             {{ category.title }}
             <div class="custom-faq" v-if="category.is_active"></div>
@@ -24,7 +23,6 @@
     >
         <div
             v-for="(question, q_index) in category.questions"
-            v-if="question.answers.length > 0"
             :key="c_index+category.title+q_index"
         >
             <div
@@ -57,7 +55,6 @@
                         class="pl-3 border-left border-success"
                         style="border-width: 0.25em!important"
                         v-for="answer in question.answers"
-                        v-if="answer.startup_ecosystem_id == ecosystem_id"
                         v-html="answer.answer"
                     ></div>
                 </div>
@@ -77,7 +74,6 @@ export default {
     created(){
         this.setCustomCategory()
         this.addAllCategory()
-        this.custom_categories[0].is_active = true
     },
     methods:{
         addAllCategory(){
@@ -85,17 +81,38 @@ export default {
                 id:0,
                 title:'All',
                 questions:[],
-                is_active:false,
+                is_active:true,
             }
-            this.custom_categories.map((category)=>{
-                category.questions.map((question)=>{
-                    all_category.questions.push(question)
+            if(this.categories.length > 0){
+                this.custom_categories.map((category)=>{
+                    category.questions.map((question)=>{
+                        all_category.questions.push(question)
+                    })
                 })
+                this.custom_categories.unshift(all_category)
+            }
+        },
+        filterVisibleAnswers(categories){
+            categories.map((category, c_index)=>{
+                category.questions.map((question, q_index)=>{
+                    question.answers.map((answer)=>{
+                        if(this.ecosystem_id !== answer.startup_ecosystem_id){
+                            category.questions.splice(q_index)
+                        }
+                    })
+                    if (question.answers.length == 0){
+                        category.questions.splice(q_index)
+                    }
+                })
+                if (category.questions.length < 1){
+                    categories.splice(c_index)
+                }
             })
-            this.custom_categories.unshift(all_category)
+            return categories
         },
         setCustomCategory(){
-            this.categories.map((category)=>{
+            let categories = this.filterVisibleAnswers(this.categories)
+            categories.map((category)=>{
                 category.is_active = false
                 category.questions.map((question)=>{
                     question.is_active = false

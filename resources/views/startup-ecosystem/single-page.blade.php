@@ -6,7 +6,7 @@
     }
 </style>
 @section("content")
-    <div class="container h-100">
+    <div class="container">
         <div class="container n-details">
             <div class="row m-0">
                 <div class="col-md-6 pl-0 pr-0">
@@ -20,6 +20,27 @@
                             {{ $startup_ecosystem->title }}
                         </h1>
                     </div>
+                    <div class="mb-3 mt-5 pt-5">
+                        <a href="/uploads/{{ $startup_ecosystem->pdf }}" target="_blank">
+                            <div
+                                class="btn pl-4 pr-4"
+                                style="background:#e1d7f4;border-radius: 16px;"
+                            >
+                                <div class="d-flex align-items-center justify-content-between pt-1 pb-1">
+                                    <div>
+                                        <img src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow.svg" alt="">
+                                    </div>
+                                    <div
+                                        class="border-white ml-2 mr-2"
+                                        style="border-left:solid 2px black;color:#e1d7f4;"
+                                    >.</div>
+                                    <div>
+                                        Download PDF
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-md-6 pl-0 pr-0">
                     @if(!is_null($startup_ecosystem->country_visual))
@@ -30,27 +51,6 @@
                         >
                     @endif
                 </div>
-            </div>
-            <div class="mb-3 mt-5 pt-5">
-                <a href="/uploads/{{ $startup_ecosystem->pdf }}" target="_blank">
-                    <div
-                        class="btn pl-4 pr-4"
-                        style="background:#e1d7f4;border-radius: 16px;"
-                    >
-                        <div class="d-flex align-items-center justify-content-between pt-1 pb-1">
-                            <div>
-                                <img src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow.svg" alt="">
-                            </div>
-                            <div
-                                class="border-white ml-2 mr-2"
-                                style="border-left:solid 2px black;color:#e1d7f4;"
-                            >.</div>
-                            <div>
-                                Download PDF
-                            </div>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
         <div class="container n-details">

@@ -3171,9 +3171,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories', 'ecosystem_id'],
   data: function data() {
@@ -3184,7 +3181,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.setCustomCategory();
     this.addAllCategory();
-    this.custom_categories[0].is_active = true;
   },
   methods: {
     addAllCategory: function addAllCategory() {
@@ -3192,25 +3188,51 @@ __webpack_require__.r(__webpack_exports__);
         id: 0,
         title: 'All',
         questions: [],
-        is_active: false
+        is_active: true
       };
-      this.custom_categories.map(function (category) {
-        category.questions.map(function (question) {
-          all_category.questions.push(question);
+
+      if (this.categories.length > 0) {
+        this.custom_categories.map(function (category) {
+          category.questions.map(function (question) {
+            all_category.questions.push(question);
+          });
         });
-      });
-      this.custom_categories.unshift(all_category);
+        this.custom_categories.unshift(all_category);
+      }
     },
-    setCustomCategory: function setCustomCategory() {
+    filterVisibleAnswers: function filterVisibleAnswers(categories) {
       var _this = this;
 
-      this.categories.map(function (category) {
+      categories.map(function (category, c_index) {
+        category.questions.map(function (question, q_index) {
+          question.answers.map(function (answer) {
+            if (_this.ecosystem_id !== answer.startup_ecosystem_id) {
+              category.questions.splice(q_index);
+            }
+          });
+
+          if (question.answers.length == 0) {
+            category.questions.splice(q_index);
+          }
+        });
+
+        if (category.questions.length < 1) {
+          categories.splice(c_index);
+        }
+      });
+      return categories;
+    },
+    setCustomCategory: function setCustomCategory() {
+      var _this2 = this;
+
+      var categories = this.filterVisibleAnswers(this.categories);
+      categories.map(function (category) {
         category.is_active = false;
         category.questions.map(function (question) {
           question.is_active = false;
         });
 
-        _this.custom_categories.push(category);
+        _this2.custom_categories.push(category);
       });
     },
     setActiveCategory: function setActiveCategory(category_id) {
@@ -62223,38 +62245,33 @@ var render = function() {
         "div",
         {
           staticClass:
-            "d-flex flex-wrap align-items-center justify-content-center"
+            "d-flex flex-wrap align-items-center justify-content-between"
         },
         _vm._l(_vm.custom_categories, function(category) {
-          return category.questions.length > 0 &&
-            category.questions.find(function(question) {
-              return question.answers.length > 0
-            })
-            ? _c(
-                "div",
-                {
-                  staticClass: "pl-3 pr-3 pt-2 font-weight-bold cursor-pointer",
-                  class: {
-                    "pb-1": category.is_active,
-                    "pb-2": !category.is_active
-                  },
-                  staticStyle: { color: "#666666" },
-                  on: {
-                    click: function($event) {
-                      return _vm.setActiveCategory(category.id)
-                    }
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n            " + _vm._s(category.title) + "\n            "
-                  ),
-                  category.is_active
-                    ? _c("div", { staticClass: "custom-faq" })
-                    : _vm._e()
-                ]
-              )
-            : _vm._e()
+          return _c(
+            "div",
+            {
+              staticClass: "pl-3 pr-3 pt-2 font-weight-bold cursor-pointer",
+              class: {
+                "pb-1": category.is_active,
+                "pb-2": !category.is_active
+              },
+              staticStyle: { color: "#666666" },
+              on: {
+                click: function($event) {
+                  return _vm.setActiveCategory(category.id)
+                }
+              }
+            },
+            [
+              _vm._v(
+                "\n            " + _vm._s(category.title) + "\n            "
+              ),
+              category.is_active
+                ? _c("div", { staticClass: "custom-faq" })
+                : _vm._e()
+            ]
+          )
         }),
         0
       ),
@@ -62265,104 +62282,90 @@ var render = function() {
               "div",
               { key: c_index + category.title, staticClass: "pb-5 mb-5" },
               _vm._l(category.questions, function(question, q_index) {
-                return question.answers.length > 0
-                  ? _c("div", { key: c_index + category.title + q_index }, [
+                return _c("div", { key: c_index + category.title + q_index }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "pl-4 pr-4 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column",
+                      class: {
+                        "pt-4 pb-4": question.is_active,
+                        "pt-2 pb-2": !question.is_active
+                      },
+                      staticStyle: {
+                        "border-radius": "28px",
+                        "min-height": "97px"
+                      },
+                      style: {
+                        border: question.is_active ? "#6200ee 2px solid" : ""
+                      },
+                      on: {
+                        click: function($event) {
+                          question.is_active = !question.is_active
+                        }
+                      }
+                    },
+                    [
                       _c(
                         "div",
                         {
                           staticClass:
-                            "pl-4 pr-4 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column",
-                          class: {
-                            "pt-4 pb-4": question.is_active,
-                            "pt-2 pb-2": !question.is_active
-                          },
-                          staticStyle: {
-                            "border-radius": "28px",
-                            "min-height": "97px"
-                          },
-                          style: {
-                            border: question.is_active
-                              ? "#6200ee 2px solid"
-                              : ""
-                          },
-                          on: {
-                            click: function($event) {
-                              question.is_active = !question.is_active
-                            }
-                          }
+                            "d-flex align-items-center justify-content-between"
                         },
                         [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "d-flex align-items-center justify-content-between"
-                            },
-                            [
-                              _c("div", [
-                                _c(
-                                  "h6",
-                                  { staticClass: "m-0 font-weight-bold" },
-                                  [
-                                    _vm._v(
-                                      "\n                            " +
-                                        _vm._s(question.question) +
-                                        "\n                        "
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "accordion-icon" }, [
-                                !question.is_active
-                                  ? _c("img", {
-                                      attrs: {
-                                        src:
-                                          "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-down.svg",
-                                        alt: ""
-                                      }
-                                    })
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                question.is_active
-                                  ? _c("img", {
-                                      attrs: {
-                                        src:
-                                          "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg",
-                                        alt: ""
-                                      }
-                                    })
-                                  : _vm._e()
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          question.answers.length > 0 && question.is_active
-                            ? _c(
-                                "div",
-                                { staticClass: "mt-3" },
-                                _vm._l(question.answers, function(answer) {
-                                  return answer.startup_ecosystem_id ==
-                                    _vm.ecosystem_id
-                                    ? _c("div", {
-                                        staticClass:
-                                          "pl-3 border-left border-success",
-                                        staticStyle: {
-                                          "border-width": "0.25em!important"
-                                        },
-                                        domProps: {
-                                          innerHTML: _vm._s(answer.answer)
-                                        }
-                                      })
-                                    : _vm._e()
-                                }),
-                                0
+                          _c("div", [
+                            _c("h6", { staticClass: "m-0 font-weight-bold" }, [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(question.question) +
+                                  "\n                        "
                               )
-                            : _vm._e()
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "accordion-icon" }, [
+                            !question.is_active
+                              ? _c("img", {
+                                  attrs: {
+                                    src:
+                                      "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-down.svg",
+                                    alt: ""
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            question.is_active
+                              ? _c("img", {
+                                  attrs: {
+                                    src:
+                                      "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg",
+                                    alt: ""
+                                  }
+                                })
+                              : _vm._e()
+                          ])
                         ]
-                      )
-                    ])
-                  : _vm._e()
+                      ),
+                      _vm._v(" "),
+                      question.answers.length > 0 && question.is_active
+                        ? _c(
+                            "div",
+                            { staticClass: "mt-3" },
+                            _vm._l(question.answers, function(answer) {
+                              return _c("div", {
+                                staticClass: "pl-3 border-left border-success",
+                                staticStyle: {
+                                  "border-width": "0.25em!important"
+                                },
+                                domProps: { innerHTML: _vm._s(answer.answer) }
+                              })
+                            }),
+                            0
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                ])
               }),
               0
             )
