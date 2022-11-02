@@ -15,6 +15,9 @@
             footer .countries span{
                 color: white!important;
             }
+            .news-single-description p img{
+                width: 100%;
+            }
         </style>
         <!-- Meta Pixel Code -->
         <script>
