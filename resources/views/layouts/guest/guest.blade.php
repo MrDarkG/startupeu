@@ -43,7 +43,7 @@
             /></noscript>
         <!-- End Meta Pixel Code -->
     </head>
-    <body style="height: 100vh!important;background:#E5E5E5!important;">
+    <body style="height: 100vh!important;background:#efeff4!important;">
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164883851-1"></script>
         <!-- Google Tag Manager (noscript) -->
         <noscript>
