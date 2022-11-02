@@ -29,10 +29,10 @@
                     <a class="event-det-btn m-0" href="https://forms.gle/9es8dVipjfax2Uzn9">
                         Registration for Startups
                     </a>
-                    <a class="event-det-btn m-0"  href="https://startupcentraleurasia.com/files/Startup_KPIs_Day.pdf" style="color:#03dac5;">
+                    <a class="event-det-btn m-0"  href="https://startupcentraleurasia.com/files/Startup_KPIs_Day.pdf" style="background:#03dac5;">
                         Investors/Participants
                     </a>
-                    <a class="event-det-btn m-0" style="color:#ff2d55;">
+                    <a class="event-det-btn m-0" style="background:#ff2d55;">
                         Program
                     </a>
                 </div>
