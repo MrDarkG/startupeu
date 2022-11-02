@@ -26,15 +26,15 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    <div class="event-det-btn m-0">
-                        123
-                    </div>
-                    <div class="event-det-btn m-0">
-                        321
-                    </div>
-                    <div class="event-det-btn m-0">
-                        456
-                    </div>
+                    <a class="event-det-btn m-0" href="https://forms.gle/9es8dVipjfax2Uzn9">
+                        Registration for Startups
+                    </a>
+                    <a class="event-det-btn m-0"  href="https://startupcentraleurasia.com/files/Startup_KPIs_Day.pdf" style="color:#03dac5;">
+                        Investors/Participants
+                    </a>
+                    <a class="event-det-btn m-0" style="color:#ff2d55;">
+                        Program
+                    </a>
                 </div>
             </div>
             <div class="col-md-3 ">
