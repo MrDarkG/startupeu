@@ -48,9 +48,10 @@
                         <img v-if="question.is_active" src="https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg" alt="">
                     </div>
                 </div>
+<!-- question.answers.length > 0 && -->
                 <div
                     class="mt-3"
-                    v-if="question.answers.length > 0 && question.is_active">
+                    v-if="question.is_active">
                     <div
                         class="pl-3 border-left border-success"
                         style="border-width: 0.25em!important"
@@ -97,15 +98,15 @@ export default {
                 category.questions.map((question, q_index)=>{
                     question.answers.map((answer)=>{
                         if(this.ecosystem_id !== answer.startup_ecosystem_id){
-                            category.questions.splice(q_index)
+                            // category.questions.splice(q_index)
                         }
                     })
                     if (question.answers.length == 0){
-                        category.questions.splice(q_index)
+                        // category.questions.splice(q_index)
                     }
                 })
                 if (category.questions.length < 1){
-                    categories.splice(c_index)
+                    // categories.splice(c_index)
                 }
             })
             return categories

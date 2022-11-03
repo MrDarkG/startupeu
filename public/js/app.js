@@ -3171,6 +3171,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories', 'ecosystem_id'],
   data: function data() {
@@ -3206,18 +3207,15 @@ __webpack_require__.r(__webpack_exports__);
       categories.map(function (category, c_index) {
         category.questions.map(function (question, q_index) {
           question.answers.map(function (answer) {
-            if (_this.ecosystem_id !== answer.startup_ecosystem_id) {
-              category.questions.splice(q_index);
+            if (_this.ecosystem_id !== answer.startup_ecosystem_id) {// category.questions.splice(q_index)
             }
           });
 
-          if (question.answers.length == 0) {
-            category.questions.splice(q_index);
+          if (question.answers.length == 0) {// category.questions.splice(q_index)
           }
         });
 
-        if (category.questions.length < 1) {
-          categories.splice(c_index);
+        if (category.questions.length < 1) {// categories.splice(c_index)
         }
       });
       return categories;
@@ -62347,7 +62345,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      question.answers.length > 0 && question.is_active
+                      question.is_active
                         ? _c(
                             "div",
                             { staticClass: "mt-3" },
