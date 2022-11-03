@@ -3207,7 +3207,8 @@ __webpack_require__.r(__webpack_exports__);
       categories.map(function (category, c_index) {
         category.questions.map(function (question, q_index) {
           question.answers.map(function (answer) {
-            if (_this.ecosystem_id !== answer.startup_ecosystem_id) {// category.questions.splice(q_index)
+            if (_this.ecosystem_id !== answer.startup_ecosystem_id) {
+              category.questions.splice(q_index);
             }
           });
 

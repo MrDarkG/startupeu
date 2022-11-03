@@ -98,7 +98,7 @@ export default {
                 category.questions.map((question, q_index)=>{
                     question.answers.map((answer)=>{
                         if(this.ecosystem_id !== answer.startup_ecosystem_id){
-                            // category.questions.splice(q_index)
+                            category.questions.splice(q_index)
                         }
                     })
                     if (question.answers.length == 0){
