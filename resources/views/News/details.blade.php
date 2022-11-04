@@ -27,13 +27,15 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                     @foreach(App\Models\MainEventButtons::get() as $button)
-                        <a
-                            class="event-det-btn m-0"
-                            href="{{ $button->url }}"
-                            style="background:{{ $button->color }};"
-                        >
-                            {{ $button->title }}
-                        </a>
+                        @if($button->is_visible)
+                            <a
+                                class="event-det-btn m-0"
+                                href="{{ $button->url }}"
+                                style="background:{{ $button->color }};"
+                            >
+                                {{ $button->title }}
+                            </a>
+                        @endif
                     @endforeach
                 </div>
             </div>
