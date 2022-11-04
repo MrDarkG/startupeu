@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Events;
 use App\Models\Faq_category;
 use App\Models\Investor;
+use App\Models\MainEventButtons;
 use App\Models\Startup_ecosystem;
 use App\Models\WelcomeMenu;
 use Illuminate\Http\Request;

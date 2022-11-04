@@ -26,15 +26,15 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    <a class="event-det-btn m-0" href="https://forms.gle/9es8dVipjfax2Uzn9">
-                        Registration for Startups
-                    </a>
-                    <a class="event-det-btn m-0"  href="https://forms.gle/mLuZ9uWyV7X21Kmy6" style="background:#03dac5;">
-                        Investors/Participants
-                    </a>
-                    <a class="event-det-btn m-0" href="https://startupcentraleurasia.com/files/Startup_KPIs_Day.pdf" style="background:#ff2d55;">
-                        Program
-                    </a>
+                    @foreach(App\Models\MainEventButtons::get() as $button)
+                        <a
+                            class="event-det-btn m-0"
+                            href="{{ $button->url }}"
+                            style="background:{{ $button->color }};"
+                        >
+                            {{ $button->title }}
+                        </a>
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-3 ">

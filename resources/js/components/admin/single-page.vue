@@ -31,7 +31,7 @@
 </template>
 <script>
 export default {
-    props:['news','selected'],
+    props:['news','selected','buttons'],
     data(){
         return {
             custom_news: {},

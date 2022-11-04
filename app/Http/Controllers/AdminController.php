@@ -65,6 +65,7 @@ class AdminController extends Controller
     function singlePage(){
         $singlePage = Custom_event::first();
         $news = News::get();
+
         return view("admin.single-page",[
             'singlePage' => $singlePage,
             'news' => $news
