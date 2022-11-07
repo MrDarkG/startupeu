@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Custom_event;
 use App\Models\Events;
 use App\Models\Faq_category;
 use App\Models\Investor;
@@ -89,7 +90,7 @@ class GuestController extends Controller
         $event = Events::where('id' ,$event_id)->firstOrFail();
         $event['date'] = date("F jS, Y", strtotime($event['date']));
         return view('events.single-page',[
-            'event' => $event
+            'event' => $event,
         ]);
     }
     function allEvent(){
@@ -147,9 +148,12 @@ class GuestController extends Controller
     {
         $news = News::where('id',$id)->firstOrFail();
         $otherNews = News::orderBy('created_at')->where('id',"<>",$id)->take(4)->get();
+        $buttons = (Custom_event::where('news_id',$news->id)->first())?MainEventButtons::get():[];
+
         return view('News.details',[
             'news' => $news,
             'otherNews' => $otherNews,
+            'buttons' => $buttons
         ]);
     }
     public function allNews()

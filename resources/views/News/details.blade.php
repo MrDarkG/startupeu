@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    @foreach(App\Models\MainEventButtons::get() as $button)
+                    @foreach($buttons as $button)
                         @if($button->is_visible)
                             <a
                                 class="event-det-btn m-0"
