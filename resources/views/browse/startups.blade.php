@@ -2,8 +2,7 @@
 @section("content")
     <browse-startups
         :countries="{{ json_encode($countries) }}"
-        :issues="{{ json_encode($issues) }}"
-        :fields="{{ json_encode($fields) }}"
+        :stages="{{ json_encode($stages) }}"
         :mentors="{{ json_encode($mentors) }}"
         :startups="{{ json_encode($startups) }}"
     ></browse-startups>

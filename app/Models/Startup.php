@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pipeline\Pipeline;
 
 class Startup extends Model
 {
@@ -29,4 +30,18 @@ class Startup extends Model
         "user_id",
         "logo"
     ];
+
+    static public function allStartups($value='')
+    {
+        return $pipeline=app(Pipeline::class)
+            ->send(self::query())
+            ->through([
+                \App\QueryFilters\Countries::class,
+                \App\QueryFilters\Stages::class,
+                \App\QueryFilters\Search_title::class,
+                \App\QueryFilters\Sort::class,
+                \App\QueryFilters\Name::class,
+                \App\QueryFilters\Fields::class,
+            ])->thenReturn()->get();
+    }
 }

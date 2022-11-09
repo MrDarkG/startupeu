@@ -6,6 +6,7 @@
         :countries="countries"
         :data="data"
         @setFilteredData="setFilteredData"
+        @setSearchedData="setSearchedData"
     >
         <div class="row" v-if="data">
             <div class="col-md-6" v-if="!mentor.is_disabled" v-for="mentor in data">
@@ -49,29 +50,11 @@ export default{
         }
     },
     created(){
-        this.setCustomData()
+        this.setCustomData('mentors')
     },
     methods:{
-        setSearchedData(input){
-            this.data.map((item)=>{
-                item.is_disabled = true
-                let array = ['company_name', 'name', 'website']
-                array.forEach((arr)=>{
-                    console.log(item[arr], input, item[arr].toLowerCase().includes(input.toLowerCase()))
-                    if(item[arr].toLowerCase().includes(input.toLowerCase())){
-                        item.is_disabled = false
-                    }
-                })
-            })
-        },
         setFilteredData(response){
             this.data = response
-        },
-        setCustomData(){
-            this.mentors.data.map((item)=>{
-                item['is_disabled']
-                this.data.push(item)
-            })
         },
     },
 };

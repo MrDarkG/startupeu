@@ -1,8 +1,6 @@
 <?php
-
 namespace App\QueryFilters;
 
-use Closure;
 class Countries extends Filters
 {
 	protected function applyFilter($builder)

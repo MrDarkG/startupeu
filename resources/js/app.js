@@ -21,6 +21,7 @@ window.Vue = require('vue').default
 require('./import.js')
 /*MIXINS*/
 require('./mixin/helper')
+require('./helpers/browse_guest_helper')
 /*END MIXINS*/
 //GUEST COMPONENTS
     require('./app/guest.js')

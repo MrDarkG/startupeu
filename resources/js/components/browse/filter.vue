@@ -1,7 +1,15 @@
 <template>
 <div>
-    <div class="chek-list" v-for="(list, index) in data" :key="index+'list'">
-        <div class="title">{{ list.title }}</div>
+    <div class="chek-list"
+         v-for="(list, index) in data"
+         :key="index+'list'"
+    >
+        <div
+            class="title"
+            v-if="list.data"
+        >
+            {{ list.title }}
+        </div>
         <ul>
             <li v-for="response in list.data" :key="response.id+response.title">
                 <div class="form-check">

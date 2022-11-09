@@ -2463,6 +2463,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['data'],
   data: function data() {
@@ -2557,11 +2565,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['title', 'data', 'fields', 'issues', 'countries'],
+  props: ['title', 'data', 'fields', 'issues', 'countries', 'stages', 'markets', 'ranges', 'var_attrs'],
   watch: {
     url: function url(_url) {
-      this.getInvestorData(_url);
+      this.getData(_url);
     }
   },
   data: function data() {
@@ -2580,8 +2590,23 @@ __webpack_require__.r(__webpack_exports__);
         title: 'Fieldes consult',
         prop: 'fields[]=',
         data: this.fields
+      }, {
+        title: 'Stages',
+        prop: 'stages[]=',
+        data: this.stages
+      }, {
+        title: 'Markets',
+        prop: 'markets[]=',
+        data: this.markets
+      }, {
+        title: 'Ranges',
+        prop: 'ranges[]=',
+        data: this.ranges
       }]
     };
+  },
+  created: function created() {
+    document.querySelector('body').style.position = "relative";
   },
   methods: {
     setDataByItsValue: function setDataByItsValue(event) {
@@ -2596,7 +2621,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.url = custom_url;
     },
-    getInvestorData: function getInvestorData(url) {
+    getData: function getData(url) {
       var _this = this;
 
       axios.get("/".concat(this.title.toLowerCase().slice(0, this.title.length - 1), "/search").concat(url)).then(function (response) {
@@ -2660,7 +2685,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     fields: Array,
-    issues: Array,
+    markets: Array,
+    ranges: Array,
     countries: Array,
     investors: Object
   },
@@ -2670,31 +2696,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.setCustomData();
+    this.setCustomData('investors');
   },
   methods: {
-    setSearchedData: function setSearchedData(input) {
-      this.data.map(function (item) {
-        item.is_disabled = true;
-        var array = ['company_name', 'name', 'website'];
-        array.forEach(function (arr) {
-          if (item[arr].toLowerCase().includes(input.toLowerCase())) {
-            item.is_disabled = false;
-          }
-        });
-      });
-    },
     setFilteredData: function setFilteredData(response) {
       this.data = response;
-    },
-    setCustomData: function setCustomData() {
-      var _this = this;
-
-      this.investors.data.map(function (item) {
-        item['is_disabled'] = false;
-
-        _this.data.push(item);
-      });
     }
   }
 });
@@ -2749,6 +2755,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     fields: Array,
@@ -2762,33 +2769,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.setCustomData();
+    this.setCustomData('mentors');
   },
   methods: {
-    setSearchedData: function setSearchedData(input) {
-      this.data.map(function (item) {
-        item.is_disabled = true;
-        var array = ['company_name', 'name', 'website'];
-        array.forEach(function (arr) {
-          console.log(item[arr], input, item[arr].toLowerCase().includes(input.toLowerCase()));
-
-          if (item[arr].toLowerCase().includes(input.toLowerCase())) {
-            item.is_disabled = false;
-          }
-        });
-      });
-    },
     setFilteredData: function setFilteredData(response) {
       this.data = response;
-    },
-    setCustomData: function setCustomData() {
-      var _this = this;
-
-      this.mentors.data.map(function (item) {
-        item['is_disabled'];
-
-        _this.data.push(item);
-      });
     }
   }
 });
@@ -2833,11 +2818,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     countries: Array,
-    fields: Array,
-    issues: Array,
+    stages: Array,
     startups: Array
   },
   data: function data() {
@@ -2846,35 +2831,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.setCustomData();
+    this.setCustomData('startups');
   },
   methods: {
-    setSearchedData: function setSearchedData(input) {
-      console.log(input);
-      this.data.map(function (item) {
-        item.is_disabled = true;
-        var array = ['full_name', 'name', 'ceo_email'];
-        array.forEach(function (arr) {
-          if (item[arr].toLowerCase().includes(input.toLowerCase())) {
-            item.is_disabled = false;
-          }
-        });
-      });
-    },
-    setShortDescription: function setShortDescription(string) {
-      return string.length > 172 ? string.slice(0, 169) + ' ...' : string;
-    },
     setFilteredData: function setFilteredData(response) {
-      this.data = response;
-    },
-    setCustomData: function setCustomData() {
-      var _this = this;
-
-      this.startups.map(function (item) {
-        item['is_disabled'] = false;
-
-        _this.data.push(item);
+      response.map(function (item) {
+        item.is_disabled = false;
       });
+      this.data = response;
     }
   }
 });
@@ -5104,6 +5068,8 @@ __webpack_require__(/*! ./import.js */ "./resources/js/import.js");
 
 
 __webpack_require__(/*! ./mixin/helper */ "./resources/js/mixin/helper.js");
+
+__webpack_require__(/*! ./helpers/browse_guest_helper */ "./resources/js/helpers/browse_guest_helper.js");
 /*END MIXINS*/
 //GUEST COMPONENTS
 
@@ -5221,6 +5187,55 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/helpers/browse_guest_helper.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/helpers/browse_guest_helper.js ***!
+  \*****************************************************/
+/***/ (() => {
+
+Vue.mixin({
+  methods: {
+    setShortDescription: function setShortDescription(string) {
+      return string.length > 172 ? string.slice(0, 169) + ' ...' : string;
+    },
+    setCustomData: function setCustomData(variable) {
+      var _this = this;
+
+      var push_variable = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'data';
+
+      if (this[variable].data) {
+        this[variable].data.map(function (item) {
+          item['is_disabled'];
+
+          _this[push_variable].push(item);
+        });
+      } else {
+        this[variable].map(function (item) {
+          item['is_disabled'] = false;
+
+          _this[push_variable].push(item);
+        });
+      }
+    },
+    setSearchedData: function setSearchedData(input) {
+      var var_name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "data";
+      var var_attrs = ['title', 'name', 'facebook', 'telegram'];
+      this[var_name].map(function (item) {
+        item.is_disabled = true;
+        var_attrs.map(function (arr) {
+          if (item[arr]) {
+            if (item[arr].toLowerCase().includes(input.toLowerCase())) {
+              item.is_disabled = false;
+            }
+          }
+        });
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -61365,7 +61380,11 @@ var render = function() {
     "div",
     _vm._l(_vm.data, function(list, index) {
       return _c("div", { key: index + "list", staticClass: "chek-list" }, [
-        _c("div", { staticClass: "title" }, [_vm._v(_vm._s(list.title))]),
+        list.data
+          ? _c("div", { staticClass: "title" }, [
+              _vm._v("\n            " + _vm._s(list.title) + "\n        ")
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c(
           "ul",
@@ -61434,7 +61453,8 @@ var render = function() {
       "div",
       {
         staticClass:
-          "container-fluid pl-3 pl-sm-3 pr-3 pr-sm-3 pr-md-3 pl-md-3 pr-lg-0 pl-lg-0 startup-list-search d-flex align-items-end justify-content-center"
+          "container-fluid pl-3 pl-sm-3 pr-3 pr-sm-3 pr-md-3 pl-md-3 pr-lg-0 pl-lg-0 d-flex startup-list-search align-items-end justify-content-center",
+        staticStyle: { position: "absolute!important" }
       },
       [
         _c(
@@ -61518,7 +61538,9 @@ var render = function() {
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-6 list-type-style" }, [
                 _vm._v(
-                  "\n                            Investors\n                        "
+                  "\n                            " +
+                    _vm._s(_vm.title) +
+                    "\n                        "
                 )
               ]),
               _vm._v(" "),
@@ -61599,8 +61621,8 @@ var render = function() {
     {
       attrs: {
         title: "Investors",
-        fields: _vm.fields,
-        issues: _vm.issues,
+        markets: _vm.markets,
+        ranges: _vm.ranges,
         countries: _vm.countries,
         data: _vm.data
       },
@@ -61715,7 +61737,10 @@ var render = function() {
         countries: _vm.countries,
         data: _vm.data
       },
-      on: { setFilteredData: _vm.setFilteredData }
+      on: {
+        setFilteredData: _vm.setFilteredData,
+        setSearchedData: _vm.setSearchedData
+      }
     },
     [
       _vm.data
@@ -61818,9 +61843,8 @@ var render = function() {
     {
       attrs: {
         title: "Startups",
-        fields: _vm.fields,
-        issues: _vm.issues,
         countries: _vm.countries,
+        stages: _vm.stages,
         data: _vm.data
       },
       on: {

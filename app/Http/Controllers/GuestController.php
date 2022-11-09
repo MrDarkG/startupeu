@@ -7,6 +7,9 @@ use App\Models\Events;
 use App\Models\Faq_category;
 use App\Models\Investor;
 use App\Models\MainEventButtons;
+use App\Models\Market;
+use App\Models\Range;
+use App\Models\Stage;
 use App\Models\Startup_ecosystem;
 use App\Models\WelcomeMenu;
 use Illuminate\Http\Request;
@@ -56,17 +59,19 @@ class GuestController extends Controller
     }
     public function investorsPage()
     {
-        $issues=Issue::orderBy('title')->get();
+        $markets=Market::get();
+        $ranges=Range::get();
         $fields=Field::orderBy('title')->get();
         $investors=Investor::paginatedInvestors(10);
         $startups=Startup::get();
         $countries=Faq_country::orderBy('title')->get();
 
         return view("browse.investors",[
-            'issues' => $issues,
             'fields' => $fields,
             'investors' => $investors,
             'countries' => $countries,
+            'markets' => $markets,
+            'ranges' => $ranges,
             'startups' => $startups
         ]);
     }
@@ -74,15 +79,13 @@ class GuestController extends Controller
     {
         $mentors=Mentor::paginatedMentors(10);
         $startups=Startup::get();
-        $issues=Issue::orderBy('title')->get();
-        $fields=Field::orderBy('title')->get();
+        $stages=Stage::orderBy('title')->get();
         $countries=Faq_country::orderBy('title')->get();
 
         return view("browse.startups",[
-            'issues' => $issues,
-            'fields' => $fields,
             'mentors' => $mentors,
             'startups' => $startups,
+            'stages' => $stages,
             'countries' => $countries
         ]);
     }

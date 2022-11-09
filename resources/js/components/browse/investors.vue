@@ -1,8 +1,8 @@
 <template>
     <browse-index
         title="Investors"
-        :fields="fields"
-        :issues="issues"
+        :markets="markets"
+        :ranges="ranges"
         :countries="countries"
         :data="data"
         @setFilteredData="setFilteredData"
@@ -40,7 +40,8 @@
 export default{
     props:{
         fields:Array,
-        issues:Array,
+        markets:Array,
+        ranges:Array,
         countries:Array,
         investors:Object
     },
@@ -50,28 +51,11 @@ export default{
       }
     },
     created(){
-        this.setCustomData()
+        this.setCustomData('investors')
     },
     methods:{
-        setSearchedData(input){
-            this.data.map((item)=>{
-                item.is_disabled = true
-                let array = ['company_name', 'name', 'website']
-                array.forEach((arr)=>{
-                    if(item[arr].toLowerCase().includes(input.toLowerCase())){
-                        item.is_disabled = false
-                    }
-                })
-            })
-        },
         setFilteredData(response){
             this.data = response
-        },
-        setCustomData(){
-            this.investors.data.map((item)=>{
-                item['is_disabled'] = false
-                this.data.push(item)
-            })
         },
     },
 };

@@ -29,6 +29,7 @@ class Mentor extends Model
             \App\QueryFilters\Countries::class,
             \App\QueryFilters\Sort::class,
             \App\QueryFilters\Name::class,
+            \App\QueryFilters\Search_title::class,
             \App\QueryFilters\Fields::class,
             \App\QueryFilters\Issues::class,
         ])->thenReturn()->get();

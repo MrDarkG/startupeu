@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <div class="container-fluid pl-3 pl-sm-3 pr-3 pr-sm-3 pr-md-3 pl-md-3 pr-lg-0 pl-lg-0 startup-list-search d-flex align-items-end justify-content-center">
+        <div class="container-fluid pl-3 pl-sm-3 pr-3 pr-sm-3 pr-md-3 pl-md-3 pr-lg-0 pl-lg-0 d-flex startup-list-search align-items-end justify-content-center"
+            style="position:absolute!important;"
+        >
             <div class="list-search p-0 pr-2 m-0 w-100 d-flex align-items-center justify-content-center">
                 <label for="search" class="p-0 m-0 w-100 d-flex align-items-center">
                     <div class="left w-100 pr-3 m-0 row">
@@ -29,7 +31,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6 list-type-style">
-                                Investors
+                                {{ title }}
                             </div>
                             <div class="col-md-6 list-type-count">
                                 Showing : {{ data.length }} {{  }}
@@ -48,10 +50,20 @@
 </template>
 <script>
 export default{
-    props:['title','data','fields','issues','countries'],
+    props:[
+        'title',
+        'data',
+        'fields',
+        'issues',
+        'countries',
+        'stages',
+        'markets',
+        'ranges',
+        'var_attrs'
+    ],
     watch:{
         url:function(url){
-            this.getInvestorData(url)
+            this.getData(url)
         }
     },
     data(){
@@ -74,8 +86,26 @@ export default{
                     prop:'fields[]=',
                     data:this.fields
                 },
+                {
+                    title:'Stages',
+                    prop:'stages[]=',
+                    data:this.stages
+                },
+                {
+                    title:'Markets',
+                    prop:'markets[]=',
+                    data:this.markets
+                },
+                {
+                    title:'Ranges',
+                    prop:'ranges[]=',
+                    data:this.ranges
+                },
             ],
         }
+    },
+    created(){
+        document.querySelector('body').style.position="relative"
     },
     methods:{
         setDataByItsValue(event){
@@ -89,7 +119,7 @@ export default{
             })
             this.url = custom_url
         },
-        getInvestorData(url){
+        getData(url){
             axios.get(`/${this.title.toLowerCase().slice(0,this.title.length-1)}/search${url}`)
             .then((response)=>{
                 this.$emit('setFilteredData', response.data)

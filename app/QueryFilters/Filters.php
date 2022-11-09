@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 namespace App\QueryFilters;
 use Closure;
-use Str;
+use Illuminate\Support\Str;
 abstract class Filters
 {
 	public function handle($request, Closure $next)

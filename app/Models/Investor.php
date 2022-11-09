@@ -24,6 +24,7 @@ class Investor extends Model
         "type_id",
         "logo"
     ];
+
     static public function allInvestors($value='')
     {
         return $pipeline=app(Pipeline::class)
@@ -33,6 +34,18 @@ class Investor extends Model
             \App\QueryFilters\Market::class,
             \App\QueryFilters\Type::class,
         ])->thenReturn()->with(["ranges"])->get();
+    }
+    static public function filterInvestors($value='')
+    {
+        return $pipeline=app(Pipeline::class)
+            ->send(self::query())
+            ->through([
+                \App\QueryFilters\Countries::class,
+                \App\QueryFilters\Markets::class,
+                \App\QueryFilters\Ranges::class,
+                \App\QueryFilters\Search_title::class,
+                \App\QueryFilters\Fields::class,
+            ])->thenReturn()->with(["ranges"])->get();
     }
     static public function paginatedInvestors($count)
     {
