@@ -1,10 +1,10 @@
 <template>
 <div>
     <div class="sign-title">
-        Investor Registration        
+        Investor Registration
     </div>
     <div class="sign-desc">
-    	Use our smart matching tool to find startups from Central Eurasia        
+    	Use our smart matching tool to find startups from Central Eurasia
     </div>
     <div class="sign-form" id="startup-form">
         <div class="row">
@@ -38,7 +38,7 @@
                     id="investment_range"
                     v-model="input.investment_range"
                     :style="setClassByValue(input.investment_range,true,button)"
-                    track-by="id" 
+                    track-by="id"
                     label="title"
                     :options="investment_range"
                     :multiple="false"
@@ -50,7 +50,7 @@
                     id="interest_martket_id"
                     v-model="input.which.market"
                     :style="setClassByValue(input.which.market,true,button)"
-                    track-by="id" 
+                    track-by="id"
                     label="title"
                     :options="markets"
                     :multiple="false"
@@ -62,7 +62,7 @@
                     id="interest_stage_id"
                     v-model="input.which.stage"
                     :style="setClassByValue(input.which.stage,true,button)"
-                    track-by="id" 
+                    track-by="id"
                     label="title"
                     :options="stages"
                     :multiple="false"
@@ -75,7 +75,7 @@
                         id="country_id"
                         v-model="input.country"
                         :style="setClassByValue(input.country,true,button)"
-                        track-by="id" 
+                        track-by="id"
                         label="title"
                         :options="countries"
                         :multiple="false"
@@ -88,7 +88,7 @@
                     id="investor_type"
                     v-model="input.investor_type"
                     :style="setClassByValue(input.investor_type,true,button)"
-                    track-by="id" 
+                    track-by="id"
                     label="title"
                     :options="investor_types"
                     :multiple="false"
@@ -97,15 +97,15 @@
             <div class="col-md-12 mt-2">
                 <div class="alert alert-warning alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                    <strong>warning!</strong>  Image file formats - JPG,PNG,JPEG; Size - 2MB                    
+                    <strong>warning!</strong>  Image file formats - JPG,PNG,JPEG; Size - 2MB
                 </div>
             </div>
-            <div 
-                class="col-md-6 st-logo position-relative" 
-                :class="setClassByValue(image.uploaded, false, button)" 
+            <div
+                class="col-md-6 st-logo position-relative"
+                :class="setClassByValue(image.uploaded, false, button)"
                 style="margin-right: 20px;height:100%;"
             >
-                <VueFileAgent 
+                <VueFileAgent
                     :accept="'image/*'"
                     :maxSize="'10MB'"
                     :multiple="false"
@@ -116,7 +116,7 @@
                       size: 'Files should not exceed 10MB in size',
                     }"
                     :uploadUrl="image.uploaded"
-                    @select="onImageUpload" 
+                    @select="onImageUpload"
 
                     class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
                     v-model="fileRecords"
@@ -125,14 +125,14 @@
         </div>
         <div class="float-right">
             <button class="btn btn-success" @click="sendData()">
-                Get started 
+                Get started
             </button>
         </div>
     </div>
     <modal name="chose_side_investor_image_modal" id="chose_side_investor_image_modal">
         <div class="row p-4">
             <div class="col-md-8 position-relative">
-                <cropper 
+                <cropper
                     :src="image.uploaded"
                     :stencil-props="{
                         aspectRatio: 1/1
@@ -143,7 +143,7 @@
                 ></cropper>
             </div>
             <div class="col-md-4 p-3">
-                <div class="d-flex justify-content-center align-items-center">   
+                <div class="d-flex justify-content-center align-items-center">
                     <div>
                         <div>
                             <span style="font-weight:bold;">
@@ -165,14 +165,14 @@
 <script>
 export default{
     props:[
-      'looking_for',  
-      'stages',  
-      'markets',  
-      'countries',  
-      'industries',  
-      'investor_types',  
+      'looking_for',
+      'stages',
+      'markets',
+      'countries',
+      'industries',
+      'investor_types',
       'bussines_models',
-      'investment_range',  
+      'investment_range',
     ],
     data () {
       return {
@@ -211,7 +211,7 @@ export default{
             this.button = true
             axios.post('/register/investor',this.input)
             .then((response)=>{
-                console.log(response.data)
+                window.location.href = response.data
             })
         },
         onImageUpload(event){

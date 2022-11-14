@@ -27,6 +27,7 @@ require('./helpers/browse_guest_helper')
     require('./app/guest.js')
 //END GUEST COMPONENTS
 Vue.component('example-component', require('./components/ExampleComponent.vue').default)
+Vue.component('dashboard-menu', require('./components/dashboard/menu.vue').default)
 // Vue.component('mentor-registration', require('./\components/mentor/registration/index.vue').default)
 // Vue.component('startup-register', require('./components/startup/registration/index.vue').default)
 // Vue.component('investor-registration', require('./components/investor/registration/index.vue').default)

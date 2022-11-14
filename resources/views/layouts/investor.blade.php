@@ -8,54 +8,46 @@
         <link rel="stylesheet" type="text/css" href="/css/app.css">
         <link rel="stylesheet" type="text/css" href="/css/costum.css">
     </head>
-    <body class="row">
+    <body>
+    <div id="app" class="row">
         <div class="col-3">
-            <div class="sidebar pl-4">
-              <div class="logo-container">
-                <img src="/logo.svg" class="logo">
-                <img src="/mini-logo.svg" class="logo-min">
-              </div>
-              <div class="menubar">
-                <div>
-                    <ul class="das-menu">
-                        <li>
-                            <a href="/investor/index" @if(str_contains(url()->current(), "/investor/index")) class="active" @endif>
-                                <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/dashboard.svg" alt="">
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" @if(str_contains(url()->current(), "/investor/offers")) class="active" @endif>
-                                <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/get-investment.svg" alt="">
-                                <span>Offers</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" @if(str_contains(url()->current(), "/investor/startups")) class="active" @endif>
-                                <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/get-investment.svg" alt="">
-                                <span>Startups</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/investor/account" @if(str_contains(url()->current(), "/investor/account")) class="active" @endif>
-                                <img src="https://www.startupcentraleurasia.com/themes/application/Components/svg/dashboard/myaccount.svg" alt="">
-                                <span>My account</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-              </div>
-              <div class="sidebar-logout">
-                <img src="/assets/images/power-off.png" alt="" height="30px" style="opacity:0.6">
-                <span class="logout-btn">
-                    Logout
-                </span>
-              </div>
-            </div>
+            @php
+                $menu = [
+                    [
+                        'title' => 'Dashboard',
+                        'url' => '/investor/dashboard/index',
+                        'image' => '/assets/images/dashboard.svg',
+                        'is_active' => (str_contains(url()->current(), "/mentor/dashboard")) ? true : false
+                    ],
+                    [
+                        'title' => 'Offers',
+                        'url' => '#',
+                        'image' => '/assets/images/get-investment.svg',
+                        'is_active' => (str_contains(url()->current(), "/mentor/calendar")) ? true : false
+                    ],
+                    [
+                        'title' => 'Startups',
+                        'url' => '#',
+                        'image' => '/assets/images/get-investment.svg',
+                        'is_active' => (str_contains(url()->current(), "/mentor/calendar")) ? true : false
+                    ],
+                    [
+                        'title' => 'My account',
+                        'url' => '/startup/dashboard/account',
+                        'image' => '/assets/images/myaccount.svg',
+                        'is_active' => (str_contains(url()->current(), "/mentor/account")) ? true : false
+                    ],
+                ];
+            @endphp
+            <dashboard-menu
+                class="pt-5 pb-5"
+                :data="{{ json_encode($menu) }}"
+            />
         </div>
-        <div id="app" class="col-9">
+        <div class="col-9">
             @yield("content")
         </div>
+</div>
     <script type="text/javascript" src="/js/app.js"></script>
     </body>
 </html>

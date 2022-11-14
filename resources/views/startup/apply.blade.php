@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('content')    
+@section('content')
     <div class="container">
         <div class="row startup-details">
             <div class="col-md-8">
                 <div class="s-d-head" style="border: inherit">
-                    <img src="https://www.startupcentraleurasia.com/./uploads/photos/cache/2021-05/1959c9d4b31d87d8606b7856ea74c74e.png" alt="">
+                    <img src="/investor/{{ $investor->logo }}" alt="">
                     <div class="title" style="padding-top: 4px;">QAZTECH VENTURES</div>
                     <div class="green-text">looking_for_startup</div>
                     <ul class="tags">
@@ -17,7 +17,9 @@
             <div class="col-xl-4 col-md-6">
                 <div class="l-box">
                     <div class="desc">Investment range:</div>
-                    <div class="title">{{ $investor->ranges->title }} $</div>
+                    <div class="title">
+                        {{ str_replace(' -', '$ -',$investor->ranges->title) }}$
+                    </div>
                 </div>
             </div>
             <div class="col-md-12">

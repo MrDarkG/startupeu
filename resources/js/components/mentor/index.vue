@@ -10,23 +10,23 @@
 		</div>
 		<div>
 			<span>
-				Mark the time for a session 
+				Mark the time for a session
 			</span>
 		</div>
 	</div>
-	<div class="d-flex flex-wrap mt-5">
-		<div class="bg-white p-0 col-md-6 d-flex align-items-center justify-content-center" style="border-radius:10px;">
-			<DatePicker 
-				:locale="'en'" 
-				class="custom-datepicker"
-				v-model="calendar.DatePicker.date" 
-				:min-date="new Date()"  
-				:attributes="calendar.DatePicker.todos" 
+	<div class="d-flex flex-wrap mt-5 ">
+		<div class="bg-white p-0 col-md-6 d-flex align-items-center justify-content-center card-border-radius">
+			<DatePicker
+				:locale="'en'"
+				class="custom-datepicker card-border-radius"
+				v-model="calendar.DatePicker.date"
+				:min-date="new Date()"
+				:attributes="calendar.DatePicker.todos"
 				color="purple"
 			></DatePicker>
 		</div>
-		<div class="mentor-range-cards col-md-6 d-flex flex-column justify-content-between pl-2 pr-0">
-			<div class="bg-white p-3" style="border-radius:10px;">
+		<div class="mentor-range-cards col-md-6 d-flex flex-column justify-content-between pl-2 pr-0 card-border-radius">
+			<div class="bg-white p-3 card-border-radius">
 				<div class="d-flex align-items-center justify-content-between">
 					<div class="d-flex align-items-center" style="font-size:18px">
 						<div class="p-2">
@@ -41,13 +41,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="bg-white p-3 mt-2" style="border-radius:10px;">
+			<div class="bg-white p-3 mt-2 card-border-radius">
 				<div class="font-weight-bold" style="font-size:18px;">
 					Meeting settings
 				</div>
 				<hr style="opacity:0.5;">
 				<div class="d-flex flex-wrap">
-					<div class="col-xl-6 mt-1 col-md-12 in-box">
+					<div class="mt-1 col-md-6 card-border-radius">
                         <div class="in-title">Set your hours</div>
                         <div class="available-hours" data-toggle="modal" data-target=".addtimemodal">
                             Available hours
@@ -55,7 +55,7 @@
                         </div>
                         <div class="in-desc">Define hours when you are available for meeting.</div>
                     </div>
-                    <div class="col-xl-6 mt-1 col-md-12 in-box">
+                    <div class="mt-1 col-md-6 card-border-radius">
                         <div class="in-title">Duration</div>
 
                         <select name="duration" id="duration" class="form-control duration">
@@ -70,7 +70,7 @@
 		</div>
 	</div>
 	<v-calendar
-			class="custom-calendar max-w-full mt-2"
+			class="custom-calendar max-w-full mt-2 card-border-radius"
 			:masks="calendar.masks"
 			:attributes="calendar.attributes"
 			disable-page-swipe
@@ -88,10 +88,10 @@
 		        >
 		            <div v-for="tdata in attr.customData.hours" class="d-flex justify-content-between">
 			            <div class="clock-lables" >
-			              {{ tdata.hours }} 
+			              {{ tdata.hours }}
 			            </div>
 			            <div class="clock-lables">
-			            	
+
 			              <img src="/assets/image/people-active.svg" height="14px">
 			              {{ tdata.users }}
 			            </div>
@@ -170,6 +170,9 @@ export default{
 }
 </script>
 <style>
+.card-border-radius{
+    border-radius:26px;
+}
 .custom-datepicker .vc-pane{
 	padding:10px;
 }
@@ -182,11 +185,11 @@ export default{
 }
 .custom-datepicker .vc-pane{
 	height: 36vh;
-}  
+}
 .custom-datepicker{
 	border:none;
 	width:100%;
-}  
+}
 @media only screen and (max-width: 767px) {
 	.mentor-range-cards{
 		padding-left: 0px !important;

@@ -2720,6 +2720,7 @@ a:hover{
 
 .dash-container {
     margin-top: 40px;
+    min-width: 310px!important;
 }
 
 .dash-container .title {
@@ -5133,6 +5134,7 @@ a:hover{
     .event-card{
         left: -30px!important;
     }
+
 }
 .cursor-pointer{
     cursor:pointer!important;

@@ -96,11 +96,11 @@
                             </form>
                         </div>
                         @guest
-                            {{--                  <button class="btn btn-light login-btn">--}}
-                            {{--                    <a href="/login">Login</a>--}}
-                            {{--                    <span class="login-text-primary"> / </span>--}}
-                            {{--                    <a href="/register">Register</a>--}}
-                            {{--                  </button>--}}
+                                              <button class="btn btn-light login-btn">
+                                                <a href="/login">Login</a>
+                                                <span class="login-text-primary"> / </span>
+                                                <a href="/register">Register</a>
+                                              </button>
                         @else
                             <button class="btn btn-light login-btn">
                                 @php

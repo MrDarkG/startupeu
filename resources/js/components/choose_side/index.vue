@@ -3,15 +3,15 @@
 	<div class="container-fluid pd-50">
 	    <div class="row sign-up">
 		    <div class="col-md-4 left">
-		        <a href="https://startupcentraleurasia.com/en/" class="sign-logo">
-		            <img src="https://startupcentraleurasia.com/themes/application/Components/svg/sign-logo.svg" alt="">
+		        <a href="/" class="sign-logo">
+		            <img src="/assets/images/sign-logo.svg" alt="">
 		        </a>
 		        <div class="sign-text">
 		            <span>
 	            		Few clicks away from your Ecosystem
 		        	</span>
 		            <p>
-		            	Already have an account?<a href="https://startupcentraleurasia.com/en/login">Login</a>
+		            	Already have an account?<a href="/login">Login</a>
 		            </p>
 		        </div>
 		    </div>
