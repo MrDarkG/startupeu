@@ -3,19 +3,19 @@
 <div class="container-fluid">
     <div class="row sign-up ml-0 mr-0 justify-content-between">
         <div class="col-xl-3 col-md-4 left">
-            <a href="http://beta.startupcentraleurasia.com/en/" class="sign-logo">
-                <img src="http://beta.startupcentraleurasia.com/themes/application/Components/svg/sign-logo.svg" alt="">
+            <a href="/" class="sign-logo">
+                <img src="/assets/images/sign-logo.svg" alt="">
             </a>
             <div class="sign-text">
                 <span>Few clicks away from your Ecosystem</span>
-                <p>New here?                
+                <p>New here?
                     <a href="/register">Sign up</a>
                 </p>
             </div>
         </div>
         <div class="col-xl-8 col-md-7 right d-flex flex-column justify-content-center ">
             <div class="sign-title">
-                Sign in        
+                Sign in
             </div>
             <form action="/login" class="sign-form" method="post" id="login-form" novalidate="novalidate">
                 <div class="row flex-column">

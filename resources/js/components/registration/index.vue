@@ -1,8 +1,8 @@
 <template>
 <div class="row sign-up ml-0 mr-0 justify-content-between">
     <div class="col-xl-3 col-md-4 left">
-        <a href="http://beta.startupcentraleurasia.com/en/" class="sign-logo">
-            <img src="http://beta.startupcentraleurasia.com/themes/application/Components/svg/sign-logo.svg" alt="">
+        <a href="/" class="sign-logo">
+            <img src="assets/images/sign-logo.svg" alt="">
         </a>
         <div class="sign-text">
             <span>few clicks away from your ecosystem</span>
@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-7 col-xl-8 right d-flex justify-content-center flex-column">
         <div class="sign-title">
-            sign up        
+            sign up
         </div>
 
         <form action="register" @submit.prevent="submit=true;sendToSave('/register' ,input ,null ,'/home')" class="sign-form" method="post">
@@ -26,7 +26,7 @@
                         id="investment_range"
                         v-model="input.phone.index"
                         :style="setClassByValue(input.phone.index,true,submit)"
-                        track-by="code" 
+                        track-by="code"
                         label="code"
                         :searchable="true"
                         :allow-empty="false"
