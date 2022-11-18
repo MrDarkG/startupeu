@@ -16,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(AdminServiceInterface::class, function ($app) {
+            return new AdminServices();
+        });
     }
 
     /**
@@ -26,8 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $this->app->bind(AdminServiceInterface::class, function ($app) {
-//            return new AdminServices();
-//        });
+
     }
 }
