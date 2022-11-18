@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class EditUserTypeAttribute extends Migration
+class EditUserTypeAttr extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class EditUserTypeAttribute extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-//            $table->integer('user_type')->nullable()->change();
+            //
         });
     }
 
@@ -27,7 +27,6 @@ class EditUserTypeAttribute extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->integer('user_type')->nullable()->change();
         });
     }
 }

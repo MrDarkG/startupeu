@@ -1,5 +1,7 @@
 <?php
 
+use Doctrine\DBAL\Schema\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mentors\ProfileController;
 use App\Http\Controllers\GuestController as GuestController;
