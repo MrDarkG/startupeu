@@ -14,7 +14,7 @@ class EditUserTypeAttribute extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('user_type')->nullable()->change();
+//            $table->integer('user_type')->nullable()->change();
         });
     }
 
@@ -27,6 +27,7 @@ class EditUserTypeAttribute extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->integer('user_type')->nullable()->change();
         });
     }
 }
