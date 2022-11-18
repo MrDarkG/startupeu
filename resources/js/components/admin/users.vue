@@ -79,7 +79,7 @@
                         </button>
                     </div>
                     <create-startup
-                        :user_id="this.user_id"
+                        :user_id="this.input.user_id"
                         :stages="stages"
                         :phone_index="phone_index"
                         :countries="countries"
@@ -92,7 +92,7 @@
                         v-if="selected.type.index === 0"
                     />
                     <create-investor
-                        :user_id="this.user_id"
+                        :user_id="this.input.user_id"
                         :investor_types="investor_types"
                         :looking_for="looking_for"
                         :investment_range="investment_range"
@@ -103,7 +103,7 @@
                         v-if="selected.type.index === 1"
                     />
                     <create-mentor
-                        :user_id="this.user_id"
+                        :user_id="this.input.user_id"
                         :issues="issues"
                         :fields="fields"
                         :countries="countries"
@@ -173,7 +173,7 @@
             saveUserCreatedByAdmin(){
                 axios.post('/api/admin-user-registeration' ,this.input)
                 .then((response)=>{
-                    this.input.user_id = response.data.user_id
+                    this.input.user_id = response.data
                 }).catch((error)=>{
                     this.popupErrors(error.response.data.errors)
                 })

@@ -276,8 +276,8 @@ export default{
             .then((response)=>{
                 console.log('წარმატებით დაემატა!')
                 window.location.replace(response.data)
-            }).catch(()=>{
-                console.log('წარუმატებელი მოთხოვნა!')
+            }).catch((error)=>{
+                this.popupErrors(error.response.data.errors)
             })
         },
         onImageUpload(event){

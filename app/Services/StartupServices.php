@@ -71,10 +71,10 @@ use Illuminate\Support\Facades\Storage;
                 'user_id' => 'numeric',
                 'image' => 'required',
                 'startup.name' => 'required',
-                'founded.year' => 'required',
+                'founded.year' => 'required|date',
                 'founded.number' => 'required|numeric',
                 'full_name' => 'required',
-                'phone.index' => 'required',
+                'phone.index.id' => 'required|numeric',
                 'startup.email' => 'required|email',
                 'startup.number' => 'required|numeric',
                 'website' => 'required',
@@ -93,6 +93,7 @@ use Illuminate\Support\Facades\Storage;
 	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
 	        $data = base64_decode($data);
 			Storage::disk('startups_logos')->put($filaname,$data);
+            $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
 			$startup=Startup::create([
 				"name"=>$request->input("startup.name"),
 		        "founded"=>$request->input("founded.year"),
@@ -109,27 +110,30 @@ use Illuminate\Support\Facades\Storage;
 		        "bussiness_model"=>$request->input("bussiness_model.id"),
 		        "target_audience"=>$request->input("target_audience.id"),
 		        "country_id"=>$request->input("country.id"),
-		        "user_id"=>($request->input('user_id'))?$request->input('user_id'):Auth::user()->id,
+		        "user_id"=>$user_id,
 		        "logo"=>"/startup/".$filaname
 			]);
             $industries = $request->input("industries");
-			foreach ($industries as $industry) {
-				Startup_industries::create([
-					"industry_id"=>$industry->id,
-        			"startup_id"=>$startup['id'],
-        			"user_id"=>Auth::user()->id
-				]);
-			}
+            if($industries){
+                foreach ($industries as $industry) {
+                    Startup_industries::create([
+                        "industry_id"=>$industry['id'],
+                        "startup_id"=>$startup['id'],
+                        "user_id"=>$user_id
+                    ]);
+                }
+            }
             $looking_for = $request->input("looking_for");
-			foreach ($looking_for as $key => $value) {
-				Startup_looking_for::create([
-					"industry_id"=>$value->id,
-					"startup_id"=>$startup->id,
-        			"user_id"=>Auth::user()->id
-				]);
-			}
-
-            return UserService::setUserType("startup");
+            if($looking_for){
+                foreach ($looking_for as $key => $value) {
+                    Startup_looking_for::create([
+                        "industry_id"=>$value->id,
+                        "startup_id"=>$startup->id,
+                        "user_id"=>$user_id
+                    ]);
+                }
+            }
+            return UserService::setUserType("startup", $user_id);
 
 //			return [
 //	            "status"=>"1",

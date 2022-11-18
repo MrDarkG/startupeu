@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="container n-details">
+        <div class="container n-details mt-0">
             <country-faqs
                 :ecosystem_id = "{{$startup_ecosystem->id}}"
                 :categories="{{ json_encode($categories) }}"

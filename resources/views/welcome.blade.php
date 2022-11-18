@@ -14,18 +14,20 @@
                 <img class="main-b-image" src="/assets/images/sec-img.svg">
             </div>
         </div>
-        <div class="boxes row">
+        <div class="row">
             <div class="col-md-4 mp30">
-                <a href="startups">
-                    <div class="box1">
-                        <img src="/assets/images/box1.svg">
-                        <span>Startups</span>
-                        <p>Register startup and get access to the leading venture funds</p>
+                <a href="/browse/startups">
+                    <div class="bg-white pt-3 pb-3 pl-5 pr-5 shadow position-relative" style="border-radius: 36px;word-wrap:break-word;height: 264px">
+                        <img class="position-absolute" src="/assets/images/box1.svg" style="bottom:0px;right:0px;">
+                        <div class="d-flex flex-column align-content-end">
+                            <span style="font-size: 36px;">Startups</span>
+                            <p style="font-size:16px;">Register startup and get access to the leading venture funds</p>
+                        </div>
                     </div>
                 </a>
             </div>
             <div class="col-md-4 mp30">
-                <a href="investors">
+                <a href="/browse/investors">
                     <div class="box2">
                         <img src="/assets/images/box2.svg">
                         <span>Inverstors</span>
@@ -34,7 +36,7 @@
                 </a>
             </div>
             <div class="col-md-4 mp30">
-                <a href="mentors">
+                <a href="/browse/mentors">
                     <div class="box3">
                         <img src="/assets/images/box3.svg">
                         <span>Mentors</span>
@@ -50,7 +52,7 @@
         </div>
         <div class="row m-0 mt-4">
             @foreach($ecosystem as $eco)
-                <div class="col-md-3 mt-3" style="height:182px">
+                <div class="col-6 col-sm-4 col-md-20 mt-3 pl-2 pr-2" style="height:182px;">
                     <a href="/startup-ecosystem/{{$eco->id}}">
                         <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);">
                             <div class="d-flex h-100 flex-column justify-content-between">

@@ -2,17 +2,7 @@
 @section("content")
 <div class="container-fluid">
     <div class="row sign-up ml-0 mr-0 justify-content-between">
-        <div class="col-xl-3 col-md-4 left">
-            <a href="/" class="sign-logo">
-                <img src="/assets/images/sign-logo.svg" alt="">
-            </a>
-            <div class="sign-text">
-                <span>Few clicks away from your Ecosystem</span>
-                <p>New here?
-                    <a href="/register">Sign up</a>
-                </p>
-            </div>
-        </div>
+        <few-clicks class="col-md-5 col-xl-3" title="Sign up" link="/register"></few-clicks>
         <div class="col-xl-8 col-md-7 right d-flex flex-column justify-content-center ">
             <div class="sign-title">
                 Sign in

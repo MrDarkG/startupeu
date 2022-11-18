@@ -1,26 +1,17 @@
 <template>
 <div class="row sign-up ml-0 mr-0 justify-content-between">
-    <div class="col-xl-3 col-md-4 left">
-        <a href="/" class="sign-logo">
-            <img src="assets/images/sign-logo.svg" alt="">
-        </a>
-        <div class="sign-text">
-            <span>few clicks away from your ecosystem</span>
-            <p>Already have an account?<a href="/login">Login</a></p>
-        </div>
-    </div>
+    <few-clicks class="col-md-4 col-xl-3" title="Log in" link="/login"></few-clicks>
     <div class="col-md-7 col-xl-8 right d-flex justify-content-center flex-column">
         <div class="sign-title">
             sign up
         </div>
-
-        <form action="register" @submit.prevent="submit=true;sendToSave('/register' ,input ,null ,'/home')" class="sign-form" method="post">
+        <form action="#" @submit.prevent="submit=true;sendToSave('/register' ,input ,null ,'/home')" class="sign-form" method="post">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                     <label for="email">Email</label>
                     <input type="text" id="email" name="email" :class="setClassByValue(input.email, false, submit)" v-model="input.email" class="form-control">
                 </div>
-                <div class="col-md-2">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                     <label for="phone_index">Phone index</label>
                     <multiselect
                         id="investment_range"
@@ -37,11 +28,11 @@
                         <option :value="index.id" v-for="index in phone_index">{{ index.code }}</option>
                     </select> -->
                 </div>
-                <div class="col-md-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mt-3 mt-sm-0">
                     <label for="phone">Phone Number</label>
                     <input type="text" id="phone" name="phone" :class="setClassByValue(input.phone.number, false, submit)" v-model="input.phone.number" class="form-control">
                 </div>
-                <div class="col-md-6  ">
+                <div class="col-md-6 ">
                     <label for="password">Password</label>
                     <input type="password" :class="setClassByValue(input.password.main, false, submit)" v-model="input.password.main" id="password" class="form-control ">
                 </div>
@@ -49,8 +40,8 @@
                     <label for="re_password">Repeat password</label>
                     <input type="password" :class="setClassByValue(input.password.repeat, false, submit)" v-model="input.password.repeat" id="re_password"  class="form-control">
                 </div>
-                <div class="col-md-6 ">
-                    <button type="submit" class="btn register-btn">
+                <div class="col-md-6 d-flex align-items-center">
+                    <button type="submit" class="btn register-btn d-flex align-items-center ">
                         Create an account
                     </button>
                 </div>

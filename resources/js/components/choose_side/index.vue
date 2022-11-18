@@ -2,20 +2,8 @@
 <div>
 	<div class="container-fluid pd-50">
 	    <div class="row sign-up">
-		    <div class="col-md-4 left">
-		        <a href="/" class="sign-logo">
-		            <img src="/assets/images/sign-logo.svg" alt="">
-		        </a>
-		        <div class="sign-text">
-		            <span>
-	            		Few clicks away from your Ecosystem
-		        	</span>
-		            <p>
-		            	Already have an account?<a href="/login">Login</a>
-		            </p>
-		        </div>
-		    </div>
-		    <div class="col-md-8 right"  v-if="selected.type.index === undefined">
+            <few-clicks class="col-md-5 col-xl-3" title="Log in" link="/login"></few-clicks>
+		    <div class="col-12 col-sm-12 col-md-7 right"  v-if="selected.type.index === undefined">
 		        <div class="sign-title">
 		            Choose the type of your account
 		        </div>
@@ -26,7 +14,8 @@
 		            <a
 		            	v-for="(type, index) in types"
 		            	@click="onTypeClick(index, type);type.is_selected=true;"
-		            	class="item"
+		            	class="item  w-100"
+                        style="max-width:500px;"
 	            	>
 		                <img :src="type.src" alt="">
 		                <div class="texts">

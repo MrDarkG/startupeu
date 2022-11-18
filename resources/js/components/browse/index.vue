@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container p-0 col-md-12">
             <div class="row startup-list">
                 <div class="col-md-3 left-search">
                     <filter-list

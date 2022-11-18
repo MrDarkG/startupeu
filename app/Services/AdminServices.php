@@ -14,11 +14,12 @@ class AdminServices implements AdminServiceInterface
         $password = uniqid().time();
         $user = User::create([
             'email' => $request->email,
-            'index_id' => $request['phone']['index']['code'],
+            'index_id' => $request['phone']['index']['id'],
             'phone_number' => $request['phone']['number'],
             'password' => bcrypt($password),
         ]);
         Mail::to($user->email)->send(new \App\Mail\RegistrationMail($user, $password));
+
         return new UserRegistrationResource($user);
     }
 }

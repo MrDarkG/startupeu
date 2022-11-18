@@ -8,12 +8,15 @@ use Storage;
 
 class UserService
 {
-    static public function setUserType($type)
+    static public function setUserType($type, $user_id)
     {
-        User::where("id",Auth::user()->id)->update([
+        User::where("id",$user_id)->update([
             "user_type" => $type
         ]);
-
-        return '/'.$type.'/dashboard/index';
+        if($user_id == Auth::user()->id){
+            return '/'.$type.'/dashboard/index';
+        }else{
+            return '/admin/add/user';
+        }
     }
 }
