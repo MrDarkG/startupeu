@@ -14,6 +14,6 @@ class Faq_category extends Model
     ];
 
     function questions(){
-        return $this->hasMany(Faq_questions::class,'category_id')->with('answers');
+        return $this->hasMany(Faq_questions::class,'category_id');
     }
 }

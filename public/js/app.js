@@ -3417,37 +3417,17 @@ __webpack_require__.r(__webpack_exports__);
         this.custom_categories.unshift(all_category);
       }
     },
-    filterVisibleAnswers: function filterVisibleAnswers(categories) {
+    setCustomCategory: function setCustomCategory() {
       var _this = this;
 
-      categories.map(function (category, c_index) {
-        category.questions.map(function (question, q_index) {
-          question.answers.map(function (answer) {
-            if (_this.ecosystem_id !== answer.startup_ecosystem_id) {
-              category.questions.splice(q_index);
-            }
-          });
-
-          if (question.answers.length == 0) {// category.questions.splice(q_index)
-          }
-        });
-
-        if (category.questions.length < 1) {// categories.splice(c_index)
-        }
-      });
-      return categories;
-    },
-    setCustomCategory: function setCustomCategory() {
-      var _this2 = this;
-
-      var categories = this.filterVisibleAnswers(this.categories);
+      var categories = this.categories;
       categories.map(function (category) {
         category.is_active = false;
         category.questions.map(function (question) {
           question.is_active = false;
         });
 
-        _this2.custom_categories.push(category);
+        _this.custom_categories.push(category);
       });
     },
     setActiveCategory: function setActiveCategory(category_id) {

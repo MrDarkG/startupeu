@@ -93,26 +93,8 @@ export default {
                 this.custom_categories.unshift(all_category)
             }
         },
-        filterVisibleAnswers(categories){
-            categories.map((category, c_index)=>{
-                category.questions.map((question, q_index)=>{
-                    question.answers.map((answer)=>{
-                        if(this.ecosystem_id !== answer.startup_ecosystem_id){
-                            category.questions.splice(q_index)
-                        }
-                    })
-                    if (question.answers.length == 0){
-                        // category.questions.splice(q_index)
-                    }
-                })
-                if (category.questions.length < 1){
-                    // categories.splice(c_index)
-                }
-            })
-            return categories
-        },
         setCustomCategory(){
-            let categories = this.filterVisibleAnswers(this.categories)
+            let categories = this.categories
             categories.map((category)=>{
                 category.is_active = false
                 category.questions.map((question)=>{

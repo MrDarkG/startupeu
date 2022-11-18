@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(AdminServiceInterface::class, function ($app) {
-            return new AdminServices();
-        });
+//        $this->app->bind(AdminServiceInterface::class, function ($app) {
+//            return new AdminServices();
+//        });
     }
 }
