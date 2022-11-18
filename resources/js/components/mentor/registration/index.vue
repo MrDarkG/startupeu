@@ -128,7 +128,12 @@
 </template>
 <script>
 export default{
-    props:['countries','fields','issues'],
+    props:[
+        'user_id',
+        'countries',
+        'fields',
+        'issues'
+    ],
     data(){
         return {
             fileRecords:[],
@@ -138,6 +143,7 @@ export default{
             },
             button:false,
             input:{
+                user_id:this.user_id,
                 name:"",
                 linkedin:"",
                 experience:"",

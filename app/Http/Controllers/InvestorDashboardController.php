@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Startup;
 use Illuminate\Http\Request;
 
 class InvestorDashboardController extends Controller
 {
     public function index()
     {
-        return view('investor.dashboard');
+        $startups = Startup::with('startup_industries')->get();
+        return view('investor.dashboard',[
+            'startups' => $startups
+        ]);
     }
     public function opportunities()
     {

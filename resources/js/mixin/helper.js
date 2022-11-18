@@ -90,5 +90,17 @@ Vue.mixin({
                 }
             }
         },
+        popupErrors(errors){
+            let keys=Object.keys(errors)
+            for (let i = 0; i < keys.length; i++) {
+                let err=errors[keys[i]];
+                let message=""
+                for (let j = 0; j < err.length; j++) {
+                    message+=" " + err[j]
+                }
+                this.$vToastify.error(message, "შეცდომა");
+            }
+            this.forget_password.email = ""
+        },
     }
 })

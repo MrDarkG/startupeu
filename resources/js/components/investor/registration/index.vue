@@ -165,14 +165,15 @@
 <script>
 export default{
     props:[
-      'looking_for',
-      'stages',
-      'markets',
-      'countries',
-      'industries',
-      'investor_types',
-      'bussines_models',
-      'investment_range',
+        'user_id',
+        'looking_for',
+        'stages',
+        'markets',
+        'countries',
+        'industries',
+        'investor_types',
+        'bussines_models',
+        'investment_range',
     ],
     data () {
       return {
@@ -182,6 +183,7 @@ export default{
         },
         fileRecords:[],
         input:{
+            user_id:this.user_id,
             name:{
                 full:"",
                 company:"",

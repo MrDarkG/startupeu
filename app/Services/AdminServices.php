@@ -14,7 +14,7 @@ class AdminServices implements AdminServiceInterface
         $password = uniqid().time();
         $user = User::create([
             'email' => $request->email,
-            'index_id' => $request['phone']['index'],
+            'index_id' => $request['phone']['index']['code'],
             'phone_number' => $request['phone']['number'],
             'password' => bcrypt($password),
         ]);

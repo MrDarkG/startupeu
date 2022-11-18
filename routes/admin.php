@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminController as AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/add/user', [AdminController::class, 'addUser'])->name('voyager.events.index');
 Route::get('/events', [AdminController::class, 'events'])->name('voyager.events.index');
 Route::post('/add/event', [AdminController::class, 'addEvent'])->name('addEvent');
 Route::post('/edit/event', [AdminController::class, 'editEvent'])->name('editEvent');

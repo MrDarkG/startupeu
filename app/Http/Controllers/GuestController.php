@@ -78,7 +78,7 @@ class GuestController extends Controller
     public function startupPage()
     {
         $mentors=Mentor::paginatedMentors(10);
-        $startups=Startup::get();
+        $startups=Startup::with('startup_industries')->get();
         $stages=Stage::orderBy('title')->get();
         $countries=Faq_country::orderBy('title')->get();
 

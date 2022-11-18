@@ -10,7 +10,7 @@
     </head>
     <body>
     <div id="app" class="row">
-        <div class="col-3">
+        <div class="col-4 col-sm-3">
             @php
                 $menu = [
                     [
@@ -44,7 +44,7 @@
                 :data="{{ json_encode($menu) }}"
             />
         </div>
-        <div class="col-9">
+        <div class="col-8">
             @yield("content")
         </div>
 </div>

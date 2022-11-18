@@ -56,6 +56,7 @@ export default{
         'fields',
         'issues',
         'countries',
+        'industries',
         'stages',
         'markets',
         'ranges',

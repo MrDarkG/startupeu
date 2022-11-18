@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="/css/costum.css">
     </head>
     <body>
-    <div id="app" class="row">
+    <div id="app" class="row m-0">
         <div class="col-3">
             @php
                 $menu = [

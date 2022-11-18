@@ -1,51 +1,54 @@
 <template>
 <div>
-	<div 
-		class="col-md-3 investor-startup-card" 
-		:class="{'pl-2':(index === 0),'pr-0':(index === startups.length-1)}" 
-		v-for="(startup, index) in startups" 
+	<div
+		class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 row m-0 mt-3 investor-startup-card"
+		v-for="(startup, index) in startups"
 		:key="index+startup.name"
 	>
-		<div class="d-flex flex-column justify-content-between bg-white p-4">
-			<div>
-        		<img style="height:56px;border-radius:16px;" src="https://startupcentraleurasia.com/./uploads/photos/cache/2021-05/c7c90dee1ccdff6b236f115060aca782.png" alt="Logo">
-			</div>
-			<div>
-				{{ startup.name }}
-			</div>
-			<div v-if="startup.description">
-				{{ startup.description }}
-			</div>
-			<div class="d-flex flex-wrap">
-				<div style="color:#6200EE;" class="col-4">
-					#tags
-				</div>
-				<div style="color:#6200EE;" class="col-4">
-					#tags
-				</div>
-				<div style="color:#6200EE;" class="col-4">
-					#tags
-				</div>
-			</div>
-			<div style="color:#6200EE;" class="d-flex">
-				<multiselect
-	                :id="'investor_startup_multiselect'+index"
-	                class="investor_startup_multiselect"
-	                v-model="input['multiselect'+index]"
-	                track-by="name" 
-	                label="name"
-	                @input="setUserStatus($event, index)"
-	                :options="startups"
-	                :multiple="false"
-	            >
-	            </multiselect>
-			</div>
+		<div class="w-100 d-flex flex-column justify-content-between bg-white p-4 h-100">
+            <div>
+                <div>
+                    <img style="height:56px;border-radius:16px;" :src="startup.logo" alt="Logo">
+                </div>
+                <div class="font-weight-bold mt-2" style="font-size:20px;word-break: break-word;">
+                    {{ startup.name }}
+                </div>
+                <div v-if="startup.description" class="mt-2 mb-2" style="font-size:15px;color:#8c8c8c;word-break: break-word;">
+                    {{ startup.description }}
+                </div>
+            </div>
+            <div>
+
+                <div class="d-flex flex-wrap">
+                    <div
+                        style="color:#6200EE;font-size:15px;"
+                        class="pt-1 pl-1 pr-1"
+                        v-if="tag.industry"
+                        v-for="tag in startup.startup_industries"
+                    >
+                        #{{ tag.industry.title }}
+                    </div>
+                </div>
+                <div style="color:#6200EE;" class="d-flex">
+                    <multiselect
+                        :id="'investor_startup_multiselect'+index"
+                        class="investor_startup_multiselect"
+                        v-model="input['multiselect'+index]"
+                        track-by="name"
+                        label="name"
+                        @input="setUserStatus($event, index)"
+                        :options="startups"
+                        :multiple="false"
+                    >
+                    </multiselect>
+                </div>
+            </div>
 		</div>
 	</div>
 </div>
 </template>
 <script>
-export default{	
+export default{
 	props:{
 		startups:Array,
 	},

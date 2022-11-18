@@ -2720,7 +2720,7 @@ a:hover{
 
 .dash-container {
     margin-top: 40px;
-    min-width: 310px!important;
+    /*min-width: 310px!important;*/
 }
 
 .dash-container .title {
@@ -5056,6 +5056,7 @@ a:hover{
 .logo-min{
         display: none;
     }
+
 @media only screen and (max-width: 1200px) {
 
     .sidebar > .menubar > div > .das-menu  > li > a > span,
@@ -5139,4 +5140,7 @@ a:hover{
 .cursor-pointer{
     cursor:pointer!important;
 }
-
+.browse-startup-card{
+    background: white;
+    border-radius: 36px;
+}

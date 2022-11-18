@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 /**
+ * @property numeric $id
  * @property string $email
  */
 class UserRegistrationResource extends JsonResource
@@ -17,6 +18,7 @@ class UserRegistrationResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'user_id' => $this->id,
             'email' => $this->email,
         ];
     }

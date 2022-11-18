@@ -26,7 +26,7 @@ class UserRegistrationRequest extends FormRequest
         return [
             'email' => ['required', 'string', 'max:255'],
             'phone.number' => ['required', 'integer'],
-            'phone.index' => ['required', 'integer'],
+            'phone.index.code' => ['required', 'string'],
         ];
     }
 }

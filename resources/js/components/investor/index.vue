@@ -1,15 +1,15 @@
 <template>
 <div>
-	<div class="dash-container ml-3">
+	<div class="dash-container">
 	    <!-- <p class="alert alert-success">Startup add successfully </p>             -->
-	    <div>
-	    	<div class="title">Investment Oportunities </div>
+	    <div class="mr-3 ml-3">
+	    	<div class="title">Startups</div>
 	    	<div class="desc">
-	        	Find investment opportunities from leading Venture Funds, Angels and Accelerators, apply with one click.            
-	    	</div>
+                Nunc sed enim imperdiet mauris mattis netus diam. Ullamcorper leo est leo tincidunt enim aliquam.
+            </div>
 	    </div>
 	    <div class="tabs tabs-bordered ui-tabs ui-corner-all ui-widget ui-widget-content mt-5">
-	        <div class="bg-white p-3 d-flex flex-wrap align-items-center justify-content-between" style="border-radius:24px;">
+	        <div class="bg-white p-3 d-flex flex-wrap align-items-center justify-content-between mr-0 ml-0 mr-sm-0 ml-sm-0  ml-md-3 mr-md-3" style="border-radius:24px;">
 	        	<div class="d-flex flex-wrap mt-1 col-md-5 align-items-center">
 	        		<div class="col-md-4">
 	        			<input type="checkbox" id="new"/>
@@ -30,9 +30,9 @@
 	        		</button>
 	        	</div>
 	        </div>
-	        <investor-startup-cards 
+	        <investor-startup-cards
 	        	class="mt-4 d-flex flex-wrap justify-content-between"
-	        	:startups="custom_investors">
+	        	:startups="startups">
 	        </investor-startup-cards>
 	    </div>
 	</div>
@@ -48,19 +48,14 @@
 </div>
 </template>
 <script>
-export default{	
+export default{
+    props:['startups'],
 	mounted(){
 		// this.$modal.show('add_investment_opportunities')
 	},
 	data(){
 		return {
 			value:[10000,15000],
-			custom_investors:[
-				{name:1},
-				{name:2},
-				{name:3},
-				{name:4},
-			],
 		}
 	}
 };

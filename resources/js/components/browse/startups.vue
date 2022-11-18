@@ -8,19 +8,31 @@
         @setFilteredData="setFilteredData"
     >
         <div class="row m-0" v-if="data">
-            <div class="col-12 col-md-6 col-lg-4 p-2"
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 p-2"
                  v-if="startup.is_disabled === false"
-                 v-for="startup in data">
-                <div class="list-item p-4" style="height: 235px; min-width:unset!important;">
+                 v-for="(startup, s_index) in data">
+                <div class="browse-startup-card shadow h-100 p-4 d-flex flex-column justify-content-between" style="min-width:unset!important;">
                     <a href="#">
                         <img :src="startup.logo" alt="Logo" style="width: 62px;">
-                        <div class="title">
+                        <div class="title font-weight-bold" style="word-break:break-word;font-size:20px;">
                             {{ startup.name }} - {{ startup.what_your_company_does }}
                         </div>
-                        <div class="desc" :title="startup.description">
+                        <div class="desc" :title="startup.description" style="word-break: break-word;font-size:15px;color:#8c8c8c;">
                             {{ setShortDescription(startup.description) }}
                         </div>
                     </a>
+                    <div class="d-flex">
+                        <div
+                            :class="{
+                                'ml-1':s_index > 1,
+                            }"
+                            style="color:#6200EE;"
+                            v-if="data.industry"
+                            v-for="data in startup.startup_industries"
+                        >
+                            #{{data.industry.title}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

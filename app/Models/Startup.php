@@ -30,7 +30,10 @@ class Startup extends Model
         "user_id",
         "logo"
     ];
-
+    public function startup_industries()
+    {
+        return $this->hasMany(Startup_industries::class,'startup_id')->with("industry");
+    }
     static public function allStartups($value='')
     {
         return $pipeline=app(Pipeline::class)

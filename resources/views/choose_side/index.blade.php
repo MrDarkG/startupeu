@@ -1,5 +1,7 @@
 @extends("layouts.guest.guest")
+
 @section("content")
+
 @php
     use App\Services\DataService;
 @endphp

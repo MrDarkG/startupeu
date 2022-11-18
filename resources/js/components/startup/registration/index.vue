@@ -218,7 +218,17 @@
 </template>
 <script>
 export default{
-    props:['industries','stages','countries','looking_for','investment_range','bussines_models','investor_types','phone_index'],
+    props:[
+        'user_id',
+        'industries',
+        'stages',
+        'countries',
+        'looking_for',
+        'investment_range',
+        'bussines_models',
+        'investor_types',
+        'phone_index'
+    ],
     data(){
         return {
             button:false,
@@ -228,6 +238,7 @@ export default{
                 edited:'',
             },
             input:{
+                user_id:this.user_id,
                 startup:{
                     name:"",
                     email:"",

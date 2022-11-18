@@ -8,7 +8,7 @@ use App\Services\UserService;
 
 use Auth;
 use Illuminate\Http\Request;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 	class StartupServices extends MainServices
 	{
@@ -44,7 +44,7 @@ use Storage;
                 "full_name"=>$request->input("full_name"),
                 "phone_index"=>$request->input("phone.index.id"),
                 "number"=>$request->input("startup.number"),
-                "ceo_email"=>$request->input("startup.number"),
+                "ceo_email"=>$request->input("startup.email"),
                 "startup_email"=>$request->input("startup.email"),
                 "website"=>$request->input("website"),
                 "what_your_company_does"=>$request->input("about.company"),
@@ -68,15 +68,15 @@ use Storage;
 		static public function createProfile($request)
 		{
             $request->validate([
+                'user_id' => 'numeric',
                 'image' => 'required',
-                'startup.name' => 'required|unique',
+                'startup.name' => 'required',
                 'founded.year' => 'required',
-                'founded.number' => 'required',
+                'founded.number' => 'required|numeric',
                 'full_name' => 'required',
                 'phone.index' => 'required',
-                'ceo.number' => 'required|numeric',
-                'startup.email' => 'required',
-                'startup.number' => 'required',
+                'startup.email' => 'required|email',
+                'startup.number' => 'required|numeric',
                 'website' => 'required',
                 'about.company' => 'required',
                 'about.product' => 'required',
@@ -99,7 +99,7 @@ use Storage;
 		        "full_name"=>$request->input("full_name"),
 		        "phone_index"=>$request->input("phone.index.id"),
 		        "number"=>$request->input("startup.number"),
-		        "ceo_email"=>$request->input("startup.mobile"),
+		        "ceo_email"=>$request->input("startup.email"),
 		        "startup_email"=>$request->input("startup.email"),
 		        "website"=>$request->input("website"),
 		        "what_your_company_does"=>$request->input("about.company"),
@@ -109,14 +109,14 @@ use Storage;
 		        "bussiness_model"=>$request->input("bussiness_model.id"),
 		        "target_audience"=>$request->input("target_audience.id"),
 		        "country_id"=>$request->input("country.id"),
-		        "user_id"=>Auth::user()->id,
+		        "user_id"=>($request->input('user_id'))?$request->input('user_id'):Auth::user()->id,
 		        "logo"=>"/startup/".$filaname
 			]);
             $industries = $request->input("industries");
-			foreach ($industries as $key => $value) {
+			foreach ($industries as $industry) {
 				Startup_industries::create([
-					"industry_id"=>$value->id,
-        			"startup_id"=>$startup->id,
+					"industry_id"=>$industry->id,
+        			"startup_id"=>$startup['id'],
         			"user_id"=>Auth::user()->id
 				]);
 			}
