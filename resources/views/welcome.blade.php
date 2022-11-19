@@ -52,7 +52,7 @@
         </div>
         <div class="row m-0 mt-4">
             @foreach($ecosystem as $eco)
-                <div class="col-6 col-sm-4 col-md-20 mt-3 pl-2 pr-2" style="height:182px;">
+                <div class="col-6 col-sm-4 col-md-5 mt-3 pl-2 pr-2" style="height:182px;">
                     <a href="/startup-ecosystem/{{$eco->id}}">
                         <div class="pt-5 pb-5 pl-4 pr-4 bg-white" style="height: 182px;;border-radius: 36px;box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);">
                             <div class="d-flex h-100 flex-column justify-content-between">
