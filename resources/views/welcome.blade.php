@@ -14,12 +14,12 @@
                 <img class="main-b-image" src="/assets/images/sec-img.svg">
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 mp30">
+        <div class="row mt-5">
+            <div class="col-md-4">
                 <a href="/browse/startups">
-                    <div class="bg-white pt-3 pb-3 pl-5 pr-5 shadow position-relative" style="border-radius: 36px;word-wrap:break-word;height: 264px">
-                        <img class="position-absolute" src="/assets/images/box1.svg" style="bottom:0px;right:0px;">
-                        <div class="d-flex flex-column align-content-end">
+                    <div class="bg-white pt-3 pb-3 pl-5 pr-5 shadow position-relative d-flex align-items-end" style="border-radius: 36px;word-wrap:break-word;height: 264px">
+                        <img class="position-absolute" src="/assets/images/box1.svg" style="z-index:0;top:25px;right:20px;">
+                        <div class="d-flex flex-column align-content-end" style="z-index:1;">
                             <span style="font-size: 36px;">Startups</span>
                             <p style="font-size:16px;">Register startup and get access to the leading venture funds</p>
                         </div>
