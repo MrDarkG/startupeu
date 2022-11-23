@@ -14,6 +14,7 @@
                     </ul>
                 </div>
             </div>
+            {{$investor}}
             <div class="col-xl-4 col-md-6">
                 <div class="l-box">
                     <div class="desc">Investment range:</div>
@@ -41,11 +42,19 @@
                             </li>
                             <li>
                                 <p>Website:</p>
-                                <span><a href="mailto:"></a></span>
+                                <span>
+                                    <a href="https://{{$investor->website}}">
+                                        {{ $investor->website }}
+                                    </a>
+                                </span>
                             </li>
                             <li>
                                 <p>Email:</p>
-                                <span><a href="mailto:"></a></span>
+                                <span>
+                                    <a href="mailto:{{$investor->email}}">
+                                        {{ $investor->email }}
+                                    </a>
+                                </span>
                             </li>
 
                         </ul>

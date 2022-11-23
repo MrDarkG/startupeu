@@ -170,6 +170,14 @@ class GuestController extends Controller
             'news' => $news,
         ]);
     }
+    public function singleStartupPage($startup_id){
+        $startup = Startup::where('id',$startup_id)
+            ->with(['looking_for','business_model','country','startup_industries'])
+            ->firstOrFail();
+        return view('startup.single-page',[
+            'startup' => $startup,
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

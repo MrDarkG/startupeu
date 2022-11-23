@@ -12,7 +12,7 @@
                  v-if="startup.is_disabled === false"
                  v-for="(startup, s_index) in data">
                 <div class="browse-startup-card shadow h-100 p-4 d-flex flex-column justify-content-between" style="min-width:unset!important;">
-                    <a href="#">
+                    <a :href="`/startup/${startup.id}`">
                         <img :src="startup.logo" alt="Logo" style="width: 62px;">
                         <div class="title font-weight-bold" style="word-break:break-word;font-size:20px;">
                             {{ startup.name }} - {{ startup.what_your_company_does }}

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\QueryFilters\Stages;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pipeline\Pipeline;
@@ -33,6 +34,22 @@ class Startup extends Model
     public function startup_industries()
     {
         return $this->hasMany(Startup_industries::class,'startup_id')->with("industry");
+    }
+    public function looking_for()
+    {
+        return $this->belongsTo(Looking_for::class,'startup_id');
+    }
+    public function business_model()
+    {
+        return $this->belongsTo(Bussiness_model::class,'bussiness_model','id');
+    }
+    public function country()
+    {
+        return $this->belongsTo(Country::class,'country_id','id');
+    }
+    public function stages()
+    {
+        return $this->belongsTo(Stages::class,'stage_id','id');
     }
     static public function allStartups($value='')
     {

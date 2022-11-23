@@ -14,37 +14,8 @@
                 <img class="main-b-image" src="/assets/images/sec-img.svg">
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <a href="/browse/startups">
-                    <div class="bg-white pt-3 pb-3 pl-5 pr-5 shadow position-relative d-flex align-items-end" style="border-radius: 36px;word-wrap:break-word;height: 264px">
-                        <img class="position-absolute" src="/assets/images/box1.svg" style="z-index:0;top:25px;right:20px;">
-                        <div class="d-flex flex-column align-content-end" style="z-index:1;">
-                            <span style="font-size: 36px;">Startups</span>
-                            <p style="font-size:16px;">Register startup and get access to the leading venture funds</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 mp30">
-                <a href="/browse/investors">
-                    <div class="box2">
-                        <img src="/assets/images/box2.svg">
-                        <span>Inverstors</span>
-                        <p>Get access to the most promising startups from the region</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 mp30">
-                <a href="/browse/mentors">
-                    <div class="box3">
-                        <img src="/assets/images/box3.svg">
-                        <span>Mentors</span>
-                        <p>Become mentors for the startups</p>
-                    </div>
-                </a>
-            </div>
-        </div>
+        <user-type-cards
+        ></user-type-cards>
     </section>
     <section class="main-section container pl-0 pr-0">
         <div class="pl-3 font-weight-bold" style="font-size: 50px;">

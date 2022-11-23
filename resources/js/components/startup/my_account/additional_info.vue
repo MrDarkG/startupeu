@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="are_you_interested_in_traction">
             	What kind of traction do you have ?
             </label>
@@ -16,7 +16,7 @@
             >
             </multiselect>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="are_you_interested_what_kind_of_problem_startup_solving">What kind of problem your startup will solve?</label>
             <multiselect
                 id="interest_martket_id"
@@ -29,20 +29,20 @@
             >
             </multiselect>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="are_you_interested_in_expected_revenue">What revenue are you expected in 5 years ?</label>
             <div class="row">
                 <div class="col-md-6 money-range">
-                    <input type="text" id="are_you_interested_in_expected_revenue" v-model="input.what.expected.start" :class="setClassByValue(input.what.expected.start)" class="form-control" placeholder="From">
+                    <input type="text" id="are_you_interested_in_expected_revenue" v-model="input.what.expected.start" :class="setClassByValue(input.what.expected.start)" class="form-control mb-0" placeholder="From">
                     <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg">
                 </div>
                 <div class="col-md-6 money-range">
-                    <input type="text" id="are_you_interested_in_expected_revenue" v-model="input.what.expected.end" :class="setClassByValue(input.what.expected.end)" class="form-control" placeholder="To">
+                    <input type="text" id="are_you_interested_in_expected_revenue" v-model="input.what.expected.end" :class="setClassByValue(input.what.expected.end)" class="form-control mb-0" placeholder="To">
                     <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg" alt="">
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="do_you_need_mrr_data">What is your current  mrr data ?</label>
             <div class="row">
                 <div class="col-md-6 money-range">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="do_you_need_arr_data">What is you current arr ?</label>
             <div class="row">
                 <div class="col-md-6 money-range">
@@ -70,19 +70,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="what_is_your_retention">What is your retention ? (%)</label>
             <input type="text" id="what_is_your_retention" v-model="input.what.retention" :class="setClassByValue(input.what.retention)" class="form-control" placeholder="Write here">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="do_you_need_cac">Customer acquisition cos</label>
-            <input type="text" id="do_you_need_cac" v-model="input.customer_acquisition" :class="setClassByValue(input.customer_acquisition)" class="form-control" placeholder="Write here">
+            <input type="text" id="do_you_need_cac" v-model="input.customer_acquisition" :class="setClassByValue(input.customer_acquisition)" class="form-control mb-0" placeholder="Write here">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="should_startup_have_prototype">Do you have prototype ?</label>
             <multiselect
+                class="mb-0"
                 id="interest_martket_id"
                 v-model="input.prototype"
                 :style="setClassByValue(input.prototype,true)"
@@ -93,33 +94,32 @@
             >
             </multiselect>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="should_startup_has_experience">How many years of experience do you have ?</label>
-            <input type="text" id="should_startup_has_experience" v-model="input.experience" :class="setClassByValue(input.experience)" name="should_startup_has_experience" value="0" class="form-control" f="" placeholder="Number of years">
+            <input type="text" id="should_startup_has_experience" v-model="input.experience" :class="setClassByValue(input.experience)" name="should_startup_has_experience" value="0" class="form-control mb-0" f="" placeholder="Number of years">
         </div>
         <div class="col-md-4 d-flex align-items-center">
-            <div>
-                <label for="should_startup_mention_how_much_money_they_need">How much do you need ?</label>
-                <div class="row">
+            <div class="d-flex flex-column justify-content-between h-100 pt-3 pb-3">
+                <label class="mb-0" for="should_startup_mention_how_much_money_they_need">How much do you need ?</label>
+                <div class="row align-items-center">
                     <div class="col-md-6 money-range">
-                        <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.start" :class="setClassByValue(input.how_much_do_you_need.start)" class="form-control" placeholder="From">
+                        <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.start" :class="setClassByValue(input.how_much_do_you_need.start)" class="form-control mb-0" placeholder="From">
                         <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg" alt="">
                     </div>
-
                     <div class="col-md-6 money-range">
-                        <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.end" :class="setClassByValue(input.how_much_do_you_need.end)" class="form-control" placeholder="To">
+                        <input type="text" id="should_startup_mention_how_much_money_they_need" v-model="input.how_much_do_you_need.end" :class="setClassByValue(input.how_much_do_you_need.end)" class="form-control mb-0" placeholder="To">
                         <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/dolar.svg" alt="">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="for_how_much_percent_do_you_need_for_this_money">For how much percent do you need for this money ?</label>
-            <input type="text" id="for_how_much_percent_do_you_need_for_this_money" v-model="input.how_much_percent_you_need" :class="setClassByValue(input.how_much_percent_you_need)" class="form-control" placeholder="Write here">
+            <input type="text" id="for_how_much_percent_do_you_need_for_this_money" v-model="input.how_much_percent_you_need" :class="setClassByValue(input.how_much_percent_you_need)" class="form-control mb-0" placeholder="Write here">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column pt-3 pb-3 justify-content-between">
             <label for="do_you_need_churn_rate">What is your churn rate ? (%) </label>
-            <input type="text" id="do_you_need_churn_rate" v-model="input.churn_rate" :class="setClassByValue(input.churn_rate)" class="form-control" placeholder="Write here">
+            <input type="text" id="do_you_need_churn_rate" v-model="input.churn_rate" :class="setClassByValue(input.churn_rate)" class="form-control mb-0" placeholder="Write here">
         </div>
         <div class="clear"></div>
         <div class="col-md-12">
