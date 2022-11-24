@@ -34,7 +34,8 @@ class InvestorServices extends MainServices
 		else{
 			$filaname=self::getMyImageName();
 		}
-		Investor::where("user_id",Auth::user()->id)->update([
+        $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
+        Investor::where("user_id",$user_id)->update([
 			"name"=>$request->input("name.full"),
 	        "company_name"=>$request->input("name.company"),
 	        "investments"=>$request->input("about.investments"),
@@ -46,6 +47,7 @@ class InvestorServices extends MainServices
 	        "interest_id"=>$request->input("which.stage"),
 	        "country_id"=>$request->input("country"),
 	        "type_id"=>$request->input("investor_type"),
+            "user_id" => $user_id,
 	        "logo"=>'/investor/'.$filaname
 		]);
 
@@ -59,7 +61,7 @@ class InvestorServices extends MainServices
         $data = substr($base64_image, strpos($base64_image, ',') + 1);
         $data = base64_decode($data);
 		Storage::disk('investors_avatar')->put($filename ,$data);
-        $user_id = $request->input('user_id')?$request->input('user_id'):Auth::user()->id;
+        $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
 		Investor::create([
 			"name"=>$request->input("name.full"),
 			"user_id"=>$user_id,
