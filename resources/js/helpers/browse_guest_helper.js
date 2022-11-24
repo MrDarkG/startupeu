@@ -1,7 +1,7 @@
 Vue.mixin({
     methods:{
-        setShortDescription(string){
-            return (string.length > 172)?string.slice(0,169)+' ...':string
+        setShortDescription(string,length = 172){
+            return (string.length > length)?string.slice(0,length-3)+' ...':string
         },
         setCustomData(variable, push_variable = 'data'){
             if(this[variable].data){

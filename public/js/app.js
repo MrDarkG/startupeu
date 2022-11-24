@@ -5752,7 +5752,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 Vue.mixin({
   methods: {
     setShortDescription: function setShortDescription(string) {
-      return string.length > 172 ? string.slice(0, 169) + ' ...' : string;
+      var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 172;
+      return string.length > length ? string.slice(0, length - 3) + ' ...' : string;
     },
     setCustomData: function setCustomData(variable) {
       var _this = this;
@@ -63273,7 +63274,12 @@ var render = function() {
                                     "\n                        " +
                                       _vm._s(startup.name) +
                                       " - " +
-                                      _vm._s(startup.what_your_company_does) +
+                                      _vm._s(
+                                        _vm.setShortDescription(
+                                          startup.what_your_company_does,
+                                          23
+                                        )
+                                      ) +
                                       "\n                    "
                                   )
                                 ]

@@ -15,7 +15,7 @@
                     <a :href="`/startup/${startup.id}`">
                         <img :src="startup.logo" alt="Logo" style="width: 62px;">
                         <div class="title font-weight-bold" style="word-break:break-word;font-size:20px;">
-                            {{ startup.name }} - {{ startup.what_your_company_does }}
+                            {{ startup.name }} - {{ setShortDescription(startup.what_your_company_does, 23) }}
                         </div>
                         <div class="desc" :title="startup.description" style="word-break: break-word;font-size:15px;color:#8c8c8c;">
                             {{ setShortDescription(startup.description) }}
