@@ -24,7 +24,9 @@ class MentorServices extends MainServices
 	}
 	static public function updateMyProfileInfo($request)
 	{
-		if ($request->input("avatar")) {
+        $user_id = Auth::user()->id;
+
+        if ($request->input("avatar")) {
 			$filaname=parent::generateRandomString().".jpg";
 			$base64_image = $request->input("avatar");
 	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
@@ -35,7 +37,6 @@ class MentorServices extends MainServices
 		else{
 			$filaname=self::getMyImageName();
 		}
-
 		Mentor::where("user_id",Auth::user()->id)->update([
             'name'=>$request->input("name"),
             'linnkedin'=>$request->input("linkedin"),
@@ -55,7 +56,7 @@ class MentorServices extends MainServices
             ]);
         }
 
-        return UserService::setUserType("mentor");
+        return UserService::setUserType("mentor",$user_id);
 
 	}
 
@@ -66,7 +67,7 @@ class MentorServices extends MainServices
         $data = substr($base64_image, strpos($base64_image, ',') + 1);
         $data = base64_decode($data);
 		Storage::disk('mentors_avatar')->put($filaname,$data);
-
+        $user_id = $request->input('user_id')?$request->input('user_id'):Auth::user()->id;
 		Mentor::create([
 			'name'=>$request->input("name"),
         	'linnkedin'=>$request->input("linkedin"),
@@ -75,18 +76,18 @@ class MentorServices extends MainServices
         	'country_id'=>$request->input("country.data.id"),
         	'fields_id'=>$request->input("which.field.id"),
         	'issues_id'=>0,
-        	'user_id'=>Auth::user()->id,
+        	'user_id'=>$user_id,
         	'logo'=>'/mentors/'.$filaname
 		]);
 
         foreach($request->input("which.issue") as $issue){
             Mentor_issues::create([
-                "mentor_id"=>Auth::user()->id,
+                "mentor_id"=>$user_id,
                 "issue_id"=>$issue['id']
             ]);
         }
 
-        return UserService::setUserType("mentor");
+        return UserService::setUserType("mentor", $user_id);
 
 //		return [
 //            "status"=>"1",

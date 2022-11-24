@@ -21,9 +21,17 @@ class ProfileController extends Controller
             "fields"=>$fields
 
         ]);
-    } 
+    }
     public function update(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'linkedin' => 'required',
+            'image' => 'required',
+            'experience' => 'required',
+            'which.field.id' => 'required|numeric',
+            'which.issue' => 'required',
+        ]);
         if (MentorServices::checkIfMentorHaveProfileCompleted()) {
             return MentorServices::updateMyProfileInfo($request);
         }
@@ -32,5 +40,5 @@ class ProfileController extends Controller
         }
     }
 
-    
+
 }

@@ -59,9 +59,10 @@ class InvestorServices extends MainServices
         $data = substr($base64_image, strpos($base64_image, ',') + 1);
         $data = base64_decode($data);
 		Storage::disk('investors_avatar')->put($filename ,$data);
+        $user_id = $request->input('user_id')?$request->input('user_id'):Auth::user()->id;
 		Investor::create([
 			"name"=>$request->input("name.full"),
-			"user_id"=>Auth::user()->id,
+			"user_id"=>$user_id,
 	        "company_name"=>$request->input("name.company"),
 	        "investments"=>$request->input("about.investments"),
 	        "about"=>$request->input("about.investor"),
@@ -75,7 +76,7 @@ class InvestorServices extends MainServices
 	        "logo"=>$filename
 		]);
 
-        return UserService::setUserType("investor");
+        return UserService::setUserType("investor",$user_id);
 //
 //		return [
 //            "status"=>"1",
