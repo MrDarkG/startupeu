@@ -12,7 +12,7 @@
             <div class="col-md-6" v-if="!investor.is_disabled" v-for="investor in data">
                 <div class="list-item investor-item d-flex justify-content-between pt-4 pb-2">
                     <a href="#">
-                        <img :src="investor.logo" alt="Logo" style="border-radius: 16px;">
+                        <img :src="'/investor/'+investor.logo" alt="Logo" style="border-radius: 16px;">
                         <div class="title investor-title">{{ investor.name }}</div>
                         <div class="desc investor-desc">{{ investor.question1 }}</div>
                     </a>
