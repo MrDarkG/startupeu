@@ -3377,6 +3377,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories', 'ecosystem_id'],
   data: function data() {
@@ -63844,88 +63845,99 @@ var render = function() {
               { key: c_index + category.title, staticClass: "pb-5 mb-5" },
               _vm._l(category.questions, function(question, q_index) {
                 return _c("div", { key: c_index + category.title + q_index }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "pl-4 pr-4 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column",
-                      class: {
-                        "pt-4 pb-4": question.is_active,
-                        "pt-2 pb-2": !question.is_active
-                      },
-                      staticStyle: {
-                        "border-radius": "28px",
-                        "min-height": "97px"
-                      },
-                      style: {
-                        border: question.is_active ? "#6200ee 2px solid" : ""
-                      },
-                      on: {
-                        click: function($event) {
-                          question.is_active = !question.is_active
-                        }
-                      }
-                    },
-                    [
-                      _c(
+                  question.answers.length > 0
+                    ? _c(
                         "div",
                         {
                           staticClass:
-                            "d-flex align-items-center justify-content-between"
+                            "pl-4 pr-4 cursor-pointer shadow bg-white mt-3 d-flex justify-content-center flex-column",
+                          class: {
+                            "pt-4 pb-4": question.is_active,
+                            "pt-2 pb-2": !question.is_active
+                          },
+                          staticStyle: {
+                            "border-radius": "28px",
+                            "min-height": "97px"
+                          },
+                          style: {
+                            border: question.is_active
+                              ? "#6200ee 2px solid"
+                              : ""
+                          },
+                          on: {
+                            click: function($event) {
+                              question.is_active = !question.is_active
+                            }
+                          }
                         },
                         [
-                          _c("div", [
-                            _c("h6", { staticClass: "m-0 font-weight-bold" }, [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(question.question) +
-                                  "\n                        "
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "accordion-icon" }, [
-                            !question.is_active
-                              ? _c("img", {
-                                  attrs: {
-                                    src:
-                                      "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-down.svg",
-                                    alt: ""
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            question.is_active
-                              ? _c("img", {
-                                  attrs: {
-                                    src:
-                                      "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg",
-                                    alt: ""
-                                  }
-                                })
-                              : _vm._e()
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      question.is_active
-                        ? _c(
+                          _c(
                             "div",
-                            { staticClass: "mt-3" },
-                            _vm._l(question.answers, function(answer) {
-                              return _c("div", {
-                                staticClass: "pl-3 border-left border-success",
-                                staticStyle: {
-                                  "border-width": "0.25em!important"
-                                },
-                                domProps: { innerHTML: _vm._s(answer.answer) }
-                              })
-                            }),
-                            0
-                          )
-                        : _vm._e()
-                    ]
-                  )
+                            {
+                              staticClass:
+                                "d-flex align-items-center justify-content-between"
+                            },
+                            [
+                              _c("div", [
+                                _c(
+                                  "h6",
+                                  { staticClass: "m-0 font-weight-bold" },
+                                  [
+                                    _vm._v(
+                                      "\n                            " +
+                                        _vm._s(question.question) +
+                                        "\n                        "
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "accordion-icon" }, [
+                                !question.is_active
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-down.svg",
+                                        alt: ""
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                question.is_active
+                                  ? _c("img", {
+                                      attrs: {
+                                        src:
+                                          "https://startupcentraleurasia.com/themes/application/Components/svg/arrow-up.svg",
+                                        alt: ""
+                                      }
+                                    })
+                                  : _vm._e()
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          question.is_active
+                            ? _c(
+                                "div",
+                                { staticClass: "mt-3" },
+                                _vm._l(question.answers, function(answer) {
+                                  return _c("div", {
+                                    staticClass:
+                                      "pl-3 border-left border-success",
+                                    staticStyle: {
+                                      "border-width": "0.25em!important"
+                                    },
+                                    domProps: {
+                                      innerHTML: _vm._s(answer.answer)
+                                    }
+                                  })
+                                }),
+                                0
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
                 ])
               }),
               0

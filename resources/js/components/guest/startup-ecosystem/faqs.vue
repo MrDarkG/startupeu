@@ -35,6 +35,7 @@
                     'pt-2 pb-2':!question.is_active,
                  }"
                  @click="question.is_active = !question.is_active"
+                 v-if="question.answers.length>0"
                  style="border-radius:28px;min-height:97px;"
             >
                 <div class="d-flex align-items-center justify-content-between">
