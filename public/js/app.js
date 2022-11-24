@@ -2704,7 +2704,8 @@ __webpack_require__.r(__webpack_exports__);
         if (data.data) {
           data.data.map(function (filter) {
             var object = filter;
-            object.checked = document.getElementById(filter.id + filter.title).checked;
+            var checkbox = document.getElementById(filter.id + filter.title);
+            object.checked = checkbox ? checkbox.checked : false;
             object.url = data.prop + filter.id;
             filters.push(object);
           });
@@ -3008,6 +3009,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -63312,7 +63314,10 @@ var render = function() {
               return startup.is_disabled === false
                 ? _c(
                     "div",
-                    { staticClass: "col-12 col-md-6 col-lg-6 col-xl-4 p-2" },
+                    {
+                      staticClass: "col-12 col-md-6 col-lg-6 col-xl-4 p-2",
+                      staticStyle: { "min-height": "292px!important" }
+                    },
                     [
                       _c(
                         "div",

@@ -68,7 +68,8 @@ export default{
                 if (data.data){
                     data.data.map((filter)=>{
                         let object = filter
-                        object.checked = document.getElementById(filter.id+filter.title).checked
+                        let checkbox = document.getElementById(filter.id+filter.title)
+                        object.checked = (checkbox)?checkbox.checked:false
                         object.url = data.prop+filter.id
                         filters.push(object)
                     })

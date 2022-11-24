@@ -9,6 +9,7 @@
     >
         <div class="row m-0" v-if="data">
             <div class="col-12 col-md-6 col-lg-6 col-xl-4 p-2"
+                 style="min-height:292px!important;"
                  v-if="startup.is_disabled === false"
                  v-for="(startup, s_index) in data">
                 <div class="browse-startup-card shadow h-100 p-4 d-flex flex-column justify-content-between" style="min-width:unset!important;">
