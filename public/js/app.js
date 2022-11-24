@@ -63267,6 +63267,9 @@ var render = function() {
                                   staticStyle: {
                                     "word-break": "break-word",
                                     "font-size": "20px"
+                                  },
+                                  attrs: {
+                                    title: startup.what_your_company_does
                                   }
                                 },
                                 [
@@ -63277,7 +63280,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.setShortDescription(
                                           startup.what_your_company_does,
-                                          23
+                                          25
                                         )
                                       ) +
                                       "\n                    "
@@ -63301,7 +63304,8 @@ var render = function() {
                                     "\n                        " +
                                       _vm._s(
                                         _vm.setShortDescription(
-                                          startup.description
+                                          startup.description,
+                                          160
                                         )
                                       ) +
                                       "\n                    "

@@ -14,11 +14,11 @@
                 <div class="browse-startup-card shadow h-100 p-4 d-flex flex-column justify-content-between" style="min-width:unset!important;">
                     <a :href="`/startup/${startup.id}`">
                         <img :src="startup.logo" alt="Logo" style="width: 62px;">
-                        <div class="title font-weight-bold" style="word-break:break-word;font-size:20px;">
-                            {{ startup.name }} - {{ setShortDescription(startup.what_your_company_does, 23) }}
+                        <div class="title font-weight-bold" style="word-break:break-word;font-size:20px;" :title="startup.what_your_company_does">
+                            {{ startup.name }} - {{ setShortDescription(startup.what_your_company_does, 25) }}
                         </div>
                         <div class="desc" :title="startup.description" style="word-break: break-word;font-size:15px;color:#8c8c8c;">
-                            {{ setShortDescription(startup.description) }}
+                            {{ setShortDescription(startup.description, 160) }}
                         </div>
                     </a>
                     <div class="d-flex">
