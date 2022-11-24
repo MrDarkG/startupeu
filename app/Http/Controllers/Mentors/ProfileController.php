@@ -19,7 +19,6 @@ class ProfileController extends Controller
             "country"=>$country,
             "issues"=>$issues,
             "fields"=>$fields
-
         ]);
     }
     public function update(Request $request)
@@ -34,11 +33,8 @@ class ProfileController extends Controller
         ]);
         if (MentorServices::checkIfMentorHaveProfileCompleted()) {
             return MentorServices::updateMyProfileInfo($request);
-        }
-        else{
+        }else{
             return MentorServices::createProfile($request);
         }
     }
-
-
 }

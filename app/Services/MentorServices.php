@@ -67,8 +67,8 @@ class MentorServices extends MainServices
         $data = substr($base64_image, strpos($base64_image, ',') + 1);
         $data = base64_decode($data);
 		Storage::disk('mentors_avatar')->put($filaname,$data);
-        $user_id = $request->input('user_id')?$request->input('user_id'):Auth::user()->id;
-		Mentor::create([
+        $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
+        Mentor::create([
 			'name'=>$request->input("name"),
         	'linnkedin'=>$request->input("linkedin"),
         	'question1'=>$request->input("experience"),

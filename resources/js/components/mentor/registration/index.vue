@@ -164,7 +164,8 @@ export default{
             this.button = true
             axios.post('/register/mentor',this.input)
                 .then((response)=>{
-                    console.log(response.data)
+                    console.log('წარმატებით დაემატა')
+                    window.location.replace(response.data)
                 })
         },
         onImageUpload(event){

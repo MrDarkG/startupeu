@@ -213,7 +213,8 @@ export default{
             this.button = true
             axios.post('/register/investor',this.input)
             .then((response)=>{
-                window.location.href = response.data
+                console.log('წარმატებით დაემატა!')
+                window.location.replace(response.data)
             })
         },
         onImageUpload(event){

@@ -4096,7 +4096,8 @@ __webpack_require__.r(__webpack_exports__);
     sendData: function sendData() {
       this.button = true;
       axios.post('/register/investor', this.input).then(function (response) {
-        window.location.href = response.data;
+        console.log('წარმატებით დაემატა!');
+        window.location.replace(response.data);
       });
     },
     onImageUpload: function onImageUpload(event) {
@@ -4482,7 +4483,8 @@ __webpack_require__.r(__webpack_exports__);
     sendData: function sendData() {
       this.button = true;
       axios.post('/register/mentor', this.input).then(function (response) {
-        console.log(response.data);
+        console.log('წარმატებით დაემატა');
+        window.location.replace(response.data);
       });
     },
     onImageUpload: function onImageUpload(event) {
