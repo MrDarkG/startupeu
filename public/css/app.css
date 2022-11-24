@@ -1077,8 +1077,8 @@ pre code {
   }
 
   .col-md-5 {
-    flex: 0 0 41.66666667%;
-    max-width: 41.66666667%;
+    flex: 0 0 20%;
+    max-width: 20%;
   }
 
   .col-md-6 {
