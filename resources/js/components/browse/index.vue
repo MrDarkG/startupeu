@@ -20,9 +20,10 @@
             </div>
         </div>
         <div class="container p-0 col-md-12">
-            <div class="row justify-content-center startup-list">
-                <div class="col-3 col-sm-3 col-md-2 col-lg-2 left-search pl-0 pr-0">
+            <div class="row startup-list">
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 left-search pl-0 pr-0 pb-3 pb-sm-3 pb-md-0 pl-3 pr-3 pl-sm-3 pr-sm-3 pl-md-0 pr-md-0">
                     <filter-list
+                        class="d-flex d-sm-flex d-md-block flex-wrap justify-content-start"
                         :data="filter_data"
                         @getSelectedFilters="setSearchUrl"
                     ></filter-list>
@@ -38,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 pl-0 pr-0">
                         <slot>
                             <!-- HERE GOES -->
                         </slot>

@@ -2658,17 +2658,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['data'],
   data: function data() {
     return {
-      event: null
+      event: null,
+      show: []
     };
   },
   created: function created() {
     this.event = 'change';
+    this.setShow();
   },
   methods: {
+    setShow: function setShow() {
+      var _this = this;
+
+      this.data.map(function (item) {
+        _this.show.push({
+          title: item.title,
+          item_quantity: item.data ? item.data.length : 0,
+          show_more: false
+        });
+      });
+    },
     getSelectedFilters: function getSelectedFilters() {
       var filters = [];
       this.data.map(function (data) {
@@ -2704,6 +2733,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -62759,48 +62789,75 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.data, function(list, index) {
-      return _c("div", { key: index + "list", staticClass: "chek-list" }, [
-        list.data
-          ? _c("div", { staticClass: "title" }, [
+      return list.data
+        ? _c("div", { key: index + "list", staticClass: "chek-list" }, [
+            _c("div", { staticClass: "title" }, [
               _vm._v("\n            " + _vm._s(list.title) + "\n        ")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "ul",
-          _vm._l(list.data, function(response) {
-            return _c("li", { key: response.id + response.title }, [
-              _c("div", { staticClass: "form-check" }, [
-                _c("input", {
-                  staticClass: "form-check-input country-check",
-                  attrs: {
-                    type: "checkbox",
-                    id: response.id + response.title,
-                    disabled: response.is_disabled
-                  },
-                  on: _vm._d({}, [_vm.event, _vm.setCustomUrl])
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
+            ]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              _vm._l(
+                list.data.slice(
+                  0,
+                  _vm.show[index].show_more ? list.data.length : 3
+                ),
+                function(response) {
+                  return _c("li", { key: response.id + response.title }, [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        staticClass: "form-check-input country-check",
+                        attrs: {
+                          type: "checkbox",
+                          id: response.id + response.title,
+                          disabled: response.is_disabled
+                        },
+                        on: _vm._d({}, [_vm.event, _vm.setCustomUrl])
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: response.id + response.title }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(response.title) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                }
+              ),
+              0
+            ),
+            _vm._v(" "),
+            _vm.show[index] && _vm.show[index].item_quantity > 3
+              ? _c(
+                  "div",
                   {
-                    staticClass: "form-check-label",
-                    attrs: { for: response.id + response.title }
+                    staticClass:
+                      "mb-3 pb-3 border-bottom font-weight-bold text-underline text-center cursor-pointer",
+                    on: {
+                      click: function($event) {
+                        _vm.show[index].show_more = !_vm.show[index].show_more
+                      }
+                    }
                   },
                   [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(response.title) +
-                        "\n                    "
-                    )
+                    _vm._v("\n            Show "),
+                    !_vm.show[index].show_more
+                      ? _c("span", [_vm._v("more")])
+                      : _c("span", [_vm._v("less")])
                   ]
                 )
-              ])
-            ])
-          }),
-          0
-        )
-      ])
+              : _vm._e()
+          ])
+        : _vm._e()
     }),
     0
   )
@@ -62900,15 +62957,17 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "container p-0 col-md-12" }, [
-      _c("div", { staticClass: "row justify-content-center startup-list" }, [
+      _c("div", { staticClass: "row startup-list" }, [
         _c(
           "div",
           {
             staticClass:
-              "col-3 col-sm-3 col-md-2 col-lg-2 left-search pl-0 pr-0"
+              "col-12 col-sm-12 col-md-2 col-lg-2 left-search pl-0 pr-0 pb-3 pb-sm-3 pb-md-0 pl-3 pr-3 pl-sm-3 pr-sm-3 pl-md-0 pr-md-0"
           },
           [
             _c("filter-list", {
+              staticClass:
+                "d-flex d-sm-flex d-md-block flex-wrap justify-content-start",
               attrs: { data: _vm.filter_data },
               on: { getSelectedFilters: _vm.setSearchUrl }
             })
@@ -62942,7 +63001,12 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-12" }, [_vm._t("default")], 2)
+            _c(
+              "div",
+              { staticClass: "col-md-12 pl-0 pr-0" },
+              [_vm._t("default")],
+              2
+            )
           ]
         )
       ])

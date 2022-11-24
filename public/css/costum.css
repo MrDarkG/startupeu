@@ -2019,6 +2019,7 @@ a:hover{
 
 .startup-list .left-search {
     min-height: 800px;
+    width:100%;
 }
 
 .startup-list .left-search .chek-list .title {
@@ -4703,10 +4704,10 @@ a:hover{
         padding: 16px 27px;
     }
 
-    .startup-list .left-search {
-        display: none;
+    /*.startup-list .left-search {*/
+    /*    display: none;*/
 
-    }
+    /*}*/
 
     .startup-list .list-type-count {
         text-align: left;
@@ -5116,6 +5117,9 @@ a:hover{
 
 }
 @media only screen and (max-width: 767px) {
+    .left-search{
+        min-height: unset!important;
+    }
     .investor-startup-card{
         margin-top:20px!important;
         padding-left:0px!important;
