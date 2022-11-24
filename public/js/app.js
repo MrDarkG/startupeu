@@ -62900,10 +62900,13 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "container p-0 col-md-12" }, [
-      _c("div", { staticClass: "row startup-list" }, [
+      _c("div", { staticClass: "row justify-content-center startup-list" }, [
         _c(
           "div",
-          { staticClass: "col-md-3 left-search" },
+          {
+            staticClass:
+              "col-3 col-sm-3 col-md-2 col-lg-2 left-search pl-0 pr-0"
+          },
           [
             _c("filter-list", {
               attrs: { data: _vm.filter_data },
@@ -62913,31 +62916,35 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-12 col-lg-9 pb-150" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-6 list-type-style" }, [
-                _vm._v(
-                  "\n                            " +
-                    _vm._s(_vm.title) +
-                    "\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6 list-type-count" }, [
-                _vm._v(
-                  "\n                            Showing : " +
-                    _vm._s(_vm.data.length) +
-                    " " +
-                    _vm._s() +
-                    "\n                        "
-                )
+        _c(
+          "div",
+          { staticClass: "col-12 col-sm-12 col-md-10 col-lg-10 pb-150" },
+          [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 list-type-style" }, [
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(_vm.title) +
+                      "\n                        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 list-type-count" }, [
+                  _vm._v(
+                    "\n                            Showing : " +
+                      _vm._s(_vm.data.length) +
+                      " " +
+                      _vm._s() +
+                      "\n                        "
+                  )
+                ])
               ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-12" }, [_vm._t("default")], 2)
-        ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [_vm._t("default")], 2)
+          ]
+        )
       ])
     ])
   ])
@@ -63280,7 +63287,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.setShortDescription(
                                           startup.what_your_company_does,
-                                          25
+                                          23
                                         )
                                       ) +
                                       "\n                    "
@@ -63305,7 +63312,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.setShortDescription(
                                           startup.description,
-                                          160
+                                          150
                                         )
                                       ) +
                                       "\n                    "

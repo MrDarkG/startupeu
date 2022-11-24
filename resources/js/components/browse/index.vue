@@ -20,14 +20,14 @@
             </div>
         </div>
         <div class="container p-0 col-md-12">
-            <div class="row startup-list">
-                <div class="col-md-3 left-search">
+            <div class="row justify-content-center startup-list">
+                <div class="col-3 col-sm-3 col-md-2 col-lg-2 left-search pl-0 pr-0">
                     <filter-list
                         :data="filter_data"
                         @getSelectedFilters="setSearchUrl"
                     ></filter-list>
                 </div>
-                <div class="col-12 col-md-12 col-lg-9 pb-150">
+                <div class="col-12 col-sm-12 col-md-10 col-lg-10 pb-150">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6 list-type-style">

@@ -15,10 +15,10 @@
                     <a :href="`/startup/${startup.id}`">
                         <img :src="startup.logo" alt="Logo" style="width: 62px;">
                         <div class="title font-weight-bold" style="word-break:break-word;font-size:20px;" :title="startup.what_your_company_does">
-                            {{ startup.name }} - {{ setShortDescription(startup.what_your_company_does, 25) }}
+                            {{ startup.name }} - {{ setShortDescription(startup.what_your_company_does, 23) }}
                         </div>
                         <div class="desc" :title="startup.description" style="word-break: break-word;font-size:15px;color:#8c8c8c;">
-                            {{ setShortDescription(startup.description, 160) }}
+                            {{ setShortDescription(startup.description, 150) }}
                         </div>
                     </a>
                     <div class="d-flex">
