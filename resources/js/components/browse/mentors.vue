@@ -9,27 +9,23 @@
         @setSearchedData="setSearchedData"
     >
         <div class="row" v-if="data">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4" v-if="!mentor.is_disabled" v-for="mentor in data">
-                <div class="list-item investor-item d-flex justify-content-between pt-4 pb-2">
-                    <a href="#">
+            <div
+                class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mt-3 col-lg-4"
+                v-if="!mentor.is_disabled"
+                v-for="mentor in data"
+            >
+                <div class="bg-white browse-types-card p-3 d-flex flex-column justify-content-between">
+                    <a href="#" class="d-flex flex-column justify-content-between">
                         <img :src="mentor.logo" alt="Logo" style="border-radius: 16px;">
-                        <div class="title investor-title">{{ mentor.name }}</div>
-                        <div class="desc investor-desc">{{ setShortDescription(mentor.question1, 150) }}</div>
-                    </a>
-                    <div class="d-flex justify-content-between  tags-div">
-                        <div>
-                            <ul class="tags">
-                                <li><a href="#">#Enterprise Software </a></li>
-                            </ul>
+                        <h5 class="font-weight-bold m-0 pt-2 pb-2">{{ mentor.name }}</h5>
+                        <div class="pt-2 pb-2" style="color:#797979;">
+                            {{ setShortDescription(mentor.question1, 150) }}
                         </div>
-<!--                        <div>-->
-<!--                            <span class="money-in-investor">-->
-<!--                                $50-->
-<!--                            </span>-->
-<!--                            <span class="moneyandhours">-->
-<!--                                $/hour-->
-<!--                            </span>-->
-<!--                        </div>-->
+                    </a>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            #Enterprise Software
+                        </div>
                     </div>
                 </div>
             </div>

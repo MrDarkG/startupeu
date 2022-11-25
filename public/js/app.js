@@ -2892,14 +2892,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     fields: Array,
@@ -2936,10 +2928,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
 //
 //
 //
@@ -63093,82 +63081,53 @@ var render = function() {
             { staticClass: "row" },
             _vm._l(_vm.data, function(investor) {
               return !investor.is_disabled
-                ? _c(
-                    "div",
-                    { staticClass: "col-12 col-sm-6 col-md-4 col-lg-4" },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "list-item investor-item d-flex justify-content-between pt-4 pb-2"
-                        },
-                        [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              staticStyle: { "border-radius": "16px" },
-                              attrs: {
-                                src: "/investor/" + investor.logo,
-                                alt: "Logo"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "title investor-title" }, [
-                              _vm._v(_vm._s(investor.name))
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "desc investor-desc" }, [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.setShortDescription(
-                                    investor.question1,
-                                    150
-                                  )
-                                )
-                              )
-                            ])
+                ? _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "list-item investor-item d-flex justify-content-between pt-4 pb-2"
+                      },
+                      [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            staticStyle: { "border-radius": "16px" },
+                            attrs: {
+                              src: "/investor/" + investor.logo,
+                              alt: "Logo"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "title investor-title" }, [
+                            _vm._v(_vm._s(investor.name))
                           ]),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "d-flex justify-content-between  tags-div"
-                            },
-                            [
-                              _c("div", [
-                                _c("ul", { staticClass: "tags" }, [
-                                  _c("li", [
-                                    _c("a", { attrs: { href: "#" } }, [
-                                      _vm._v("#Enterprise Software ")
-                                    ])
+                          _c("div", { staticClass: "desc investor-desc" }, [
+                            _vm._v(_vm._s(investor.question1))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "d-flex justify-content-between  tags-div"
+                          },
+                          [
+                            _c("div", [
+                              _c("ul", { staticClass: "tags" }, [
+                                _c("li", [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _vm._v("#Enterprise Software ")
                                   ])
                                 ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c(
-                                  "span",
-                                  { staticClass: "money-in-investor" },
-                                  [
-                                    _vm._v(
-                                      "\n                            $50\n                        "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "moneyandhours" }, [
-                                  _vm._v(
-                                    "\n                            $/hour\n                        "
-                                  )
-                                ])
                               ])
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ])
                 : _vm._e()
             }),
             0
@@ -63224,49 +63183,69 @@ var render = function() {
               return !mentor.is_disabled
                 ? _c(
                     "div",
-                    { staticClass: "col-12 col-sm-6 col-md-4 col-lg-4" },
+                    {
+                      staticClass:
+                        "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mt-3 col-lg-4"
+                    },
                     [
                       _c(
                         "div",
                         {
                           staticClass:
-                            "list-item investor-item d-flex justify-content-between pt-4 pb-2"
+                            "bg-white browse-types-card p-3 d-flex flex-column justify-content-between"
                         },
                         [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              staticStyle: { "border-radius": "16px" },
-                              attrs: { src: mentor.logo, alt: "Logo" }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "title investor-title" }, [
-                              _vm._v(_vm._s(mentor.name))
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "desc investor-desc" }, [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.setShortDescription(mentor.question1, 150)
-                                )
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "d-flex flex-column justify-content-between",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("img", {
+                                staticStyle: { "border-radius": "16px" },
+                                attrs: { src: mentor.logo, alt: "Logo" }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "h5",
+                                {
+                                  staticClass: "font-weight-bold m-0 pt-2 pb-2"
+                                },
+                                [_vm._v(_vm._s(mentor.name))]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "pt-2 pb-2",
+                                  staticStyle: { color: "#797979" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(
+                                        _vm.setShortDescription(
+                                          mentor.question1,
+                                          150
+                                        )
+                                      ) +
+                                      "\n                    "
+                                  )
+                                ]
                               )
-                            ])
-                          ]),
+                            ]
+                          ),
                           _vm._v(" "),
                           _c(
                             "div",
-                            {
-                              staticClass:
-                                "d-flex justify-content-between  tags-div"
-                            },
+                            { staticClass: "d-flex justify-content-between" },
                             [
                               _c("div", [
-                                _c("ul", { staticClass: "tags" }, [
-                                  _c("li", [
-                                    _c("a", { attrs: { href: "#" } }, [
-                                      _vm._v("#Enterprise Software ")
-                                    ])
-                                  ])
-                                ])
+                                _vm._v(
+                                  "\n                        #Enterprise Software\n                    "
+                                )
                               ])
                             ]
                           )
