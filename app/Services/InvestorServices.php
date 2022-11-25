@@ -57,10 +57,8 @@ class InvestorServices extends MainServices
 	static public function createProfile($request)
 	{
 		$filename ='/investor/'.parent::generateRandomString().".jpg";
-		$base64_image = $request->input("image");
-        $data = substr($base64_image, strpos($base64_image, ',') + 1);
-        $data = base64_decode($data);
-		Storage::disk('investors_avatar')->put($filename ,$data);
+        $base64_image = $request->input("image");
+        parent::saveImage($base64_image, $filename,"investors_avatar");
         $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
 		Investor::create([
 			"name"=>$request->input("name.full"),

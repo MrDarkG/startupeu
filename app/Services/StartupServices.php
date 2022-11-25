@@ -90,9 +90,7 @@ use Illuminate\Support\Facades\Storage;
             ]);
 			$filaname=parent::generateRandomString().".jpg";
 			$base64_image = $request->input("image");
-	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
-	        $data = base64_decode($data);
-			Storage::disk('startups_logos')->put($filaname,$data);
+            parent::saveImage($base64_image, $filaname, "startups_logos");
             $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
 			$startup=Startup::create([
 				"name"=>$request->input("startup.name"),

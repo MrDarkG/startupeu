@@ -7,7 +7,6 @@ use App\Models\Mentor_issues;
 use App\Services\UserService;
 use Auth;
 use Illuminate\Http\Request;
-use Storage;
 class MentorServices extends MainServices
 {
 	static public function getMyProfileInfo($value='')
@@ -28,11 +27,7 @@ class MentorServices extends MainServices
 
         if ($request->input("avatar")) {
 			$filaname=parent::generateRandomString().".jpg";
-			$base64_image = $request->input("avatar");
-	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
-	        $data = base64_decode($data);
-			Storage::disk('mentors_avatar')->put($filaname,$data);
-			$filaname="/mentors/".$filename;
+			parent::saveImage($request->input("avatar"),$filaname,"mentors_avatar");
 		}
 		else{
 			$filaname=self::getMyImageName();
@@ -62,11 +57,9 @@ class MentorServices extends MainServices
 
 	static public function createProfile($request)
 	{
-		$filaname=parent::generateRandomString().".jpg";
-		$base64_image = $request->input("avatar");
-        $data = substr($base64_image, strpos($base64_image, ',') + 1);
-        $data = base64_decode($data);
-		Storage::disk('mentors_avatar')->put($filaname,$data);
+		$filename=parent::generateRandomString().".jpg";
+		$base64_image = $request->input("image");
+        parent::saveImage($base64_image, $filename, "mentors_avatar");
         $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
         Mentor::create([
 			'name'=>$request->input("name"),
@@ -77,7 +70,7 @@ class MentorServices extends MainServices
         	'fields_id'=>$request->input("which.field.id"),
         	'issues_id'=>0,
         	'user_id'=>$user_id,
-        	'logo'=>'/mentors/'.$filaname
+        	'logo'=>'/mentors/'.$filename
 		]);
 
         foreach($request->input("which.issue") as $issue){
