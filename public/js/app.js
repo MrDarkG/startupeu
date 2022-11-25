@@ -3574,17 +3574,14 @@ __webpack_require__.r(__webpack_exports__);
       menu: []
     };
   },
-  created: function created() {
-    this.getMenuItems();
-  },
-  methods: {
-    getMenuItems: function getMenuItems() {
-      var _this = this;
+  beforeCreate: function beforeCreate() {
+    var _this = this;
 
-      axios.get('/get/menu-items').then(function (response) {
-        _this.menu = response.data;
-      });
-    }
+    axios.get('/get/menu-items').then(function (response) {
+      _this.menu = response.data;
+    });
+  },
+  methods: {//
   }
 });
 

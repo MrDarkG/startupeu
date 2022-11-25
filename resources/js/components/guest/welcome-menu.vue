@@ -16,16 +16,14 @@ export default {
           menu:[]
       }
     },
-    created(){
-        this.getMenuItems()
+    beforeCreate(){
+        axios.get('/get/menu-items')
+        .then(response => {
+            this.menu = response.data
+        })
     },
     methods:{
-        getMenuItems(){
-            axios.get('/get/menu-items')
-                .then(response => {
-                    this.menu = response.data
-                })
-        },
+    //
     },
 }
 </script>
