@@ -89,6 +89,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <welcome-menu
+                            :menu_items="{{ json_encode(App\Models\WelcomeMenu::get()) }}"
                         ></welcome-menu>
                         <div class="d-sm-none d-xl-block">
                             <form class="form-inline my-2 ">

@@ -3568,21 +3568,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      menu: []
-    };
-  },
-  beforeCreate: function beforeCreate() {
-    var _this = this;
-
-    axios.get('/get/menu-items').then(function (response) {
-      _this.menu = response.data;
-    });
-  },
-  methods: {//
-  }
+  props: ['menu_items']
 });
 
 /***/ }),
@@ -64156,7 +64146,7 @@ var render = function() {
   return _c(
     "ul",
     { staticClass: "navbar-nav mr-auto" },
-    _vm._l(_vm.menu, function(item, item_i) {
+    _vm._l(_vm.menu_items, function(item, item_i) {
       return _c("li", { staticClass: "nav-item" }, [
         _c("a", {
           staticClass: "nav-link",
