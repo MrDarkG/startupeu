@@ -64,7 +64,14 @@ class Investor extends Model
     {
         return $this->belongsTo(Investor_type::class,"type_id");
     }
-
+    public function countries()
+    {
+        return $this->belongsTo(Country::class,"country_id");
+    }
+    public function markets()
+    {
+        return $this->belongsTo(Market::class,"market_id");
+    }
     public function ranges()
     {
         return $this->hasOne(Range::class,"id",'range_id');

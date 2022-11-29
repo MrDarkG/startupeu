@@ -5,5 +5,6 @@
     Vue.component("few-clicks", require('../components/registration/components/few_clicks.vue').default)
     Vue.component("user-type-cards", require('../components/guest/user-type-cards.vue').default)
     Vue.component("startup-single-page", require('../components/startup/single-page.vue').default)
+    Vue.component("investor-single-page", require('../components/investor/single-page.vue').default)
 // END WELCOME
 // COMING SOON !!!

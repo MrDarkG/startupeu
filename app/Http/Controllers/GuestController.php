@@ -178,6 +178,14 @@ class GuestController extends Controller
             'startup' => $startup,
         ]);
     }
+    public function singleInvestorPage($investor_id){
+        $investor = Investor::where('id',$investor_id)
+            ->with(['type','countries','ranges'])
+            ->firstOrFail();
+        return view('investor.single-page',[
+            'investor' => $investor,
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
