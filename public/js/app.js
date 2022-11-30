@@ -2563,8 +2563,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["stages", "bussines_models", "phone_index", "countries", "industries", "investment_range", "looking_for", "markets", "investor_types", "issues", "fields"],
+  props: ["stages", "bussines_models", "phone_index", "countries", "users", "industries", "investment_range", "looking_for", "markets", "investor_types", "issues", "fields"],
   data: function data() {
     return {
       submit: false,
@@ -3075,6 +3094,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -4032,8 +4052,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['user_id', 'looking_for', 'stages', 'markets', 'countries', 'industries', 'investor_types', 'bussines_models', 'investment_range'],
+  props: ['user_id', 'looking_for', 'stages', 'markets', 'countries', 'investor_types', 'bussines_models', 'industries', 'investment_range'],
   data: function data() {
     return {
       image: {
@@ -4058,6 +4084,7 @@ __webpack_require__.r(__webpack_exports__);
           market: "",
           stage: ""
         },
+        industries: [],
         country: "",
         investor_type: "",
         image: ""
@@ -4099,6 +4126,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -62877,7 +62910,51 @@ var render = function() {
                 _vm._m(0)
               ])
             ]
-          )
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "pt-5 mt-5" }, [
+            _c(
+              "div",
+              {
+                staticClass: "font-weight-bold w-100 pb-2",
+                staticStyle: { "font-size": "20px", opacity: "0.5" }
+              },
+              [
+                _vm._v(
+                  "\n                    Select Registered User\n                "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "sign-form border shadow rounded mt-0 p-3" },
+              [
+                _c("multiselect", {
+                  style: _vm.setClassByValue(
+                    _vm.input.user_id,
+                    true,
+                    _vm.submit
+                  ),
+                  attrs: {
+                    id: "users",
+                    "track-by": "id",
+                    label: "email",
+                    searchable: true,
+                    "allow-empty": false,
+                    options: _vm.users,
+                    multiple: false
+                  },
+                  on: {
+                    select: function(value) {
+                      return (_vm.input.user_id = value.id)
+                    }
+                  }
+                })
+              ],
+              1
+            )
+          ])
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -62973,6 +63050,7 @@ var render = function() {
                           staticClass: "pt-2",
                           attrs: {
                             user_id: this.input.user_id,
+                            industries: _vm.industries,
                             investor_types: _vm.investor_types,
                             looking_for: _vm.looking_for,
                             investment_range: _vm.investment_range,
@@ -63833,6 +63911,7 @@ var render = function() {
                         attrs: {
                           investor_types: _vm.investor_types,
                           looking_for: _vm.looking_for,
+                          industries: _vm.industries,
                           investment_range: _vm.investment_range,
                           markets: _vm.markets,
                           countries: _vm.countries,
@@ -65630,7 +65709,38 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(0),
+          _c(
+            "div",
+            { staticClass: "col-md-12 mt-2" },
+            [
+              _c("label", { attrs: { for: "investor_industry" } }, [
+                _vm._v("Industries")
+              ]),
+              _vm._v(" "),
+              _c("multiselect", {
+                style: _vm.setClassByValue(
+                  _vm.input.industries,
+                  true,
+                  _vm.button
+                ),
+                attrs: {
+                  id: "investor_industry",
+                  "track-by": "id",
+                  label: "title",
+                  options: _vm.industries,
+                  multiple: true
+                },
+                model: {
+                  value: _vm.input.industries,
+                  callback: function($$v) {
+                    _vm.$set(_vm.input, "industries", $$v)
+                  },
+                  expression: "input.industries"
+                }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -65763,30 +65873,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 mt-2" }, [
-      _c("div", { staticClass: "alert alert-warning alert-dismissible" }, [
-        _c(
-          "a",
-          {
-            staticClass: "close",
-            attrs: { href: "#", "data-dismiss": "alert", "aria-label": "close" }
-          },
-          [_vm._v("×")]
-        ),
-        _vm._v(" "),
-        _c("strong", [_vm._v("warning!")]),
-        _vm._v(
-          "  Image file formats - JPG,PNG,JPEG; Size - 2MB\n                "
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -65862,12 +65949,37 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                        Looking for startup\n                    "
+                      "\n                    Looking for startup\n                "
                     )
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(0)
+                _vm.investor.industries
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "d-flex flex-wrap justify-content-start align-items-center"
+                      },
+                      _vm._l(_vm.investor.industries, function(industry) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass: "pr-2",
+                            staticStyle: { color: "rgba(98, 0, 238, 1)" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        #" +
+                                _vm._s(industry.industry.title) +
+                                "\n                    "
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e()
               ]
             )
           ]
@@ -65882,9 +65994,7 @@ var render = function() {
           },
           [
             _c("div", { staticStyle: { "font-size": "15px" } }, [
-              _vm._v(
-                "\n                    Investment range::\n                "
-              )
+              _vm._v("\n                Investment range :\n            ")
             ]),
             _vm._v(" "),
             _c(
@@ -65892,9 +66002,9 @@ var render = function() {
               { staticStyle: { "font-size": "20px", color: "#03DAC5" } },
               [
                 _vm._v(
-                  "\n                    " +
+                  "\n                " +
                     _vm._s(_vm.investor.ranges.title.replace(" -", "$ -")) +
-                    "$\n                "
+                    "$\n            "
                 )
               ]
             )
@@ -65926,9 +66036,9 @@ var render = function() {
                 { staticStyle: { color: "#797979", "font-size": "13px" } },
                 [
                   _vm._v(
-                    "\n                        " +
+                    "\n                    " +
                       _vm._s(item.title) +
-                      ":\n                    "
+                      ":\n                "
                   )
                 ]
               ),
@@ -65954,9 +66064,9 @@ var render = function() {
             return _c("div", { staticClass: "mt-4 mb-4 pb-4 border-bottom" }, [
               _c("div", { staticClass: "font-weight-bold mt-3 mb-3 " }, [
                 _vm._v(
-                  "\n                        " +
+                  "\n                    " +
                     _vm._s(item.title) +
-                    "\n                    "
+                    "\n                "
                 )
               ]),
               _vm._v(" "),
@@ -65970,27 +66080,26 @@ var render = function() {
             ])
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "btn btn-success" }, [
-            _vm._v(
-              "\n                    Apply for investment\n                "
-            )
-          ])
+          _c(
+            "div",
+            {
+              staticClass: "btn btn-success border-0 font-weight-bold",
+              staticStyle: {
+                padding: "15px 35px",
+                background: "rgba(98, 0, 238, 1)",
+                color: "white",
+                "border-radius": "16px"
+              }
+            },
+            [_vm._v("\n                Apply for investment\n            ")]
+          )
         ],
         2
       )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex justify-content-start" }, [
-      _c("h6", { staticClass: "text-center" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

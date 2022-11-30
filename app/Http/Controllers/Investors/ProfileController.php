@@ -26,6 +26,7 @@ class ProfileController extends Controller
             'which.market.id' => 'required|numeric',
             'which.stage.id' => 'required|numeric',
             'investor_type.id' => 'required|numeric',
+            'industries' => 'required'
         ]);
         if (InvestorServices::checkIfInvestorHaveProfileCompleted()) {
             return InvestorServices::updateMyProfileInfo($request);

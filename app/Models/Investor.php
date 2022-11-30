@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pipeline\Pipeline;
-
+use App\Models\Investor_industries;
 class Investor extends Model
 {
     use HasFactory;
@@ -67,6 +67,10 @@ class Investor extends Model
     public function countries()
     {
         return $this->belongsTo(Country::class,"country_id");
+    }
+    public function industries()
+    {
+        return $this->hasMany(Investor_industries::class)->with("industry");
     }
     public function markets()
     {

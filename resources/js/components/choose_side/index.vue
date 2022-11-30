@@ -51,6 +51,7 @@
 				<create-investor
 					:investor_types="investor_types"
 					:looking_for="looking_for"
+                    :industries="industries"
 					:investment_range="investment_range"
 					:markets="markets"
 					:countries="countries"

@@ -22,16 +22,14 @@
                     <div class="font-weight-bold" style="color:rgba(3, 218, 197, 1);font-size:16px;">
                         Looking for startup
                     </div>
-                    <div class="d-flex justify-content-start">
-                        <h6 class="text-center">
-<!--                        <span-->
-<!--                            style="color:rgba(98, 0, 238, 1);"-->
-<!--                            v-for="tag in investor.startup_industries"-->
-<!--                            class="pr-2"-->
-<!--                        >-->
-<!--                            #{{tag.industry.title}}-->
-<!--                        </span>-->
-                        </h6>
+                    <div v-if="investor.industries" class="d-flex flex-wrap justify-content-start align-items-center">
+                        <div
+                            v-for="industry in investor.industries"
+                            class="pr-2"
+                            style="color:rgba(98, 0, 238, 1);"
+                        >
+                            #{{industry.industry.title}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,7 +38,7 @@
                 class="p-3 mt-3 col-12 col-sm-4 col-md-4 col-lg-3 w-100 text-white d-flex flex-column justify-content-center font-weight-bold rounded-20px"
             >
                 <div style="font-size:15px;">
-                    Investment range::
+                    Investment range :
                 </div>
                 <div style="font-size:20px;color:#03DAC5;">
                     {{investor.ranges.title.replace(' -','$ -')}}$
@@ -81,7 +79,15 @@
                         v-html="item.description"
                     ></div>
                 </div>
-                <div class="btn btn-success">
+                <div
+                    class="btn btn-success border-0 font-weight-bold"
+                    style="
+                        padding: 15px 35px;
+                        background:rgba(98, 0, 238, 1);
+                        color:white;
+                        border-radius:16px;
+                    "
+                >
                     Apply for investment
                 </div>
             </div>

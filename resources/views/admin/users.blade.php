@@ -10,6 +10,7 @@
     @endphp
     <div id="app" class="container">
         <admin-users
+            :users="{{ json_encode(App\Models\User::get()) }}"
             :issues="{{ json_encode($issues) }}"
             :fields="{{ json_encode($fields) }}"
             :phone_index="{{ json_encode($phone_index) }}"

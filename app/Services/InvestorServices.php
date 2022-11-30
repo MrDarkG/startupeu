@@ -3,10 +3,13 @@
 namespace App\Services;
 
 use App\Models\Investor;
+use App\Models\Investor_industries;
 use App\Services\UserService;
 use Illuminate\Http\Request;
-use Storage;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use phpDocumentor\Reflection\PseudoTypes\Numeric_;
+
 class InvestorServices extends MainServices
 {
 	static public function getMyProfileInfo($value='')
@@ -24,43 +27,51 @@ class InvestorServices extends MainServices
 
 	static public function updateMyProfileInfo($request){
 		if ($request->input("image")) {
-			$filaname=parent::generateRandomString().".jpg";
+            $filename='/investor/'.parent::generateRandomString().".jpg";
 			$base64_image = $request->input("image");
-	        $data = substr($base64_image, strpos($base64_image, ',') + 1);
-	        $data = base64_decode($data);
-			Storage::disk('investors_avatar')->put($filaname,$data);
-			$filaname="/investor/".$filename;
+            parent::saveImage($base64_image, $filename, "investors_avatar");
+            $filename="/investor/".$filename;
+		}else{
+            $filename=self::getMyImageName();
 		}
-		else{
-			$filaname=self::getMyImageName();
-		}
-        $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
-        Investor::where("user_id",$user_id)->update([
-			"name"=>$request->input("name.full"),
-	        "company_name"=>$request->input("name.company"),
-	        "investments"=>$request->input("about.investments"),
-	        "about"=>$request->input("about.investor"),
-	        "website"=>$request->input("website"),
-	        "email"=>$request->input("email"),
-	        "range_id"=>$request->input("investment_range"),
-	        "market_id"=>$request->input("which.market"),
-	        "interest_id"=>$request->input("which.stage"),
-	        "country_id"=>$request->input("country"),
-	        "type_id"=>$request->input("investor_type"),
-            "user_id" => $user_id,
-	        "logo"=>'/investor/'.$filaname
-		]);
+        $user_id = $request->input('user_id')??Auth::user()->id;
+        Investor::where('user_id', $user_id)->update([
+            "name"=>$request->input("name.full"),
+            "user_id"=>$user_id,
+            "company_name"=>$request->input("name.company"),
+            "investments"=>$request->input("about.investments"),
+            "about"=>$request->input("about.investor"),
+            "website"=>$request->input("website"),
+            "email"=>$request->input("email"),
+            "range_id"=>$request->input("investment_range.id"),
+            "market_id"=>$request->input("which.market.id"),
+            "interest_id"=>$request->input("which.stage.id"),
+            "country_id"=>$request->input("country.id"),
+            "type_id"=>$request->input("investor_type.id"),
+            "logo"=>$filename
+        ]);
+        $investor_id = Investor::where("user_id",$user_id)->firstOrFail()->id;
+        Investor_industries::where("investor_id",$investor_id)->delete();
+        self::saveInvestorIndustries($request->input('industries'),$investor_id, $user_id);
 
-        return UserService::setUserType("investor");
+        return UserService::setUserType("investor",$user_id);
 	}
-
+    static public function saveInvestorIndustries(array $industries,int $investor_id,int $user_id){
+        foreach($industries as $industry){
+            Investor_industries::create([
+                "investor_id" => $investor_id,
+                "industry_id" => $industry['id'],
+                "user_id" => $user_id
+            ]);
+        }
+    }
 	static public function createProfile($request)
 	{
 		$filename ='/investor/'.parent::generateRandomString().".jpg";
         $base64_image = $request->input("image");
         parent::saveImage($base64_image, $filename,"investors_avatar");
-        $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
-		Investor::create([
+        $user_id = $request->input('user_id')??Auth::user()->id;
+		$investor = Investor::create([
 			"name"=>$request->input("name.full"),
 			"user_id"=>$user_id,
 	        "company_name"=>$request->input("name.company"),
@@ -75,12 +86,8 @@ class InvestorServices extends MainServices
 	        "type_id"=>$request->input("investor_type.id"),
 	        "logo"=>$filename
 		]);
+        self::saveInvestorIndustries($request->input('industries'),$investor->id, $user_id);
 
         return UserService::setUserType("investor",$user_id);
-//
-//		return [
-//            "status"=>"1",
-//            "description"=>"Information stored Successfully"
-//        ];
 	}
 }

@@ -43,6 +43,24 @@
                     </div>
                 </div>
             </form>
+            <div class="pt-5 mt-5">
+                <div class="font-weight-bold w-100 pb-2" style="font-size:20px;opacity:0.5;">
+                    Select Registered User
+                </div>
+                <div class="sign-form border shadow rounded mt-0 p-3">
+                    <multiselect
+                        id="users"
+                        :style="setClassByValue(input.user_id,true,submit)"
+                        track-by="id"
+                        label="email"
+                        @select="(value)=>input.user_id = value.id"
+                        :searchable="true"
+                        :allow-empty="false"
+                        :options="users"
+                        :multiple="false"
+                    ></multiselect>
+                </div>
+            </div>
         </div>
         <div
             class="container-fluid pd-50"
@@ -93,6 +111,7 @@
                     />
                     <create-investor
                         :user_id="this.input.user_id"
+                        :industries="industries"
                         :investor_types="investor_types"
                         :looking_for="looking_for"
                         :investment_range="investment_range"
@@ -122,6 +141,7 @@
             "bussines_models",
             "phone_index",
             "countries",
+            "users",
             "industries",
             "investment_range",
             "looking_for",

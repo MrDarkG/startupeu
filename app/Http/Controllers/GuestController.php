@@ -6,6 +6,7 @@ use App\Models\Custom_event;
 use App\Models\Events;
 use App\Models\Faq_category;
 use App\Models\Investor;
+use App\Models\Investor_industries;
 use App\Models\MainEventButtons;
 use App\Models\Market;
 use App\Models\Range;
@@ -180,7 +181,7 @@ class GuestController extends Controller
     }
     public function singleInvestorPage($investor_id){
         $investor = Investor::where('id',$investor_id)
-            ->with(['type','countries','ranges'])
+            ->with(['type','countries','ranges','industries'])
             ->firstOrFail();
         return view('investor.single-page',[
             'investor' => $investor,

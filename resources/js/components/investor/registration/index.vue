@@ -95,10 +95,16 @@
                 ></multiselect>
             </div>
             <div class="col-md-12 mt-2">
-                <div class="alert alert-warning alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                    <strong>warning!</strong>  Image file formats - JPG,PNG,JPEG; Size - 2MB
-                </div>
+                <label for="investor_industry">Industries</label>
+                <multiselect
+                    id="investor_industry"
+                    v-model="input.industries"
+                    :style="setClassByValue(input.industries,true,button)"
+                    track-by="id"
+                    label="title"
+                    :options="industries"
+                    :multiple="true"
+                ></multiselect>
             </div>
             <div
                 class="col-md-6 st-logo position-relative"
@@ -170,9 +176,9 @@ export default{
         'stages',
         'markets',
         'countries',
-        'industries',
         'investor_types',
         'bussines_models',
+        'industries',
         'investment_range',
     ],
     data () {
@@ -199,6 +205,7 @@ export default{
                 market:"",
                 stage:"",
             },
+            industries:[],
             country:"",
             investor_type:"",
             image:"",
