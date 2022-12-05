@@ -187,6 +187,15 @@ class GuestController extends Controller
             'investor' => $investor,
         ]);
     }
+    public function mentorSinglePage($mentor_id){
+        $mentor = Mentor::where('id',$mentor_id)
+            ->with(['country','fields','issues'])
+            ->firstOrFail();
+        return view('mentor.single-page',[
+            'mentor' => $mentor,
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

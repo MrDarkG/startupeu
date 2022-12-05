@@ -8,3 +8,4 @@ use App\Http\Controllers\Search\SearchController;
 use App\Http\Controllers\GuestController;
 
 Route::get('/search',[SearchController::class,"mentors"]);
+Route::get('/{mentor_id}',[GuestController::class,"mentorSinglePage"]);

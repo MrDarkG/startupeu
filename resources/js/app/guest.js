@@ -6,5 +6,7 @@
     Vue.component("user-type-cards", require('../components/guest/user-type-cards.vue').default)
     Vue.component("startup-single-page", require('../components/startup/single-page.vue').default)
     Vue.component("investor-single-page", require('../components/investor/single-page.vue').default)
+    Vue.component("mentor-single-page", require('../components/mentor/single-page.vue').default)
+    Vue.component("single-page-header", require('../components/guest/single-page-header.vue').default)
 // END WELCOME
 // COMING SOON !!!

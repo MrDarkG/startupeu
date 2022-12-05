@@ -1,50 +1,17 @@
 <template>
     <div class="container w-100 border-left pt-3 pb-5">
-        <div class="row border-bottom pl-0 pb-4 pr-0 m-0 justify-content-between flex-wrap w-100">
-            <div
-                class="d-flex pl-0 pr-0 mt-3 col-12 col-sm-8 col-md-8 col-lg-9 align-items center"
-                style="height:120px;"
-            >
-                <div
-                    class="p-1 rounded-20px"
-                    style=";width:120px;"
-                >
-                    <img
-                        style="height:100%;border-radius: 20px;"
-                        alt="Investor logo"
-                        :src="'/investor/'+investor.logo"
-                    >
-                </div>
-                <div class="pl-4 w-100 d-flex flex-column justify-content-center align-content-start">
-                    <div>
-                        <h1>{{investor.name}}</h1>
-                    </div>
-                    <div class="font-weight-bold" style="color:rgba(3, 218, 197, 1);font-size:16px;">
-                        Looking for startup
-                    </div>
-                    <div v-if="investor.industries" class="d-flex flex-wrap justify-content-start align-items-center">
-                        <div
-                            v-for="industry in investor.industries"
-                            class="pr-2"
-                            style="color:rgba(98, 0, 238, 1);"
-                        >
-                            #{{industry.industry.title}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                style="background: black;"
-                class="p-3 mt-3 col-12 col-sm-4 col-md-4 col-lg-3 w-100 text-white d-flex flex-column justify-content-center font-weight-bold rounded-20px"
-            >
-                <div style="font-size:15px;">
-                    Investment range :
-                </div>
-                <div style="font-size:20px;color:#03DAC5;">
-                    {{investor.ranges.title.replace(' -','$ -')}}$
-                </div>
-            </div>
-        </div>
+        <single-page-header
+            :user_data="{
+                name:investor.name,
+                logo:'/investor/'+investor.logo,
+                industries:investor.industries,
+                looking_for:'Looking for startup',
+                black_card:{
+                    title:'Investment range :',
+                    content:investor.ranges.title.replace(' -','$ -')+'$',
+                },
+            }"
+        ></single-page-header>
         <div class="m-0 row m-0">
             <div
                 class="bg-white col-md-12 mt-4 row ml-0 mr-0 pb-0 rounded-20px pt-2 pt-sm-4 pl-0 pr-0 pb-4"

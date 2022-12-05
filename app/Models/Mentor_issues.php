@@ -12,4 +12,8 @@ class Mentor_issues extends Model
         "mentor_id",
         "issue_id"
     ];
+
+    function issue(){
+        return $this->belongsTo(Issue::class,'issue_id','id');
+    }
 }

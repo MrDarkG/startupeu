@@ -20,7 +20,15 @@ class Mentor extends Model
         'user_id',
         'logo'
     ];
-
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
+    public function fields(){
+        return $this->belongsTo(Field::class);
+    }
+    public function issues(){
+        return $this->hasMany(Mentor_issues::class)->with('issue');
+    }
     static public function allMentors($value='')
     {
         return $pipeline=app(Pipeline::class)

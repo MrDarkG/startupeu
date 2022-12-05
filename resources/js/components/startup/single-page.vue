@@ -1,49 +1,17 @@
 <template>
 <div class="container w-100 border-left pt-3 pb-5">
-    <div class="row border-bottom pl-0 pb-4 pr-0 m-0 justify-content-between flex-wrap w-100">
-        <div
-            class="d-flex pl-0 pr-0 mt-3 col-12 col-sm-8 col-md-8 col-lg-9 align-items center"
-            style="height:120px;"
-        >
-            <div
-                class="p-1 rounded-20px"
-                style="background:black;;width:120px;"
-            >
-                <img
-                    class="rounded-circle"
-                    style="height:100%;"
-                    :src="startup.logo"
-                >
-            </div>
-            <div class="pl-4 w-100 d-flex flex-column justify-content-center align-content-start">
-                <div>
-                    <h1>{{startup.name}}</h1>
-                </div>
-                <div class="d-flex justify-content-start">
-                    <h6 class="text-center">
-                        <span
-                            style="color:rgba(98, 0, 238, 1);"
-                            v-for="tag in startup.startup_industries"
-                            class="pr-2"
-                        >
-                            #{{tag.industry.title}}
-                        </span>
-                    </h6>
-                </div>
-            </div>
-        </div>
-        <div
-            style="background: black;"
-            class="p-3 mt-3 col-12 col-sm-4 col-md-4 col-lg-3 w-100 text-white d-flex flex-column justify-content-center font-weight-bold rounded-20px"
-        >
-            <div style="font-size:15px;">
-                What are we looking for:
-            </div>
-            <div style="font-size:20px;color:#03DAC5;">
-                Partners
-            </div>
-        </div>
-    </div>
+    <single-page-header
+        :user_data="{
+                name:startup.name,
+                logo:startup.logo,
+                industries:startup.startup_industries,
+                looking_for:undefined,
+                black_card:{
+                    title:'What are we looking for:',
+                    content:'Partners',
+                },
+            }"
+    ></single-page-header>
     <div class="m-0 row m-0">
         <div class="order-1 order-sm-0 col-12 col-sm-8 col-md-8 col-lg-9 pl-0 pr-3">
             <div v-for="item in details.content" class="mt-4 mb-4 pb-4 border-bottom">
