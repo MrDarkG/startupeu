@@ -180,6 +180,7 @@ export default{
         'bussines_models',
         'industries',
         'investment_range',
+        'input_data'
     ],
     data () {
       return {

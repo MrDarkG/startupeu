@@ -27,7 +27,7 @@ class Mentor extends Model
         return $this->belongsTo(Field::class);
     }
     public function issues(){
-        return $this->hasMany(Mentor_issues::class)->with('issue');
+        return $this->hasMany(Mentor_issues::class,'mentor_id','user_id')->with('issue');
     }
     static public function allMentors($value='')
     {

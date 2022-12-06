@@ -43,4 +43,20 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function startup()
+    {
+        return $this->hasOne(Startup::class,'user_id','id')
+            ->with(['startup_industries','looking_for','business_model','country','stages']);
+    }
+    public function investor()
+    {
+        return $this->hasOne(Investor::class,'user_id','id')
+            ->with(['type','countries','markets','ranges','industries']);
+    }
+    public function mentor()
+    {
+        return $this->hasOne(Mentor::class,'user_id','id')
+            ->with(['issues','country','fields']);
+    }
 }

@@ -53,7 +53,10 @@
                         :style="setClassByValue(input.user_id,true,submit)"
                         track-by="id"
                         label="email"
-                        @select="(value)=>input.user_id = value.id"
+                        @select="(value)=>{
+                            getUserTypeData(value.user_type, value.id)
+                            onSelectMultiselect(value.user_type, value.id)
+                        }"
                         :searchable="true"
                         :allow-empty="false"
                         :options="users"
@@ -97,6 +100,7 @@
                         </button>
                     </div>
                     <create-startup
+                        :input_data="this.data.startup"
                         :user_id="this.input.user_id"
                         :stages="stages"
                         :phone_index="phone_index"
@@ -110,6 +114,7 @@
                         v-if="selected.type.index === 0"
                     />
                     <create-investor
+                        :input_data="this.data.investor"
                         :user_id="this.input.user_id"
                         :industries="industries"
                         :investor_types="investor_types"
@@ -122,6 +127,7 @@
                         v-if="selected.type.index === 1"
                     />
                     <create-mentor
+                        :input_data="this.data.mentor"
                         :user_id="this.input.user_id"
                         :issues="issues"
                         :fields="fields"
@@ -161,6 +167,7 @@
                         number:""
                     },
                 },
+                data:{},
                 selected:{
                     type:{},
                 },
@@ -190,6 +197,30 @@
             }
         },
         methods:{
+            onSelectMultiselect(type, user_id){
+                this.selectUserType(type)
+                this.input.user_id = user_id
+            },
+            getUserTypeData(type, user_id){
+                axios.get('/admin/get-user-type-data/'+type+'/'+user_id)
+                .then((response)=>{
+                    this.data = response.data
+                })
+            },
+            selectUserType(user_type){
+                if(user_type === 'startup'){
+                    user_type = 0
+                }else if(user_type === 'investor'){
+                    user_type = 1
+                }else if(user_type === 'mentor'){
+                    user_type = 2
+                }else{
+                    user_type = {}
+                }
+                this.selected.type = (typeof user_type==='number')?{
+                    index:user_type,
+                }:{}
+            },
             saveUserCreatedByAdmin(){
                 axios.post('/api/admin-user-registeration' ,this.input)
                 .then((response)=>{

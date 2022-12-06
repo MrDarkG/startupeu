@@ -12,6 +12,8 @@ use App\Http\Controllers\AdminController as AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/get-user-type-data/{type}/{user_id}', [AdminController::class, 'getUserTypeData'])->name('voyager.events.index');
+Route::get('/add/user', [AdminController::class, 'addUser'])->name('voyager.events.index');
 Route::get('/add/user', [AdminController::class, 'addUser'])->name('voyager.events.index');
 Route::get('/events', [AdminController::class, 'events'])->name('voyager.events.index');
 Route::post('/add/event', [AdminController::class, 'addEvent'])->name('addEvent');

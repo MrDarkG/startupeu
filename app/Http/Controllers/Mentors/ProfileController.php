@@ -25,13 +25,13 @@ class ProfileController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
+            'user_id' => 'numeric',
             'linkedin' => 'required',
-            'image' => 'required',
             'experience' => 'required',
             'which.field.id' => 'required|numeric',
             'which.issue' => 'required',
         ]);
-        if (MentorServices::checkIfMentorHaveProfileCompleted()) {
+        if (MentorServices::checkIfMentorHaveProfileCompleted($request->user_id)) {
             return MentorServices::updateMyProfileInfo($request);
         }else{
             return MentorServices::createProfile($request);

@@ -2582,6 +2582,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["stages", "bussines_models", "phone_index", "countries", "users", "industries", "investment_range", "looking_for", "markets", "investor_types", "issues", "fields"],
   data: function data() {
@@ -2595,6 +2601,7 @@ __webpack_require__.r(__webpack_exports__);
           number: ""
         }
       },
+      data: {},
       selected: {
         type: {}
       },
@@ -2620,13 +2627,39 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    saveUserCreatedByAdmin: function saveUserCreatedByAdmin() {
+    onSelectMultiselect: function onSelectMultiselect(type, user_id) {
+      this.selectUserType(type);
+      this.input.user_id = user_id;
+    },
+    getUserTypeData: function getUserTypeData(type, user_id) {
       var _this = this;
 
+      axios.get('/admin/get-user-type-data/' + type + '/' + user_id).then(function (response) {
+        _this.data = response.data;
+      });
+    },
+    selectUserType: function selectUserType(user_type) {
+      if (user_type === 'startup') {
+        user_type = 0;
+      } else if (user_type === 'investor') {
+        user_type = 1;
+      } else if (user_type === 'mentor') {
+        user_type = 2;
+      } else {
+        user_type = {};
+      }
+
+      this.selected.type = typeof user_type === 'number' ? {
+        index: user_type
+      } : {};
+    },
+    saveUserCreatedByAdmin: function saveUserCreatedByAdmin() {
+      var _this2 = this;
+
       axios.post('/api/admin-user-registeration', this.input).then(function (response) {
-        _this.input.user_id = response.data;
+        _this2.input.user_id = response.data;
       })["catch"](function (error) {
-        _this.popupErrors(error.response.data.errors);
+        _this2.popupErrors(error.response.data.errors);
       });
     },
     onTypeClick: function onTypeClick(index, type) {
@@ -4128,7 +4161,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['user_id', 'looking_for', 'stages', 'markets', 'countries', 'investor_types', 'bussines_models', 'industries', 'investment_range'],
+  props: ['user_id', 'looking_for', 'stages', 'markets', 'countries', 'investor_types', 'bussines_models', 'industries', 'investment_range', 'input_data'],
   data: function data() {
     return {
       image: {
@@ -4641,24 +4674,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['user_id', 'countries', 'fields', 'issues'],
+  props: {
+    input_data: Object,
+    user_id: Number,
+    countries: Array,
+    fields: Array,
+    issues: Array
+  },
   data: function data() {
     return {
       fileRecords: [],
       image: {
         uploaded: "",
-        edited: ""
+        edited: "",
+        preview: ""
       },
       button: false,
+      custom_input_data: {},
       input: {
         user_id: this.user_id,
         name: "",
         linkedin: "",
         experience: "",
         country: {
-          data: "",
-          is_required: false
+          data: {}
         },
         which: {
           field: "",
@@ -4667,6 +4735,21 @@ __webpack_require__.r(__webpack_exports__);
         image: ""
       }
     };
+  },
+  watch: {
+    input_data: function input_data(val) {
+      if (val) {
+        this.input.name = val.name;
+        this.input.linkedin = val.linnkedin;
+        this.input.experience = val.question1;
+        this.input.country.data = val.country;
+        this.input.which.field = val.fields;
+        this.input.which.issue = val.issues.map(function (issue) {
+          return issue.issue;
+        });
+        this.image.preview = val.logo;
+      }
+    }
   },
   methods: {
     sendData: function sendData() {
@@ -63241,7 +63324,8 @@ var render = function() {
                   },
                   on: {
                     select: function(value) {
-                      return (_vm.input.user_id = value.id)
+                      _vm.getUserTypeData(value.user_type, value.id)
+                      _vm.onSelectMultiselect(value.user_type, value.id)
                     }
                   }
                 })
@@ -63326,6 +63410,7 @@ var render = function() {
                       ? _c("create-startup", {
                           staticClass: "pt-2",
                           attrs: {
+                            input_data: this.data.startup,
                             user_id: this.input.user_id,
                             stages: _vm.stages,
                             phone_index: _vm.phone_index,
@@ -63343,6 +63428,7 @@ var render = function() {
                       ? _c("create-investor", {
                           staticClass: "pt-2",
                           attrs: {
+                            input_data: this.data.investor,
                             user_id: this.input.user_id,
                             industries: _vm.industries,
                             investor_types: _vm.investor_types,
@@ -63359,6 +63445,7 @@ var render = function() {
                       ? _c("create-mentor", {
                           staticClass: "pt-2",
                           attrs: {
+                            input_data: this.data.mentor,
                             user_id: this.input.user_id,
                             issues: _vm.issues,
                             fields: _vm.fields,
@@ -66781,8 +66868,8 @@ var render = function() {
               attrs: {
                 type: "text",
                 id: "full_name",
-                name: "full_name",
-                placeholder: "Full Name"
+                placeholder: "Full Name",
+                name: "full_name"
               },
               domProps: { value: _vm.input.name },
               on: {
@@ -66812,9 +66899,9 @@ var render = function() {
               class: _vm.setClassByValue(_vm.input.linkedin, false, _vm.button),
               attrs: {
                 type: "text",
+                placeholder: "Linkedin profile",
                 id: "linkedin_address",
-                name: "linkedin_address",
-                placeholder: "Linkedin profile"
+                name: "linkedin_address"
               },
               domProps: { value: _vm.input.linkedin },
               on: {
@@ -66972,7 +67059,9 @@ var render = function() {
             "div",
             {
               staticClass: "col-md-6 st-logo position-relative",
-              class: _vm.setClassByValue(_vm.image.edited, false, _vm.button),
+              class: _vm.input_data
+                ? _vm.setClassByValue(_vm.image.edited, false, _vm.button)
+                : "",
               staticStyle: { height: "100%" }
             },
             [
@@ -67006,7 +67095,20 @@ var render = function() {
               })
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _vm.input_data && _vm.image.preview
+            ? _c("div", { staticClass: "d-flex align-items-center " }, [
+                _c("img", {
+                  staticClass: "rounded",
+                  attrs: {
+                    height: "150",
+                    src: "/mentors/" + _vm.image.preview,
+                    alt: _vm.image.preview
+                  }
+                })
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "float-right mt-3" }, [
@@ -67041,7 +67143,7 @@ var render = function() {
               [
                 _c("cropper", {
                   staticClass:
-                    "col-7  d-flex justify-content-center align-items-center",
+                    "col-7 d-flex justify-content-center align-items-center",
                   attrs: {
                     src: _vm.image.uploaded,
                     "stencil-props": {

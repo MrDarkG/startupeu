@@ -9,6 +9,7 @@ use App\Models\Investor_type;
 use App\Models\Issue;
 use App\Models\Phone_index;
 use App\Models\Range;
+use App\Models\User;
 use App\Models\WelcomeMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -113,5 +114,8 @@ class AdminController extends Controller
             $item->delete();
         }
         return 1;
+    }
+    function getUserTypeData($type, $user_id){
+        return User::where('id', $user_id)->with($type)->first();
     }
 }
