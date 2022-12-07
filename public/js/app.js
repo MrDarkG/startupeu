@@ -63948,7 +63948,10 @@ var render = function() {
                             },
                             [
                               _c("img", {
-                                staticStyle: { "border-radius": "16px" },
+                                staticStyle: {
+                                  "border-radius": "16px",
+                                  height: "56px"
+                                },
                                 attrs: {
                                   src: "/mentors/" + mentor.logo,
                                   alt: "Logo"
