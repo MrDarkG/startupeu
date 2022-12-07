@@ -29,7 +29,7 @@
                     <div
                         v-for="industry in user_data.industries"
                         class="pr-2"
-                        style="color:#6200ee;"
+                        style="color:rgba(98, 0, 238, 1)"
                     >
                         #{{(industry.industry)?industry.industry.title:industry.title}}
                     </div>

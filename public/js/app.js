@@ -63993,7 +63993,7 @@ var render = function() {
                             "div",
                             { staticClass: "d-flex justify-content-between" },
                             [
-                              _c("div", [
+                              _c("div", { staticStyle: { color: "#6200ee" } }, [
                                 _vm._v(
                                   "\n                        #Enterprise Software\n                    "
                                 )
@@ -64701,7 +64701,7 @@ var render = function() {
                         "div",
                         {
                           staticClass: "pr-2",
-                          staticStyle: { color: "#6200ee" }
+                          staticStyle: { color: "rgba(98, 0, 238, 1)" }
                         },
                         [
                           _vm._v(
