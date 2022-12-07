@@ -67316,7 +67316,7 @@ var render = function() {
         attrs: {
           user_data: {
             name: _vm.mentor.name,
-            logo: _vm.mentor.logo,
+            logo: "/mentors/" + _vm.mentor.logo,
             industries: _vm.mentor.industries,
             looking_for: undefined,
             black_card: {

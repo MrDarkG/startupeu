@@ -3,7 +3,7 @@
         <single-page-header
             :user_data="{
                 name:mentor.name,
-                logo:mentor.logo,
+                logo:'/mentors/'+mentor.logo,
                 industries:mentor.industries,
                 looking_for:undefined,
                 black_card:{
