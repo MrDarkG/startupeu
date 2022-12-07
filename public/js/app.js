@@ -63966,7 +63966,7 @@ var render = function() {
                               _c(
                                 "div",
                                 {
-                                  staticClass: "pt-2 pb-2",
+                                  staticClass: "pb-1",
                                   staticStyle: { color: "#797979" }
                                 },
                                 [
