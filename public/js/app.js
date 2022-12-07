@@ -64701,7 +64701,7 @@ var render = function() {
                         "div",
                         {
                           staticClass: "pr-2",
-                          staticStyle: { color: "rgba(98, 0, 238, 1)" }
+                          staticStyle: { color: "#6200ee" }
                         },
                         [
                           _vm._v(
