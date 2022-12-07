@@ -23,7 +23,7 @@
                         </div>
                     </a>
                     <div class="d-flex justify-content-between">
-                        <div style="color:#6200ee;">
+                        <div style="color:#6200ee;" class="font-weight-bold">
                             #Enterprise Software
                         </div>
                     </div>

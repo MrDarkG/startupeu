@@ -63993,11 +63993,18 @@ var render = function() {
                             "div",
                             { staticClass: "d-flex justify-content-between" },
                             [
-                              _c("div", { staticStyle: { color: "#6200ee" } }, [
-                                _vm._v(
-                                  "\n                        #Enterprise Software\n                    "
-                                )
-                              ])
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "font-weight-bold",
+                                  staticStyle: { color: "#6200ee" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        #Enterprise Software\n                    "
+                                  )
+                                ]
+                              )
                             ]
                           )
                         ]
