@@ -19,7 +19,7 @@
                         <img :src="'/mentors/'+mentor.logo" alt="Logo" style="border-radius: 16px;">
                         <h5 class="font-weight-bold m-0 pt-2 pb-2">{{ mentor.name }}</h5>
                         <div class="pt-2 pb-2" style="color:#797979;">
-                            {{ setShortDescription(mentor.question1, 150) }}
+                            {{ setShortDescription(mentor.question1, 123) }}
                         </div>
                     </a>
                     <div class="d-flex justify-content-between">
