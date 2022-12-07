@@ -91,17 +91,17 @@
                         <welcome-menu
                             :menu_items="{{ json_encode(App\Models\WelcomeMenu::get()) }}"
                         ></welcome-menu>
-                        <div class="d-sm-none d-xl-block">
-                            <form class="form-inline my-2 ">
-                                <input class="form-control mr-sm-2 login-input-search" type="search" placeholder="Search" aria-label="Search">
-                            </form>
-                        </div>
+{{--                        <div class="d-sm-none d-xl-block">--}}
+{{--                            <form class="form-inline my-2 ">--}}
+{{--                                <input class="form-control mr-sm-2 login-input-search" type="search" placeholder="Search" aria-label="Search">--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                         @guest
-                                              <button class="btn btn-light login-btn">
-                                                <a href="/login">Login</a>
-                                                <span class="login-text-primary"> / </span>
-                                                <a href="/register">Register</a>
-                                              </button>
+                          <button class="btn btn-light login-btn">
+                            <a href="/login">Login</a>
+                            <span class="login-text-primary"> / </span>
+                            <a href="/register">Register</a>
+                          </button>
                         @else
                             <button class="btn btn-light login-btn">
                                 @php
