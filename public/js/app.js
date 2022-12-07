@@ -63975,7 +63975,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.setShortDescription(
                                           mentor.question1,
-                                          123
+                                          116
                                         )
                                       ) +
                                       "\n                    "
