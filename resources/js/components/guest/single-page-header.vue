@@ -10,7 +10,7 @@
             >
                 <img
                     style="height:100%;border-radius: 20px;"
-                    alt="Investor logo"
+                    alt="Logo"
                     :src="user_data.logo"
                 >
             </div>
@@ -55,7 +55,3 @@ export default {
     props:['user_data'],
 }
 </script>
-
-<style scoped>
-
-</style>
