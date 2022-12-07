@@ -2588,6 +2588,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["stages", "bussines_models", "phone_index", "countries", "users", "industries", "investment_range", "looking_for", "markets", "investor_types", "issues", "fields"],
   data: function data() {
@@ -2627,6 +2628,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    setMultiselectCustomLabel: function setMultiselectCustomLabel(_ref) {
+      var email = _ref.email,
+          user_type = _ref.user_type;
+      return "".concat(email, " (").concat(user_type ? user_type : 'Without type', ")");
+    },
     onSelectMultiselect: function onSelectMultiselect(type, user_id) {
       this.selectUserType(type);
       this.input.user_id = user_id;
@@ -63316,7 +63322,8 @@ var render = function() {
                   attrs: {
                     id: "users",
                     "track-by": "id",
-                    label: "email",
+                    label: "label",
+                    "custom-label": _vm.setMultiselectCustomLabel,
                     searchable: true,
                     "allow-empty": false,
                     options: _vm.users,

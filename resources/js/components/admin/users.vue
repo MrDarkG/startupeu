@@ -52,7 +52,8 @@
                         id="users"
                         :style="setClassByValue(input.user_id,true,submit)"
                         track-by="id"
-                        label="email"
+                        label="label"
+                        :custom-label="setMultiselectCustomLabel"
                         @select="(value)=>{
                             getUserTypeData(value.user_type, value.id)
                             onSelectMultiselect(value.user_type, value.id)
@@ -197,6 +198,9 @@
             }
         },
         methods:{
+            setMultiselectCustomLabel({email, user_type}){
+                return `${email} (${user_type?user_type:'Without type'})`
+            },
             onSelectMultiselect(type, user_id){
                 this.selectUserType(type)
                 this.input.user_id = user_id
