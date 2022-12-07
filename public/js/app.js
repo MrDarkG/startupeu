@@ -63967,7 +63967,8 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass: "pb-1",
-                                  staticStyle: { color: "#797979" }
+                                  staticStyle: { color: "#797979" },
+                                  attrs: { title: mentor.question1 }
                                 },
                                 [
                                   _vm._v(

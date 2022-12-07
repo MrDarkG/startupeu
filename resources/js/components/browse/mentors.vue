@@ -18,7 +18,7 @@
                     <a :href="`/mentor/${mentor.id}`" class="d-flex flex-column justify-content-between">
                         <img :src="'/mentors/'+mentor.logo" alt="Logo" style="border-radius: 16px;">
                         <h5 class="font-weight-bold m-0 pt-2 pb-2">{{ mentor.name }}</h5>
-                        <div class="pb-1" style="color:#797979;">
+                        <div class="pb-1" style="color:#797979;" :title="mentor.question1">
                             {{ setShortDescription(mentor.question1, 116) }}
                         </div>
                     </a>
