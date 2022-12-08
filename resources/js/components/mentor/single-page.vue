@@ -120,7 +120,7 @@
                     <div class="d-flex flex-column mt-3 justify-content-between" style="min-height:400px;height:85%;">
                         <div class="d-flex align-items-center">
                             <div>
-                                <img :src="'/mentors/'+mentor.logo" height="56px" alt="Logo" class="shadow">
+                                <img style="border-radius:16px;" :src="'/mentors/'+mentor.logo" height="56px" alt="Logo" class="shadow">
                             </div>
                             <div class="pl-3">
                                 <div style="font-size:20px;color:rgba(0, 0, 0, 0.6);" class="font-weight-bold">

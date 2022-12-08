@@ -67819,6 +67819,7 @@ var render = function() {
                       _c("div", [
                         _c("img", {
                           staticClass: "shadow",
+                          staticStyle: { "border-radius": "16px" },
                           attrs: {
                             src: "/mentors/" + _vm.mentor.logo,
                             height: "56px",
