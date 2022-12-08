@@ -5024,7 +5024,7 @@ __webpack_require__.r(__webpack_exports__);
       var date = new Date(Date.now());
       var week = this.getWeekByIndex(date.getDay());
       var month = this.getMonthByIndex(date.getMonth());
-      return "".concat(week, ", ").concat(month, " ").concat(date.getDay());
+      return "".concat(week, ", ").concat(month, " ").concat(date.getDate());
     },
     setTakenHourStyle: function setTakenHourStyle(is_active) {
       return {

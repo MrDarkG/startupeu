@@ -259,7 +259,7 @@ export default {
             let date = new Date(Date.now())
             let week = this.getWeekByIndex(date.getDay())
             let month = this.getMonthByIndex(date.getMonth())
-            return `${week}, ${month} ${date.getDay()}`
+            return `${week}, ${month} ${date.getDate()}`
         },
         setTakenHourStyle(is_active){
             return {
