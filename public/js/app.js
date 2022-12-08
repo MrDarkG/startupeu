@@ -4997,10 +4997,10 @@ __webpack_require__.r(__webpack_exports__);
         }],
         menu: [{
           title: 'Email',
-          content: "\n                            <a\n                                style=\"color:rgba(98, 0, 238, 1);\"\n                                class=\"text-wrap\"\n                                href=\"mailto:".concat(this.mentor.user.email, "\"\n                            >\n                                ").concat(this.mentor.user.email, "\n                            </a>\n                        ")
+          content: "\n                            <a\n                                style=\"color:rgba(98, 0, 238, 1);\"\n                                class=\"text-wrap\"\n                                href=\"".concat(window.open('mailto:' + this.mentor.user.email, '_blank'), "\"\n                            >\n                                ").concat(this.mentor.user.email, "\n                            </a>\n                        ")
         }, {
           title: 'Social media',
-          content: "\n                            <a\n                                style=\"color:rgba(10, 102, 194, 1);\"\n                                href=\"".concat(this.mentor.linnkedin, "\"\n                            >\n                                ").concat(this.mentor.linnkedin, "\n                            </a>\n                        ")
+          content: "\n                            <a\n                                style=\"color:rgba(10, 102, 194, 1);\"\n                                href=\"".concat(window.open(this.mentor.linnkedin, '_blank'), "\"\n                            >\n                                ").concat(this.mentor.linnkedin, "\n                            </a>\n                        ")
         }, {
           title: 'Fields',
           content: [this.mentor.fields],

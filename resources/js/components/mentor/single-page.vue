@@ -221,7 +221,7 @@ export default {
                             <a
                                 style="color:rgba(98, 0, 238, 1);"
                                 class="text-wrap"
-                                href="mailto:${this.mentor.user.email}"
+                                href="${window.open('mailto:'+this.mentor.user.email, '_blank')}"
                             >
                                 ${this.mentor.user.email}
                             </a>
@@ -232,7 +232,7 @@ export default {
                         content:`
                             <a
                                 style="color:rgba(10, 102, 194, 1);"
-                                href="${this.mentor.linnkedin}"
+                                href="${window.open(this.mentor.linnkedin, '_blank')}"
                             >
                                 ${this.mentor.linnkedin}
                             </a>
