@@ -218,7 +218,7 @@ export default {
                     {
                         title:'Email',
                         content:`
-                            <a style="color:rgba(98, 0, 238, 1);" class="text-wrap" href="mailto:${1}">
+                            <a style="color:rgba(98, 0, 238, 1);" class="text-wrap" :href="mailto:${this.mentor.user.email}">
                                 ${this.mentor.user.email}
                             </a>
                         `
@@ -226,7 +226,7 @@ export default {
                     {
                         title:'Social media',
                         content:`
-                            <a style="color:rgba(10, 102, 194, 1);" href="https://${2}">
+                            <a style="color:rgba(10, 102, 194, 1);" :href="this.mentor.linnkedin">
                                 ${this.mentor.linnkedin}
                             </a>
                         `,
