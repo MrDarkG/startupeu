@@ -218,24 +218,25 @@ export default {
                     {
                         title:'Email',
                         content:`
-                            <a
+                            <span
                                 style="color:rgba(98, 0, 238, 1);"
-                                class="text-wrap"
-                                onclick="this.getBlankPage(${'mailto:'+this.mentor.user.email})"
+                                class="text-wrap cursor-pointer"
+                                onclick="window.open('${'mailto:'+this.mentor.user.email}','_blank')"
                             >
                                 ${this.mentor.user.email}
-                            </a>
+                            </span>
                         `
                     },
                     {
                         title:'Social media',
                         content:`
-                            <a
+                            <span
                                 style="color:rgba(10, 102, 194, 1);"
-                                onclick="this.getBlankPage(${this.mentor.linnkedin})"
+                                class="cursor-pointer"
+                                onclick="window.open('${this.mentor.linnkedin}','_blank')"
                             >
                                 ${this.mentor.linnkedin}
-                            </a>
+                            </span>
                         `,
                     },
                     {
