@@ -67820,7 +67820,7 @@ var render = function() {
                         _c("img", {
                           staticClass: "shadow",
                           attrs: {
-                            src: _vm.mentor.logo,
+                            src: "/mentors/" + _vm.mentor.logo,
                             height: "56px",
                             alt: "Logo"
                           }
