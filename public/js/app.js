@@ -5020,21 +5020,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getWeek: function getWeek(fromDate) {
-      var sunday = new Date(fromDate.setDate(fromDate.getDate() - fromDate.getDay())),
-          result = [new Date(sunday)];
-
-      while (sunday.setDate(sunday.getDate() + 1) && sunday.getDay() !== 0) {
-        result.push(new Date(sunday));
-      }
-
-      return result;
-    },
     getNowFullDate: function getNowFullDate() {
       var date = new Date(Date.now());
       var week = this.getWeekByIndex(date.getDay());
       var month = this.getMonthByIndex(date.getMonth());
-      return "".concat(week, ", ").concat(month, " ").concat(date.getFullYear());
+      return "".concat(week, ", ").concat(month, " ").concat(date.getDay());
     },
     setTakenHourStyle: function setTakenHourStyle(is_active) {
       return {

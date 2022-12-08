@@ -255,19 +255,11 @@ export default {
         }
     },
     methods:{
-        getWeek(fromDate){
-            var sunday = new Date(fromDate.setDate(fromDate.getDate()-fromDate.getDay()))
-                ,result = [new Date(sunday)];
-            while (sunday.setDate(sunday.getDate()+1) && sunday.getDay()!==0) {
-                result.push(new Date(sunday));
-            }
-            return result;
-        },
         getNowFullDate(){
             let date = new Date(Date.now())
             let week = this.getWeekByIndex(date.getDay())
             let month = this.getMonthByIndex(date.getMonth())
-            return `${week}, ${month} ${date.getFullYear()}`
+            return `${week}, ${month} ${date.getDay()}`
         },
         setTakenHourStyle(is_active){
             return {
