@@ -85,7 +85,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4">
                     <div class="font-weight-light pt-2 mt-1 pl-1">
-                        Friday, December 11
+                        {{ getNowFullDate() }}
                     </div>
                     <div class="w-100">
                         <div
@@ -255,6 +255,20 @@ export default {
         }
     },
     methods:{
+        getWeek(fromDate){
+            var sunday = new Date(fromDate.setDate(fromDate.getDate()-fromDate.getDay()))
+                ,result = [new Date(sunday)];
+            while (sunday.setDate(sunday.getDate()+1) && sunday.getDay()!==0) {
+                result.push(new Date(sunday));
+            }
+            return result;
+        },
+        getNowFullDate(){
+            let date = new Date(Date.now())
+            let week = this.getWeekByIndex(date.getDay())
+            let month = this.getMonthByIndex(date.getMonth())
+            return `${week}, ${month} ${date.getFullYear()}`
+        },
         setTakenHourStyle(is_active){
             return {
                 border:`solid 2px ${is_active?'#5856d6':'#c1c1de'}!important`,

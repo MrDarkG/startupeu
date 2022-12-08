@@ -1,5 +1,34 @@
 Vue.mixin({
     methods:{
+        getMonthByIndex(index = 0){
+            let months = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ]
+            return months[index]
+        },
+        getWeekByIndex(index = 0){
+            let weeks = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ]
+            return weeks[index]
+        },
         setShortDescription(string,length = 172){
             return (string.length > length)?string.slice(0,length-3)+' ...':string
         },

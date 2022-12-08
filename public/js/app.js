@@ -5020,6 +5020,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    getWeek: function getWeek(fromDate) {
+      var sunday = new Date(fromDate.setDate(fromDate.getDate() - fromDate.getDay())),
+          result = [new Date(sunday)];
+
+      while (sunday.setDate(sunday.getDate() + 1) && sunday.getDay() !== 0) {
+        result.push(new Date(sunday));
+      }
+
+      return result;
+    },
+    getNowFullDate: function getNowFullDate() {
+      var date = new Date(Date.now());
+      var week = this.getWeekByIndex(date.getDay());
+      var month = this.getMonthByIndex(date.getMonth());
+      return "".concat(week, ", ").concat(month, " ").concat(date.getFullYear());
+    },
     setTakenHourStyle: function setTakenHourStyle(is_active) {
       return {
         border: "solid 2px ".concat(is_active ? '#5856d6' : '#c1c1de', "!important"),
@@ -6324,6 +6340,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 Vue.mixin({
   methods: {
+    getMonthByIndex: function getMonthByIndex() {
+      var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      return months[index];
+    },
+    getWeekByIndex: function getWeekByIndex() {
+      var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var weeks = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      return weeks[index];
+    },
     setShortDescription: function setShortDescription(string) {
       var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 172;
       return string.length > length ? string.slice(0, length - 3) + ' ...' : string;
@@ -67747,7 +67773,9 @@ var render = function() {
             _c("div", { staticClass: "col-12 col-sm-12 col-md-6 col-lg-4" }, [
               _c("div", { staticClass: "font-weight-light pt-2 mt-1 pl-1" }, [
                 _vm._v(
-                  "\n                    Friday, December 11\n                "
+                  "\n                    " +
+                    _vm._s(_vm.getNowFullDate()) +
+                    "\n                "
                 )
               ]),
               _vm._v(" "),
