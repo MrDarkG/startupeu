@@ -221,7 +221,7 @@ export default {
                             <a
                                 style="color:rgba(98, 0, 238, 1);"
                                 class="text-wrap"
-                                href="${window.open('mailto:'+this.mentor.user.email, '_blank')}"
+                                onclick="this.getBlankPage('mailto:'+this.mentor.user.email)"
                             >
                                 ${this.mentor.user.email}
                             </a>
@@ -232,7 +232,7 @@ export default {
                         content:`
                             <a
                                 style="color:rgba(10, 102, 194, 1);"
-                                href="${window.open(this.mentor.linnkedin, '_blank')}"
+                                onclick="this.getBlankPage(this.mentor.linnkedin)"
                             >
                                 ${this.mentor.linnkedin}
                             </a>
@@ -262,6 +262,9 @@ export default {
         }
     },
     methods:{
+        getBlankPage(url){
+            window.open(url, '_blank')
+        },
         getNowFullDate(){
             let date = new Date(Date.now())
             let week = this.getWeekByIndex(date.getDay())
