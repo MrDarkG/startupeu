@@ -29,6 +29,9 @@ class Mentor extends Model
     public function issues(){
         return $this->hasMany(Mentor_issues::class,'mentor_id','user_id')->with('issue');
     }
+    public function user(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
     static public function allMentors($value='')
     {
         return $pipeline=app(Pipeline::class)

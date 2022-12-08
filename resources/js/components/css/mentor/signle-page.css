@@ -1,0 +1,79 @@
+.mentor-single-page-label{
+    color:rgba(0, 0, 0, 0.6);
+    font-size: 13px;
+}
+.mentor-single-page-description{
+    color:unset;
+    font-size: 17px;
+}
+.mentor-single-page-description .content{
+    background:#e6e6e6!important;
+    border-radius: 10px;
+    text-align: center;
+}
+.single-mentor-calendar-div{
+    border-radius: 36px;
+}
+.assesstment-time .vc-day-layer .vc-highlight{
+    border-radius:0px!important;
+    background:#5856d6!important;
+    padding:0px!important;
+    overflow:hidden!important;
+}
+.assesstment-time .vc-container .vc-day{
+    overflow:hidden;
+    border:none;
+    border-radius:10px!important;
+    padding: 5px !important;
+}
+.assesstment-time .vc-day ,.vc-weekday{
+    padding-left:15px;
+    padding-right:15px;
+}
+.assesstment-time .vc-header{
+    padding:0px!important;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 8px 10px!important;
+    margin-top:2px;
+}
+
+.assesstment-time .vc-container .vc-day-layer{
+    background:#5856d6!important;
+}
+.assesstment-time .vc-container .is-today{
+    box-shadow: 3px 3px 5px rgba(98, 0, 238, 0.32);
+}
+.assesstment-time .vc-container .vc-day-content{
+    border-radius: 5px!important;
+}
+.assessment_datepicker {
+    border:unset;
+}
+.assassment-time-border{
+    border-radius:8px;
+    border:1.7px solid rgba(0, 0, 0, 0.17);
+}
+.custom-hour-div:hover{
+    border-color:#5856d6!important;
+}
+.time-lable-quantity{
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 16px;
+}
+.hour{
+    border-radius:5px;
+}
+.time-color{
+    letter-spacing: 0.15px;
+    color: #5856D6;
+    font-size: 16px;
+}
+.mentor-confirm-button{
+    height:61px;
+    color:white;
+    background:#03dac5;
+    border: unset;
+}

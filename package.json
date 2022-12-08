@@ -25,7 +25,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "v-calendar": "^2.3.4",
+        "v-calendar": "^2.4.1",
         "vue-advanced-cropper": "^1.9.0",
         "vue-croppa": "^1.3.8",
         "vue-file-agent": "^1.7.3",
@@ -34,6 +34,7 @@
         "vue-simple-range-slider": "^0.1.10",
         "vue-slider-component": "^3.2.15",
         "vue-toastify": "^1.8.0",
-        "vue2-editor": "^2.10.3"
+        "vue2-editor": "^2.10.3",
+        "vuejs-datepicker": "^1.6.2"
     }
 }

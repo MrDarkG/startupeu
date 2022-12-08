@@ -189,7 +189,7 @@ class GuestController extends Controller
     }
     public function mentorSinglePage($mentor_id){
         $mentor = Mentor::where('id',$mentor_id)
-            ->with(['country','fields','issues'])
+            ->with(['country','fields','issues','user'])
             ->firstOrFail();
         return view('mentor.single-page',[
             'mentor' => $mentor,
