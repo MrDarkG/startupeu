@@ -221,7 +221,7 @@ export default {
                             <a
                                 style="color:rgba(98, 0, 238, 1);"
                                 class="text-wrap"
-                                onclick="this.getBlankPage('mailto:'+this.mentor.user.email)"
+                                onclick="${this.getBlankPage('mailto:'+this.mentor.user.email)}"
                             >
                                 ${this.mentor.user.email}
                             </a>
@@ -232,7 +232,7 @@ export default {
                         content:`
                             <a
                                 style="color:rgba(10, 102, 194, 1);"
-                                onclick="this.getBlankPage(this.mentor.linnkedin)"
+                                onclick="${this.getBlankPage(this.mentor.linnkedin)}"
                             >
                                 ${this.mentor.linnkedin}
                             </a>
