@@ -40,10 +40,6 @@
             <label for="ceo_mobile">CEO mobile number</label>
             <input type="text" id="ceo_mobile" v-model="input.startup.number" :class="setClassByValue(input.startup.number,false,button)" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
         </div>
-        <!-- <div class="col-md-3">
-            <label for="ceo_email">CEO e-mail</label>
-            <input type="text" id="ceo_email" v-model="input.phone.number" name="ceo_email"  class="form-control" placeholder="Email address"
-        </div> -->
         <div class="col-md-6  ">
             <label for="startup_email">Startup email</label>
             <input type="text" id="startup_email" v-model="input.startup.email" :class="setClassByValue(input.startup.email,false,button)" name="startup_email" class="form-control" placeholder="Email address">
@@ -159,22 +155,27 @@
                 <strong>warning!</strong>   Image file formats  - JPG,PNG,JPEG; PDF file size - 2 MB;
             </div>
         </div>
-        <div class="col-md-6 st-logo position-relative" :class="setClassByValue(input.image,false,button)" style="margin-right: 20px;height:100%;">
-            <VueFileAgent
-                :accept="'image/*'"
-                :maxSize="'10MB'"
-                :multiple="false"
-                :deletable="true"
-                :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
-                :errorText="{
+        <div class="col-md-12 position-relative d-flex align-items-center justify-content-between" :class="setClassByValue(input.image,false,button)" style="margin-right: 20px;height:100%;">
+            <div class="col-md-6 st-logo">
+                <VueFileAgent
+                    :accept="'image/*'"
+                    :maxSize="'10MB'"
+                    :multiple="false"
+                    :deletable="true"
+                    :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
+                    :errorText="{
                   type: 'Invalid file type. Only images or zip Allowed',
                   size: 'Files should not exceed 10MB in size',
                 }"
-                :uploadUrl="image.uploaded"
-                @select="onImageUpload"
-                class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
-                v-model="fileRecords"
-            ></VueFileAgent>
+                    :uploadUrl="image.uploaded"
+                    @select="onImageUpload"
+                    class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
+                    v-model="fileRecords"
+                ></VueFileAgent>
+            </div>
+            <div class="col-md-6" v-if="input.preview">
+                <img :src="input.preview" style="height:194px;" class="img-fluid rounded">
+            </div>
         </div>
     </div>
     <div class="float-right pt-3">
@@ -227,8 +228,47 @@ export default{
         'investment_range',
         'bussines_models',
         'investor_types',
-        'phone_index'
+        'phone_index',
+        'input_data'
     ],
+    watch:{
+        input_data(val){
+            if(val){
+                this.input = {
+                    user_id:this.user_id,
+                    startup:{
+                        name:val.name,
+                        email:val.startup_email,
+                        number:val.ceo_email,
+                    },
+                    founded:{
+                        year:val.founded,
+                        number:val.number_of_founders,
+                    },
+                    full_name:val.full_name,
+                    phone:{
+                        index:this.phone_index.find((phone)=>phone.id === val.phone_index),
+                        number:val.number,
+                    },
+                    website:val.website,
+                    about:{
+                        company:val.what_your_company_does,
+                        product:val.description,
+                        innovation:val.inovation,
+                    },
+                    current_stage:val.stages,
+                    bussiness_model:val.business_model,
+                    target_audience:this.investor_types.find((target_audience)=>target_audience.id === val.target_audience),
+                    industries:this.setSelectedIndustries(val.startup_industries),
+                    country:val.country,
+                    how_much:this.investment_range.find((range)=>range.id === val.range_id),
+                    what_are_you_looking:this.setSelectedLookingFor(val.looking_for),
+                    image:"",
+                    preview:val.logo,
+                }
+            }
+        }
+    },
     data(){
         return {
             button:false,
@@ -242,6 +282,7 @@ export default{
                 startup:{
                     name:"",
                     email:"",
+                    number:"",
                 },
                 founded:{
                     year:"",
@@ -270,6 +311,24 @@ export default{
         }
     },
     methods:{
+        setSelectedIndustries(selected_industries){
+            return selected_industries.map((selected_industry)=>{
+                return this.industries.find((industry)=>{
+                    if(industry.id === selected_industry.industry.id){
+                        return (industry)
+                    }
+                })
+            })
+        },
+        setSelectedLookingFor(selected_looking_fors){
+            return selected_looking_fors.map((selected_looking_for)=>{
+                return this.looking_for.find((looking_for)=>{
+                    if(looking_for.id === selected_looking_for.looking_for_id){
+                        return (looking_for)
+                    }
+                })
+            })
+        },
         saveStartup(){
             this.button = true
             axios.post('/register/startup' ,this.input)

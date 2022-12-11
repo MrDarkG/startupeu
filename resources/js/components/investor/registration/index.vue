@@ -107,26 +107,31 @@
                 ></multiselect>
             </div>
             <div
-                class="col-md-6 st-logo position-relative"
+                class="col-md-12 position-relative"
                 :class="setClassByValue(image.uploaded, false, button)"
                 style="margin-right: 20px;height:100%;"
             >
-                <VueFileAgent
-                    :accept="'image/*'"
-                    :maxSize="'10MB'"
-                    :multiple="false"
-                    :deletable="true"
-                    :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
-                    :errorText="{
+                <div class="col-md-6 st-logo m-0">
+                    <VueFileAgent
+                        :accept="'image/*'"
+                        :maxSize="'10MB'"
+                        :multiple="false"
+                        :deletable="true"
+                        :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
+                        :errorText="{
                       type: 'Invalid file type. Only images or zip Allowed',
                       size: 'Files should not exceed 10MB in size',
                     }"
-                    :uploadUrl="image.uploaded"
-                    @select="onImageUpload"
+                        :uploadUrl="image.uploaded"
+                        @select="onImageUpload"
 
-                    class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
-                    v-model="fileRecords"
-                ></VueFileAgent>
+                        class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
+                        v-model="fileRecords"
+                    ></VueFileAgent>
+                </div>
+                <div class="col-md-6 m-0" v-if="image.preview">
+                    <img :src="image.preview" style="height:194px;" class="img-fluid rounded">
+                </div>
             </div>
         </div>
         <div class="float-right">
@@ -187,6 +192,7 @@ export default{
         image:{
             uploaded:"",
             edited:"",
+            preview:"",
         },
         fileRecords:[],
         input:{
@@ -215,6 +221,27 @@ export default{
         selected: null,
         options: ['list', 'of', 'options'],
       }
+    },
+    watch:{
+        input_data(val){
+            if(val){
+                this.input.name.full = val.name
+                this.input.name.company = val.company_name
+                this.input.investment_range = this.investment_range.find((range)=>range.id === val.range_id)
+                this.input.which.market = this.markets.find((market)=>market.id === val.market_id)
+                this.input.which.stage = this.stages.find((stage)=>stage.id === val.interest_id)
+                this.input.investor_type = val.type
+                this.input.industries = val.industries.map((data)=>data.industry)
+                this.input.linkedin = val.linnkedin
+                this.input.experience = val.question1
+                this.input.country = val.countries
+                this.input.website = val.website
+                this.input.email = val.email
+                this.input.about.investor = val.about
+                this.input.about.investments = val.investments
+                this.image.preview = val.logo
+            }
+        }
     },
     methods:{
         sendData(){

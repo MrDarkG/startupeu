@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Investors;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Services\MainServices;
 use App\Services\InvestorServices;
-
+use Illuminate\Http\Request;
+use App\Models\Investor;
 class ProfileController extends Controller
 {
-    public function index($value='')
+    public function index()
     {
         InvestorServices::getMyProfileInfo();
     }
@@ -17,7 +18,6 @@ class ProfileController extends Controller
         $this->validate($request,[
             'name.full' => 'required',
             'name.company' => 'required',
-            'image' => 'required',
             'email' => 'required',
             'website' => 'required',
             'about' => 'required',
@@ -28,7 +28,7 @@ class ProfileController extends Controller
             'investor_type.id' => 'required|numeric',
             'industries' => 'required'
         ]);
-        if (InvestorServices::checkIfInvestorHaveProfileCompleted()) {
+        if (MainServices::checkIfProfileCompleted($request->input('user_id'), Investor::class)) {
             return InvestorServices::updateMyProfileInfo($request);
         }else{
             return InvestorServices::createProfile($request);

@@ -2582,13 +2582,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["stages", "bussines_models", "phone_index", "countries", "users", "industries", "investment_range", "looking_for", "markets", "investor_types", "issues", "fields"],
   data: function data() {
@@ -4166,13 +4159,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user_id', 'looking_for', 'stages', 'markets', 'countries', 'investor_types', 'bussines_models', 'industries', 'investment_range', 'input_data'],
   data: function data() {
     return {
       image: {
         uploaded: "",
-        edited: ""
+        edited: "",
+        preview: ""
       },
       fileRecords: [],
       input: {
@@ -4201,6 +4200,35 @@ __webpack_require__.r(__webpack_exports__);
       selected: null,
       options: ['list', 'of', 'options']
     };
+  },
+  watch: {
+    input_data: function input_data(val) {
+      if (val) {
+        this.input.name.full = val.name;
+        this.input.name.company = val.company_name;
+        this.input.investment_range = this.investment_range.find(function (range) {
+          return range.id === val.range_id;
+        });
+        this.input.which.market = this.markets.find(function (market) {
+          return market.id === val.market_id;
+        });
+        this.input.which.stage = this.stages.find(function (stage) {
+          return stage.id === val.interest_id;
+        });
+        this.input.investor_type = val.type;
+        this.input.industries = val.industries.map(function (data) {
+          return data.industry;
+        });
+        this.input.linkedin = val.linnkedin;
+        this.input.experience = val.question1;
+        this.input.country = val.countries;
+        this.input.website = val.website;
+        this.input.email = val.email;
+        this.input.about.investor = val.about;
+        this.input.about.investments = val.investments;
+        this.image.preview = val.logo;
+      }
+    }
   },
   methods: {
     sendData: function sendData() {
@@ -5957,8 +5985,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['user_id', 'industries', 'stages', 'countries', 'looking_for', 'investment_range', 'bussines_models', 'investor_types', 'phone_index'],
+  props: ['user_id', 'industries', 'stages', 'countries', 'looking_for', 'investment_range', 'bussines_models', 'investor_types', 'phone_index', 'input_data'],
+  watch: {
+    input_data: function input_data(val) {
+      if (val) {
+        this.input = {
+          user_id: this.user_id,
+          startup: {
+            name: val.name,
+            email: val.startup_email,
+            number: val.ceo_email
+          },
+          founded: {
+            year: val.founded,
+            number: val.number_of_founders
+          },
+          full_name: val.full_name,
+          phone: {
+            index: this.phone_index.find(function (phone) {
+              return phone.id === val.phone_index;
+            }),
+            number: val.number
+          },
+          website: val.website,
+          about: {
+            company: val.what_your_company_does,
+            product: val.description,
+            innovation: val.inovation
+          },
+          current_stage: val.stages,
+          bussiness_model: val.business_model,
+          target_audience: this.investor_types.find(function (target_audience) {
+            return target_audience.id === val.target_audience;
+          }),
+          industries: this.setSelectedIndustries(val.startup_industries),
+          country: val.country,
+          how_much: this.investment_range.find(function (range) {
+            return range.id === val.range_id;
+          }),
+          what_are_you_looking: this.setSelectedLookingFor(val.looking_for),
+          image: "",
+          preview: val.logo
+        };
+      }
+    }
+  },
   data: function data() {
     return {
       button: false,
@@ -5971,7 +6044,8 @@ __webpack_require__.r(__webpack_exports__);
         user_id: this.user_id,
         startup: {
           name: "",
-          email: ""
+          email: "",
+          number: ""
         },
         founded: {
           year: "",
@@ -6000,15 +6074,37 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    saveStartup: function saveStartup() {
+    setSelectedIndustries: function setSelectedIndustries(selected_industries) {
       var _this = this;
+
+      return selected_industries.map(function (selected_industry) {
+        return _this.industries.find(function (industry) {
+          if (industry.id === selected_industry.industry.id) {
+            return industry;
+          }
+        });
+      });
+    },
+    setSelectedLookingFor: function setSelectedLookingFor(selected_looking_fors) {
+      var _this2 = this;
+
+      return selected_looking_fors.map(function (selected_looking_for) {
+        return _this2.looking_for.find(function (looking_for) {
+          if (looking_for.id === selected_looking_for.looking_for_id) {
+            return looking_for;
+          }
+        });
+      });
+    },
+    saveStartup: function saveStartup() {
+      var _this3 = this;
 
       this.button = true;
       axios.post('/register/startup', this.input).then(function (response) {
         console.log('წარმატებით დაემატა!');
         window.location.replace(response.data);
       })["catch"](function (error) {
-        _this.popupErrors(error.response.data.errors);
+        _this3.popupErrors(error.response.data.errors);
       });
     },
     onImageUpload: function onImageUpload(event) {
@@ -63453,7 +63549,7 @@ var render = function() {
               staticClass: "font-weight-bold w-100 pb-2",
               staticStyle: { "font-size": "20px", opacity: "0.5" }
             },
-            [_vm._v("\n                Register user\n            ")]
+            [_vm._v("\n            Register user\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -63590,11 +63686,7 @@ var render = function() {
                 staticClass: "font-weight-bold w-100 pb-2",
                 staticStyle: { "font-size": "20px", opacity: "0.5" }
               },
-              [
-                _vm._v(
-                  "\n                    Select Registered User\n                "
-                )
-              ]
+              [_vm._v("\n                Select Registered User\n            ")]
             ),
             _vm._v(" "),
             _c(
@@ -63638,7 +63730,7 @@ var render = function() {
               ? _c("div", { staticClass: "col-md-12" }, [
                   _c("div", { staticClass: "sign-title" }, [
                     _vm._v(
-                      "\n                        აირჩიეთ სასურველი მომხმარებლის ტიპი\n                    "
+                      "\n                    აირჩიეთ სასურველი მომხმარებლის ტიპი\n                "
                     )
                   ]),
                   _vm._v(" "),
@@ -63663,9 +63755,9 @@ var render = function() {
                           _c("div", { staticClass: "texts" }, [
                             _c("div", { staticClass: "t-title" }, [
                               _vm._v(
-                                "\n                                    " +
+                                "\n                                " +
                                   _vm._s(type.title) +
-                                  "\n                                "
+                                  "\n                            "
                               )
                             ])
                           ])
@@ -63695,7 +63787,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                            < back\n                        "
+                            "\n                        < back\n                    "
                           )
                         ]
                       )
@@ -63776,7 +63868,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                            Create user\n                        "
+              "\n                        Create user\n                    "
             )
           ]
         )
@@ -66580,37 +66672,53 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "col-md-6 st-logo position-relative",
+              staticClass: "col-md-12 position-relative",
               class: _vm.setClassByValue(_vm.image.uploaded, false, _vm.button),
               staticStyle: { "margin-right": "20px", height: "100%" }
             },
             [
-              _c("VueFileAgent", {
-                staticClass:
-                  "bootstrap-filestyle choose_image_side_startup cursor-pointer",
-                attrs: {
-                  accept: "image/*",
-                  maxSize: "10MB",
-                  multiple: false,
-                  deletable: true,
-                  helpText: "დაამატეთ ან ჩააგდეთ სურათი",
-                  errorText: {
-                    type: "Invalid file type. Only images or zip Allowed",
-                    size: "Files should not exceed 10MB in size"
-                  },
-                  uploadUrl: _vm.image.uploaded
-                },
-                on: { select: _vm.onImageUpload },
-                model: {
-                  value: _vm.fileRecords,
-                  callback: function($$v) {
-                    _vm.fileRecords = $$v
-                  },
-                  expression: "fileRecords"
-                }
-              })
-            ],
-            1
+              _c(
+                "div",
+                { staticClass: "col-md-6 st-logo m-0" },
+                [
+                  _c("VueFileAgent", {
+                    staticClass:
+                      "bootstrap-filestyle choose_image_side_startup cursor-pointer",
+                    attrs: {
+                      accept: "image/*",
+                      maxSize: "10MB",
+                      multiple: false,
+                      deletable: true,
+                      helpText: "დაამატეთ ან ჩააგდეთ სურათი",
+                      errorText: {
+                        type: "Invalid file type. Only images or zip Allowed",
+                        size: "Files should not exceed 10MB in size"
+                      },
+                      uploadUrl: _vm.image.uploaded
+                    },
+                    on: { select: _vm.onImageUpload },
+                    model: {
+                      value: _vm.fileRecords,
+                      callback: function($$v) {
+                        _vm.fileRecords = $$v
+                      },
+                      expression: "fileRecords"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.image.preview
+                ? _c("div", { staticClass: "col-md-6 m-0" }, [
+                    _c("img", {
+                      staticClass: "img-fluid rounded",
+                      staticStyle: { height: "194px" },
+                      attrs: { src: _vm.image.preview }
+                    })
+                  ])
+                : _vm._e()
+            ]
           )
         ]),
         _vm._v(" "),
@@ -71162,37 +71270,54 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass: "col-md-6 st-logo position-relative",
+            staticClass:
+              "col-md-12 position-relative d-flex align-items-center justify-content-between",
             class: _vm.setClassByValue(_vm.input.image, false, _vm.button),
             staticStyle: { "margin-right": "20px", height: "100%" }
           },
           [
-            _c("VueFileAgent", {
-              staticClass:
-                "bootstrap-filestyle choose_image_side_startup cursor-pointer",
-              attrs: {
-                accept: "image/*",
-                maxSize: "10MB",
-                multiple: false,
-                deletable: true,
-                helpText: "დაამატეთ ან ჩააგდეთ სურათი",
-                errorText: {
-                  type: "Invalid file type. Only images or zip Allowed",
-                  size: "Files should not exceed 10MB in size"
-                },
-                uploadUrl: _vm.image.uploaded
-              },
-              on: { select: _vm.onImageUpload },
-              model: {
-                value: _vm.fileRecords,
-                callback: function($$v) {
-                  _vm.fileRecords = $$v
-                },
-                expression: "fileRecords"
-              }
-            })
-          ],
-          1
+            _c(
+              "div",
+              { staticClass: "col-md-6 st-logo" },
+              [
+                _c("VueFileAgent", {
+                  staticClass:
+                    "bootstrap-filestyle choose_image_side_startup cursor-pointer",
+                  attrs: {
+                    accept: "image/*",
+                    maxSize: "10MB",
+                    multiple: false,
+                    deletable: true,
+                    helpText: "დაამატეთ ან ჩააგდეთ სურათი",
+                    errorText: {
+                      type: "Invalid file type. Only images or zip Allowed",
+                      size: "Files should not exceed 10MB in size"
+                    },
+                    uploadUrl: _vm.image.uploaded
+                  },
+                  on: { select: _vm.onImageUpload },
+                  model: {
+                    value: _vm.fileRecords,
+                    callback: function($$v) {
+                      _vm.fileRecords = $$v
+                    },
+                    expression: "fileRecords"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.input.preview
+              ? _c("div", { staticClass: "col-md-6" }, [
+                  _c("img", {
+                    staticClass: "img-fluid rounded",
+                    staticStyle: { height: "194px" },
+                    attrs: { src: _vm.input.preview }
+                  })
+                ])
+              : _vm._e()
+          ]
         )
       ]),
       _vm._v(" "),

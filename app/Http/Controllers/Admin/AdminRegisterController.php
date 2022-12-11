@@ -14,7 +14,7 @@ class AdminRegisterController extends Controller
 {
     public function registerUser(Request $request){
         $this->validate($request,[
-            'email'=>'required|unique:users',
+            'email'=>'required|email|unique:users',
             'phone.index.id'=>'required|numeric',
             'phone.number'=>'required|string',
         ]);

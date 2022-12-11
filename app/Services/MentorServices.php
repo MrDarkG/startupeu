@@ -17,19 +17,14 @@ class MentorServices extends MainServices
 	{
 		return Mentor::where("user_id",$user_id == ""?Auth::user()->id:$user_id)->count();
 	}
-	static public function getMyImageName($user_id)
-	{
-		return Mentor::where("user_id",$user_id)->first()->logo;
-	}
 	static public function updateMyProfileInfo($request)
 	{
         $user_id = $request->user_id?$request->input('user_id'):Auth::user()->id;
-
         if ($request->input("image")) {
-			$filaname=parent::generateRandomString().".jpg";
-			parent::saveImage($request->input("image"),$filaname,"mentors_avatar");
+			$fileName=parent::generateRandomString().".jpg";
+			parent::saveImage($request->input("image"),$fileName,"mentors_avatar");
 		}else{
-			$filaname=self::getMyImageName($user_id);
+			$fileName=parent::getMyImageName($user_id, Mentor::class);
 		}
 		Mentor::where("user_id",$user_id)->update([
             'name'=>$request->input("name"),
@@ -39,17 +34,15 @@ class MentorServices extends MainServices
             'country_id'=>$request->input("country.data.id"),
             'fields_id'=>$request->input("which.field.id"),
             'issues_id'=>0,
-            'logo'=>$filaname
+            'logo'=>$fileName
 		]);
         Mentor_issues::where("mentor_id",$user_id)->delete();
-
         foreach($request->input("which.issue") as $issue){
             Mentor_issues::create([
                 "mentor_id"=>$user_id,
                 "issue_id"=>$issue['id']
             ]);
         }
-
         return UserService::setUserType("mentor",$user_id);
 	}
 
@@ -58,9 +51,9 @@ class MentorServices extends MainServices
         $request->validate([
             'image' => 'required',
         ]);
-		$filename=parent::generateRandomString().".jpg";
+		$fileName=parent::generateRandomString().".jpg";
 		$base64_image = $request->input("image");
-        parent::saveImage($base64_image, $filename, "mentors_avatar");
+        parent::saveImage($base64_image, $fileName, "mentors_avatar");
         $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
         Mentor::create([
 			'name'=>$request->input("name"),
@@ -71,21 +64,14 @@ class MentorServices extends MainServices
         	'fields_id'=>$request->input("which.field.id"),
         	'issues_id'=>0,
         	'user_id'=>$user_id,
-        	'logo'=>$filename
+        	'logo'=>$fileName
 		]);
-
         foreach($request->input("which.issue") as $issue){
             Mentor_issues::create([
                 "mentor_id"=>$user_id,
                 "issue_id"=>$issue['id']
             ]);
         }
-
         return UserService::setUserType("mentor", $user_id);
-
-//		return [
-//            "status"=>"1",
-//            "description"=>"Information stored Successfully"
-//        ];
 	}
 }

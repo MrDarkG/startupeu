@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers\Mentors;
 use App\Http\Controllers\Controller;
+use App\Models\Mentor;
+use App\Services\MainServices;
 use Illuminate\Http\Request;
 use App\Services\MentorServices;
 use App\Models\Country;
@@ -31,7 +33,7 @@ class ProfileController extends Controller
             'which.field.id' => 'required|numeric',
             'which.issue' => 'required',
         ]);
-        if (MentorServices::checkIfMentorHaveProfileCompleted($request->user_id)) {
+        if (MainServices::checkIfProfileCompleted($request->input('user_id'), Mentor::class)) {
             return MentorServices::updateMyProfileInfo($request);
         }else{
             return MentorServices::createProfile($request);

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\QueryFilters\Stages;
+use App\Models\Stage as StagesModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pipeline\Pipeline;
@@ -31,26 +32,6 @@ class Startup extends Model
         "user_id",
         "logo"
     ];
-    public function startup_industries()
-    {
-        return $this->hasMany(Startup_industries::class,'startup_id')->with("industry");
-    }
-    public function looking_for()
-    {
-        return $this->belongsTo(Looking_for::class,'startup_id');
-    }
-    public function business_model()
-    {
-        return $this->belongsTo(Bussiness_model::class,'bussiness_model','id');
-    }
-    public function country()
-    {
-        return $this->belongsTo(Country::class,'country_id','id');
-    }
-    public function stages()
-    {
-        return $this->belongsTo(Stages::class,'stage_id','id');
-    }
     static public function allStartups($value='')
     {
         return $pipeline=app(Pipeline::class)
@@ -63,5 +44,25 @@ class Startup extends Model
                 \App\QueryFilters\Name::class,
                 \App\QueryFilters\Fields::class,
             ])->thenReturn()->get();
+    }
+    public function startup_industries()
+    {
+        return $this->hasMany(Startup_industries::class,'startup_id')->with("industry");
+    }
+    public function looking_for()
+    {
+        return $this->hasMany(Startup_looking_for::class,'startup_id','id');
+    }
+    public function business_model()
+    {
+        return $this->belongsTo(Bussiness_model::class,'bussiness_model','id');
+    }
+    public function country()
+    {
+        return $this->belongsTo(Country::class,'country_id','id');
+    }
+    public function stages()
+    {
+        return $this->belongsTo(StagesModel::class,'stage_id','id');
     }
 }

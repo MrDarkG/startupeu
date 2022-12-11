@@ -28,9 +28,6 @@
                             :options="phone_index"
                             :multiple="false"
                         ></multiselect>
-                        <!--  <select name="phone_index" class="form-control" :class="setClassByValue(input.phone.index, false, submit)" v-model="input.phone.index" id="phone_index">
-                             <option :value="index.id" v-for="index in phone_index">{{ index.code }}</option>
-                         </select> -->
                     </div>
                     <div class="col-md-4">
                         <label for="phone">Phone Number</label>
@@ -86,9 +83,6 @@
                                 <div class="t-title">
                                     {{ type.title }}
                                 </div>
-<!--                                <div class="t-desc">-->
-<!--                                    {{ type.description }}-->
-<!--                                </div>-->
                             </div>
                         </a>
                     </div>
@@ -96,7 +90,6 @@
                 <div class="col-md-12 right mt-3" v-else>
                     <div>
                         <button class="btn btn-light login-btn" @click="types.map((type)=>type.is_selected = false);selected.type = {}">
-                            <!-- <i class="fa fa-arrow-left"></i> -->
                             < back
                         </button>
                     </div>
