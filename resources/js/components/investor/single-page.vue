@@ -3,7 +3,7 @@
         <single-page-header
             :user_data="{
                 name:investor.name,
-                logo:'/investor/'+investor.logo,
+                logo:investor.logo,
                 industries:investor.industries,
                 looking_for:'Looking for startup',
                 black_card:{

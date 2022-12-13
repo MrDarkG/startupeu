@@ -66844,7 +66844,7 @@ var render = function() {
         attrs: {
           user_data: {
             name: _vm.investor.name,
-            logo: "/investor/" + _vm.investor.logo,
+            logo: _vm.investor.logo,
             industries: _vm.investor.industries,
             looking_for: "Looking for startup",
             black_card: {
