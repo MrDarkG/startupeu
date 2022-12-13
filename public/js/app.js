@@ -64209,20 +64209,24 @@ var render = function() {
                           "list-item investor-item d-flex justify-content-between pt-4 pb-2"
                       },
                       [
-                        _c("a", { attrs: { href: "" + investor.id } }, [
-                          _c("img", {
-                            staticStyle: { "border-radius": "16px" },
-                            attrs: { src: investor.logo, alt: "Logo" }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "title investor-title" }, [
-                            _vm._v(_vm._s(investor.name))
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "desc investor-desc" }, [
-                            _vm._v(_vm._s(investor.question1))
-                          ])
-                        ]),
+                        _c(
+                          "a",
+                          { attrs: { href: "/investor/" + investor.id } },
+                          [
+                            _c("img", {
+                              staticStyle: { "border-radius": "16px" },
+                              attrs: { src: investor.logo, alt: "Logo" }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "title investor-title" }, [
+                              _vm._v(_vm._s(investor.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "desc investor-desc" }, [
+                              _vm._v(_vm._s(investor.question1))
+                            ])
+                          ]
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",
