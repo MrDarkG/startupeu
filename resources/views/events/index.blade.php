@@ -10,7 +10,7 @@
         @foreach($events as $event)
             <div class="col-12 col-md-12 col-lg-4 mt-3 p-4">
                 <div
-                    class="pt-5 pb-5 pl-4 pr-4"
+                    class="pt-5 pb-5 pl-4 overflow-hidden pr-4"
                     style="
                             background:{{$event->card_color}};
                             color:{{$event->card_color=='white'?'black':'white'}};
