@@ -10,7 +10,7 @@
         @foreach($events as $event)
             <div class="col-12 col-md-12 col-lg-4 mt-3 p-4">
                 <div
-                    class="pt-5 pb-5 pl-4 overflow-hidden pr-4"
+                    class="pt-5 pb-5 pl-4 pr-4"
                     style="
                             background:{{$event->card_color}};
                             color:{{$event->card_color=='white'?'black':'white'}};
@@ -34,20 +34,20 @@
                                     "
                             ></div>
                         </div>
-                        <div class="col-7 d-flex flex-column justify-content-between ecosystem-text">
+                        <div class="col-7 h-100 d-flex flex-column justify-content-between ecosystem-text">
                             <div>
                                 <h6 class="m-0">{{ $event->date }}</h6>
                             </div>
-                            <div class="font-weight-bold">
+                            <div class="font-weight-bold overflow-hidden h-100">
                                 {{ $event->title }}
                             </div>
                             <div>
                                 <a
                                     href="{{
-                                            route('singleEvent',[
-                                                'event_id' => $event->id
-                                            ])
-                                        }}"
+                                        route('singleEvent',[
+                                            'event_id' => $event->id
+                                        ])
+                                    }}"
                                 >
                                     <h6 class="m-0">Learn more</h6>
                                 </a>

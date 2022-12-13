@@ -96,20 +96,20 @@
                                     "
                                 ></div>
                             </div>
-                            <div class="col-7 d-flex flex-column justify-content-between ecosystem-text">
+                            <div class="col-7 h-100 d-flex flex-column justify-content-between ecosystem-text">
                                 <div>
                                     <h6 class="m-0">{{ $event->date }}</h6>
                                 </div>
-                                <div class="font-weight-bold">
+                                <div class="font-weight-bold overflow-hidden h-100">
                                     {{ $event->title }}
                                 </div>
                                 <div>
                                     <a
                                         href="{{
-                                            route('singleEvent',[
-                                                'event_id' => $event->id
-                                            ])
-                                        }}"
+                                        route('singleEvent',[
+                                            'event_id' => $event->id
+                                        ])
+                                    }}"
                                     >
                                         <h6 class="m-0">Learn more</h6>
                                     </a>
