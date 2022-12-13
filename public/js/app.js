@@ -64215,10 +64215,7 @@ var render = function() {
                           [
                             _c("img", {
                               staticStyle: { "border-radius": "16px" },
-                              attrs: {
-                                src: "/investor/" + investor.logo,
-                                alt: "Logo"
-                              }
+                              attrs: { src: investor.logo, alt: "Logo" }
                             }),
                             _vm._v(" "),
                             _c("div", { staticClass: "title investor-title" }, [
