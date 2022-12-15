@@ -33,8 +33,7 @@
                 label="code"
                 :options="phone_index"
                 :multiple="false"
-            >
-            </multiselect>
+            ></multiselect>
         </div>
         <div class="col-md-4">
             <label for="ceo_mobile">CEO mobile number</label>

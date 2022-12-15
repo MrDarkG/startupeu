@@ -21,6 +21,8 @@ use App\Models\Mentor;
 use App\Models\Faq_country;
 use App\Models\Startup;
 use App\Models\News;
+use Illuminate\Support\Facades\Auth;
+
 class GuestController extends Controller
 {
     /**
@@ -167,5 +169,45 @@ class GuestController extends Controller
         return view('mentor.single-page',[
             'mentor' => $mentor,
         ]);
+    }
+    public function startupUpdate(Request $request){
+        $request->validate([
+            'full_name' => 'required|string',
+            'website' => 'required|string',
+            'startup.name' => 'required|string',
+            'startup.date' => 'required|date',
+            'startup.number_of_founders' => 'required|numeric',
+            'startup.email' => 'required|email',
+            'ceo.number' => 'required|numeric',
+            'ceo.email' => 'required|email',
+            'about.company_does' => 'required|string',
+            'about.describe_your_product' => 'required|string',
+            'about.your_innovation' => 'required|string',
+            'stage.id' => 'required|numeric',
+            'country.id' => 'required|numeric',
+            'business_model.id' => 'required|numeric',
+            'looking_for' => 'required|array',
+            'investment_range.id' => 'required|numeric',
+        ]);
+
+        Startup::where('user_id',Auth::user()->id)->update([
+            'name' => $request->input('startup.name'),
+            'founded'=>$request->input('startup.date'),
+            'number_of_founders'=>$request->input('startup.number_of_founders'),
+            'full_name'=>$request->input('full_name'),
+            'number'=>$request->input('ceo.number'),
+            'ceo_email'=>$request->input('ceo.email'),
+            'startup_email'=>$request->input('startup.email'),
+            'website'=>$request->input('website'),
+            'what_your_company_does'=>$request->input('about.company_does'),
+            'description'=>$request->input('about.describe_your_product'),
+            'inovation'=>$request->input('about.your_innovation'),
+            'stage_id'=>$request->input('stage.id'),
+            'bussiness_model'=>$request->input('business_model.id'),
+            'target_audience'=>$request->input('target_audience.id'),
+            'range_id'=>$request->input('investment_range.id'),
+            'country_id'=>$request->input('country.id'),
+        ]);
+        return 1;
     }
 }

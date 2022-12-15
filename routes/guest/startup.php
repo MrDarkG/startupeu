@@ -8,4 +8,5 @@ use App\Http\Controllers\Search\SearchController;
 use App\Http\Controllers\GuestController;
 Route::get('/search',[SearchController::class,"startups"]);
 Route::get('/{startup_id}',[GuestController::class,"singleStartupPage"]);
+Route::post('/update',[GuestController::class,"startupUpdate"]);
 

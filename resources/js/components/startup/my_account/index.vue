@@ -6,8 +6,10 @@
             @getActive="setActiveMenu"
 		></startup-account-menu>
         <div style="margin-top: 15px;" v-if="menu_list[0].is_active">
-            <general-info>
-            </general-info>
+            <general-info
+                :startup="startup"
+                :data="data"
+            ></general-info>
         </div>
         <div class="ment-box box-active sign-form" v-if="menu_list[1].is_active">
             <div class="col-md-12 additional-form p-0">
@@ -19,26 +21,20 @@
 </div>
 </template>
 <script>
-import 'vue-multiselect/dist/vue-multiselect.min.css'
-import Multiselect from 'vue-multiselect'
-import VModal from 'vue-js-modal'
-
-Vue.component('multiselect', Multiselect)
-Vue.use(VModal, { componentName: 'modal',dynamicDefault: { draggable: true, resizable: false }  })
-
 export default{
+    props:["startup","data"],
     data(){
         return{
             menu_list:[
                 {
                     title:"General Info",
                     id:"general",
-                    is_active:false,
+                    is_active:true,
                 },
                 {
                     title:"Additinal Info",
                     id:"additional",
-                    is_active:true,
+                    is_active:false,
                 },
                 {
                     title:"Team Info",

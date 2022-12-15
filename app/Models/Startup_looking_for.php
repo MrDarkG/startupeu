@@ -13,4 +13,9 @@ class Startup_looking_for extends Model
         "startup_id",
         "looking_for_id"
     ];
+
+    public function looking_for()
+    {
+        return $this->hasOne(Looking_for::class,'id','looking_for_id');
+    }
 }

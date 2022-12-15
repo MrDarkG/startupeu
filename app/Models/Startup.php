@@ -49,9 +49,13 @@ class Startup extends Model
     {
         return $this->hasMany(Startup_industries::class,'startup_id')->with("industry");
     }
+    public function target_audience()
+    {
+        return $this->hasOne(Investor_type::class,'id','target_audience');
+    }
     public function looking_for()
     {
-        return $this->hasMany(Startup_looking_for::class,'startup_id','id');
+        return $this->hasMany(Startup_looking_for::class,'startup_id','id')->with('looking_for');
     }
     public function business_model()
     {
@@ -64,5 +68,8 @@ class Startup extends Model
     public function stages()
     {
         return $this->belongsTo(StagesModel::class,'stage_id','id');
+    }
+    public function investment_range(){
+        return $this->hasOne(Range::class,'id','range_id');
     }
 }
