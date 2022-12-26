@@ -1,6 +1,6 @@
 <template>
 <div class="sign-form" id="startup-form">
-    <div class="row">
+    <div v-if="edit_button.is_active" class="row">
         <div class="col-md-4">
             <label for="title">Startup Name</label>
             <input
@@ -213,11 +213,16 @@
             </button>
         </div>
     </div>
+    <div v-else>
+        <startup-general-info-single-page
+            :startup="startup"
+        ></startup-general-info-single-page>
+    </div>
 </div>
 </template>
 <script>
 export default{
-    props:["startup","data"],
+    props:["startup","data","edit_button"],
     data(){
       return {
           button:false,
@@ -249,11 +254,18 @@ export default{
           },
       }
     },
+    created(){
+        this.$emit('setEditButtonTitle','General')
+        this.$emit('setEditButtonTitle',this.startup.logo.length === 0 ,'is_active')
+    },
     methods:{
         sendAxiosToSave(){
             axios.post("/startup/update",this.inputs)
             .then((response)=>{
                 this.$vToastify.success("Successfully updated", "Response");
+                setTimeout(()=>{
+                    window.location.reload()
+                },2000)
             }).catch((error)=>{
                 this.popupErrors(error.response.data.errors)
             })

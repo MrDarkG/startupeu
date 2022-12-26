@@ -163,9 +163,9 @@
                     :deletable="true"
                     :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
                     :errorText="{
-                  type: 'Invalid file type. Only images or zip Allowed',
-                  size: 'Files should not exceed 10MB in size',
-                }"
+                      type: 'Invalid file type. Only images or zip Allowed',
+                      size: 'Files should not exceed 10MB in size',
+                    }"
                     :uploadUrl="image.uploaded"
                     @select="onImageUpload"
                     class="bootstrap-filestyle choose_image_side_startup cursor-pointer"

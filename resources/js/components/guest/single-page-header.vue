@@ -1,22 +1,23 @@
 <template>
     <div class="row border-bottom pl-0 pb-4 pr-0 m-0 justify-content-between flex-wrap w-100">
         <div
-            class="d-flex pl-0 pr-0 mt-3 col-12 col-sm-8 col-md-8 col-lg-9 align-items center"
-            style="height:120px;"
+            class="d-flex flex-wrap pl-0 pr-0 mt-3 col-12 col-sm-8 col-md-8 col-lg-9 align-items-center"
         >
             <div
                 class="p-1 rounded-20px"
-                style=";width:120px;"
+                style="width:120px;"
             >
                 <img
-                    style="height:100%;border-radius: 20px;"
+                    style="height:120px;border-radius: 20px;"
                     alt="Logo"
                     :src="user_data.logo"
                 >
             </div>
-            <div class="pl-4 w-100 d-flex flex-column justify-content-center align-content-start">
+            <div
+                class="pl-1 pl-sm-1 pl-md-1 pl-lg-4 d-flex flex-column justify-content-center align-content-start"
+            >
                 <div>
-                    <h1>{{user_data.name}}</h1>
+                    <h1 style="word-wrap: anywhere;">{{user_data.name}}</h1>
                 </div>
                 <div
                     class="font-weight-bold"
@@ -38,7 +39,7 @@
         </div>
         <div
             style="background: black;"
-            v-if="user_data.black_card"
+            v-if="!is_looking_for_active && user_data.black_card"
             class="p-3 mt-3 col-12 col-sm-4 col-md-4 col-lg-3 w-100 text-white d-flex flex-column justify-content-center font-weight-bold rounded-20px"
         >
             <div style="font-size:15px;">
@@ -52,6 +53,6 @@
 </template>
 <script>
 export default {
-    props:['user_data'],
+    props:['user_data','is_looking_for_active'],
 }
 </script>

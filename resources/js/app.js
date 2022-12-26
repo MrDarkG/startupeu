@@ -19,6 +19,7 @@ window.Vue = require('vue').default
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 require('./import.js')
+require('./app/svg')
 /*MIXINS*/
 require('./mixin/helper')
 require('./helpers/browse_guest_helper')
@@ -26,6 +27,9 @@ require('./helpers/browse_guest_helper')
 //GUEST COMPONENTS
     require('./app/guest.js')
 //END GUEST COMPONENTS
+//Dashboard COMPONENTS
+    require('./app/dashboard.js')
+//END Dashboard COMPONENTS
 Vue.component('example-component', require('./components/ExampleComponent.vue').default)
 Vue.component('dashboard-menu', require('./components/dashboard/menu.vue').default)
 // Vue.component('mentor-registration', require('./\components/mentor/registration/index.vue').default)
@@ -44,11 +48,12 @@ Vue.component('create-mentor', require('./components/mentor/registration/index.v
 Vue.component('startup-dashboard', require('./components/startup/dashboard/index.vue').default)
 Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue').default)
 // STARTUP MY_ACCOUNT
+    Vue.component('startup-team-info', require('./components/startup/my_account/team.vue').default)
+    Vue.component('startup-teamates', require('./components/startup/teamates.vue').default)
     Vue.component('startup-account-menu', require('./components/startup/my_account/menu.vue').default)
     Vue.component('my-account', require('./components/startup/my_account/index.vue').default)
     Vue.component('general-info', require('./components/startup/my_account/general.vue').default)
     Vue.component('additional-info', require('./components/startup/my_account/additional_info.vue').default)
-    Vue.component('team-info', require('./components/startup/my_account/team.vue').default)
 
 // INVESTOR DASHBOARD
     Vue.component('investor-dashboard', require('./components/investor/index.vue').default)

@@ -20,9 +20,9 @@ class ChooseSideMiddleware{
     public function handle(Request $request, Closure $next)
     {
         $user_type = Auth::user()->user_type;
-        if($user_type == null){
-            return $next($request);
+        if($user_type !== null){
+            return redirect($user_type.'/dashboard/index');
         }
-        abort(403);
+        return $next($request);
     }
 }

@@ -85,8 +85,5 @@ export default{
             return this.submit?is_error:''
         },
     },
-    created(){
-
-    },
 };
 </script>

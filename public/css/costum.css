@@ -1,6 +1,44 @@
-
+*{
+    font-family: 'FiraGO-regular', 'FiraGO-bold' !important;
+}
 #logo{
     height: 40px;
+}
+.btn-03dac5{
+    color:white;
+    border-radius:16px;
+    background:#03dac5;
+    border: none;
+}
+.btn-03dac5:hover{
+    border:solid 1px #03dac5;
+    color:#03dac5;
+    background:white;
+}
+.btn-6200EE{
+    color:white;
+    border-radius:16px;
+    background:#6200EE;
+    border: none;
+}
+.btn-6200EE:hover{
+    border:solid 1px #6200EE;
+    color:#6200EE;
+    background:white;
+}
+.file-preview-wrapper span{
+    background:#d8cee7!important;
+}
+.ecosystem-text{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+.color-darkpurple{
+    color:#6200EE;
+}
+.text-opacity-half{
+    color:#929292;
 }
 @font-face {
     font-family: 'FiraGO-bold';
@@ -9,11 +47,6 @@
     font-weight: bold;
     font-style: normal;
     font-display: swap;
-}
-.ecosystem-text{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
 }
 @font-face {
     font-family: 'FiraGO-medium';
@@ -5147,4 +5180,13 @@ a:hover{
 .browse-startup-card{
     background: white;
     border-radius: 36px;
+}
+.team-info-image{
+    height:170px;
+    min-height:170px;
+    min-width:170px;
+    width:170px;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;
 }

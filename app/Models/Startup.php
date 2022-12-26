@@ -57,6 +57,10 @@ class Startup extends Model
     {
         return $this->hasMany(Startup_looking_for::class,'startup_id','id')->with('looking_for');
     }
+    public function teamates()
+    {
+        return $this->hasMany(Startup_team_info::class,'startup_id','id');
+    }
     public function business_model()
     {
         return $this->belongsTo(Bussiness_model::class,'bussiness_model','id');
@@ -71,5 +75,8 @@ class Startup extends Model
     }
     public function investment_range(){
         return $this->hasOne(Range::class,'id','range_id');
+    }
+    public function aditional_info(){
+        return $this->hasOne(Startup_aditional_info::class,'startup_id','id');
     }
 }

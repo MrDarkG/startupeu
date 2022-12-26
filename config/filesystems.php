@@ -59,6 +59,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'startups_teamate_images'=>[
+            'driver' => 'local',
+            'root' => public_path('/startup/teamates'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
         'investors_avatar'=>[
             'driver' => 'local',
             'root' => public_path('/investor'),

@@ -1,51 +1,171 @@
 <template>
-<div id="team-box" class="ment-box  sign-form">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="req-info-text">
-                Team
-                <div class="divid"></div>
+<div class="sign-form">
+    <div v-if="edit_button_active">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="req-info-text ml-0">
+                    Team
+                    <div class="divid"></div>
+                </div>
+                <div
+                    class="st-logo p-0 m-0 mt-3 position-relative"
+                    :class="setClassByValue(inputs.image,false,is_submit)"
+                    style="min-width:170px;"
+                >
+                    <VueFileAgent
+                        :accept="'image/*'"
+                        :maxSize="'10MB'"
+                        :multiple="false"
+                        :deletable="true"
+                        :helpText="'დაამატეთ ან ჩააგდეთ სურათი'"
+                        :errorText="{
+                          type: 'Invalid file type. Only images or zip Allowed',
+                          size: 'Files should not exceed 10MB in size',
+                        }"
+                        :uploadUrl="inputs.image"
+                        class="bootstrap-filestyle choose_image_side_startup cursor-pointer"
+                        v-model="fileRecords"
+                        @select="onImageUpload"
+                    ></VueFileAgent>
+                </div>
             </div>
-            <div class="st-logo" style="margin-right: 20px;">
-                <input type="file" id="team_image" class="filestyle" name="team_image" style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" tabindex="-1"><div class="bootstrap-filestyle input-group"><div name="filedrag" style="position: absolute; width: 100%; height: 0px; z-index: -1;"></div><span class="group-span-filestyle " tabindex="0"><label for="team_image" style="margin-bottom: 0;" class="btn  "><img class="st-logo-img" src="https://startupcentraleurasia.com/themes/application/Components/svg/attachment.svg" alt=""><span class="buttonText">Drag team image</span></label></span></div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 mt-3 mt-sm-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="first_name">First name</label>
+                        <input
+                            :class="setClassByValue(inputs.name,false,is_submit)"
+                            v-model="inputs.name"
+                            type="text"
+                            id="first_name"
+                            class="form-control"
+                            placeholder="Write here"
+                        >
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name">Last name</label>
+                        <input
+                            :class="setClassByValue(inputs.lastname,false,is_submit)"
+                            v-model="inputs.lastname"
+                            type="text"
+                            id="last_name"
+                            class="form-control"
+                            placeholder="Write here"
+                        >
+                    </div>
+                    <div class="col-md-6">
+                        <label for="position">Position</label>
+                        <input
+                            :class="setClassByValue(inputs.position,false,is_submit)"
+                            v-model="inputs.position"
+                            type="text"
+                            id="position"
+                            class="form-control"
+                            placeholder="Write here"
+                        >
+                    </div>
+                    <div class="col-md-6">
+                        <label for="linkedin_address">Linkedin profile</label>
+                        <input
+                            :class="setClassByValue(inputs.linkedin,false,is_submit)"
+                            v-model="inputs.linkedin"
+                            type="text"
+                            id="linkedin_address"
+                            class="form-control"
+                            placeholder="Write here"
+                        >
+                    </div>
+                    <div class="col-md-12">
+                        <label for="information_about_this_person">Information about this person</label>
+                        <textarea
+                            :class="setClassByValue(inputs.about_me,false,is_submit)"
+                            v-model="inputs.about_me"
+                            id="information_about_this_person"
+                            cols="30"
+                            rows="10"
+                            class="form-control h160"
+                            placeholder="Type here"
+                        ></textarea>
+                    </div>
+                </div>
             </div>
-            <button class="add_a_member_btn" onclick="saveTeamInfo()">
-                <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/plus.svg" alt="">Add another member                            
+        </div>
+        <div class="mt-3 d-flex align-items-center justify-content-end">
+            <button
+                @click="is_submit = true;addTeamateToStartup()"
+                class="btn btn-03dac5 pt-2 pb-2 pl-3 pr-3 d-flex align-items center"
+            >
+                <span>
+                    <i class='fa fa-plus fa-2xl'></i>
+                </span>
+                <span class="pl-2 font-weigh-bolder">
+                    Add another member
+                </span>
             </button>
         </div>
-        <div class="col-md-9">
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="first_name">First name</label>
-                    <input type="text" id="first_name" name="first_name" value="" class="form-control" placeholder="Write here">
-                </div>
-
-                <div class="col-md-6">
-                    <label for="last_name">Last name</label>
-                    <input type="text" id="last_name" name="last_name" value="" class="form-control" placeholder="Write here">
-                </div>
-
-
-                <div class="col-md-6">
-                    <label for="position">Position</label>
-                    <input type="text" id="position" name="position" value="" class="form-control" placeholder="Write here">
-                </div>
-
-                <div class="col-md-6">
-                    <label for="linkedin_address">Linkedin profile</label>
-                    <input type="text" id="linkedin_address" name="linkedin_address" value="" class="form-control" placeholder="Write here">
-                </div>
-
-                <div class="col-md-12">
-                    <label for="information_about_this_person">Information about this person</label>
-                    <textarea name="information_about_this_person" id="information_about_this_person" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-        </div>
     </div>
-
-
+    <div class="col-md-12 p-0 mt-5 pb-5">
+        <startup-teamates
+            :is_editable="edit_button_active"
+            :teamates="team"
+        ></startup-teamates>
+    </div>
 </div>
 </template>
+<script>
+export default{
+    props:['teamates','edit_button_active'],
+    data(){
+        return {
+            team:this.teamates ? this.teamates : [],
+            fileRecords:[],
+            is_submit:false,
+            inputs:{},
+        }
+    },
+    created(){
+        this.setInputDefaultValue()
+        this.$emit('setEditButtonTitle','Team')
+        this.$emit('setEditButtonTitle',this.team.length === 0,'is_active')
+    },
+    methods:{
+        setInputDefaultValue(){
+            this.inputs = {
+                name:'',
+                lastname:'',
+                position:'',
+                linkedin:'',
+                about_me:'',
+                image:'',
+            }
+            this.fileRecords = []
+            this.is_submit = false
+        },
+        addTeamateToStartup(){
+            if (this.isInputsValid(this.inputs)){
+                axios.post('/startup/dashboard/add/teamate',this.inputs)
+                .then((response)=>{
+                    this.team.push(response.data)
+                    this.setInputDefaultValue()
+                    setTimeout(()=>{
+                        window.scrollTo(0, document.body.scrollHeight)
+                    },500)
+                }).catch((error)=>{
+                    this.popupErrors(error.response.data.errors)
+                })
+            }
+        },
+        onImageUpload(event){
+            this.inputs.image = event[0].urlResized
+        },
+    }
+}
+</script>
+<style>
+.bootstrap-filestyle .file-preview-wrapper{
+    background:#d8cee7!important;
+}
+.bootstrap-filestyle .file-preview-wrapper::before{
+    background:#d8cee7!important;
+}
+</style>
