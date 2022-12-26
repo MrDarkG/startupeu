@@ -66152,6 +66152,7 @@ var staticRenderFns = [
       },
       [
         _c("img", {
+          staticClass: "pr-1",
           staticStyle: { opacity: "0.6" },
           attrs: {
             src: "/assets/images/power-off.png",
@@ -66160,9 +66161,14 @@ var staticRenderFns = [
           }
         }),
         _vm._v(" "),
-        _c("span", { staticClass: "logout-btn" }, [
-          _vm._v("\n                Logout\n            ")
-        ])
+        _c(
+          "span",
+          {
+            staticClass:
+              "pl-1 d-none d-sm-none d-md-none d-lg-flex align-items-center logout-btn"
+          },
+          [_vm._v("\n                Logout\n            ")]
+        )
       ]
     )
   }

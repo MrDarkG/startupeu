@@ -26,8 +26,8 @@
             </div>
         </div>
         <div class="sidebar-logout p-0 m-0 d-flex justify-content-center" onclick="axios.post('/logout').then(()=>window.location.reload())">
-            <img src="/assets/images/power-off.png" alt="" height="30px" style="opacity:0.6">
-            <span class="logout-btn">
+            <img src="/assets/images/power-off.png" class="pr-1" alt="" height="30px" style="opacity:0.6">
+            <span class="pl-1 d-none d-sm-none d-md-none d-lg-flex align-items-center logout-btn">
                 Logout
             </span>
         </div>
