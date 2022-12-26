@@ -278,51 +278,51 @@ export default{
             menu:[
                 {
                     title:'Traction',
-                    value:this.startup.aditional_info.traction??'Not mentioned',
+                    value:this.startup.aditional_info?.traction??'Not mentioned',
                 },
                 {
                     title:'Kind of problem startup will solve',
-                    value:this.startup.aditional_info.problem??'Not mentioned',
+                    value:this.startup.aditional_info?.problem??'Not mentioned',
                 },
                 {
                     title:'Expected revenue in 5 years',
-                    value:this.startup.aditional_info.revenue??'Not mentioned',
+                    value:this.startup.aditional_info?.revenue??'Not mentioned',
                 },
                 {
                     title:'Curent mrr data',
-                    value:this.startup.aditional_info.mmr_data??'Not mentioned',
+                    value:this.startup.aditional_info?.mmr_data??'Not mentioned',
                 },
                 {
                     title:'Curent arr',
-                    value:this.startup.aditional_info.current_arr??'Not mentioned',
+                    value:this.startup.aditional_info?.current_arr??'Not mentioned',
                 },
                 {
                     title:'Churn rate',
-                    value:this.startup.aditional_info.churn_rate??'Not mentioned',
+                    value:this.startup.aditional_info?.churn_rate??'Not mentioned',
                 },
                 {
                     title:'Retention',
-                    value:this.startup.aditional_info.retention??'Not mentioned',
+                    value:this.startup.aditional_info?.retention??'Not mentioned',
                 },
                 {
                     title:'Customer Acquisition Cost',
-                    value:this.startup.aditional_info.custumer_acquisition??'Not mentioned',
+                    value:this.startup.aditional_info?.custumer_acquisition??'Not mentioned',
                 },
                 {
                     title:'Prototype',
-                    value:this.startup.aditional_info.prototype??'Not mentioned',
+                    value:this.startup.aditional_info?.prototype??'Not mentioned',
                 },
                 {
                     title:'Startup experience',
-                    value:this.startup.aditional_info.years_experience??'Not mentioned',
+                    value:this.startup.aditional_info?.years_experience??'Not mentioned',
                 },
                 {
                     title:'Required amount of money',
-                    value:this.startup.aditional_info.how_much_money??'Not mentioned',
+                    value:this.startup.aditional_info?.how_much_money??'Not mentioned',
                 },
                 {
                     title:'For how much percent?',
-                    value:this.startup.aditional_info.how_much_percent+'%'??'Not mentioned',
+                    value:this.startup.aditional_info?.how_much_percent+'%'??'Not mentioned',
                 }
             ],
             input: {}
@@ -330,7 +330,7 @@ export default{
 	},
     created(){
         this.$emit('setEditButtonTitle','Additional')
-        this.$emit('setEditButtonTitle',this.startup.aditional_info.traction.length === 0,'is_active')
+        this.$emit('setEditButtonTitle',this.startup.aditional_info?.traction.length === 0,'is_active')
         this.setInputDefaultValue()
     },
 	methods:{
