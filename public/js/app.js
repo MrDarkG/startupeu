@@ -69832,10 +69832,7 @@ var render = function() {
                                   height: "120px",
                                   width: "120px!important"
                                 },
-                                attrs: {
-                                  src: "/investor/" + investor.logo,
-                                  alt: "Logo"
-                                }
+                                attrs: { src: investor.logo, alt: "Logo" }
                               })
                             ]
                           ),

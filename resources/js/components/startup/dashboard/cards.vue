@@ -18,7 +18,7 @@
 	                	<div class="col-md-9 row m-0 mt-3 mb-3 border-right border-sm-none">
                             <div class="pl-2 pr-2 col-md-3 d-flex justify-content-center justify-content-sm-start">
                                 <img
-                                    :src="'/investor/'+investor.logo"
+                                    :src="investor.logo"
                                     alt="Logo"
                                     class=""
                                     style="border-radius: 36px;height:120px;width:120px!important;"
