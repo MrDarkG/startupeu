@@ -25,8 +25,18 @@
                 </ul>
             </div>
         </div>
-        <div class="sidebar-logout p-0 m-0 d-flex justify-content-center" onclick="axios.post('/logout').then(()=>window.location.reload())">
-            <img src="/assets/images/power-off.png" class="pr-1" alt="" height="30px" style="opacity:0.6">
+        <div
+            style="min-width: 76px;"
+            class="sidebar-logout p-0 m-0 d-flex justify-content-center"
+            onclick="axios.post('/logout').then(()=>window.location.reload())"
+        >
+            <img
+                src="/assets/images/power-off.png"
+                class="pr-1"
+                alt=""
+                height="30px"
+                style="opacity:0.6"
+            >
             <span class="pl-1 d-none d-sm-none d-md-none d-lg-flex align-items-center logout-btn">
                 Logout
             </span>
@@ -39,8 +49,3 @@ export default {
     props:["data"],
 }
 </script>
-<style>
-/*.active-menu span{*/
-/*    color: #6200ee!important;*/
-/*}*/
-</style>
