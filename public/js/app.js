@@ -5751,33 +5751,33 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setInputDefaultValue: function setInputDefaultValue() {
-      var _this$startup$adition25, _this$startup$adition26, _this$startup$adition27, _this$startup$adition28, _this$startup$adition29, _this$startup$adition30, _this$startup$adition31, _this$startup$adition32, _this$startup$adition33, _this$startup$adition34, _this$startup$adition35, _this$startup$adition36, _this$startup$adition37, _this$startup$adition38, _this$startup$adition39, _this$startup$adition40;
+      var _this$startup$adition25, _this$startup$adition26, _this$startup$adition27, _this$startup$adition28, _this$startup$adition29, _this$startup$adition30, _this$startup$adition31, _this$startup$adition32, _this$startup$adition33, _this$startup$adition34, _this$startup$adition35, _this$startup$adition36, _this$startup$adition37, _this$startup$adition38, _this$startup$adition39, _this$startup$adition40, _this$startup$adition41, _this$startup$adition42, _this$startup$adition43, _this$startup$adition44, _this$startup$adition45, _this$startup$adition46, _this$startup$adition47, _this$startup$adition48, _this$startup$adition49, _this$startup$adition50, _this$startup$adition51, _this$startup$adition52, _this$startup$adition53, _this$startup$adition54, _this$startup$adition55, _this$startup$adition56;
 
       this.input = {
-        traction: (_this$startup$adition25 = this.startup.aditional_info.traction) !== null && _this$startup$adition25 !== void 0 ? _this$startup$adition25 : "",
-        problem: (_this$startup$adition26 = this.startup.aditional_info.problem) !== null && _this$startup$adition26 !== void 0 ? _this$startup$adition26 : "",
+        traction: (_this$startup$adition25 = (_this$startup$adition26 = this.startup.aditional_info) === null || _this$startup$adition26 === void 0 ? void 0 : _this$startup$adition26.traction) !== null && _this$startup$adition25 !== void 0 ? _this$startup$adition25 : "",
+        problem: (_this$startup$adition27 = (_this$startup$adition28 = this.startup.aditional_info) === null || _this$startup$adition28 === void 0 ? void 0 : _this$startup$adition28.problem) !== null && _this$startup$adition27 !== void 0 ? _this$startup$adition27 : "",
         expected_revenue: {
-          from: (_this$startup$adition27 = this.startup.aditional_info.expected_revenue.split('-')[0]) !== null && _this$startup$adition27 !== void 0 ? _this$startup$adition27 : "",
-          to: (_this$startup$adition28 = this.startup.aditional_info.expected_revenue.split('-')[1]) !== null && _this$startup$adition28 !== void 0 ? _this$startup$adition28 : ""
+          from: (_this$startup$adition29 = (_this$startup$adition30 = this.startup.aditional_info) === null || _this$startup$adition30 === void 0 ? void 0 : _this$startup$adition30.expected_revenue.split('-')[0]) !== null && _this$startup$adition29 !== void 0 ? _this$startup$adition29 : "",
+          to: (_this$startup$adition31 = (_this$startup$adition32 = this.startup.aditional_info) === null || _this$startup$adition32 === void 0 ? void 0 : _this$startup$adition32.expected_revenue.split('-')[1]) !== null && _this$startup$adition31 !== void 0 ? _this$startup$adition31 : ""
         },
         mmr_data: {
-          from: (_this$startup$adition29 = this.startup.aditional_info.mmr_data.split('-')[0]) !== null && _this$startup$adition29 !== void 0 ? _this$startup$adition29 : "",
-          to: (_this$startup$adition30 = this.startup.aditional_info.mmr_data.split('-')[1]) !== null && _this$startup$adition30 !== void 0 ? _this$startup$adition30 : ""
+          from: (_this$startup$adition33 = (_this$startup$adition34 = this.startup.aditional_info) === null || _this$startup$adition34 === void 0 ? void 0 : _this$startup$adition34.mmr_data.split('-')[0]) !== null && _this$startup$adition33 !== void 0 ? _this$startup$adition33 : "",
+          to: (_this$startup$adition35 = (_this$startup$adition36 = this.startup.aditional_info) === null || _this$startup$adition36 === void 0 ? void 0 : _this$startup$adition36.mmr_data.split('-')[1]) !== null && _this$startup$adition35 !== void 0 ? _this$startup$adition35 : ""
         },
         current_arr: {
-          from: (_this$startup$adition31 = this.startup.aditional_info.current_arr.split('-')[0]) !== null && _this$startup$adition31 !== void 0 ? _this$startup$adition31 : "",
-          to: (_this$startup$adition32 = this.startup.aditional_info.current_arr.split('-')[1]) !== null && _this$startup$adition32 !== void 0 ? _this$startup$adition32 : ""
+          from: (_this$startup$adition37 = (_this$startup$adition38 = this.startup.aditional_info) === null || _this$startup$adition38 === void 0 ? void 0 : _this$startup$adition38.current_arr.split('-')[0]) !== null && _this$startup$adition37 !== void 0 ? _this$startup$adition37 : "",
+          to: (_this$startup$adition39 = (_this$startup$adition40 = this.startup.aditional_info) === null || _this$startup$adition40 === void 0 ? void 0 : _this$startup$adition40.current_arr.split('-')[1]) !== null && _this$startup$adition39 !== void 0 ? _this$startup$adition39 : ""
         },
         how_much_money: {
-          from: (_this$startup$adition33 = this.startup.aditional_info.how_much_money.split('-')[0]) !== null && _this$startup$adition33 !== void 0 ? _this$startup$adition33 : "",
-          to: (_this$startup$adition34 = this.startup.aditional_info.how_much_money.split('-')[1]) !== null && _this$startup$adition34 !== void 0 ? _this$startup$adition34 : ""
+          from: (_this$startup$adition41 = (_this$startup$adition42 = this.startup.aditional_info) === null || _this$startup$adition42 === void 0 ? void 0 : _this$startup$adition42.how_much_money.split('-')[0]) !== null && _this$startup$adition41 !== void 0 ? _this$startup$adition41 : "",
+          to: (_this$startup$adition43 = (_this$startup$adition44 = this.startup.aditional_info) === null || _this$startup$adition44 === void 0 ? void 0 : _this$startup$adition44.how_much_money.split('-')[1]) !== null && _this$startup$adition43 !== void 0 ? _this$startup$adition43 : ""
         },
-        retention: (_this$startup$adition35 = this.startup.aditional_info.retention) !== null && _this$startup$adition35 !== void 0 ? _this$startup$adition35 : "",
-        custumer_acquisition: (_this$startup$adition36 = this.startup.aditional_info.custumer_acquisition) !== null && _this$startup$adition36 !== void 0 ? _this$startup$adition36 : "",
-        prototype: (_this$startup$adition37 = this.startup.aditional_info.prototype) !== null && _this$startup$adition37 !== void 0 ? _this$startup$adition37 : "",
-        years_experience: (_this$startup$adition38 = this.startup.aditional_info.years_experience) !== null && _this$startup$adition38 !== void 0 ? _this$startup$adition38 : "",
-        how_much_percent: (_this$startup$adition39 = this.startup.aditional_info.how_much_percent) !== null && _this$startup$adition39 !== void 0 ? _this$startup$adition39 : "",
-        churn_rate: (_this$startup$adition40 = this.startup.aditional_info.churn_rate) !== null && _this$startup$adition40 !== void 0 ? _this$startup$adition40 : ""
+        retention: (_this$startup$adition45 = (_this$startup$adition46 = this.startup.aditional_info) === null || _this$startup$adition46 === void 0 ? void 0 : _this$startup$adition46.retention) !== null && _this$startup$adition45 !== void 0 ? _this$startup$adition45 : "",
+        custumer_acquisition: (_this$startup$adition47 = (_this$startup$adition48 = this.startup.aditional_info) === null || _this$startup$adition48 === void 0 ? void 0 : _this$startup$adition48.custumer_acquisition) !== null && _this$startup$adition47 !== void 0 ? _this$startup$adition47 : "",
+        prototype: (_this$startup$adition49 = (_this$startup$adition50 = this.startup.aditional_info) === null || _this$startup$adition50 === void 0 ? void 0 : _this$startup$adition50.prototype) !== null && _this$startup$adition49 !== void 0 ? _this$startup$adition49 : "",
+        years_experience: (_this$startup$adition51 = (_this$startup$adition52 = this.startup.aditional_info) === null || _this$startup$adition52 === void 0 ? void 0 : _this$startup$adition52.years_experience) !== null && _this$startup$adition51 !== void 0 ? _this$startup$adition51 : "",
+        how_much_percent: (_this$startup$adition53 = (_this$startup$adition54 = this.startup.aditional_info) === null || _this$startup$adition54 === void 0 ? void 0 : _this$startup$adition54.how_much_percent) !== null && _this$startup$adition53 !== void 0 ? _this$startup$adition53 : "",
+        churn_rate: (_this$startup$adition55 = (_this$startup$adition56 = this.startup.aditional_info) === null || _this$startup$adition56 === void 0 ? void 0 : _this$startup$adition56.churn_rate) !== null && _this$startup$adition55 !== void 0 ? _this$startup$adition55 : ""
       };
     },
     sendToSave: function sendToSave() {

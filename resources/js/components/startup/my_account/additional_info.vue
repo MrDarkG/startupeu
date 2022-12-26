@@ -336,30 +336,30 @@ export default{
 	methods:{
         setInputDefaultValue(){
           this.input = {
-              traction:this.startup.aditional_info.traction??"",
-              problem:this.startup.aditional_info.problem??"",
+              traction:this.startup.aditional_info?.traction??"",
+              problem:this.startup.aditional_info?.problem??"",
               expected_revenue:{
-                  from:this.startup.aditional_info.expected_revenue.split('-')[0]??"",
-                  to:this.startup.aditional_info.expected_revenue.split('-')[1]??""
+                  from:this.startup.aditional_info?.expected_revenue.split('-')[0]??"",
+                  to:this.startup.aditional_info?.expected_revenue.split('-')[1]??""
               },
               mmr_data: {
-                  from:this.startup.aditional_info.mmr_data.split('-')[0]??"",
-                  to:this.startup.aditional_info.mmr_data.split('-')[1]??""
+                  from:this.startup.aditional_info?.mmr_data.split('-')[0]??"",
+                  to:this.startup.aditional_info?.mmr_data.split('-')[1]??""
               },
               current_arr: {
-                  from:this.startup.aditional_info.current_arr.split('-')[0]??"",
-                  to:this.startup.aditional_info.current_arr.split('-')[1]??""
+                  from:this.startup.aditional_info?.current_arr.split('-')[0]??"",
+                  to:this.startup.aditional_info?.current_arr.split('-')[1]??""
               },
               how_much_money:{
-                  from:this.startup.aditional_info.how_much_money.split('-')[0]??"",
-                  to:this.startup.aditional_info.how_much_money.split('-')[1]??""
+                  from:this.startup.aditional_info?.how_much_money.split('-')[0]??"",
+                  to:this.startup.aditional_info?.how_much_money.split('-')[1]??""
               },
-              retention:this.startup.aditional_info.retention??"",
-              custumer_acquisition:this.startup.aditional_info.custumer_acquisition??"",
-              prototype:this.startup.aditional_info.prototype??"",
-              years_experience:this.startup.aditional_info.years_experience??"",
-              how_much_percent:this.startup.aditional_info.how_much_percent??"",
-              churn_rate:this.startup.aditional_info.churn_rate??"",
+              retention:this.startup.aditional_info?.retention??"",
+              custumer_acquisition:this.startup.aditional_info?.custumer_acquisition??"",
+              prototype:this.startup.aditional_info?.prototype??"",
+              years_experience:this.startup.aditional_info?.years_experience??"",
+              how_much_percent:this.startup.aditional_info?.how_much_percent??"",
+              churn_rate:this.startup.aditional_info?.churn_rate??"",
           }
         },
         sendToSave(){
