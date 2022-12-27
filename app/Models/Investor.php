@@ -34,7 +34,7 @@ class Investor extends Model
             \App\QueryFilters\Interest::class,
             \App\QueryFilters\Market::class,
             \App\QueryFilters\Type::class,
-        ])->thenReturn()->with(["ranges"])->get();
+        ])->thenReturn()->with(["ranges","apply_status"])->get();
     }
     static public function filterInvestors($value='')
     {
@@ -80,5 +80,7 @@ class Investor extends Model
     {
         return $this->hasOne(Range::class,"id",'range_id');
     }
-
+    public function apply_status(){
+        return $this->hasOne(Startup_apply_investor::class,'investor_id','id')->with('status');
+    }
 }

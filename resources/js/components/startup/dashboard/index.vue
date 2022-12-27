@@ -24,8 +24,9 @@
             </div>
         </div>
         <startup-cards
-            :investors="custom_investors">
-        </startup-cards>
+            :investors="custom_investors"
+            :startup_id="startup_id"
+        ></startup-cards>
     </div>
 </div>
 </template>
@@ -33,6 +34,7 @@
 export default{
     props:{
         investors:Array,
+        startup_id:Number,
         types:Array,
     },
     data(){

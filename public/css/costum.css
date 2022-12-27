@@ -5190,3 +5190,22 @@ a:hover{
     background-repeat:no-repeat;
     background-position:center center;
 }
+.investor-dashboard-card-image{
+    height:56px;
+    border-radius:16px;
+}
+.startup-dashboard-apply-btn{
+    border-radius:16px;
+}
+.startup-apply-btn-default{
+    background:#6200EE;
+    color:white;
+}
+.startup-apply-btn-pending{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #EFEFF4;;
+    color:rgba(0, 0, 0, 0.6);
+}
+.startup-apply-btn-selected{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #EFEFF4;;
+    color:rgba(55, 0, 179, 1);
+}

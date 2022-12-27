@@ -1,6 +1,7 @@
 @extends("layouts.investor")
 @section("content")
     <investor-dashboard
-        :startups="{{ json_encode($startups) }}"
+        :startups="{{ $startups }}"
+        :statuses="{{ json_encode($apply_status)  }}"
     ></investor-dashboard>
 @endsection

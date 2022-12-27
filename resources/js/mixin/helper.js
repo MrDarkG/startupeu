@@ -22,6 +22,13 @@ Vue.mixin({
         }
     },
     methods:{
+        isImageExists(image_url){
+            let http = new XMLHttpRequest()
+            http.open('HEAD', image_url, false)
+            http.send()
+
+            return (http.status !== 404)
+        },
         changeUserType(type){
             axios.get("/change_user_type/"+type)
         },

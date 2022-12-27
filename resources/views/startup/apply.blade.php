@@ -14,7 +14,6 @@
                     </ul>
                 </div>
             </div>
-            {{$investor}}
             <div class="col-xl-4 col-md-6">
                 <div class="l-box">
                     <div class="desc">Investment range:</div>

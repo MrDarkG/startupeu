@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Startups;
 
 use App\Http\Controllers\Controller;
+use App\Models\Apply_status;
 use App\Models\Bussiness_model;
 use App\Models\Range;
 use App\Models\Startup_aditional_info;
@@ -25,8 +26,11 @@ class DashboardController extends Controller
     {
         $types=Investor_type::get();
         $investors=Investor::allInvestors();
-
+        $startup_id = Startup::where('user_id',Auth::user()->id)->first()->id;
+        $statuses = Apply_status::get();
         return view("startup.dashboard",[
+            'statuses' => $statuses,
+            'startup_id' => $startup_id,
             'investors' => $investors,
             'types' => $types
         ]);

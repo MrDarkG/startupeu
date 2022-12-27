@@ -79,4 +79,7 @@ class Startup extends Model
     public function aditional_info(){
         return $this->hasOne(Startup_aditional_info::class,'startup_id','id');
     }
+    public function apply_status(){
+        return $this->hasOne(Startup_apply_investor::class,'startup_id','id')->with('status');
+    }
 }

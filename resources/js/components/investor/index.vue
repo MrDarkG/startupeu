@@ -32,8 +32,9 @@
 	        </div>
 	        <investor-startup-cards
 	        	class="mt-4 d-flex flex-wrap justify-content-between"
-	        	:startups="startups">
-	        </investor-startup-cards>
+	        	:startups="startups"
+                :statuses="statuses"
+            ></investor-startup-cards>
 	    </div>
 	</div>
 	<modal class="add_investment_opportunities" name="add_investment_opportunities">
@@ -49,10 +50,7 @@
 </template>
 <script>
 export default{
-    props:['startups'],
-	mounted(){
-		// this.$modal.show('add_investment_opportunities')
-	},
+    props:['startups','statuses'],
 	data(){
 		return {
 			value:[10000,15000],

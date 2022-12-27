@@ -4,6 +4,8 @@
 use App\Services\DataService;
 @endphp
 	<startup-dashboard
+        :startup_id="{{$startup_id}}"
+        :statuses="{{ json_encode($statuses) }}"
 		:investors="{{ json_encode($investors) }}"
 		:types="{{ json_encode($types) }}"
 		:stages="{{ json_encode(DataService::getAllStages()) }}"
