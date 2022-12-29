@@ -17,25 +17,25 @@
                         'title' => 'Dashboard',
                         'url' => '/investor/dashboard/index',
                         'image' => '/assets/images/dashboard.svg',
-                        'is_active' => (str_contains(url()->current(), "/mentor/dashboard")) ? true : false
+                        'is_active' => (str_contains(url()->current(), "/investor/dashboard/index")) ? true : false
                     ],
                     [
                         'title' => 'Offers',
                         'url' => '#',
                         'image' => '/assets/images/get-investment.svg',
-                        'is_active' => (str_contains(url()->current(), "/mentor/calendar")) ? true : false
+                        'is_active' => (str_contains(url()->current(), "#")) ? true : false
                     ],
                     [
                         'title' => 'Startups',
                         'url' => '#',
                         'image' => '/assets/images/get-investment.svg',
-                        'is_active' => (str_contains(url()->current(), "/mentor/calendar")) ? true : false
+                        'is_active' => (str_contains(url()->current(), "#")) ? true : false
                     ],
                     [
                         'title' => 'My account',
-                        'url' => '/startup/dashboard/account',
+                        'url' => '/investor/dashboard/account',
                         'image' => '/assets/images/myaccount.svg',
-                        'is_active' => (str_contains(url()->current(), "/mentor/account")) ? true : false
+                        'is_active' => (str_contains(url()->current(), "/investor/dashboard/account")) ? true : false
                     ],
                 ];
             @endphp
