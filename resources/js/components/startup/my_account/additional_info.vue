@@ -239,9 +239,9 @@
         <single-page-header
             :is_looking_for_active="true"
             :user_data="{
-                name:startup.name,
-                logo:startup.logo,
-                industries:startup.startup_industries,
+                name:startup?.name,
+                logo:startup?.logo,
+                industries:startup?.startup_industries,
                 looking_for:undefined,
                 black_card:{
                     title:'What are we looking for:',

@@ -8132,6 +8132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function render() {
+  var _vm$startup, _vm$startup2, _vm$startup3;
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_vm.edit_button.is_active ? _c("div", {
@@ -8660,9 +8661,9 @@ var render = function render() {
     attrs: {
       is_looking_for_active: true,
       user_data: {
-        name: _vm.startup.name,
-        logo: _vm.startup.logo,
-        industries: _vm.startup.startup_industries,
+        name: (_vm$startup = _vm.startup) === null || _vm$startup === void 0 ? void 0 : _vm$startup.name,
+        logo: (_vm$startup2 = _vm.startup) === null || _vm$startup2 === void 0 ? void 0 : _vm$startup2.logo,
+        industries: (_vm$startup3 = _vm.startup) === null || _vm$startup3 === void 0 ? void 0 : _vm$startup3.startup_industries,
         looking_for: undefined,
         black_card: {
           title: "What are we looking for:",
