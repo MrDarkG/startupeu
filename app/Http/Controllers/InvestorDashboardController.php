@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class InvestorDashboardController extends Controller
 {
+    public function __construct(){
+        $this->middleware('investor_check');
+    }
     public function index()
     {
         $startups = Startup_apply_investor::with(['startup','status'])->get();

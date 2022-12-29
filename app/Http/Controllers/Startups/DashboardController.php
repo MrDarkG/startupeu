@@ -22,6 +22,9 @@ use App\Services\MainServices;
 
 class DashboardController extends Controller
 {
+    public function __construct(){
+        $this->middleware('startup_check');
+    }
     public function index($value='')
     {
         $types=Investor_type::get();
