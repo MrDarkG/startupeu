@@ -46,11 +46,11 @@
                             </span>
                         </div>
                         <div
-                            :class="setClassById(investor.apply_status?.status.id)"
+                            :class="setClassById(investor.apply_status?.status?.id)"
                             @click="applyForInvestment(investor.id, startup_id)"
                             class="btn w-100 pl-3 pr-3 pb-2 pt-2 font-weight-bold startup-dashboard-apply-btn"
                         >
-                            {{ investor.apply_status?.status.status??'Apply for investment' }}
+                            {{ investor.apply_status?.status?.status??'Apply for investment' }}
                         </div>
                     </div>
                 </div>
@@ -71,13 +71,13 @@
         },
         methods:{
             applyForInvestment(investor_id, startup_id){
-                axios.post('/investor/dashboard/change/startup/status',{
+                axios.post('/startup/dashboard/change/startup/status',{
                     investor_id:investor_id,
                     startup_id:startup_id,
                     status_id:1,
                 }).then((response)=>{
                     this.investors_data?.map((investor)=>{
-                        if(investor_id==investor.id){
+                        if(investor_id==investor?.id){
                             investor.apply_status = response.data
                         }
                     })

@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Apply_status;
+use App\Models\Bussiness_model;
+use App\Models\Country;
+use App\Models\Faq_country;
+use App\Models\Investor;
+use App\Models\Investor_type;
+use App\Models\Mentor;
+use App\Models\Range;
+use App\Models\Stage;
 use App\Models\Startup;
 use App\Models\Startup_apply_investor;
+use App\Models\Startup_industries;
+use App\Models\Startup_looking_for;
+use App\Services\InvestorServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InvestorDashboardController extends Controller
 {
@@ -14,7 +26,8 @@ class InvestorDashboardController extends Controller
     }
     public function index()
     {
-        $startups = Startup_apply_investor::with(['startup','status'])->get();
+        $investor_id = Investor::where('user_id',Auth::user()->id)->first()->id;
+        $startups = Startup_apply_investor::where('investor_id',$investor_id)->with(['startup','status'])->get();
         return view('investor.dashboard',[
             'startups' => $startups,
             'apply_status' => Apply_status::get(),
@@ -26,7 +39,17 @@ class InvestorDashboardController extends Controller
     }
     public function startups()
     {
-        return view('investor.startups');
+        $mentors=Mentor::paginatedMentors(10);
+        $startups=Startup::with('startup_industries')->get();
+        $stages=Stage::orderBy('title')->get();
+        $countries=Faq_country::orderBy('title')->get();
+
+        return view("investor.startups",[
+            'mentors' => $mentors,
+            'startups' => $startups,
+            'stages' => $stages,
+            'countries' => $countries
+        ]);
     }
     public function my_account()
     {
@@ -34,24 +57,36 @@ class InvestorDashboardController extends Controller
     }
     public function setStatusForStartup(Request $request)
     {
-        $request->validate([
-            'startup_id' => 'required|numeric',
-            'investor_id' => 'required|numeric',
-            'status_id' => 'required|numeric',
-        ]);
-        $apply_exists = Startup_apply_investor::where('startup_id',$request->startup_id)
-            ->where('investor_id',$request->investor_id)->with('status');
-        if($apply_exists->count() > 0){
-            $apply_exists->update([
-                'status_id' => $request->status_id,
-            ]);
-        }else{
-            $apply_exists->create([
-                'status_id' => $request->status_id,
-                'startup_id' => $request->startup_id,
-                'investor_id' => $request->investor_id,
+        return InvestorServices::setStatusForStartup($request);
+    }
+    public function goToDashboardStartupSinglePage($startup_id)
+    {
+        if(is_numeric($startup_id)){
+            $startup = Startup::where('id', $startup_id)
+                ->with([
+                    'startup_industries',
+                    'looking_for',
+                    'business_model',
+                    'country',
+                    'stages',
+                    'investment_range',
+                    'target_audience',
+                    'teamates',
+                    'aditional_info'
+            ])->first();
+            return view('investor.startup_single_page',[
+                'startup' => $startup,
+                'data' => [
+                    'industries' => Startup_industries::get(),
+                    'looking_for' => Startup_looking_for::with('looking_for')->get(),
+                    'bussiness_model' => Bussiness_model::get(),
+                    'investment_range' => Range::get(),
+                    'countries' => Country::get(),
+                    'stages' => Stage::get(),
+                    'target_audience' => Investor_type::get()
+                ]
             ]);
         }
-        return $apply_exists->first();
+        return redirect()->back();
     }
 }

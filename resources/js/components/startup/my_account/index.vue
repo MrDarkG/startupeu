@@ -4,11 +4,12 @@
         <div class="row m-0">
             <startup-account-menu
                 class="col-md-6 p-0"
-                :is_editable="true"
+                :is_editable="false"
                 :menu_list="menu_list"
                 @getActive="setActiveMenu"
             ></startup-account-menu>
             <div
+                v-if="edit_button.is_editable"
                 class="col-md-6 d-flex align-items-center justify-content-center justify-content-sm-center justify-content-md-end mt-3 mt-sm-3 mt-md-0"
             >
                 <div>
@@ -48,7 +49,7 @@
             <div class="col-md-12 p-0" style="border-top:solid 1px rgba(0, 0, 0, 0.12);">
                 <startup-team-info
                     @setEditButtonTitle="setEditButtonTitle"
-                    :edit_button_active="edit_button.is_active"
+                    :edit_button="edit_button"
                     :teamates="startup.teamates"
                 ></startup-team-info>
             </div>
@@ -58,23 +59,24 @@
 </template>
 <script>
 export default{
-    props:["startup","data"],
+    props:["startup","data","is_editable"],
     data(){
         return{
             edit_button:{
                 title:"Profile",
-                is_active:true,
+                is_active:false,
+                is_editable:this.is_editable??true,
             },
             menu_list:[
                 {
                     title:"General Info",
                     id:"general",
-                    is_active:false,
+                    is_active:true,
                 },
                 {
                     title:"Additinal Info",
                     id:"additional",
-                    is_active:true,
+                    is_active:false,
                 },
                 {
                     title:"Team Info",

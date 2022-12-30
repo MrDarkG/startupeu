@@ -7,8 +7,10 @@ use App\Models\Apply_status;
 use App\Models\Bussiness_model;
 use App\Models\Range;
 use App\Models\Startup_aditional_info;
+use App\Models\Startup_apply_investor;
 use App\Models\Startup_team_info;
 use App\Models\TargetAudience;
+use App\Services\InvestorServices;
 use Illuminate\Http\Request;
 use App\Models\Startup_looking_for;
 use App\Models\Startup_industries;
@@ -149,5 +151,9 @@ class DashboardController extends Controller
             );
         }
         return null;
+    }
+    public function setStatusForStartup(Request $request)
+    {
+        return InvestorServices::setStatusForStartup($request);
     }
 }

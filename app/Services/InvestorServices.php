@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Investor;
 use App\Models\Investor_industries;
+use App\Models\Startup_apply_investor;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -82,5 +83,27 @@ class InvestorServices extends MainServices
                 "user_id" => $user_id
             ]);
         }
+    }
+    static public function setStatusForStartup($request)
+    {
+        $request->validate([
+            'startup_id' => 'required|numeric',
+            'investor_id' => 'required|numeric',
+            'status_id' => 'required|numeric',
+        ]);
+        $apply_exists = Startup_apply_investor::where('startup_id',$request->startup_id)
+            ->where('investor_id',$request->investor_id)->with('status');
+        if($apply_exists->count() > 0){
+            $apply_exists->update([
+                'status_id' => $request->status_id,
+            ]);
+        }else{
+            $apply_exists->create([
+                'status_id' => $request->status_id,
+                'startup_id' => $request->startup_id,
+                'investor_id' => $request->investor_id,
+            ]);
+        }
+        return $apply_exists->first();
     }
 }

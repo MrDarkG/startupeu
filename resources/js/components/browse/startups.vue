@@ -8,7 +8,7 @@
         @setFilteredData="setFilteredData"
     >
         <div class="row m-0" v-if="data">
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 p-2"
+            <div class="col-12 col-md-12 col-lg-6 col-xl-4 p-2"
                  style="min-height:292px!important;"
                  v-if="startup.is_disabled === false"
                  v-for="(startup, s_index) in data">

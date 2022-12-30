@@ -1,6 +1,6 @@
 <template>
 <div class="sign-form">
-    <div v-if="edit_button_active">
+    <div v-if="edit_button.is_active && edit_button?.is_editable">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                 <div class="req-info-text ml-0">
@@ -106,7 +106,7 @@
     </div>
     <div class="col-md-12 p-0 mt-5 pb-5">
         <startup-teamates
-            :is_editable="edit_button_active"
+            :is_editable="edit_button.is_active && edit_button?.is_editable"
             :teamates="team"
         ></startup-teamates>
     </div>
@@ -114,7 +114,7 @@
 </template>
 <script>
 export default{
-    props:['teamates','edit_button_active'],
+    props:['teamates','edit_button'],
     data(){
         return {
             team:this.teamates ? this.teamates : [],

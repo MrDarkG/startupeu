@@ -51,7 +51,7 @@ Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue
     Vue.component('startup-team-info', require('./components/startup/my_account/team.vue').default)
     Vue.component('startup-teamates', require('./components/startup/teamates.vue').default)
     Vue.component('startup-account-menu', require('./components/startup/my_account/menu.vue').default)
-    Vue.component('my-account', require('./components/startup/my_account/index.vue').default)
+    Vue.component('startup-my-account', require('./components/startup/my_account/index.vue').default)
     Vue.component('general-info', require('./components/startup/my_account/general.vue').default)
     Vue.component('additional-info', require('./components/startup/my_account/additional_info.vue').default)
 

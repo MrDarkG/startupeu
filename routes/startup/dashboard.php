@@ -19,5 +19,5 @@ Route::get('/cards', [DashboardController::class,"cards"]);
 Route::get('/apply/{id}', [DashboardController::class,"show"]);
 Route::post('/add/teamate', [DashboardController::class,"addStartupTeamate"]);
 Route::post('/add/additional_info', [DashboardController::class,"addStartupAdditionalInfo"]);
-
+Route::post('/change/startup/status', [DashboardController::class,"setStatusForStartup"]);
 Route::get('/account', [DashboardController::class,"my_account"]);

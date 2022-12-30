@@ -2,11 +2,14 @@
 <div>
 	<div
 		class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 row m-0 mt-3 investor-startup-card"
-		v-for="(data, index) in startups"
+		v-for="(data, index) in custom_startups"
 		:key="index+data.startup.name"
 	>
 		<div class="w-100 d-flex flex-column justify-content-between bg-white p-4 h-100">
-            <div>
+            <div
+                class="cursor-pointer"
+                @click="redirectToDashboardStartupSinglePage(`/investor/dashboard/startups/${data.startup.id}`)"
+            >
                 <div style="min-height:56px;">
                     <img
                         :src="isImageExists(data.startup.logo)"
@@ -43,7 +46,10 @@
                         :value="data?.status.id > 0?data?.status:null"
                         track-by="id"
                         label="status"
-                        @input="(event)=>changeStatus(event ,data.startup_id, data.investor_id)"
+                        @input="(event)=>{
+                            data.status = event
+                            changeStatus(event ,data.startup_id, data.investor_id)
+                        }"
                         :options="statuses.slice(1,statuses.length)"
                         :multiple="false"
                     ></multiselect>
@@ -61,12 +67,16 @@ export default{
 	},
 	data(){
 		return{
+            custom_startups:this.startups??[],
 			value: [10000,15000],
             status:'',
 			input:{},
 		}
 	},
 	methods:{
+        redirectToDashboardStartupSinglePage(url){
+            window.location.href=url
+        },
         findListItemByID(id, obj) {
             return id === obj.id
         },

@@ -14,30 +14,32 @@
         <div class="col-3">
             @php
                 $menu = [
-                    [
-                        'title' => 'Dashboard',
-                        'url' => '/startup/dashboard/index',
-                        'image' => '/assets/images/dashboard.svg',
-                        'is_active' => (str_contains(url()->current(), "/startup/dashboard")) ? true : false
-                    ],
+//                    [
+//                        'title' => 'Dashboard',
+//                        'url' => '/startup/dashboard/index',
+//                        'image' => '/assets/images/dashboard.svg',
+//                        'is_active' => (str_contains(url()->current(), "/startup/dashboard")) ? true : false
+//                    ],
                     [
                         'title' => 'Offers',
-                        'url' => '#',
+                        'icon' => 'bulb',
+                        'url' => '/startup/dashboard/index',
                         'image' => '/assets/images/get-investment.svg',
-                        'is_active' => (str_contains(url()->current(), "/startup/calendar")) ? true : false
+                        'is_active' => (str_contains(url()->current(), "/startup/dashboard/index")) ? true : false
                     ],
                     [
                         'title' => 'My account',
+                        'icon' => 'person',
                         'url' => '/startup/dashboard/account',
                         'image' => '/assets/images/myaccount.svg',
-                        'is_active' => (str_contains(url()->current(), "/startup/account")) ? true : false
+                        'is_active' => (str_contains(url()->current(), "/startup/dashboard/account")) ? true : false
                     ],
                 ];
             @endphp
             <dashboard-menu
                 class="pt-5 pb-5"
                 :data="{{ json_encode($menu) }}"
-            />
+            ></dashboard-menu>
         </div>
         <div  class="col-9">
             @yield("content")

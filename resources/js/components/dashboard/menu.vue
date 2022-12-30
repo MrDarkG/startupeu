@@ -16,7 +16,11 @@
                                 'active':menu.is_active,
                             }"
                         >
-                            <img v-if="menu.image" :src="menu.image" :alt="menu.title">
+<!--                            <img v-if="menu.image" :src="menu.image" :alt="menu.title">-->
+                            <svgs
+                                :name="menu.icon"
+                                :color="menu.is_active?'#6200EE':null"
+                            ></svgs>
                             <span class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
                                 {{ menu.title }}
                             </span>

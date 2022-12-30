@@ -1,12 +1,10 @@
 <template>
-   <div :class="{
-       'ml-3':!is_editable
-   }">
+   <div>
       <div
         class="row m-0 p-1"
         style="background:#d8d8dc;border-radius:16px;"
         :class="{
-            'col-12 col-sm-12 col-md-12 col-lg-6':!is_editable,
+            'col-12 col-sm-12 col-md-12 col-lg-6':is_editable,
             'col-sm-12':is_editable,
         }"
       >
