@@ -2541,6 +2541,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      ragaca: [1, 2, 3],
       data: []
     };
   },
@@ -5241,7 +5242,7 @@ var render = function render() {
       attrs: {
         title: startup.what_your_company_does
       }
-    }, [_vm._v("\n                        " + _vm._s(startup.name) + " - " + _vm._s(_vm.setShortDescription(startup.what_your_company_does, 23)) + "\n                    ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(startup.name) + "\n                    ")]), _vm._v(" "), _c("div", {
       staticClass: "desc",
       staticStyle: {
         "word-break": "break-word",
