@@ -15,16 +15,16 @@
 		</div>
 	</div>
 	<div class="d-flex flex-wrap mt-5 ">
-		<div class="bg-white p-0 col-md-6 d-flex align-items-center justify-content-center card-border-radius">
-			<DatePicker
-				:locale="'en'"
-				class="custom-datepicker card-border-radius"
-				v-model="calendar.DatePicker.date"
-				:min-date="new Date()"
-				:attributes="calendar.DatePicker.todos"
-				color="purple"
-			></DatePicker>
-		</div>
+<!--		<div class="bg-white p-0 col-md-6 d-flex align-items-center justify-content-center card-border-radius">-->
+<!--			<DatePicker-->
+<!--				:locale="'en'"-->
+<!--				class="custom-datepicker card-border-radius"-->
+<!--				v-model="calendar.DatePicker.date"-->
+<!--				:min-date="new Date()"-->
+<!--				:attributes="calendar.DatePicker.todos"-->
+<!--				color="purple"-->
+<!--			></DatePicker>-->
+<!--		</div>-->
 		<div class="mentor-range-cards col-md-6 d-flex flex-column justify-content-between pl-2 pr-0 card-border-radius">
 			<div class="bg-white p-3 card-border-radius">
 				<div class="d-flex align-items-center justify-content-between">
@@ -41,66 +41,66 @@
 					</div>
 				</div>
 			</div>
-			<div class="bg-white p-3 mt-2 card-border-radius">
-				<div class="font-weight-bold" style="font-size:18px;">
-					Meeting settings
-				</div>
-				<hr style="opacity:0.5;">
-				<div class="d-flex flex-wrap">
-					<div class="mt-1 col-md-6 card-border-radius">
-                        <div class="in-title">Set your hours</div>
-                        <div class="available-hours" data-toggle="modal" data-target=".addtimemodal">
-                            Available hours
-                            <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/timer.svg" alt="">
-                        </div>
-                        <div class="in-desc">Define hours when you are available for meeting.</div>
-                    </div>
-                    <div class="mt-1 col-md-6 card-border-radius">
-                        <div class="in-title">Duration</div>
+<!--			<div class="bg-white p-3 mt-2 card-border-radius">-->
+<!--				<div class="font-weight-bold" style="font-size:18px;">-->
+<!--					Meeting settings-->
+<!--				</div>-->
+<!--				<hr style="opacity:0.5;">-->
+<!--				<div class="d-flex flex-wrap">-->
+<!--					<div class="mt-1 col-md-6 card-border-radius">-->
+<!--                        <div class="in-title">Set your hours</div>-->
+<!--                        <div class="available-hours" data-toggle="modal" data-target=".addtimemodal">-->
+<!--                            Available hours-->
+<!--                            <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/timer.svg" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="in-desc">Define hours when you are available for meeting.</div>-->
+<!--                    </div>-->
+<!--                    <div class="mt-1 col-md-6 card-border-radius">-->
+<!--                        <div class="in-title">Duration</div>-->
 
-                        <select name="duration" id="duration" class="form-control duration">
-                            <option value="1">1</option>
-                        </select>
-                        <div class="in-desc">Define how long your meeting will be. It can be as long as 12
-                            hours.
-                        </div>
-                    </div>
-				</div>
-			</div>
+<!--                        <select name="duration" id="duration" class="form-control duration">-->
+<!--                            <option value="1">1</option>-->
+<!--                        </select>-->
+<!--                        <div class="in-desc">Define how long your meeting will be. It can be as long as 12-->
+<!--                            hours.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--				</div>-->
+<!--			</div>-->
 		</div>
 	</div>
-	<v-calendar
-			class="custom-calendar max-w-full mt-2 card-border-radius"
-			:masks="calendar.masks"
-			:attributes="calendar.attributes"
-			disable-page-swipe
-			is-expanded
-	>
-	  	<template v-slot:day-content="{ day, attributes }">
-		    <div class="flex flex-col h-full z-10 overflow-hidden">
-		      <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
-		      <div class="flex-grow overflow-y-auto overflow-x-auto">
-		        <div
-		          v-for="attr in attributes"
-		          :key="attr.key"
-		          class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 d-flex flex-column"
-		          :class="attr.customData.class"
-		        >
-		            <div v-for="tdata in attr.customData.hours" class="d-flex justify-content-between">
-			            <div class="clock-lables" >
-			              {{ tdata.hours }}
-			            </div>
-			            <div class="clock-lables">
+<!--	<v-calendar-->
+<!--			class="custom-calendar max-w-full mt-2 card-border-radius"-->
+<!--			:masks="calendar.masks"-->
+<!--			:attributes="calendar.attributes"-->
+<!--			disable-page-swipe-->
+<!--			is-expanded-->
+<!--	>-->
+<!--	  	<template v-slot:day-content="{ day, attributes }">-->
+<!--		    <div class="flex flex-col h-full z-10 overflow-hidden">-->
+<!--		      <span class="day-label text-sm text-gray-900">{{ day.day }}</span>-->
+<!--		      <div class="flex-grow overflow-y-auto overflow-x-auto">-->
+<!--		        <div-->
+<!--		          v-for="attr in attributes"-->
+<!--		          :key="attr.key"-->
+<!--		          class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 d-flex flex-column"-->
+<!--		          :class="attr.customData.class"-->
+<!--		        >-->
+<!--		            <div v-for="tdata in attr.customData.hours" class="d-flex justify-content-between">-->
+<!--			            <div class="clock-lables" >-->
+<!--			              {{ tdata.hours }}-->
+<!--			            </div>-->
+<!--			            <div class="clock-lables">-->
 
-			              <img src="/assets/image/people-active.svg" height="14px">
-			              {{ tdata.users }}
-			            </div>
-		        	</div>
-		        </div>
-		      </div>
-		    </div>
-	  	</template>
-</v-calendar>
+<!--			              <img src="/assets/image/people-active.svg" height="14px">-->
+<!--			              {{ tdata.users }}-->
+<!--			            </div>-->
+<!--		        	</div>-->
+<!--		        </div>-->
+<!--		      </div>-->
+<!--		    </div>-->
+<!--	  	</template>-->
+<!--</v-calendar>-->
 </div>
 </template>
 <script>

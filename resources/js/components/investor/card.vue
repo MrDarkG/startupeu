@@ -1,62 +1,71 @@
 <template>
 <div>
-	<div
-		class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 row m-0 mt-3 investor-startup-card"
-		v-for="(data, index) in custom_startups"
-		:key="index+data.startup.name"
-	>
-		<div class="w-100 d-flex flex-column justify-content-between bg-white p-4 h-100">
-            <div
-                class="cursor-pointer"
-                @click="redirectToDashboardStartupSinglePage(`/investor/dashboard/startups/${data.startup.id}`)"
-            >
-                <div style="min-height:56px;">
-                    <img
-                        :src="isImageExists(data.startup.logo)"
-                        class="investor-dashboard-card-image"
-                        alt="Logo"
-                    >
-                </div>
-                <div class="font-weight-bold mt-2" style="font-size:20px;word-break: break-word;">
-                    {{ data.startup.name }}
-                </div>
+    <div
+        class="col-12 col-sm-12 m-0 col-md-6 col-lg-4 col-xl-4"
+        :class="{
+            'pl-0':custom_startups.length>1 && index===0,
+            'p-4':custom_startups.length>1,
+        }"
+        v-for="(data, index) in custom_startups"
+        v-if="data.is_active"
+        :key="index+data.startup.name"
+    >
+        <div
+            style="height:270px"
+            class="row mt-3 investor-startup-card"
+        >
+            <div class="w-100 d-flex flex-column justify-content-between bg-white p-4 h-100">
                 <div
-                    v-if="data.startup.description"
-                    class="mt-2 mb-2"
-                    style="font-size:15px;color:#8c8c8c;word-break: break-word;"
+                    class="cursor-pointer"
+                    @click="redirectToDashboardStartupSinglePage(`/investor/dashboard/startups/${data.startup.id}`)"
                 >
-                    {{ data.startup.description.slice(0,50) }} {{data.startup.description.length>50?'...':''}}
-                </div>
-            </div>
-            <div>
-                <div class="d-flex flex-wrap">
+                    <div style="min-height:56px;">
+                        <img
+                            :src="isImageExists(data.startup.logo)"
+                            class="investor-dashboard-card-image"
+                            alt="Logo"
+                        >
+                    </div>
+                    <div class="font-weight-bold mt-2 investor-card-name">
+                        {{ data.startup.name }}
+                    </div>
                     <div
-                        style="color:#6200EE;font-size:15px;"
-                        class="pt-1 pl-1 pr-1"
-                        v-if="tag.industry"
-                        v-for="tag in data.startup.startup_industries"
+                        v-if="data.startup.description"
+                        class="mt-2 mb-2 investor-card-description"
                     >
-                        #{{ tag.industry.title }}
+                        {{ data.startup.description.slice(0,50) }} {{data.startup.description.length>50?'...':''}}
                     </div>
                 </div>
-                <div style="color:#6200EE;" class="d-flex pt-3">
-                    <multiselect
-                        :id="'investor_startup_multiselect'+index"
-                        class="investor_startup_multiselect"
-                        :value="data?.status.id > 0?data?.status:null"
-                        track-by="id"
-                        label="status"
-                        @input="(event)=>{
+                <div>
+                    <div class="d-flex flex-wrap">
+                        <div
+                            style="color:#6200EE;font-size:15px;"
+                            class="pt-1 pl-1 pr-1"
+                            v-if="tag.industry"
+                            v-for="(tag, t_index) in data.startup.startup_industries"
+                        >
+                            #{{ tag.industry.title }}
+                        </div>
+                    </div>
+                    <div style="color:#6200EE;" class="d-flex pt-3">
+                        <multiselect
+                            :id="'investor_startup_multiselect'+index"
+                            class="investor_startup_multiselect"
+                            :value="data?.status.id > 0?data?.status:null"
+                            track-by="id"
+                            :custom-label="({ id, status }) => `${(id>1)?status:'New'}`"
+                            @input="(event)=>{
                             data.status = event
                             changeStatus(event ,data.startup_id, data.investor_id)
                         }"
-                        :options="statuses.slice(1,statuses.length)"
-                        :multiple="false"
-                    ></multiselect>
+                            :options="statuses.slice(1,statuses.length)"
+                            :multiple="false"
+                        ></multiselect>
+                    </div>
                 </div>
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 </template>
 <script>
@@ -107,5 +116,16 @@ export default{
 	border-color:rgba(0, 0, 0, 0.12)!important;
 	border-radius:16px!important;
 	color:rgba(0, 0, 0, 0.12)!important;
+}
+.investor-card-description{
+    font-size:15px;
+    color:#8c8c8c;
+    word-break: break-word;
+    max-height:50px;
+    overflow:hidden;
+}
+.investor-card-name{
+    font-size:20px;
+    word-break: break-word;
 }
 </style>

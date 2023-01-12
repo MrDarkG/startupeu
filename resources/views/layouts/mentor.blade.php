@@ -14,22 +14,10 @@
             @php
                 $menu = [
                     [
-                        'title' => 'Dashboard',
-                        'url' => '/mentor/dashboard/index',
-                        'image' => '/assets/images/dashboard.svg',
-                        'is_active' => (str_contains(url()->current(), "/mentor/dashboard")) ? true : false
-                    ],
-                    [
-                        'title' => 'Calendar',
-                        'url' => '#',
-                        'image' => '/assets/images/calendar.svg',
-                        'is_active' => (str_contains(url()->current(), "/mentor/calendar")) ? true : false
-                    ],
-                    [
                         'title' => 'My account',
-                        'url' => '/startup/dashboard/account',
+                        'url' => '/mentor/dashboard/index',
                         'image' => '/assets/images/myaccount.svg',
-                        'is_active' => (str_contains(url()->current(), "/mentor/account")) ? true : false
+                        'is_active' => (str_contains(url()->current(), "/mentor/dashboard/index")) ? true : false
                     ],
                 ];
             @endphp

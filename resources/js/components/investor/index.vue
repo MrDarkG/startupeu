@@ -1,6 +1,6 @@
 <template>
 <div>
-	<div class="dash-container">
+	<div class="dash-container pr-2">
 	    <!-- <p class="alert alert-success">Startup add successfully </p>             -->
 	    <div class="mr-3 ml-3">
 	    	<div class="title">Startups</div>
@@ -9,30 +9,28 @@
             </div>
 	    </div>
 	    <div class="tabs tabs-bordered ui-tabs ui-corner-all ui-widget ui-widget-content mt-5">
-	        <div class="bg-white p-3 d-flex flex-wrap align-items-center justify-content-between mr-0 ml-0 mr-sm-0 ml-sm-0  ml-md-3 mr-md-3" style="border-radius:24px;">
-	        	<div class="d-flex flex-wrap mt-1 col-md-5 align-items-center">
-	        		<div class="col-md-4">
-	        			<input type="checkbox" id="new"/>
-	        			<label for="new">New</label>
-	        		</div>
-	        		<div class="col-md-4">
-	        			<input type="checkbox" id="selected"/>
-	        			<label for="selected">Selected</label>
-	        		</div>
-	        		<div class="col-md-4">
-	        			<input type="checkbox" id="funded"/>
-	        			<label for="funded">Funded</label>
+	        <div class="bg-white p-3 d-flex flex-wrap align-items-center justify-content-between mr-0 ml-0 mr-sm-0 ml-sm-0  ml-md-0 mr-md-3" style="border-radius:24px;">
+	        	<div class="d-flex flex-wrap mt-1 col-12 col-sm-12 col-lg-7 align-items-center">
+	        		<div class="col-12 col-sm-4 col-md-4 p-0" v-for="(item, i_index) in statuses">
+                        <div class="d-flex">
+                            <input type="checkbox" @change="addOrDeleteFilter($event, i_index, item)" :id="item.status"/>
+                            <label
+                                class="m-0 pl-1"
+                                :for="item.status"
+                                v-text="(i_index>0)?item.status:'New'"
+                            ></label>
+                        </div>
 	        		</div>
 	        	</div>
-	        	<div>
+	        	<div v-if="false">
 	        		<button @click="$modal.show('add_investment_opportunities')" class="btn text-white p-2" style="background:#6200ee;border-radius:16px;">
 	        			<span class="text-white" style="font-size:16px;">+</span> Add Investment Oportunities
 	        		</button>
 	        	</div>
 	        </div>
 	        <investor-startup-cards
-	        	class="mt-4 d-flex flex-wrap justify-content-between"
-	        	:startups="startups"
+	        	class="mt-4 row m-0"
+	        	:startups="custom_startups"
                 :statuses="statuses"
             ></investor-startup-cards>
 	    </div>
@@ -53,9 +51,43 @@ export default{
     props:['startups','statuses'],
 	data(){
 		return {
+            custom_startups:[],
+            selected:{
+                statuses:[],
+            },
 			value:[10000,15000],
 		}
-	}
+	},
+    created(){
+        this.setCustomStartups()
+    },
+    methods:{
+        setCustomStartups(){
+            this.startups.map((startup)=>{
+                startup.is_active = true
+                this.custom_startups.push(startup)
+            })
+        },
+        setCardsByStatus(statuses){
+            this.custom_startups.map((startup)=>{
+                startup.is_active = (statuses.length>0)?false:true
+                statuses.map((status)=>{
+                    if(startup.status.id === status.id){
+                        startup.is_active = true
+                    }
+                })
+            })
+        },
+        addOrDeleteFilter(event, index, item){
+            let status = this.selected.statuses.findIndex((i)=>i.id === item.id)
+            if(event.target.checked){
+                this.selected.statuses.push(item)
+            }else{
+                this.selected.statuses.splice( status, 1)
+            }
+            this.setCardsByStatus(this.selected.statuses)
+        },
+    },
 };
 </script>
 <style>

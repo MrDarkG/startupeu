@@ -13,8 +13,8 @@
                 <div class="list-item investor-item d-flex justify-content-between pt-4 pb-2">
                     <a :href="`/investor/${investor.id}`">
                         <img :src="investor.logo" alt="Logo" style="border-radius: 16px;">
-                        <div class="title investor-title">{{ investor.name }}</div>
-                        <div class="desc investor-desc">{{ investor.question1 }}</div>
+                        <div class="title investor-title" v-text="investor?.name"></div>
+                        <div class="desc investor-desc" v-text="investor?.investments"></div>
                     </a>
                     <div class="d-flex justify-content-between  tags-div">
                         <div>

@@ -26,10 +26,11 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
+            'name' => 'required|string',
             'user_id' => 'numeric',
-            'linkedin' => 'required',
-            'experience' => 'required',
+            'price' => 'numeric|required',
+            'linkedin' => 'required|string',
+            'experience' => 'required|string',
             'which.field.id' => 'required|numeric',
             'which.issue' => 'required',
         ]);

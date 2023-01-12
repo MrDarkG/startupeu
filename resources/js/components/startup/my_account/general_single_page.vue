@@ -124,7 +124,7 @@ export default{
                 menu:[
                     {
                         title:'Email',
-                        content:this.startup.ceo_email,
+                        content:this.startup.startup_email,
                         color:{
                             text:'#6200EE',
                         },
@@ -145,7 +145,7 @@ export default{
                     },
                     {
                         title:'CEO',
-                        content:this.startup.full_name,
+                        content:this.startup.ceo_email,
                         color:{
                             text:'black',
                         },

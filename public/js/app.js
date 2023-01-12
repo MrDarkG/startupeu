@@ -2891,8 +2891,45 @@ __webpack_require__.r(__webpack_exports__);
   props: ['startups', 'statuses'],
   data: function data() {
     return {
+      custom_startups: [],
+      selected: {
+        statuses: []
+      },
       value: [10000, 15000]
     };
+  },
+  created: function created() {
+    this.setCustomStartups();
+  },
+  methods: {
+    setCustomStartups: function setCustomStartups() {
+      var _this = this;
+      this.startups.map(function (startup) {
+        startup.is_active = true;
+        _this.custom_startups.push(startup);
+      });
+    },
+    setCardsByStatus: function setCardsByStatus(statuses) {
+      this.custom_startups.map(function (startup) {
+        startup.is_active = statuses.length > 0 ? false : true;
+        statuses.map(function (status) {
+          if (startup.status.id === status.id) {
+            startup.is_active = true;
+          }
+        });
+      });
+    },
+    addOrDeleteFilter: function addOrDeleteFilter(event, index, item) {
+      var status = this.selected.statuses.findIndex(function (i) {
+        return i.id === item.id;
+      });
+      if (event.target.checked) {
+        this.selected.statuses.push(item);
+      } else {
+        this.selected.statuses.splice(status, 1);
+      }
+      this.setCardsByStatus(this.selected.statuses);
+    }
   }
 });
 
@@ -3189,6 +3226,7 @@ __webpack_require__.r(__webpack_exports__);
     input_data: function input_data(val) {
       if (val) {
         this.input.name = val.name;
+        this.input.price = val.price;
         this.input.linkedin = val.linnkedin;
         this.input.experience = val.question1;
         this.input.country.data = val.country;
@@ -3743,7 +3781,7 @@ __webpack_require__.r(__webpack_exports__);
         }],
         menu: [{
           title: 'Email',
-          content: this.startup.ceo_email,
+          content: this.startup.startup_email,
           color: {
             text: '#6200EE'
           }
@@ -3761,7 +3799,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         }, {
           title: 'CEO',
-          content: this.startup.full_name,
+          content: this.startup.ceo_email,
           color: {
             text: 'black'
           }
@@ -5088,10 +5126,16 @@ var render = function render() {
         alt: "Logo"
       }
     }), _vm._v(" "), _c("div", {
-      staticClass: "title investor-title"
-    }, [_vm._v(_vm._s(investor.name))]), _vm._v(" "), _c("div", {
-      staticClass: "desc investor-desc"
-    }, [_vm._v(_vm._s(investor.question1))])]), _vm._v(" "), _c("div", {
+      staticClass: "title investor-title",
+      domProps: {
+        textContent: _vm._s(investor === null || investor === void 0 ? void 0 : investor.name)
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "desc investor-desc",
+      domProps: {
+        textContent: _vm._s(investor === null || investor === void 0 ? void 0 : investor.investments)
+      }
+    })]), _vm._v(" "), _c("div", {
       staticClass: "d-flex justify-content-between tags-div"
     }, [_c("div", [_c("ul", {
       staticClass: "tags"
@@ -6256,9 +6300,18 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", _vm._l(_vm.custom_startups, function (data, index) {
-    return _c("div", {
+    return data.is_active ? _c("div", {
       key: index + data.startup.name,
-      staticClass: "col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 row m-0 mt-3 investor-startup-card"
+      staticClass: "col-12 col-sm-12 m-0 col-md-6 col-lg-4 col-xl-4",
+      "class": {
+        "pl-0": _vm.custom_startups.length > 1 && index === 0,
+        "p-4": _vm.custom_startups.length > 1
+      }
+    }, [_c("div", {
+      staticClass: "row mt-3 investor-startup-card",
+      staticStyle: {
+        height: "270px"
+      }
     }, [_c("div", {
       staticClass: "w-100 d-flex flex-column justify-content-between bg-white p-4 h-100"
     }, [_c("div", {
@@ -6279,28 +6332,19 @@ var render = function render() {
         alt: "Logo"
       }
     })]), _vm._v(" "), _c("div", {
-      staticClass: "font-weight-bold mt-2",
-      staticStyle: {
-        "font-size": "20px",
-        "word-break": "break-word"
-      }
-    }, [_vm._v("\n                    " + _vm._s(data.startup.name) + "\n                ")]), _vm._v(" "), data.startup.description ? _c("div", {
-      staticClass: "mt-2 mb-2",
-      staticStyle: {
-        "font-size": "15px",
-        color: "#8c8c8c",
-        "word-break": "break-word"
-      }
-    }, [_vm._v("\n                    " + _vm._s(data.startup.description.slice(0, 50)) + " " + _vm._s(data.startup.description.length > 50 ? "..." : "") + "\n                ")]) : _vm._e()]), _vm._v(" "), _c("div", [_c("div", {
+      staticClass: "font-weight-bold mt-2 investor-card-name"
+    }, [_vm._v("\n                        " + _vm._s(data.startup.name) + "\n                    ")]), _vm._v(" "), data.startup.description ? _c("div", {
+      staticClass: "mt-2 mb-2 investor-card-description"
+    }, [_vm._v("\n                        " + _vm._s(data.startup.description.slice(0, 50)) + " " + _vm._s(data.startup.description.length > 50 ? "..." : "") + "\n                    ")]) : _vm._e()]), _vm._v(" "), _c("div", [_c("div", {
       staticClass: "d-flex flex-wrap"
-    }, _vm._l(data.startup.startup_industries, function (tag) {
+    }, _vm._l(data.startup.startup_industries, function (tag, t_index) {
       return tag.industry ? _c("div", {
         staticClass: "pt-1 pl-1 pr-1",
         staticStyle: {
           color: "#6200EE",
           "font-size": "15px"
         }
-      }, [_vm._v("\n                        #" + _vm._s(tag.industry.title) + "\n                    ")]) : _vm._e();
+      }, [_vm._v("\n                            #" + _vm._s(tag.industry.title) + "\n                        ")]) : _vm._e();
     }), 0), _vm._v(" "), _c("div", {
       staticClass: "d-flex pt-3",
       staticStyle: {
@@ -6312,7 +6356,11 @@ var render = function render() {
         id: "investor_startup_multiselect" + index,
         value: (data === null || data === void 0 ? void 0 : data.status.id) > 0 ? data === null || data === void 0 ? void 0 : data.status : null,
         "track-by": "id",
-        label: "status",
+        "custom-label": function customLabel(_ref) {
+          var id = _ref.id,
+            status = _ref.status;
+          return "".concat(id > 1 ? status : "New");
+        },
         options: _vm.statuses.slice(1, _vm.statuses.length),
         multiple: false
       },
@@ -6322,7 +6370,7 @@ var render = function render() {
           _vm.changeStatus(event, data.startup_id, data.investor_id);
         }
       }
-    })], 1)])])]);
+    })], 1)])])])]) : _vm._e();
   }), 0);
 };
 var staticRenderFns = [];
@@ -6347,34 +6395,44 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("div", {
-    staticClass: "dash-container"
+    staticClass: "dash-container pr-2"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "tabs tabs-bordered ui-tabs ui-corner-all ui-widget ui-widget-content mt-5"
   }, [_c("div", {
-    staticClass: "bg-white p-3 d-flex flex-wrap align-items-center justify-content-between mr-0 ml-0 mr-sm-0 ml-sm-0 ml-md-3 mr-md-3",
+    staticClass: "bg-white p-3 d-flex flex-wrap align-items-center justify-content-between mr-0 ml-0 mr-sm-0 ml-sm-0 ml-md-0 mr-md-3",
     staticStyle: {
       "border-radius": "24px"
     }
-  }, [_vm._m(1), _vm._v(" "), _c("div", [_c("button", {
-    staticClass: "btn text-white p-2",
-    staticStyle: {
-      background: "#6200ee",
-      "border-radius": "16px"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.$modal.show("add_investment_opportunities");
+  }, [_c("div", {
+    staticClass: "d-flex flex-wrap mt-1 col-12 col-sm-12 col-lg-7 align-items-center"
+  }, _vm._l(_vm.statuses, function (item, i_index) {
+    return _c("div", {
+      staticClass: "col-12 col-sm-4 col-md-4 p-0"
+    }, [_c("div", {
+      staticClass: "d-flex"
+    }, [_c("input", {
+      attrs: {
+        type: "checkbox",
+        id: item.status
+      },
+      on: {
+        change: function change($event) {
+          return _vm.addOrDeleteFilter($event, i_index, item);
+        }
       }
-    }
-  }, [_c("span", {
-    staticClass: "text-white",
-    staticStyle: {
-      "font-size": "16px"
-    }
-  }, [_vm._v("+")]), _vm._v(" Add Investment Oportunities\n\t        \t\t")])])]), _vm._v(" "), _c("investor-startup-cards", {
-    staticClass: "mt-4 d-flex flex-wrap justify-content-between",
+    }), _vm._v(" "), _c("label", {
+      staticClass: "m-0 pl-1",
+      attrs: {
+        "for": item.status
+      },
+      domProps: {
+        textContent: _vm._s(i_index > 0 ? item.status : "New")
+      }
+    })])]);
+  }), 0), _vm._v(" "),  false ? 0 : _vm._e()]), _vm._v(" "), _c("investor-startup-cards", {
+    staticClass: "mt-4 row m-0",
     attrs: {
-      startups: _vm.startups,
+      startups: _vm.custom_startups,
       statuses: _vm.statuses
     }
   })], 1)]), _vm._v(" "), _c("modal", {
@@ -6414,45 +6472,6 @@ var staticRenderFns = [function () {
   }, [_vm._v("Startups")]), _vm._v(" "), _c("div", {
     staticClass: "desc"
   }, [_vm._v("\n                Nunc sed enim imperdiet mauris mattis netus diam. Ullamcorper leo est leo tincidunt enim aliquam.\n            ")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "d-flex flex-wrap mt-1 col-md-5 align-items-center"
-  }, [_c("div", {
-    staticClass: "col-md-4"
-  }, [_c("input", {
-    attrs: {
-      type: "checkbox",
-      id: "new"
-    }
-  }), _vm._v(" "), _c("label", {
-    attrs: {
-      "for": "new"
-    }
-  }, [_vm._v("New")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
-  }, [_c("input", {
-    attrs: {
-      type: "checkbox",
-      id: "selected"
-    }
-  }), _vm._v(" "), _c("label", {
-    attrs: {
-      "for": "selected"
-    }
-  }, [_vm._v("Selected")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
-  }, [_c("input", {
-    attrs: {
-      type: "checkbox",
-      id: "funded"
-    }
-  }), _vm._v(" "), _c("label", {
-    attrs: {
-      "for": "funded"
-    }
-  }, [_vm._v("Funded")])])]);
 }];
 render._withStripped = true;
 
@@ -7001,78 +7020,16 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "dash-container pl-3"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "d-flex flex-wrap mt-5"
-  }, [_c("div", {
-    staticClass: "bg-white p-0 col-md-6 d-flex align-items-center justify-content-center card-border-radius"
-  }, [_c("DatePicker", {
-    staticClass: "custom-datepicker card-border-radius",
-    attrs: {
-      locale: "en",
-      "min-date": new Date(),
-      attributes: _vm.calendar.DatePicker.todos,
-      color: "purple"
-    },
-    model: {
-      value: _vm.calendar.DatePicker.date,
-      callback: function callback($$v) {
-        _vm.$set(_vm.calendar.DatePicker, "date", $$v);
-      },
-      expression: "calendar.DatePicker.date"
-    }
-  })], 1), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("v-calendar", {
-    staticClass: "custom-calendar max-w-full mt-2 card-border-radius",
-    attrs: {
-      masks: _vm.calendar.masks,
-      attributes: _vm.calendar.attributes,
-      "disable-page-swipe": "",
-      "is-expanded": ""
-    },
-    scopedSlots: _vm._u([{
-      key: "day-content",
-      fn: function fn(_ref) {
-        var day = _ref.day,
-          attributes = _ref.attributes;
-        return [_c("div", {
-          staticClass: "flex flex-col h-full z-10 overflow-hidden"
-        }, [_c("span", {
-          staticClass: "day-label text-sm text-gray-900"
-        }, [_vm._v(_vm._s(day.day))]), _vm._v(" "), _c("div", {
-          staticClass: "flex-grow overflow-y-auto overflow-x-auto"
-        }, _vm._l(attributes, function (attr) {
-          return _c("div", {
-            key: attr.key,
-            staticClass: "text-xs leading-tight rounded-sm p-1 mt-0 mb-1 d-flex flex-column",
-            "class": attr.customData["class"]
-          }, _vm._l(attr.customData.hours, function (tdata) {
-            return _c("div", {
-              staticClass: "d-flex justify-content-between"
-            }, [_c("div", {
-              staticClass: "clock-lables"
-            }, [_vm._v("\n\t\t\t              " + _vm._s(tdata.hours) + "\n\t\t\t            ")]), _vm._v(" "), _c("div", {
-              staticClass: "clock-lables"
-            }, [_c("img", {
-              attrs: {
-                src: "/assets/image/people-active.svg",
-                height: "14px"
-              }
-            }), _vm._v("\n\t\t\t              " + _vm._s(tdata.users) + "\n\t\t\t            ")])]);
-          }), 0);
-        }), 0)])];
-      }
-    }])
-  })], 1);
+  return _vm._m(0);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", [_c("h3", [_c("b", [_vm._v("\n\t\t\t\t\tMy Calendar\n\t\t\t\t")])])]), _vm._v(" "), _c("div", [_c("span", [_vm._v("\n\t\t\t\tMark the time for a session\n\t\t\t")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
+    staticClass: "dash-container pl-3"
+  }, [_c("div", [_c("div", [_c("h3", [_c("b", [_vm._v("\n\t\t\t\t\tMy Calendar\n\t\t\t\t")])])]), _vm._v(" "), _c("div", [_c("span", [_vm._v("\n\t\t\t\tMark the time for a session\n\t\t\t")])])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex flex-wrap mt-5"
+  }, [_c("div", {
     staticClass: "mentor-range-cards col-md-6 d-flex flex-column justify-content-between pl-2 pr-0 card-border-radius"
   }, [_c("div", {
     staticClass: "bg-white p-3 card-border-radius"
@@ -7095,53 +7052,7 @@ var staticRenderFns = [function () {
       src: "https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/edit.svg",
       alt: ""
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "bg-white p-3 mt-2 card-border-radius"
-  }, [_c("div", {
-    staticClass: "font-weight-bold",
-    staticStyle: {
-      "font-size": "18px"
-    }
-  }, [_vm._v("\n\t\t\t\t\tMeeting settings\n\t\t\t\t")]), _vm._v(" "), _c("hr", {
-    staticStyle: {
-      opacity: "0.5"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "d-flex flex-wrap"
-  }, [_c("div", {
-    staticClass: "mt-1 col-md-6 card-border-radius"
-  }, [_c("div", {
-    staticClass: "in-title"
-  }, [_vm._v("Set your hours")]), _vm._v(" "), _c("div", {
-    staticClass: "available-hours",
-    attrs: {
-      "data-toggle": "modal",
-      "data-target": ".addtimemodal"
-    }
-  }, [_vm._v("\n                            Available hours\n                            "), _c("img", {
-    attrs: {
-      src: "https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/timer.svg",
-      alt: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "in-desc"
-  }, [_vm._v("Define hours when you are available for meeting.")])]), _vm._v(" "), _c("div", {
-    staticClass: "mt-1 col-md-6 card-border-radius"
-  }, [_c("div", {
-    staticClass: "in-title"
-  }, [_vm._v("Duration")]), _vm._v(" "), _c("select", {
-    staticClass: "form-control duration",
-    attrs: {
-      name: "duration",
-      id: "duration"
-    }
-  }, [_c("option", {
-    attrs: {
-      value: "1"
-    }
-  }, [_vm._v("1")])]), _vm._v(" "), _c("div", {
-    staticClass: "in-desc"
-  }, [_vm._v("Define how long your meeting will be. It can be as long as 12\n                            hours.\n                        ")])])])])]);
+  })])])])])])]);
 }];
 render._withStripped = true;
 
@@ -7228,7 +7139,33 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "col-md-12"
-  }, [_vm._m(2), _vm._v(" "), _c("textarea", {
+  }, [_vm._m(2), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.input.price,
+      expression: "input.price"
+    }],
+    staticClass: "form-control",
+    "class": _vm.setClassByValue(_vm.input.price, false, _vm.button),
+    attrs: {
+      type: "price",
+      id: "full_name",
+      placeholder: "Price range",
+      name: "full_name"
+    },
+    domProps: {
+      value: _vm.input.price
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.input, "price", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_vm._m(3), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -7281,7 +7218,7 @@ var render = function render() {
     staticClass: "col-md-12"
   }, [_c("div", {
     staticClass: "form-group"
-  }, [_vm._m(3), _vm._v(" "), _c("multiselect", {
+  }, [_vm._m(4), _vm._v(" "), _c("multiselect", {
     style: _vm.setClassByValue(_vm.input.which.field, true, _vm.button),
     attrs: {
       id: "fields_consult_id",
@@ -7301,7 +7238,7 @@ var render = function render() {
     staticClass: "col-md-12"
   }, [_c("div", {
     staticClass: "form-group"
-  }, [_vm._m(4), _vm._v(" "), _c("multiselect", {
+  }, [_vm._m(5), _vm._v(" "), _c("multiselect", {
     style: _vm.setClassByValue(_vm.input.which.issue, true, _vm.button),
     attrs: {
       id: "issues_consult_id",
@@ -7317,7 +7254,7 @@ var render = function render() {
       },
       expression: "input.which.issue"
     }
-  })], 1)]), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("div", {
+  })], 1)]), _vm._v(" "), _vm._m(6), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 st-logo position-relative",
     "class": _vm.input_data ? _vm.setClassByValue(_vm.image.edited, false, _vm.button) : "",
     staticStyle: {
@@ -7425,6 +7362,16 @@ var staticRenderFns = [function () {
       "for": "linkedin_address"
     }
   }, [_vm._v("Linkedin profile "), _c("span", {
+    staticClass: "text-danger"
+  }, [_vm._v("*")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "price"
+    }
+  }, [_vm._v("Price range "), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]);
 }, function () {
@@ -8027,6 +7974,9 @@ var render = function render() {
       staticClass: "row m-0"
     }, [_c("a", {
       staticClass: "col-md-9 row m-0 mt-3 mb-3 border-right border-sm-none",
+      staticStyle: {
+        height: "150px"
+      },
       attrs: {
         href: "/startup/dashboard/apply/".concat(investor.id)
       }
@@ -8045,15 +7995,17 @@ var render = function render() {
     })]), _vm._v(" "), _c("div", {
       staticClass: "pb-0 pt-0 mt-0 mb-0 pt-2 pb-2 col-md-9"
     }, [_c("div", {
-      staticClass: "title d-flex justify-content-center justify-content-sm-start",
+      staticClass: "title d-flex align-items-start justify-content-center justify-content-sm-start",
       staticStyle: {
         overflow: "hidden",
         "font-size": "20px"
       }
     }, [_vm._v("\n                                " + _vm._s(investor.company_name) + " - " + _vm._s(investor.name) + "\n                            ")]), _vm._v(" "), _c("div", {
-      staticClass: "desc d-flex justify-content-center justify-content-sm-start",
+      staticClass: "desc d-flex justify-content-center text-wrap justify-content-sm-start",
       staticStyle: {
-        "font-size": "15px"
+        "font-size": "15px",
+        overflow: "hidden",
+        height: "108px"
       }
     }, [_vm._v("\n                                " + _vm._s(investor.about) + "\n                            ")])])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-3 mt-3 mb-3 d-flex justify-content-between align-items-center flex-column"
@@ -28753,7 +28705,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.investor-startup-card .bg-white{\n\tborder-radius:36px;\n\theight:30vh;\n}\n.investor_startup_multiselect .multiselect__single{\n\tcolor:black!important;\n\tbackground:#f2f2f7!important;\n}\n.investor_startup_multiselect .multiselect__tags{\n\tbackground:#f2f2f7!important;\n\tborder-color:rgba(0, 0, 0, 0.12)!important;\n\tborder-radius:16px!important;\n\tcolor:rgba(0, 0, 0, 0.12)!important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.investor-startup-card .bg-white{\n\tborder-radius:36px;\n\theight:30vh;\n}\n.investor_startup_multiselect .multiselect__single{\n\tcolor:black!important;\n\tbackground:#f2f2f7!important;\n}\n.investor_startup_multiselect .multiselect__tags{\n\tbackground:#f2f2f7!important;\n\tborder-color:rgba(0, 0, 0, 0.12)!important;\n\tborder-radius:16px!important;\n\tcolor:rgba(0, 0, 0, 0.12)!important;\n}\n.investor-card-description{\n    font-size:15px;\n    color:#8c8c8c;\n    word-break: break-word;\n    max-height:50px;\n    overflow:hidden;\n}\n.investor-card-name{\n    font-size:20px;\n    word-break: break-word;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

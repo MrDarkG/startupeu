@@ -18,6 +18,7 @@
                     <a
                         :href="`/startup/dashboard/apply/${investor.id}`"
                         class="col-md-9 row m-0 mt-3 mb-3 border-right border-sm-none"
+                        style="height:150px;"
                     >
                         <div class="pl-2 pr-2 col-md-3 d-flex justify-content-center justify-content-sm-start">
                             <img
@@ -28,10 +29,13 @@
                             >
                         </div>
                         <div class="pb-0 pt-0 mt-0 mb-0 pt-2 pb-2 col-md-9">
-                            <div class="title d-flex justify-content-center justify-content-sm-start" style="overflow: hidden;font-size:20px;">
+                            <div class="title d-flex align-items-start justify-content-center justify-content-sm-start" style="overflow: hidden;font-size:20px;">
                                 {{ investor.company_name }} - {{ investor.name }}
                             </div>
-                            <div class="desc d-flex justify-content-center justify-content-sm-start" style="font-size:15px;">
+                            <div
+                                class="desc d-flex justify-content-center text-wrap justify-content-sm-start"
+                                style="font-size:15px;overflow: hidden;height:108px;"
+                            >
                                 {{ investor.about }}
                             </div>
                         </div>

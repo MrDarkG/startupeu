@@ -14,6 +14,7 @@ class Mentor extends Model
         'linnkedin',
         'question1',
         'question2',
+        'price',
         'country_id',
         'fields_id',
         'issues_id',

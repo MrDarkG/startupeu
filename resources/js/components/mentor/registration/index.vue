@@ -33,6 +33,18 @@
                 >
             </div>
             <div class="col-md-12">
+                <label for="price">Price range <span class="text-danger">*</span></label>
+                <input
+                    type="price"
+                    id="full_name"
+                    placeholder="Price range"
+                    name="full_name"
+                    v-model="input.price"
+                    :class="setClassByValue(input.price,false,button)"
+                    class="form-control"
+                >
+            </div>
+            <div class="col-md-12">
                 <label for="experience_text">What experience do I have and what proccesses did I improve? <span class="text-danger">*</span></label>
                 <textarea
                     name="experience_text"
@@ -193,6 +205,7 @@ export default{
         input_data:function (val) {
             if(val){
                 this.input.name = val.name
+                this.input.price = val.price
                 this.input.linkedin = val.linnkedin
                 this.input.experience = val.question1
                 this.input.country.data = val.country
