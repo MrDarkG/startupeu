@@ -24,7 +24,7 @@
             <dashboard-menu
                 class="pt-5 pb-5"
                 :data="{{ json_encode($menu) }}"
-            ><dashboard-menu>
+            ></dashboard-menu>
         </div>
         <div class="col-9 pl-2">
             @yield("content")
