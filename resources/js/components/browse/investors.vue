@@ -31,7 +31,7 @@
                         ></div>
                         <h5 class="font-weight-bold m-0 pt-2 pb-2">{{ investor.name }}</h5>
                         <div class="pb-1" style="color:#797979;" :title="investor.about">
-                            {{setShortDescription(investor.about, 50)}}
+                            {{setShortDescription(investor.about, 116)}}
                         </div>
                     </a>
                     <div class="d-flex justify-content-between">
