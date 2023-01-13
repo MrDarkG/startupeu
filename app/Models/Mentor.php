@@ -44,7 +44,7 @@ class Mentor extends Model
             \App\QueryFilters\Search_title::class,
             \App\QueryFilters\Fields::class,
             \App\QueryFilters\Issues::class,
-        ])->thenReturn()->get();
+        ])->thenReturn()->with(['issues'])->get();
     }
 
     static public function paginatedMentors($count)
@@ -57,6 +57,6 @@ class Mentor extends Model
             \App\QueryFilters\Name::class,
             \App\QueryFilters\Fields::class,
             \App\QueryFilters\Issues::class,
-        ])->thenReturn()->paginate($count);
+        ])->thenReturn()->with(['issues'])->paginate($count);
     }
 }
