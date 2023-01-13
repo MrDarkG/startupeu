@@ -10,7 +10,7 @@
     >
         <div class="row" v-if="data">
             <div
-                class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mt-3 col-lg-4"
+                class="col-12 col-sm-6 col-md-6 mt-3 col-lg-4"
                 v-if="!mentor.is_disabled"
                 v-for="mentor in data"
             >
