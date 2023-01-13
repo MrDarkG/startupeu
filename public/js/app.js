@@ -5247,7 +5247,7 @@ var render = function render() {
     staticClass: "row"
   }, _vm._l(_vm.data, function (mentor) {
     return !mentor.is_disabled ? _c("div", {
-      staticClass: "col-12 col-sm-6 col-md-6 mt-3 col-lg-4"
+      staticClass: "col-12 col-sm-6 col-md-6 mt-3"
     }, [_c("div", {
       staticClass: "bg-white browse-types-card p-3 d-flex flex-column justify-content-between"
     }, [_c("a", {
