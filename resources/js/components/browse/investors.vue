@@ -26,7 +26,7 @@
                                 border-radius: 16px;
                             "
                             :style="{
-                                backgroundImage:`url('/investor/${investor.logo}')`
+                                backgroundImage:`url('${investor.logo}')`
                             }"
                         ></div>
                         <h5 class="font-weight-bold m-0 pt-2 pb-2">{{ investor.name }}</h5>
