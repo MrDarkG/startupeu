@@ -22,6 +22,17 @@ use Storage;
 		{
 			return Stage::get();
 		}
+        static public function getCountriesByChoosenSide($with){
+            $array = [];
+            $countries = Country::with($with)->orderBy('title')->get();
+
+            foreach ($countries as $country){
+                if($country[$with]->count() > 0){
+                    array_push($array, $country);
+                }
+            }
+            return $array;
+        }
 		static public function getAllBussinessModels()
 		{
 			return Bussiness_model::get();

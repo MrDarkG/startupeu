@@ -12,4 +12,13 @@ class Country extends Model
         "title",
         "code"
     ];
+    public function investor(){
+        return $this->hasMany(Investor::class,'country_id','id');
+    }
+    public function mentor(){
+        return $this->hasMany(Mentor::class,'country_id','id');
+    }
+    public function startup(){
+        return $this->hasMany(Startup::class,'country_id','id');
+    }
 }

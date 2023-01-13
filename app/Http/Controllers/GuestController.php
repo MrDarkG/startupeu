@@ -22,6 +22,7 @@ use App\Models\Faq_country;
 use App\Models\Startup;
 use App\Models\News;
 use Illuminate\Support\Facades\Auth;
+use App\Services\DataService;
 
 class GuestController extends Controller
 {
@@ -51,7 +52,7 @@ class GuestController extends Controller
         $issues=Issue::orderBy('title')->get();
         $fields=Field::orderBy('title')->get();
         $mentors=Mentor::paginatedMentors(10);
-        $countries=Faq_country::orderBy('title')->get();
+        $countries=DataService::getCountriesByChoosenSide('mentor');
 
         return view("browse.mentors",[
             'issues' => $issues,
@@ -67,7 +68,7 @@ class GuestController extends Controller
         $fields=Field::orderBy('title')->get();
         $investors=Investor::paginatedInvestors(10);
         $startups=Startup::get();
-        $countries=Faq_country::orderBy('title')->get();
+        $countries=DataService::getCountriesByChoosenSide('investor');
 
         return view("browse.investors",[
             'fields' => $fields,
@@ -83,7 +84,7 @@ class GuestController extends Controller
         $mentors=Mentor::paginatedMentors(10);
         $startups=Startup::with('startup_industries')->get();
         $stages=Stage::orderBy('title')->get();
-        $countries=Faq_country::orderBy('title')->get();
+        $countries=DataService::getCountriesByChoosenSide('startup');
 
         return view("browse.startups",[
             'mentors' => $mentors,
