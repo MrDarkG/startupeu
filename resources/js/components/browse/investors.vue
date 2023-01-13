@@ -9,18 +9,42 @@
         @setSearchedData="setSearchedData"
     >
         <div class="row" v-if="data">
-            <div class="col-md-6" v-if="!investor.is_disabled" v-for="investor in data">
-                <div class="list-item investor-item d-flex justify-content-between pt-4 pb-2">
-                    <a :href="`/investor/${investor.id}`">
-                        <img :src="investor.logo" alt="Logo" style="border-radius: 16px;">
-                        <div class="title investor-title" v-text="investor?.name"></div>
-                        <div class="desc investor-desc" v-text="investor?.investments"></div>
+            <div
+                class="col-12 col-sm-6 col-md-6 mt-3"
+                v-if="!investor.is_disabled"
+                v-for="investor in data"
+            >
+                <div
+                    style="height: 360px;"
+                    class="bg-white browse-types-card p-3 d-flex flex-column justify-content-between overflow-hidden"
+                >
+                    <a :href="`/investor/${investor.id}`" class="d-flex flex-column justify-content-between">
+                        <div
+                            style="
+                                height:160px;
+                                width:160px;
+                                border-radius: 16px;
+                            "
+                            :style="{
+                                backgroundImage:`url('/investor/${investor.logo}')`
+                            }"
+                        ></div>
+                        <h5 class="font-weight-bold m-0 pt-2 pb-2">{{ investor.name }}</h5>
+                        <div class="pb-1" style="color:#797979;" :title="investor.about">
+                            {{setShortDescription(investor.about, 50)}}
+                        </div>
                     </a>
-                    <div class="d-flex justify-content-between  tags-div">
-                        <div>
-                            <ul class="tags">
-                                <li><a href="#">#Enterprise Software </a></li>
-                            </ul>
+                    <div class="d-flex justify-content-between">
+                        <div
+                            class="d-flex flex-wrap align-items-center"
+                        >
+                            <div
+                                v-for="item in investor?.industries"
+                                class="pl-2 font-weight-bold"
+                                style="color:#6200ee;"
+                            >
+                                #{{item.industry.title}}
+                            </div>
                         </div>
                     </div>
                 </div>

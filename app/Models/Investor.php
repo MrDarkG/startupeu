@@ -58,7 +58,7 @@ class Investor extends Model
                 \App\QueryFilters\Name::class,
                 \App\QueryFilters\Fields::class,
                 \App\QueryFilters\Issues::class,
-            ])->thenReturn()->paginate($count);
+            ])->thenReturn()->with(['industries'])->paginate($count);
     }
     public function type($value='')
     {
