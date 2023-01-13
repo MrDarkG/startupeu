@@ -3099,8 +3099,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
-/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_components_mentor_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../css/components/mentor/index.css */ "./public/css/components/mentor/index.css");
+/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
+/* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_1__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -3108,10 +3109,12 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['mentor', 'data'],
   components: {
-    Calendar: v_calendar__WEBPACK_IMPORTED_MODULE_0__.Calendar,
-    DatePicker: v_calendar__WEBPACK_IMPORTED_MODULE_0__.DatePicker
+    Calendar: v_calendar__WEBPACK_IMPORTED_MODULE_1__.Calendar,
+    DatePicker: v_calendar__WEBPACK_IMPORTED_MODULE_1__.DatePicker
   },
   computed: {
     myAttrs: function myAttrs() {
@@ -3126,8 +3129,44 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }));
     }
   },
+  methods: {
+    getInputData: function getInputData() {
+      var mentor = this.mentor;
+      this.selected_price = this.selected_price > 0 ? this.selected_price : "";
+      this.selected_price = this.selected_price.length > 1 && this.selected_price[0] == 0 ? "" : this.selected_price;
+      return {
+        name: mentor === null || mentor === void 0 ? void 0 : mentor.name,
+        price: this.selected_price,
+        linkedin: mentor === null || mentor === void 0 ? void 0 : mentor.linnkedin,
+        experience: mentor === null || mentor === void 0 ? void 0 : mentor.question1,
+        country: {
+          data: {
+            id: mentor === null || mentor === void 0 ? void 0 : mentor.country_id
+          }
+        },
+        which: {
+          field: {
+            id: mentor === null || mentor === void 0 ? void 0 : mentor.fields_id
+          },
+          issue: mentor === null || mentor === void 0 ? void 0 : mentor.issues
+        },
+        preview: mentor === null || mentor === void 0 ? void 0 : mentor.logo
+      };
+    },
+    changeMentorPrice: function changeMentorPrice() {
+      var _this = this;
+      axios.post('/register/mentor', this.getInputData()).then(function (response) {
+        _this.$vToastify.success('Changed successfully', 'Response');
+      })["catch"](function (error) {
+        _this.$vToastify.error('Use numbers', 'Response');
+      });
+    }
+  },
   data: function data() {
+    var _this$mentor$price;
     return {
+      selected_price: (_this$mentor$price = this.mentor.price) !== null && _this$mentor$price !== void 0 ? _this$mentor$price : 5,
+      id_edit_provoked: false,
       calendar: {
         attributes: [{
           // An optional key can be used for retrieving this attribute later,
@@ -3197,6 +3236,7 @@ __webpack_require__.r(__webpack_exports__);
     issues: Array
   },
   data: function data() {
+    var _this$input_data, _this$input_data2, _this$input_data3, _this$input_data4, _this$input_data5, _this$input_data5$cou, _this$input_data5$cou2, _this$input_data6, _this$input_data6$whi, _this$input_data7, _this$input_data7$whi, _this$input_data8;
     return {
       fileRecords: [],
       image: {
@@ -3206,39 +3246,62 @@ __webpack_require__.r(__webpack_exports__);
       },
       button: false,
       custom_input_data: {},
-      input: {
-        user_id: this.user_id,
-        name: "",
-        linkedin: "",
-        experience: "",
-        country: {
-          data: {}
-        },
-        which: {
-          field: "",
-          issue: ""
-        },
-        image: ""
-      }
+      input: this.setInputs((_this$input_data = this.input_data) === null || _this$input_data === void 0 ? void 0 : _this$input_data.name, (_this$input_data2 = this.input_data) === null || _this$input_data2 === void 0 ? void 0 : _this$input_data2.price, (_this$input_data3 = this.input_data) === null || _this$input_data3 === void 0 ? void 0 : _this$input_data3.linkedin, (_this$input_data4 = this.input_data) === null || _this$input_data4 === void 0 ? void 0 : _this$input_data4.experience, (_this$input_data5 = this.input_data) === null || _this$input_data5 === void 0 ? void 0 : (_this$input_data5$cou = _this$input_data5.country) === null || _this$input_data5$cou === void 0 ? void 0 : (_this$input_data5$cou2 = _this$input_data5$cou.data) === null || _this$input_data5$cou2 === void 0 ? void 0 : _this$input_data5$cou2.id, (_this$input_data6 = this.input_data) === null || _this$input_data6 === void 0 ? void 0 : (_this$input_data6$whi = _this$input_data6.which) === null || _this$input_data6$whi === void 0 ? void 0 : _this$input_data6$whi.field, (_this$input_data7 = this.input_data) === null || _this$input_data7 === void 0 ? void 0 : (_this$input_data7$whi = _this$input_data7.which) === null || _this$input_data7$whi === void 0 ? void 0 : _this$input_data7$whi.issue, (_this$input_data8 = this.input_data) === null || _this$input_data8 === void 0 ? void 0 : _this$input_data8.preview)
     };
   },
   watch: {
     input_data: function input_data(val) {
-      if (val) {
-        this.input.name = val.name;
-        this.input.price = val.price;
-        this.input.linkedin = val.linnkedin;
-        this.input.experience = val.question1;
-        this.input.country.data = val.country;
-        this.input.which.field = val.fields;
-        this.input.which.issue = val.issues.map(function (issue) {
-          return issue.issue;
-        });
-        this.image.preview = val.logo;
-      }
+      this.input = this.setInputs(val === null || val === void 0 ? void 0 : val.name, val === null || val === void 0 ? void 0 : val.price, val === null || val === void 0 ? void 0 : val.linnkedin, val === null || val === void 0 ? void 0 : val.question1, val === null || val === void 0 ? void 0 : val.country.id, val === null || val === void 0 ? void 0 : val.fields, val === null || val === void 0 ? void 0 : val.issues, val === null || val === void 0 ? void 0 : val.preview);
     }
   },
   methods: {
+    setInputs: function setInputs(name, price, linkedin, experience, country, fields, issues, logo) {
+      var _this$findMultipleDat, _this$getMentorIssues;
+      var selected_country = this.findSingleDataByValueName('countries', country);
+      return {
+        user_id: this.user_id,
+        name: name !== null && name !== void 0 ? name : "",
+        price: price !== null && price !== void 0 ? price : "",
+        linkedin: linkedin !== null && linkedin !== void 0 ? linkedin : "",
+        experience: experience !== null && experience !== void 0 ? experience : "",
+        country: {
+          data: selected_country
+        },
+        which: {
+          field: (_this$findMultipleDat = this.findMultipleDataByValueName('fields', fields, 'id')[0]) !== null && _this$findMultipleDat !== void 0 ? _this$findMultipleDat : "",
+          issue: (_this$getMentorIssues = this.getMentorIssues(issues)) !== null && _this$getMentorIssues !== void 0 ? _this$getMentorIssues : ""
+        },
+        preview: logo
+      };
+    },
+    findSingleDataByValueName: function findSingleDataByValueName(value_name, id) {
+      if (this[value_name]) {
+        return this[value_name].find(function (value) {
+          return value.id == id;
+        });
+      }
+      return {};
+    },
+    getMentorIssues: function getMentorIssues(issues) {
+      var arr = [];
+      issues === null || issues === void 0 ? void 0 : issues.filter(function (issue) {
+        arr.push(issue.issue);
+      });
+      return arr;
+    },
+    findMultipleDataByValueName: function findMultipleDataByValueName(data) {
+      var _this$data;
+      var value_name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      var attr = arguments.length > 2 ? arguments[2] : undefined;
+      return (_this$data = this[data]) === null || _this$data === void 0 ? void 0 : _this$data.filter(function (item) {
+        if (value_name.length > 0) {
+          return value_name.find(function (second_item) {
+            return item.id === second_item[attr];
+          });
+        }
+        return item.id === value_name[attr];
+      });
+    },
     sendData: function sendData() {
       this.button = true;
       axios.post('/register/mentor', this.input).then(function (response) {
@@ -3281,6 +3344,7 @@ __webpack_require__.r(__webpack_exports__);
     DatePicker: v_calendar__WEBPACK_IMPORTED_MODULE_0__.DatePicker
   },
   data: function data() {
+    var _this$mentor, _this$mentor$user, _this$mentor2, _this$mentor2$user;
     return {
       date: new Date(Date.now()),
       hours: [{
@@ -3320,7 +3384,7 @@ __webpack_require__.r(__webpack_exports__);
         }],
         menu: [{
           title: 'Email',
-          content: "\n                            <span\n                                style=\"color:rgba(98, 0, 238, 1);\"\n                                class=\"text-wrap cursor-pointer\"\n                                onclick=\"window.open('".concat('mailto:' + this.mentor.user.email, "','_blank')\"\n                            >\n                                ").concat(this.mentor.user.email, "\n                            </span>\n                        ")
+          content: "\n                            <span\n                                style=\"color:rgba(98, 0, 238, 1);\"\n                                class=\"text-wrap cursor-pointer\"\n                                onclick=\"window.open('".concat('mailto:' + ((_this$mentor = this.mentor) === null || _this$mentor === void 0 ? void 0 : (_this$mentor$user = _this$mentor.user) === null || _this$mentor$user === void 0 ? void 0 : _this$mentor$user.email), "','_blank')\"\n                            >\n                                ").concat((_this$mentor2 = this.mentor) === null || _this$mentor2 === void 0 ? void 0 : (_this$mentor2$user = _this$mentor2.user) === null || _this$mentor2$user === void 0 ? void 0 : _this$mentor2$user.email, "\n                            </span>\n                        ")
         }, {
           title: 'Social media',
           content: "\n                            <span\n                                style=\"color:rgba(10, 102, 194, 1);\"\n                                class=\"cursor-pointer\"\n                                onclick=\"window.open('".concat(this.mentor.linnkedin, "','_blank')\"\n                            >\n                                ").concat(this.mentor.linnkedin, "\n                            </span>\n                        ")
@@ -7020,14 +7084,9 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "dash-container pl-3"
-  }, [_c("div", [_c("div", [_c("h3", [_c("b", [_vm._v("\n\t\t\t\t\tMy Calendar\n\t\t\t\t")])])]), _vm._v(" "), _c("div", [_c("span", [_vm._v("\n\t\t\t\tMark the time for a session\n\t\t\t")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap mt-5"
   }, [_c("div", {
     staticClass: "mentor-range-cards col-md-6 d-flex flex-column justify-content-between pl-2 pr-0 card-border-radius"
@@ -7036,23 +7095,49 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "d-flex align-items-center justify-content-between"
   }, [_c("div", {
-    staticClass: "d-flex align-items-center",
+    staticClass: "d-flex flex-wrap align-items-center",
     staticStyle: {
       "font-size": "18px"
     }
   }, [_c("div", {
     staticClass: "p-2"
   }, [_vm._v("\n\t\t\t\t\t\t\tPrice range per hour:\n\t\t\t\t\t\t")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex pl-2 pl-sm-0 align-items-center",
     staticStyle: {
       color: "#3700b3",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n\t\t\t\t\t\t\t$0/hr\n\t\t\t\t\t\t")])]), _vm._v(" "), _c("div", [_c("img", {
+  }, [_vm._v("\n\t\t\t\t\t\t\t$"), _c("span", [_vm._v(_vm._s(_vm.selected_price))]), _vm._v("/hr\n\t\t\t\t\t\t")])]), _vm._v(" "), _c("div", {
+    on: {
+      click: function click($event) {
+        _vm.id_edit_provoked = !_vm.id_edit_provoked;
+      }
+    }
+  }, [_c("img", {
+    staticClass: "cursor-pointer",
     attrs: {
       src: "https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/edit.svg",
       alt: ""
     }
-  })])])])])])]);
+  })])])])])]), _vm._v(" "), _c("div", [!_vm.id_edit_provoked ? _c("mentor-single-page", {
+    attrs: {
+      mentor: _vm.mentor
+    }
+  }) : _c("create-mentor", {
+    staticClass: "pl-2 mt-4 pt-3 pr-4",
+    attrs: {
+      input_data: _vm.getInputData(),
+      issues: _vm.data.issues,
+      fields: _vm.data.fields,
+      countries: _vm.data.countries,
+      mentor: _vm.mentor
+    }
+  })], 1)]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", [_c("h3", [_c("b", [_vm._v("\n\t\t\t\t\tMy account\n\t\t\t\t")])])]), _vm._v(" "), _c("div", [_c("span", [_vm._v("\n\t\t\t\tSee/Edit your information.\n\t\t\t")])])]);
 }];
 render._withStripped = true;
 
@@ -7072,6 +7157,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function render() {
+  var _vm$input, _vm$input2, _vm$input3;
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("div", {
@@ -7286,14 +7372,14 @@ var render = function render() {
       },
       expression: "fileRecords"
     }
-  })], 1), _vm._v(" "), _vm.input_data && _vm.image.preview ? _c("div", {
+  })], 1), _vm._v(" "), _vm.input_data && (_vm$input = _vm.input) !== null && _vm$input !== void 0 && _vm$input.preview ? _c("div", {
     staticClass: "d-flex align-items-center"
   }, [_c("img", {
     staticClass: "rounded",
     attrs: {
       height: "150",
-      src: "/mentors/" + _vm.image.preview,
-      alt: _vm.image.preview
+      src: "/mentors/" + ((_vm$input2 = _vm.input) === null || _vm$input2 === void 0 ? void 0 : _vm$input2.preview),
+      alt: (_vm$input3 = _vm.input) === null || _vm$input3 === void 0 ? void 0 : _vm$input3.preview
     }
   })]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "float-right mt-3"
@@ -7452,7 +7538,7 @@ var render = function render() {
         looking_for: undefined,
         black_card: {
           title: "Price range:",
-          content: "$18 <small>/hour</small>"
+          content: "$".concat(_vm.mentor.price, " <small>/hour</small>")
         }
       }
     }
@@ -7465,7 +7551,9 @@ var render = function render() {
       staticClass: "border-bottom pb-3 pt-2"
     }, [_c("div", {
       staticClass: "font-weight-bold mt-3"
-    }, [_vm._v("\n                    " + _vm._s(about.title) + "\n                ")]), _vm._v(" "), _c("div", [_vm._v("\n                    " + _vm._s(about.description) + "\n                ")])]);
+    }, [_vm._v("\n                        " + _vm._s(about.title) + "\n                    ")]), _vm._v(" "), _c("div", {
+      staticClass: "break-word"
+    }, [_vm._v("\n                        " + _vm._s(about.description) + "\n                    ")])]);
   }), 0), _vm._v(" "), _c("div", {
     staticClass: "col-12 order-0 order-sm-1 col-sm-4 col-md-4 col-lg-3 p-0"
   }, [_c("div", {
@@ -7479,8 +7567,8 @@ var render = function render() {
       staticClass: "mt-3"
     }, [_c("div", {
       staticClass: "mentor-single-page-label"
-    }, [_vm._v("\n                        " + _vm._s(menu.title) + "\n                    ")]), _vm._v(" "), _c("div", [typeof menu.content === "string" ? _c("div", {
-      staticClass: "mentor-single-page-description text-break",
+    }, [_vm._v("\n                            " + _vm._s(menu.title) + "\n                        ")]), _vm._v(" "), _c("div", [typeof menu.content === "string" ? _c("div", {
+      staticClass: "mentor-single-page-description break-word",
       domProps: {
         innerHTML: _vm._s(menu.content)
       }
@@ -7488,7 +7576,7 @@ var render = function render() {
       staticClass: "row m-0 p-0"
     }, _vm._l(menu.content, function (content) {
       return _c("div", {
-        staticClass: "p-0 pr-1 m-0 mentor-single-page-description",
+        staticClass: "p-0 pr-1 m-0 mentor-single-page-description break-word",
         "class": {
           "col-4 col-sm-6 col-md-4": menu.content > 1,
           "col-12": menu.content < 2
@@ -7503,136 +7591,9 @@ var render = function render() {
         }
       })]);
     }), 0) : _vm._e()])]);
-  }), 0)])]), _vm._v(" "), _c("div", {
-    staticClass: "mt-4 ml-4 mr-3"
-  }, [_c("div", {
-    staticClass: "font-weight-bold"
-  }, [_vm._v("\n            Book Session\n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "mt-3 assesstment-time bg-white shadow single-mentor-calendar-div pt-4 pb-2 pl-4 pr-3 row"
-  }, [_c("div", {
-    staticClass: "pl-0 col-12 col-sm-12 col-md-12 col-lg-4 pr-0 calendar"
-  }, [_c("DatePicker", {
-    staticClass: "assessment_datepicker d-flex align-items-center justify-content-center col-md-10",
-    attrs: {
-      locale: "en",
-      "min-date": new Date(),
-      attributes: _vm.myattrs,
-      color: "purple"
-    },
-    on: {
-      change: _vm.setCalendarHighlight,
-      dayclick: _vm.setCalendarHighlight
-    },
-    model: {
-      value: _vm.date,
-      callback: function callback($$v) {
-        _vm.date = $$v;
-      },
-      expression: "date"
-    }
-  })], 1), _vm._v(" "), _c("div", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "font-weight-light pt-2 mt-1 pl-1"
-  }, [_vm._v("\n                    " + _vm._s(_vm.getNowFullDate()) + "\n                ")]), _vm._v(" "), _c("div", {
-    staticClass: "w-100"
-  }, _vm._l(_vm.hours, function (hour) {
-    return _c("div", {
-      staticClass: "mt-2 p-1"
-    }, [_c("div", {
-      staticStyle: {
-        "border-left": "1px solid #F2F2F7",
-        "border-right": "1px solid #F2F2F7"
-      }
-    }, [_c("div", {
-      staticClass: "p-3 mt-2 text-center hour cursor-pointer custom-hour-div",
-      style: _vm.setTakenHourStyle(hour.is_active),
-      on: {
-        click: function click($event) {
-          hour.is_active = !hour.is_active;
-        }
-      }
-    }, [_c("div", {
-      staticClass: "pr-0 font-weight-bold"
-    }, [_vm._v("\n                                    " + _vm._s(hour.from) + " : " + _vm._s(hour.to) + "\n                                ")])])])]);
-  }), 0)]), _vm._v(" "), _c("div", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 pl-4"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "d-flex flex-column mt-3 justify-content-between",
-    staticStyle: {
-      "min-height": "400px",
-      height: "85%"
-    }
-  }, [_c("div", {
-    staticClass: "d-flex align-items-center"
-  }, [_c("div", [_c("img", {
-    staticClass: "shadow",
-    staticStyle: {
-      "border-radius": "16px"
-    },
-    attrs: {
-      src: "/mentors/" + _vm.mentor.logo,
-      height: "56px",
-      alt: "Logo"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "pl-3"
-  }, [_c("div", {
-    staticClass: "font-weight-bold",
-    staticStyle: {
-      "font-size": "20px",
-      color: "rgba(0, 0, 0, 0.6)"
-    }
-  }, [_vm._v("\n                                " + _vm._s(_vm.mentor.name) + "\n                            ")]), _vm._v(" "), _c("div", {
-    staticClass: "font-weight-bold",
-    staticStyle: {
-      color: "rgba(98, 0, 238, 1)"
-    }
-  }, [_vm._v("\n                                Mentor\n                            ")])])]), _vm._v(" "), _vm._m(1)])])])])], 1);
+  }), 0)])])], 1);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "pt-1 mt-2"
-  }, [_c("h4", {
-    staticClass: "m-0 font-weight-bold"
-  }, [_vm._v("\n                        60 minute session\n                    ")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "mb-3"
-  }, [_c("label", {
-    staticClass: "font-weight-bold",
-    attrs: {
-      "for": "mentor_name"
-    }
-  }, [_vm._v("\n                                Full name\n                            ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      id: "mentor_name",
-      type: "text"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-3"
-  }, [_c("label", {
-    staticClass: "font-weight-bold",
-    attrs: {
-      "for": "mentor_email"
-    }
-  }, [_vm._v("\n                                Email\n                            ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      id: "mentor_email",
-      type: "text"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-3"
-  }, [_c("button", {
-    staticClass: "btn mentor-confirm-button font-weight-bold w-100"
-  }, [_vm._v("\n                                Confirm\n                            ")])])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -28568,6 +28529,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/* component style */\n.vue-slider-dis
 
 /***/ }),
 
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./public/css/components/mentor/index.css":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./public/css/components/mentor/index.css ***!
+  \*********************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".card-border-radius{\n    border-radius:26px;\n}\n.custom-datepicker .vc-pane{\n    padding:10px;\n}\n.custom-datepicker .vc-day-content .vc-focusable{\n    padding:40px!important;\n    border-radius:0px!important;\n}\n.custom-datepicker .vc-weeks{\n    height:20vh;\n}\n.custom-datepicker .vc-pane{\n    height: 36vh;\n}\n.custom-datepicker{\n    border:none;\n    width:100%;\n}\n@media only screen and (max-width: 767px) {\n    .mentor-range-cards{\n        padding-left: 0px !important;\n        margin-top: 10px !important;\n    }\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/components/css/mentor/signle-page.css":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./resources/js/components/css/mentor/signle-page.css ***!
@@ -28760,30 +28745,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.rounded-20px{\n    border-radius:20
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-border-radius{\n    border-radius:26px;\n}\n.custom-datepicker .vc-pane{\n\tpadding:10px;\n}\n.custom-datepicker .vc-day-content vc-focusable{\n\tpadding:40px!important;\n\tborder-radius:0px!important;\n}\n.custom-datepicker .vc-weeks{\n\theight:20vh;\n}\n.custom-datepicker .vc-pane{\n\theight: 36vh;\n}\n.custom-datepicker{\n\tborder:none;\n\twidth:100%;\n}\n@media only screen and (max-width: 767px) {\n.mentor-range-cards{\n\t\tpadding-left: 0px !important;\n\t\tmargin-top: 10px !important;\n}\n}\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/single-page.vue?vue&type=style&index=0&id=18e3239e&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/single-page.vue?vue&type=style&index=0&id=18e3239e&lang=css& ***!
@@ -28801,7 +28762,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.rounded-20px{\n    border-radius:20px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.rounded-20px{\n    border-radius:20px;\n}\n.break-word{\n    word-break: break-word;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -60717,6 +60678,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 /***/ }),
 
+/***/ "./public/css/components/mentor/index.css":
+/*!************************************************!*\
+  !*** ./public/css/components/mentor/index.css ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./index.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./public/css/components/mentor/index.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/js/components/css/mentor/signle-page.css":
 /*!************************************************************!*\
   !*** ./resources/js/components/css/mentor/signle-page.css ***!
@@ -60954,36 +60945,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_single_page_vue_vue_type_style_index_0_id_0b67b048_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_ecd0aa62_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css&");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_ecd0aa62_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_ecd0aa62_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -65538,17 +65499,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index_vue_vue_type_template_id_ecd0aa62___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=ecd0aa62& */ "./resources/js/components/mentor/index.vue?vue&type=template&id=ecd0aa62&");
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/mentor/index.vue?vue&type=script&lang=js&");
-/* harmony import */ var _index_vue_vue_type_style_index_0_id_ecd0aa62_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css& */ "./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
-;
 
 
 /* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _index_vue_vue_type_template_id_ecd0aa62___WEBPACK_IMPORTED_MODULE_0__.render,
   _index_vue_vue_type_template_id_ecd0aa62___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -67613,19 +67572,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_single_page_vue_vue_type_style_index_0_id_0b67b048_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./single-page.vue?vue&type=style&index=0&id=0b67b048&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/investor/single-page.vue?vue&type=style&index=0&id=0b67b048&lang=css&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css&":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css& ***!
-  \***********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_ecd0aa62_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mentor/index.vue?vue&type=style&index=0&id=ecd0aa62&lang=css&");
 
 
 /***/ }),

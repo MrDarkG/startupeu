@@ -29,10 +29,11 @@ class ProfileController extends Controller
             'name' => 'required|string',
             'user_id' => 'numeric',
             'price' => 'numeric|required',
+            'country.data.id' => 'required',
             'linkedin' => 'required|string',
             'experience' => 'required|string',
             'which.field.id' => 'required|numeric',
-            'which.issue' => 'required',
+            'which.issue' => 'required|array',
         ]);
         if (MainServices::checkIfProfileCompleted($request->input('user_id'), Mentor::class)) {
             return MentorServices::updateMyProfileInfo($request);

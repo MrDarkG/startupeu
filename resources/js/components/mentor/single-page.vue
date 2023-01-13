@@ -8,7 +8,7 @@
                 looking_for:undefined,
                 black_card:{
                     title:'Price range:',
-                    content:'$18 <small>/hour</small>',
+                    content:`$${mentor.price} <small>/hour</small>`,
                 },
             }"
         ></single-page-header>
@@ -21,7 +21,9 @@
                     <div class="font-weight-bold mt-3">
                         {{about.title}}
                     </div>
-                    <div>
+                    <div
+                        class="break-word"
+                    >
                         {{about.description}}
                     </div>
                 </div>
@@ -39,7 +41,7 @@
                         <div>
                             <div
                                 v-if="typeof menu.content === 'string'"
-                                class="mentor-single-page-description text-break"
+                                class="mentor-single-page-description break-word"
                                 v-html="menu.content"
                             ></div>
                             <div
@@ -47,7 +49,7 @@
                                 class="row m-0 p-0"
                             >
                                 <div
-                                    class="p-0 pr-1 m-0 mentor-single-page-description"
+                                    class="p-0 pr-1 m-0 mentor-single-page-description break-word"
                                     style="font-size:15px;"
                                     :class="{
                                         'col-4 col-sm-6 col-md-4':menu.content > 1,
@@ -66,94 +68,94 @@
                 </div>
             </div>
         </div>
-        <div class="mt-4 ml-4 mr-3">
-            <div class="font-weight-bold">
-                Book Session
-            </div>
-            <div class="mt-3 assesstment-time bg-white shadow single-mentor-calendar-div pt-4 pb-2 pl-4 pr-3 row">
-                <div class="pl-0 col-12 col-sm-12 col-md-12 col-lg-4 pr-0 calendar">
-                    <DatePicker
-                        class="assessment_datepicker d-flex align-items-center justify-content-center col-md-10"
-                        :locale="'en'"
-                        v-model="date"
-                        @change="setCalendarHighlight"
-                        @dayclick="setCalendarHighlight"
-                        :min-date="new Date()"
-                        :attributes="myattrs"
-                        color="purple"
-                    ></DatePicker>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                    <div class="font-weight-light pt-2 mt-1 pl-1">
-                        {{ getNowFullDate() }}
-                    </div>
-                    <div class="w-100">
-                        <div
-                            class="mt-2 p-1"
-                            v-for="hour in hours"
-                        >
-                            <div
-                                style="
-                                    border-left: 1px solid #F2F2F7;
-                                    border-right: 1px solid #F2F2F7;
-                                "
-                            >
-                                <div
-                                    class="p-3 mt-2 text-center hour cursor-pointer custom-hour-div"
-                                    @click="hour.is_active = !hour.is_active"
-                                    :style="setTakenHourStyle(hour.is_active)"
-                                >
-                                    <div class="pr-0 font-weight-bold">
-                                        {{ hour.from  }} : {{ hour.to  }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 pl-4">
-                    <div class="pt-1 mt-2">
-                        <h4 class="m-0 font-weight-bold">
-                            60 minute session
-                        </h4>
-                    </div>
-                    <div class="d-flex flex-column mt-3 justify-content-between" style="min-height:400px;height:85%;">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <img style="border-radius:16px;" :src="'/mentors/'+mentor.logo" height="56px" alt="Logo" class="shadow">
-                            </div>
-                            <div class="pl-3">
-                                <div style="font-size:20px;color:rgba(0, 0, 0, 0.6);" class="font-weight-bold">
-                                    {{ mentor.name }}
-                                </div>
-                                <div class="font-weight-bold" style="color:rgba(98, 0, 238, 1);">
-                                    Mentor
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="mb-3">
-                                <label class="font-weight-bold" for="mentor_name">
-                                    Full name
-                                </label>
-                                <input id="mentor_name" type="text" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label class="font-weight-bold" for="mentor_email">
-                                    Email
-                                </label>
-                                <input id="mentor_email" type="text" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <button class="btn mentor-confirm-button font-weight-bold w-100">
-                                    Confirm
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="mt-4 ml-4 mr-3">-->
+<!--            <div class="font-weight-bold">-->
+<!--                Book Session-->
+<!--            </div>-->
+<!--            <div class="mt-3 assesstment-time bg-white shadow single-mentor-calendar-div pt-4 pb-2 pl-4 pr-3 row">-->
+<!--                <div class="pl-0 col-12 col-sm-12 col-md-12 col-lg-4 pr-0 calendar">-->
+<!--                    <DatePicker-->
+<!--                        class="assessment_datepicker d-flex align-items-center justify-content-center col-md-10"-->
+<!--                        :locale="'en'"-->
+<!--                        v-model="date"-->
+<!--                        @change="setCalendarHighlight"-->
+<!--                        @dayclick="setCalendarHighlight"-->
+<!--                        :min-date="new Date()"-->
+<!--                        :attributes="myattrs"-->
+<!--                        color="purple"-->
+<!--                    ></DatePicker>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-sm-12 col-md-6 col-lg-4">-->
+<!--                    <div class="font-weight-light pt-2 mt-1 pl-1">-->
+<!--                        {{ getNowFullDate() }}-->
+<!--                    </div>-->
+<!--                    <div class="w-100">-->
+<!--                        <div-->
+<!--                            class="mt-2 p-1"-->
+<!--                            v-for="hour in hours"-->
+<!--                        >-->
+<!--                            <div-->
+<!--                                style="-->
+<!--                                    border-left: 1px solid #F2F2F7;-->
+<!--                                    border-right: 1px solid #F2F2F7;-->
+<!--                                "-->
+<!--                            >-->
+<!--                                <div-->
+<!--                                    class="p-3 mt-2 text-center hour cursor-pointer custom-hour-div"-->
+<!--                                    @click="hour.is_active = !hour.is_active"-->
+<!--                                    :style="setTakenHourStyle(hour.is_active)"-->
+<!--                                >-->
+<!--                                    <div class="pr-0 font-weight-bold">-->
+<!--                                        {{ hour.from  }} : {{ hour.to  }}-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-sm-12 col-md-6 col-lg-4 pl-4">-->
+<!--                    <div class="pt-1 mt-2">-->
+<!--                        <h4 class="m-0 font-weight-bold">-->
+<!--                            60 minute session-->
+<!--                        </h4>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex flex-column mt-3 justify-content-between" style="min-height:400px;height:85%;">-->
+<!--                        <div class="d-flex align-items-center">-->
+<!--                            <div>-->
+<!--                                <img style="border-radius:16px;" :src="'/mentors/'+mentor.logo" height="56px" alt="Logo" class="shadow">-->
+<!--                            </div>-->
+<!--                            <div class="pl-3">-->
+<!--                                <div style="font-size:20px;color:rgba(0, 0, 0, 0.6);" class="font-weight-bold">-->
+<!--                                    {{ mentor.name }}-->
+<!--                                </div>-->
+<!--                                <div class="font-weight-bold" style="color:rgba(98, 0, 238, 1);">-->
+<!--                                    Mentor-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <div class="mb-3">-->
+<!--                                <label class="font-weight-bold" for="mentor_name">-->
+<!--                                    Full name-->
+<!--                                </label>-->
+<!--                                <input id="mentor_name" type="text" class="form-control">-->
+<!--                            </div>-->
+<!--                            <div class="mb-3">-->
+<!--                                <label class="font-weight-bold" for="mentor_email">-->
+<!--                                    Email-->
+<!--                                </label>-->
+<!--                                <input id="mentor_email" type="text" class="form-control">-->
+<!--                            </div>-->
+<!--                            <div class="mb-3">-->
+<!--                                <button class="btn mentor-confirm-button font-weight-bold w-100">-->
+<!--                                    Confirm-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </template>
 <script>
@@ -221,9 +223,9 @@ export default {
                             <span
                                 style="color:rgba(98, 0, 238, 1);"
                                 class="text-wrap cursor-pointer"
-                                onclick="window.open('${'mailto:'+this.mentor.user.email}','_blank')"
+                                onclick="window.open('${'mailto:'+this.mentor?.user?.email}','_blank')"
                             >
-                                ${this.mentor.user.email}
+                                ${this.mentor?.user?.email}
                             </span>
                         `
                     },
@@ -320,5 +322,8 @@ export default {
 <style>
 .rounded-20px{
     border-radius:20px;
+}
+.break-word{
+    word-break: break-word;
 }
 </style>

@@ -16,6 +16,7 @@
                     [
                         'title' => 'My account',
                         'url' => '/mentor/dashboard/index',
+                        'icon' => 'person',
                         'image' => '/assets/images/myaccount.svg',
                         'is_active' => (str_contains(url()->current(), "/mentor/dashboard/index")) ? true : false
                     ],

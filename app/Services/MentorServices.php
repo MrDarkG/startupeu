@@ -26,7 +26,8 @@ class MentorServices extends MainServices
 		}else{
 			$fileName=parent::getMyImageName($user_id, Mentor::class);
 		}
-		Mentor::where("user_id",$user_id)->update([
+        $mentor = Mentor::where("user_id",$user_id);
+        $mentor->update([
             'name'=>$request->input("name"),
             'linnkedin'=>$request->input("linkedin"),
             'question1'=>$request->input("experience"),
@@ -37,10 +38,10 @@ class MentorServices extends MainServices
             'issues_id'=>0,
             'logo'=>$fileName
 		]);
-        Mentor_issues::where("mentor_id",$user_id)->delete();
+        Mentor_issues::where("mentor_id",$mentor->first()->id)->delete();
         foreach($request->input("which.issue") as $issue){
             Mentor_issues::create([
-                "mentor_id"=>$user_id,
+                "mentor_id"=>$mentor->first()->id,
                 "issue_id"=>$issue['id']
             ]);
         }
@@ -56,7 +57,7 @@ class MentorServices extends MainServices
 		$base64_image = $request->input("image");
         parent::saveImage($base64_image, $fileName, "mentors_avatar");
         $user_id = ($request->input('user_id'))?$request->input('user_id'):Auth::user()->id;
-        Mentor::create([
+        $mentor = Mentor::create([
 			'name'=>$request->input("name"),
         	'linnkedin'=>$request->input("linkedin"),
         	'question1'=>$request->input("experience"),
@@ -70,7 +71,7 @@ class MentorServices extends MainServices
 		]);
         foreach($request->input("which.issue") as $issue){
             Mentor_issues::create([
-                "mentor_id"=>$user_id,
+                "mentor_id"=>$mentor['id'],
                 "issue_id"=>$issue['id']
             ]);
         }

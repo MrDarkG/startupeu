@@ -4,108 +4,66 @@
 		<div>
 			<h3>
 				<b>
-					My Calendar
+					My account
 				</b>
 			</h3>
 		</div>
 		<div>
 			<span>
-				Mark the time for a session
+				See/Edit your information.
 			</span>
 		</div>
 	</div>
 	<div class="d-flex flex-wrap mt-5 ">
-<!--		<div class="bg-white p-0 col-md-6 d-flex align-items-center justify-content-center card-border-radius">-->
-<!--			<DatePicker-->
-<!--				:locale="'en'"-->
-<!--				class="custom-datepicker card-border-radius"-->
-<!--				v-model="calendar.DatePicker.date"-->
-<!--				:min-date="new Date()"-->
-<!--				:attributes="calendar.DatePicker.todos"-->
-<!--				color="purple"-->
-<!--			></DatePicker>-->
-<!--		</div>-->
 		<div class="mentor-range-cards col-md-6 d-flex flex-column justify-content-between pl-2 pr-0 card-border-radius">
 			<div class="bg-white p-3 card-border-radius">
 				<div class="d-flex align-items-center justify-content-between">
-					<div class="d-flex align-items-center" style="font-size:18px">
+					<div class="d-flex flex-wrap align-items-center" style="font-size:18px">
 						<div class="p-2">
 							Price range per hour:
 						</div>
-						<div style="color:#3700b3;font-weight:bold;">
-							$0/hr
+						<div
+                            style="color:#3700b3;font-weight:bold;"
+                            class="d-flex pl-2 pl-sm-0 align-items-center"
+                        >
+							$<span>{{selected_price}}</span>/hr
 						</div>
 					</div>
-					<div>
-						<img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/edit.svg" alt="">
+					<div
+                        @click="id_edit_provoked = !id_edit_provoked"
+                    >
+						<img
+                            src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/edit.svg"
+                            alt=""
+                            class="cursor-pointer"
+                        >
 					</div>
 				</div>
 			</div>
-<!--			<div class="bg-white p-3 mt-2 card-border-radius">-->
-<!--				<div class="font-weight-bold" style="font-size:18px;">-->
-<!--					Meeting settings-->
-<!--				</div>-->
-<!--				<hr style="opacity:0.5;">-->
-<!--				<div class="d-flex flex-wrap">-->
-<!--					<div class="mt-1 col-md-6 card-border-radius">-->
-<!--                        <div class="in-title">Set your hours</div>-->
-<!--                        <div class="available-hours" data-toggle="modal" data-target=".addtimemodal">-->
-<!--                            Available hours-->
-<!--                            <img src="https://startupcentraleurasia.com/themes/application/Components/svg/dashboard/timer.svg" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="in-desc">Define hours when you are available for meeting.</div>-->
-<!--                    </div>-->
-<!--                    <div class="mt-1 col-md-6 card-border-radius">-->
-<!--                        <div class="in-title">Duration</div>-->
-
-<!--                        <select name="duration" id="duration" class="form-control duration">-->
-<!--                            <option value="1">1</option>-->
-<!--                        </select>-->
-<!--                        <div class="in-desc">Define how long your meeting will be. It can be as long as 12-->
-<!--                            hours.-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--				</div>-->
-<!--			</div>-->
 		</div>
 	</div>
-<!--	<v-calendar-->
-<!--			class="custom-calendar max-w-full mt-2 card-border-radius"-->
-<!--			:masks="calendar.masks"-->
-<!--			:attributes="calendar.attributes"-->
-<!--			disable-page-swipe-->
-<!--			is-expanded-->
-<!--	>-->
-<!--	  	<template v-slot:day-content="{ day, attributes }">-->
-<!--		    <div class="flex flex-col h-full z-10 overflow-hidden">-->
-<!--		      <span class="day-label text-sm text-gray-900">{{ day.day }}</span>-->
-<!--		      <div class="flex-grow overflow-y-auto overflow-x-auto">-->
-<!--		        <div-->
-<!--		          v-for="attr in attributes"-->
-<!--		          :key="attr.key"-->
-<!--		          class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 d-flex flex-column"-->
-<!--		          :class="attr.customData.class"-->
-<!--		        >-->
-<!--		            <div v-for="tdata in attr.customData.hours" class="d-flex justify-content-between">-->
-<!--			            <div class="clock-lables" >-->
-<!--			              {{ tdata.hours }}-->
-<!--			            </div>-->
-<!--			            <div class="clock-lables">-->
-
-<!--			              <img src="/assets/image/people-active.svg" height="14px">-->
-<!--			              {{ tdata.users }}-->
-<!--			            </div>-->
-<!--		        	</div>-->
-<!--		        </div>-->
-<!--		      </div>-->
-<!--		    </div>-->
-<!--	  	</template>-->
-<!--</v-calendar>-->
+    <div>
+        <mentor-single-page
+            v-if="!id_edit_provoked"
+            :mentor="mentor"
+        ></mentor-single-page>
+        <create-mentor
+            v-else
+            :input_data="getInputData()"
+            :issues="data.issues"
+            :fields="data.fields"
+            :countries="data.countries"
+            :mentor="mentor"
+            class="pl-2 mt-4 pt-3 pr-4"
+        />
+    </div>
 </div>
 </template>
 <script>
+import "/css/components/mentor/index.css"
 import { Calendar, DatePicker } from 'v-calendar'
 export default{
+    props:['mentor','data'],
 	components:{
 		Calendar,
 		DatePicker,
@@ -121,8 +79,42 @@ export default{
 	        }))]
 		}
 	},
+    methods:{
+        getInputData(){
+            let mentor = this.mentor
+            this.selected_price = (this.selected_price > 0)?this.selected_price:""
+            this.selected_price = (this.selected_price.length > 1 && this.selected_price[0] == 0)?"":this.selected_price
+            return {
+                name:mentor?.name,
+                price:this.selected_price,
+                linkedin:mentor?.linnkedin,
+                experience:mentor?.question1,
+                country:{
+                    data:{
+                        id:mentor?.country_id,
+                    },
+                },
+                which:{
+                    field:{
+                        id:mentor?.fields_id
+                    },
+                    issue:mentor?.issues,
+                },
+                preview:mentor?.logo,
+            }
+        },
+        changeMentorPrice(){
+            axios.post('/register/mentor',this.getInputData()).then((response) => {
+                this.$vToastify.success('Changed successfully','Response')
+            }).catch((error) => {
+                this.$vToastify.error('Use numbers','Response')
+            })
+        }
+    },
 	data(){
 		return{
+            selected_price:this.mentor.price??5,
+            id_edit_provoked:false,
 			calendar:{
 		  	 	attributes: [
 		  	 		{
@@ -169,31 +161,3 @@ export default{
 	}
 }
 </script>
-<style>
-.card-border-radius{
-    border-radius:26px;
-}
-.custom-datepicker .vc-pane{
-	padding:10px;
-}
-.custom-datepicker .vc-day-content vc-focusable{
-	padding:40px!important;
-	border-radius:0px!important;
-}
-.custom-datepicker .vc-weeks{
-	height:20vh;
-}
-.custom-datepicker .vc-pane{
-	height: 36vh;
-}
-.custom-datepicker{
-	border:none;
-	width:100%;
-}
-@media only screen and (max-width: 767px) {
-	.mentor-range-cards{
-		padding-left: 0px !important;
-		margin-top: 10px !important;
-	}
-}
-</style>

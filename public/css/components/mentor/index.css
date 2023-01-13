@@ -1,0 +1,26 @@
+.card-border-radius{
+    border-radius:26px;
+}
+.custom-datepicker .vc-pane{
+    padding:10px;
+}
+.custom-datepicker .vc-day-content .vc-focusable{
+    padding:40px!important;
+    border-radius:0px!important;
+}
+.custom-datepicker .vc-weeks{
+    height:20vh;
+}
+.custom-datepicker .vc-pane{
+    height: 36vh;
+}
+.custom-datepicker{
+    border:none;
+    width:100%;
+}
+@media only screen and (max-width: 767px) {
+    .mentor-range-cards{
+        padding-left: 0px !important;
+        margin-top: 10px !important;
+    }
+}

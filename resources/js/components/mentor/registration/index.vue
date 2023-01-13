@@ -123,8 +123,8 @@
                     v-model="fileRecords"
                 ></VueFileAgent>
             </div>
-            <div v-if="input_data && image.preview" class="d-flex align-items-center ">
-                <img height="150" class="rounded" :src="'/mentors/'+image.preview" :alt="image.preview">
+            <div v-if="input_data && input?.preview" class="d-flex align-items-center ">
+                <img height="150" class="rounded" :src="'/mentors/'+input?.preview" :alt="input?.preview">
             </div>
         </div>
         <div class="float-right mt-3">
@@ -185,37 +185,72 @@ export default{
             },
             button:false,
             custom_input_data:{},
-            input:{
-                user_id:this.user_id,
-                name:"",
-                linkedin:"",
-                experience:"",
-                country:{
-                    data:{},
-                },
-                which:{
-                    field:"",
-                    issue:""
-                },
-                image:""
-            },
+            input:this.setInputs(
+                this.input_data?.name,
+                this.input_data?.price,
+                this.input_data?.linkedin,
+                this.input_data?.experience,
+                this.input_data?.country?.data?.id,
+                this.input_data?.which?.field,
+                this.input_data?.which?.issue,
+                this.input_data?.preview
+            ),
         }
     },
     watch:{
-        input_data:function (val) {
-            if(val){
-                this.input.name = val.name
-                this.input.price = val.price
-                this.input.linkedin = val.linnkedin
-                this.input.experience = val.question1
-                this.input.country.data = val.country
-                this.input.which.field = val.fields
-                this.input.which.issue = val.issues.map((issue)=>issue.issue)
-                this.image.preview = val.logo
-            }
+        input_data(val) {
+            this.input = this.setInputs(
+                val?.name,
+                val?.price,
+                val?.linnkedin,
+                val?.question1,
+                val?.country.id,
+                val?.fields,
+                val?.issues,
+                val?.preview
+            )
         }
     },
     methods:{
+        setInputs(name, price, linkedin, experience, country, fields, issues, logo){
+            let selected_country = this.findSingleDataByValueName('countries', country)
+            return  {
+                user_id:this.user_id,
+                name:name??"",
+                price:price??"",
+                linkedin:linkedin??"",
+                experience:experience??"",
+                country:{
+                    data:selected_country,
+                },
+                which:{
+                    field:this.findMultipleDataByValueName('fields',fields, 'id')[0]??"",
+                    issue:this.getMentorIssues(issues)??"",
+                },
+                preview:logo,
+            }
+        },
+        findSingleDataByValueName(value_name, id){
+            if(this[value_name]){
+                return this[value_name].find((value)=>value.id == id)
+            }
+            return {}
+        },
+        getMentorIssues(issues){
+            let arr = []
+            issues?.filter((issue)=> {
+                arr.push(issue.issue)
+            })
+            return arr
+        },
+        findMultipleDataByValueName(data ,value_name = [], attr){
+            return this[data]?.filter((item)=>{
+                if(value_name.length > 0){
+                    return value_name.find((second_item)=>item.id === second_item[attr])
+                }
+                return item.id === value_name[attr]
+            })
+        },
         sendData(){
             this.button = true
             axios.post('/register/mentor',this.input)
