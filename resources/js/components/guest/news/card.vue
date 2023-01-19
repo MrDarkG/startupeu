@@ -12,7 +12,7 @@
                     class="news-single-image d-flex p-0 w-100 rounded-top"
                 ></div>
                 <div
-                    class="d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
+                    class="d-flex pl-4 pr-4 pt-3 mb-2 flex-column align-items-start justify-content-between"
                     style="height: 50%;"
                 >
                     <div
@@ -51,7 +51,6 @@ export default {
             http.send()
 
             return (http.status != 404)?image_url:'/mini-logo.svg'
-
         }
     }
 }
