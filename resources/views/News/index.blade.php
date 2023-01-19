@@ -29,7 +29,7 @@
                 <a href="/news/{{urlencode($item->title)}}.{{$item->id}}">
                     <div class="bg-white d-flex flex-column h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
                         <div
-                            onload="this.style.backgroundImage = imageExists({{$item->image}})"
+                            onload="this.style.backgroundImage = imageExists('{{$item->image}}')"
                             class="news-single-image d-flex p-0 w-100 rounded-top"
                         ></div>
                         <div
