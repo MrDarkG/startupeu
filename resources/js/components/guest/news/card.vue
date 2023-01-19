@@ -1,6 +1,6 @@
 <template>
     <div
-        class="col-md-4 p-4"
+        class="p-2"
         style="height:404px;"
     >
         <a :href="`/news/${item.title}.${item.id}`">
@@ -56,3 +56,11 @@ export default {
     }
 }
 </script>
+<style>
+.news-single-image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 50%;
+}
+</style>

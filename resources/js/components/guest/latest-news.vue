@@ -17,7 +17,7 @@
                     >
 				</div>
 				<div
-					class=" col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
+					class="col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
 				>
 					<div v-if="item.created_at" class="text-black-50">
 						{{ setCustomDate(item.created_at) }}
@@ -35,7 +35,7 @@
 		</a>
 	</div>
     <news-card
-        class="mt-3 p-0"
+        class="col-12 col-sm-12 mt-3 col-md-6 col-lg-4"
         v-else
         :item="item"
     ></news-card>
