@@ -5931,7 +5931,7 @@ var render = function render() {
         staticClass: "mt-3"
       }, _vm._l(question.answers, function (answer) {
         return _c("div", {
-          staticClass: "pl-3 border-left border-success",
+          staticClass: "pl-3 faqs-description border-left border-success",
           staticStyle: {
             "border-width": "0.25em!important"
           },
@@ -28795,7 +28795,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-faq{\n    border-bottom: solid 3px #1abc9c;\n    animation-name: animate-faq-border;\n    animation-duration: 1s;\n}\n@keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.faqs-description a{\n    cursor:pointer;\n    color:rgba(98, 0, 238, 1);\n    border-bottom:solid 1px rgba(98, 0, 238, 1);\n}\n.custom-faq{\n    border-bottom: solid 3px #1abc9c;\n    animation-name: animate-faq-border;\n    animation-duration: 1s;\n}\n@keyframes animate-faq-border{\nfrom {width:0px;}\nto {width:100%;}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

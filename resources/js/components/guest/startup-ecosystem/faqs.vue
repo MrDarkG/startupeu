@@ -54,7 +54,7 @@
                     class="mt-3"
                     v-if="question.is_active">
                     <div
-                        class="pl-3 border-left border-success"
+                        class="pl-3 faqs-description border-left border-success"
                         style="border-width: 0.25em!important"
                         v-for="answer in question.answers"
                         v-html="answer.answer"
@@ -116,6 +116,11 @@ export default {
 }
 </script>
 <style>
+.faqs-description a{
+    cursor:pointer;
+    color:rgba(98, 0, 238, 1);
+    border-bottom:solid 1px rgba(98, 0, 238, 1);
+}
 .custom-faq{
     border-bottom: solid 3px #1abc9c;
     animation-name: animate-faq-border;
