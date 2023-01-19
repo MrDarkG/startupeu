@@ -24,6 +24,7 @@
                             style="
                                 background-image: url('/uploads/{{$item->image}}');
                             "
+                            onerror="this.style.backgroundImage='/assets/images/lil-logo.svg'"
                             class="news-single-image d-flex p-0 w-100 rounded-top"
                         ></div>
                         <div
