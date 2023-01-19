@@ -11,14 +11,6 @@
         height: 50%;
     }
 </style>
-<script>
-    const imageExists =(image_url)=>{
-        const http = new XMLHttpRequest()
-        http.open('HEAD', image_url, false)
-        http.send()
-        return (http.status != 404)?image_url:'/assets/images/lil-logo.svg'
-    }
-</script>
 @section("content")
     <div class="row container m-auto pt-3 pb-3 pr-2 pl-2">
         @foreach($news as $item)
@@ -29,7 +21,7 @@
                 <a href="/news/{{urlencode($item->title)}}.{{$item->id}}">
                     <div class="bg-white d-flex flex-column h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
                         <div
-                            onload="this.style.backgroundImage = 'url(/uploads/'+imageExists({{$item->image}})+')'"
+                            style="background-image: url('/uploads/{{$item->image}}')"
                             class="news-single-image d-flex p-0 w-100 rounded-top"
                         ></div>
                         <div
