@@ -13,15 +13,18 @@
                 style="height:404px;"
             >
                 <a href="/news/{{urlencode($item->title)}}.{{$item->id}}">
-                    <div class="bg-white row h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
-                        <div class="col-md-12 p-0 rounded rounded-2">
-                            <img
-                                class="w-100 p-0"
-                                src="/uploads/{{$item->image}}" alt="{{$item->image}}"
-                            >
-                        </div>
+                    <div class="bg-white d-flex flex-column h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
                         <div
-                            class="col-md-12 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
+                            class="d-flex flex-wrap justify-content-between p-0 rounded rounded-2"
+                            :style="{
+                                backgroundImage: `url(/assets/images/news/uploads/{{$item->image}})`,
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }"
+                        ></div>
+                        <div
+                            class="d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
                         >
                             @if($item->created_at)
                                 <div class="text-black-50">
