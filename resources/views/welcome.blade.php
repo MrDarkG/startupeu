@@ -64,7 +64,9 @@
                 <h1 class="font-weight-bold" style="font-size: 50px;">Events</h1>
             </div>
             <div class="pl-0 pt-2 pb-2 pr-2">
-                <h5>Here you can find information regarding latest events </h5>
+                <h5>
+                    Here you can find information regarding latest events
+                </h5>
             </div>
         </div>
         <div class="row m-0">

@@ -20,11 +20,7 @@
                 >
                     <a :href="`/investor/${investor.id}`" class="d-flex flex-column justify-content-between">
                         <div
-                            style="
-                                height:160px;
-                                width:160px;
-                                border-radius: 16px;
-                            "
+                            class="browse-card-image"
                             :style="{
                                 backgroundImage:`url('${investor.logo}')`
                             }"
@@ -76,3 +72,12 @@ export default{
     },
 };
 </script>
+<style>
+.browse-card-image{
+    height:160px;
+    width:160px;
+    border-radius: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+</style>

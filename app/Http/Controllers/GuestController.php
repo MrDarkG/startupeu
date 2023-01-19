@@ -33,10 +33,10 @@ class GuestController extends Controller
      */
     public function home()
     {
-        $news = News::orderBy('created_at')->take(4)->get();
+        $news = News::latest()->take(4)->get();
         $startups = Startup::get();
         $startup_ecosystem = Startup_ecosystem::get();
-        $events = Events::orderBy('created_at','Desc')->take(4)->get();
+        $events = Events::latest()->take(4)->get();
         return view('welcome',[
             'news' => $news,
             'startups' => $startups,
@@ -142,7 +142,7 @@ class GuestController extends Controller
     }
     public function allNews()
     {
-        $news = News::get();
+        $news = News::orderBy('created_at','desc')->get();
         return view('News.index',[
             'news' => $news,
         ]);

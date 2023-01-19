@@ -20,11 +20,7 @@
                 >
                     <a :href="`/mentor/${mentor.id}`" class="d-flex flex-column justify-content-between">
                         <div
-                            style="
-                                height:160px;
-                                width:160px;
-                                border-radius: 16px;
-                            "
+                            class="browse-card-image"
                             :style="{
                                 backgroundImage:`url('/mentors/${mentor.logo}')`
                             }"
