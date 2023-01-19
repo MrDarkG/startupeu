@@ -2,36 +2,22 @@
 <div class="row pr-2 pl-2">
 	<div
 		v-for="(item, item_i) in news"
-		:class="{
-			'col-md-12 pl-4 pr-4':item_i < 1,
-			'col-md-4 p-4':item_i > 0,
-		}"
+		class="col-md-12 pl-4 pr-4"
+        v-if="item_i < 1"
         :style="{
-            height:(item_i<1)?'280px':'404px'
+            height:'280px'
         }"
 	>
 		<a :href="`/news/${item.title.replace(/[\/.#\\ \s]/g,'-')}.${item.id}`">
 			<div class="bg-white row h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
-				<div class="p-0 rounded rounded-2"
-					:class="{
-						'col-md-6':item_i < 1,
-						'col-md-12':item_i > 0,
-					}"
-				>
+				<div class="p-0 rounded rounded-2 col-md-6">
 					<img
-                        :class="{
-                            'h-100':item_i < 1,
-                        }"
-                        class="col-md-12 p-0"
+                        class="col-md-12 h-100 p-0"
                         :src="`/uploads/${item.image}`" :alt="item.image"
                     >
 				</div>
 				<div
-					class="d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
-					:class="{
-						'col-md-6':item_i < 1,
-						'col-md-12':item_i > 0,
-					}"
+					class=" col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
 				>
 					<div v-if="item.created_at" class="text-black-50">
 						{{ setCustomDate(item.created_at) }}
@@ -48,6 +34,11 @@
 			</div>
 		</a>
 	</div>
+    <news-card
+        class="mt-3 p-0"
+        v-else
+        :item="item"
+    ></news-card>
 </div>
 </template>
 <script>

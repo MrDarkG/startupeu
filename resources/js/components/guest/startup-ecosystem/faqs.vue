@@ -121,6 +121,9 @@ export default {
     color:rgba(98, 0, 238, 1);
     border-bottom:solid 1px rgba(98, 0, 238, 1);
 }
+.faqs-description a:hover{
+    border-bottom:unset;
+}
 .custom-faq{
     border-bottom: solid 3px #1abc9c;
     animation-name: animate-faq-border;
