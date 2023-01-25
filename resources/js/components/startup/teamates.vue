@@ -26,8 +26,8 @@
                     <div class="mt-1">
                         <a :href="teamate.linkedin" target="_blank">
                             <img
+                                height="25"
                                 src="/assets/images/linkedin.png"
-                                height="20"
                                 style="margin-left:2px;"
                             >
                         </a>
@@ -36,12 +36,14 @@
             </div>
             <div
                 class="col-md-12 col-lg-12 col-xl-7 d-flex align-items-center font-weight-bold text-opacity-half pr-0 pl-0"
+                style="word-wrap: anywhere;"
             >
                 {{teamate.about_me}}
             </div>
             <div
                 v-if="is_editable"
-                class="position-absolute bg-primary font-weight-bolder pl-3 pr-3 pt-2 pb-2 text-white rounded"
+                @click="editTeamate(teamate)"
+                class="position-absolute cursor-pointer bg-primary font-weight-bolder pl-3 pr-3 pt-2 pb-2 text-white rounded"
                 style="right:15px;top:15px;"
             >
                 Edit
@@ -52,5 +54,10 @@
 <script>
 export default{
     props:['teamates','is_editable'],
+    methods:{
+        editTeamate(teamate){
+            this.$emit('editTeamate',teamate)
+        }
+    },
 }
 </script>

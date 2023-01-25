@@ -90,27 +90,25 @@ class DashboardController extends Controller
         ]);
         $startup_id = Startup::where('user_id',Auth::user()->id)
             ->first()->id;
-        $regex = '/data:image\/(.*?);base64,(.*)/';
-        $fileName = "";
-        $is_image_base_64 = preg_match($regex, $teamate['image'], $matches);
+        $fileName = $teamate['image'];
         if($startup_id){
-            if($is_image_base_64){
+            $base64 = null;
+            if(is_null($request['id'])){
                 $fileName = MainServices::generateRandomString().'.jpg';
                 $base64 = $teamate['image'];
                 $teamate['image'] = $fileName;
             }
-            $fileName = $teamate['image'];
+            $teamate['id'] = $request['id'];
             $teamate['startup_id'] = $startup_id;
             //$class_name, $is_image_base_64, $base64, $fileName, $value, $model_id, $diskname, $column_name
             return MainServices::getResultWithImageValue(
                 new Startup_team_info,
-                $is_image_base_64,
                 $base64,
-                $fileName,
+                $teamate['image'],
                 $teamate,
                 $startup_id,
                 'startups_teamate_images',
-                'startup_id'
+                'id'
             );
         }
         return null;

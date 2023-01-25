@@ -8,7 +8,7 @@
                     <div class="divid"></div>
                 </div>
                 <div
-                    class="st-logo p-0 m-0 mt-3 position-relative"
+                    class="st-logo p-0 m-0 mt-3 position-relative d-flex flex-column justify-content-between"
                     :class="setClassByValue(inputs.image,false,is_submit)"
                     style="min-width:170px;"
                 >
@@ -27,6 +27,14 @@
                         v-model="fileRecords"
                         @select="onImageUpload"
                     ></VueFileAgent>
+                </div>
+                <div class="p-4 w-100 h-100">
+                    <div
+                        class="news-single-image w-100 p-2 rounded"
+                        :style="{
+                            'background-image':`url(/startup/teamates/${inputs.image})`,
+                        }"
+                    ></div>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-8 mt-3 mt-sm-0">
@@ -106,6 +114,7 @@
     </div>
     <div class="col-md-12 p-0 mt-5 pb-5">
         <startup-teamates
+            @editTeamate="editTeamate"
             :is_editable="edit_button.is_active && edit_button?.is_editable"
             :teamates="team"
         ></startup-teamates>
@@ -141,17 +150,30 @@ export default{
             this.fileRecords = []
             this.is_submit = false
         },
+        editTeamate(teamate){
+            console.log(teamate)
+            this.inputs = teamate
+        },
         addTeamateToStartup(){
             if (this.isInputsValid(this.inputs)){
                 axios.post('/startup/dashboard/add/teamate',this.inputs)
                 .then((response)=>{
-                    this.team.push(response.data)
+                    let counter = 0
+                    this.team.map((team)=>{
+                        if(response.data.id === team?.id){
+                            counter += 1
+                            console.log(team, response.data)
+                            team = response.data
+                        }
+                    })
+                    let a = (counter > 0)
+                        ?'':this.team.push(response.data)
                     this.setInputDefaultValue()
                     setTimeout(()=>{
                         window.scrollTo(0, document.body.scrollHeight)
                     },500)
                 }).catch((error)=>{
-                    this.popupErrors(error.response.data.errors)
+                    this.popupErrors(error.response?.data?.errors)
                 })
             }
         },

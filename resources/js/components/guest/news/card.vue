@@ -18,14 +18,14 @@
                     <div
                         v-if="item?.created_at"
                         class="text-black-50"
-                    >
-                        {{ item?.created_at }}
-                    </div>
+                        v-text="item?.created_at"
+                    ></div>
                     <div class="pt-2">
                         <b>
-                            <h4 class="m-0 p-0">
-                                {{item?.title}}
-                            </h4>
+                            <h4
+                                v-text="item?.title"
+                                class="m-0 p-0"
+                            ></h4>
                         </b>
                     </div>
                     <div class="pt-2">

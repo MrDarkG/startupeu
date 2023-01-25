@@ -28,8 +28,8 @@ class MainServices
         $data = base64_decode($data);
         Storage::disk($diskname)->put($filename ,$data);
     }
-    static public function getResultWithImageValue($class_name, $is_image_base_64, $base64, $fileName, $value, $model_id, $diskname, $column_name){
-        if($is_image_base_64){
+    static public function getResultWithImageValue($class_name, $base64, $fileName, $value, $model_id, $diskname, $column_name){
+        if(is_null($value['id'])){
             self::saveImage(
                 $base64,
                 $fileName,
@@ -37,8 +37,8 @@ class MainServices
             );
             return $class_name->create($value);
         }
-        $class_name->where($column_name ,$model_id)->update($value);
-        return $class_name->where($column_name ,$model_id)->first();
+        $class_name->where($column_name ,$value['id'])->update($value);
+        return $class_name->where($column_name ,$value['id'])->first();
     }
     static public function getResultWithSecondaryKey($class_name, $array_value, $column_name, $relation_id){
         $is_already_exist = $class_name->where($column_name ,$relation_id)->count();
