@@ -11,10 +11,8 @@ use App\Models\Industry;
 use App\Models\Looking_for;
 use App\Models\Market;
 use App\Models\Investor_type;
-
-use Auth;
+use App\Models\Issue;
 use Illuminate\Http\Request;
-use Storage;
 
 	class DataService extends MainServices
 	{

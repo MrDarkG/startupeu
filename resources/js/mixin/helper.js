@@ -107,7 +107,6 @@ Vue.mixin({
                 }
                 this.$vToastify.error(message, "შეცდომა");
             }
-            this.forget_password.email = ""
         },
     }
 })

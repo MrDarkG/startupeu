@@ -202,6 +202,7 @@ export default {
             })
         },
         editEvent(event){
+            event.date = new Date(event.date)
             axios.post('/admin/edit/event', {
                 id: event.id,
                 event: event
