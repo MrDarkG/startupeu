@@ -34,43 +34,52 @@ class GuestController extends Controller
     public function home()
     {
         $news = News::latest()->take(4)->get();
-        $startups = Startup::get();
+        $startups = Startup::with([
+            'country',
+            'startup_industries',
+            'looking_for',
+            'apply_status'
+        ])->get()->take(9);
         $startup_ecosystem = Startup_ecosystem::get();
         $events = Events::latest()->take(4)->get();
-        return view('welcome',[
+        return view('welcome', [
             'news' => $news,
             'startups' => $startups,
             'ecosystem' => $startup_ecosystem,
             'events' => $events
         ]);
     }
-    public function getWelcomeMenu(){
-        return WelcomeMenu::where('is_visible',1)->get();
+
+    public function getWelcomeMenu()
+    {
+        return WelcomeMenu::where('is_visible', 1)->get();
     }
+
     public function index()
     {
-        $issues=Issue::orderBy('title')->get();
-        $fields=Field::orderBy('title')->get();
-        $mentors=Mentor::paginatedMentors(10);
-        $countries=DataService::getCountriesByChoosenSide('mentor');
+        $issues = Issue::orderBy('title')->get();
+        $fields = Field::orderBy('title')->get();
+        $mentors = Mentor::paginatedMentors(10);
+        $countries = DataService::getCountriesByChoosenSide('mentor');
 
-        return view("browse.mentors",[
+        return view("browse.mentors", [
             'issues' => $issues,
             'fields' => $fields,
             'countries' => $countries,
             'mentors' => $mentors
         ]);
     }
+
     public function investorsPage()
     {
-        $markets=Market::get();
-        $ranges=Range::get();
-        $fields=Field::orderBy('title')->get();
-        $investors=Investor::paginatedInvestors(10);
-        $startups=Startup::get();
-        $countries=DataService::getCountriesByChoosenSide('investor');
+        $markets = Market::get();
+        $ranges = Range::get();
+        $fields = Field::orderBy('title')->get();
+        $investors = Investor::paginatedInvestors(10);
+        $startups = Startup::get();
+        $countries = DataService::getCountriesByChoosenSide('investor');
 
-        return view("browse.investors",[
+        return view("browse.investors", [
             'fields' => $fields,
             'investors' => $investors,
             'countries' => $countries,
@@ -79,99 +88,118 @@ class GuestController extends Controller
             'startups' => $startups
         ]);
     }
+
     public function startupPage()
     {
-        $mentors=Mentor::paginatedMentors(10);
-        $startups=Startup::with('startup_industries')->get();
-        $stages=Stage::orderBy('title')->get();
-        $countries=DataService::getCountriesByChoosenSide('startup');
+        $mentors = Mentor::paginatedMentors(10);
+        $startups = Startup::with('startup_industries')->get();
+        $stages = Stage::orderBy('title')->get();
+        $countries = DataService::getCountriesByChoosenSide('startup');
 
-        return view("browse.startups",[
+        return view("browse.startups", [
             'mentors' => $mentors,
             'startups' => $startups,
             'stages' => $stages,
             'countries' => $countries
         ]);
     }
-    function eventSinglePage($event_id){
-        $event = Events::where('id' ,$event_id)->firstOrFail();
+
+    function eventSinglePage($event_id)
+    {
+        $event = Events::where('id', $event_id)->firstOrFail();
         $event['date'] = date("F jS, Y", strtotime($event['date']));
-        return view('events.single-page',[
+        return view('events.single-page', [
             'event' => $event,
         ]);
     }
-    function allEvent(){
+
+    function allEvent()
+    {
         $events = Events::get();
-        return view('events.index',[
+        return view('events.index', [
             'events' => $events
         ]);
     }
-    function singleStartupEcosystem($startup_ecosystem_id){
-        $startup_ecosystem = Startup_ecosystem::where('id',$startup_ecosystem_id)->first();
-        if (json_decode($startup_ecosystem->pdf)){
+
+    function singleStartupEcosystem($startup_ecosystem_id)
+    {
+        $startup_ecosystem = Startup_ecosystem::where('id', $startup_ecosystem_id)->first();
+        if (json_decode($startup_ecosystem->pdf)) {
             $startup_ecosystem->pdf = json_decode($startup_ecosystem->pdf)[0]->download_link;
         }
-        $categories = Faq_category::with(['questions'=>function($query) use($startup_ecosystem){
-            return $query->with(['answers'=>function($answers_query) use ($startup_ecosystem){
+        $categories = Faq_category::with(['questions' => function ($query) use ($startup_ecosystem) {
+            return $query->with(['answers' => function ($answers_query) use ($startup_ecosystem) {
                 return $answers_query->where('startup_ecosystem_id', $startup_ecosystem->id);
             }]);
         }])->get();
 
-        return view('startup-ecosystem.single-page',[
+        return view('startup-ecosystem.single-page', [
             'startup_ecosystem' => $startup_ecosystem,
             'categories' => $categories
         ]);
     }
-    function allStartupEcosystem(){
+
+    function allStartupEcosystem()
+    {
         $startup_ecosystems = Startup_ecosystem::get();
-        return view('startup-ecosystem.index',[
+        return view('startup-ecosystem.index', [
             'startup_ecosystems' => $startup_ecosystems
         ]);
     }
+
     public function show($slug, $id)
     {
-        $news = News::where('id',$id)->firstOrFail();
-        $otherNews = News::orderBy('created_at')->where('id',"<>",$id)->take(4)->get();
-        $buttons = (Custom_event::where('news_id',$news->id)->first())?MainEventButtons::get():[];
+        $news = News::where('id', $id)->firstOrFail();
+        $otherNews = News::orderBy('created_at')->where('id', "<>", $id)->take(4)->get();
+        $buttons = (Custom_event::where('news_id', $news->id)->first()) ? MainEventButtons::get() : [];
 
-        return view('News.details',[
+        return view('News.details', [
             'news' => $news,
             'otherNews' => $otherNews,
             'buttons' => $buttons
         ]);
     }
+
     public function allNews()
     {
-        $news = News::orderBy('created_at','desc')->get();
-        return view('News.index',[
+        $news = News::orderBy('created_at', 'desc')->get();
+        return view('News.index', [
             'news' => $news,
         ]);
     }
-    public function singleStartupPage($startup_id){
-        $startup = Startup::where('id',$startup_id)
-            ->with(['looking_for','business_model','country','startup_industries'])
+
+    public function singleStartupPage($startup_id)
+    {
+        $startup = Startup::where('id', $startup_id)
+            ->with(['looking_for', 'business_model', 'country', 'startup_industries'])
             ->firstOrFail();
-        return view('startup.single-page',[
+        return view('startup.single-page', [
             'startup' => $startup,
         ]);
     }
-    public function singleInvestorPage($investor_id){
-        $investor = Investor::where('id',$investor_id)
-            ->with(['type','countries','ranges','industries'])
+
+    public function singleInvestorPage($investor_id)
+    {
+        $investor = Investor::where('id', $investor_id)
+            ->with(['type', 'countries', 'ranges', 'industries'])
             ->firstOrFail();
-        return view('investor.single-page',[
+        return view('investor.single-page', [
             'investor' => $investor,
         ]);
     }
-    public function mentorSinglePage($mentor_id){
-        $mentor = Mentor::where('id',$mentor_id)
-            ->with(['country','fields','issues','user'])
+
+    public function mentorSinglePage($mentor_id)
+    {
+        $mentor = Mentor::where('id', $mentor_id)
+            ->with(['country', 'fields', 'issues', 'user'])
             ->firstOrFail();
-        return view('mentor.single-page',[
+        return view('mentor.single-page', [
             'mentor' => $mentor,
         ]);
     }
-    public function startupUpdate(Request $request){
+
+    public function startupUpdate(Request $request)
+    {
         $request->validate([
             'full_name' => 'required|string',
             'website' => 'required|string',
@@ -191,23 +219,23 @@ class GuestController extends Controller
             'investment_range.id' => 'required|numeric',
         ]);
 
-        Startup::where('user_id',Auth::user()->id)->update([
+        Startup::where('user_id', Auth::user()->id)->update([
             'name' => $request->input('startup.name'),
-            'founded'=>$request->input('startup.date'),
-            'number_of_founders'=>$request->input('startup.number_of_founders'),
-            'full_name'=>$request->input('full_name'),
-            'number'=>$request->input('ceo.number'),
-            'ceo_email'=>$request->input('ceo.email'),
-            'startup_email'=>$request->input('startup.email'),
-            'website'=>$request->input('website'),
-            'what_your_company_does'=>$request->input('about.company_does'),
-            'description'=>$request->input('about.describe_your_product'),
-            'inovation'=>$request->input('about.your_innovation'),
-            'stage_id'=>$request->input('stage.id'),
-            'bussiness_model'=>$request->input('business_model.id'),
-            'target_audience'=>$request->input('target_audience.id'),
-            'range_id'=>$request->input('investment_range.id'),
-            'country_id'=>$request->input('country.id'),
+            'founded' => $request->input('startup.date'),
+            'number_of_founders' => $request->input('startup.number_of_founders'),
+            'full_name' => $request->input('full_name'),
+            'number' => $request->input('ceo.number'),
+            'ceo_email' => $request->input('ceo.email'),
+            'startup_email' => $request->input('startup.email'),
+            'website' => $request->input('website'),
+            'what_your_company_does' => $request->input('about.company_does'),
+            'description' => $request->input('about.describe_your_product'),
+            'inovation' => $request->input('about.your_innovation'),
+            'stage_id' => $request->input('stage.id'),
+            'bussiness_model' => $request->input('business_model.id'),
+            'target_audience' => $request->input('target_audience.id'),
+            'range_id' => $request->input('investment_range.id'),
+            'country_id' => $request->input('country.id'),
         ]);
         return 1;
     }

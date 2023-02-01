@@ -1,45 +1,55 @@
-*{
+* {
     font-family: 'FiraGO-regular', 'FiraGO-bold' !important;
 }
-#logo{
+
+#logo {
     height: 40px;
 }
-.btn-03dac5{
-    color:white;
-    border-radius:16px;
-    background:#03dac5;
+
+.btn-03dac5 {
+    color: white;
+    border-radius: 16px;
+    background: #03dac5;
     border: none;
 }
-.btn-03dac5:hover{
-    border:solid 1px #03dac5;
-    color:#03dac5;
-    background:white;
+
+.btn-03dac5:hover {
+    border: solid 1px #03dac5;
+    color: #03dac5;
+    background: white;
 }
-.btn-6200EE{
-    color:white;
-    border-radius:16px;
-    background:#6200EE;
+
+.btn-6200EE {
+    color: white;
+    border-radius: 16px;
+    background: #6200EE;
     border: none;
 }
-.btn-6200EE:hover{
-    border:solid 1px #6200EE;
-    color:#6200EE;
-    background:white;
+
+.btn-6200EE:hover {
+    border: solid 1px #6200EE;
+    color: #6200EE;
+    background: white;
 }
-.file-preview-wrapper span{
-    background:#d8cee7!important;
+
+.file-preview-wrapper span {
+    background: #d8cee7 !important;
 }
-.ecosystem-text{
+
+.ecosystem-text {
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
 }
-.color-darkpurple{
-    color:#6200EE;
+
+.color-darkpurple {
+    color: #6200EE;
 }
-.text-opacity-half{
-    color:#929292;
+
+.text-opacity-half {
+    color: #929292;
 }
+
 @font-face {
     font-family: 'FiraGO-bold';
     src: url('/assets/fonts/FiraGO-Bold.woff2') format('woff2'),
@@ -48,6 +58,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'FiraGO-medium';
     src: url('/assets/fonts/FiraGO-Medium.woff2') format('woff2'),
@@ -71,44 +82,52 @@ html, body {
     overflow-x: hidden;
 }
 
-body{
+body {
     background-color: #E5E5E5;
 }
+
 body.antialiased {
     zoom: 85%;
     background: url("/assets/images/bg.svg");
     background-color: #E5E5E5;
 }
-a{
+
+a {
     color: inherit;
 }
-a:hover{
+
+a:hover {
     color: inherit;
     text-decoration: none;
 }
-.nav-link{
+
+.nav-link {
     font-size: 17px;
 }
-.login-btn{
-   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
+
+.login-btn {
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
     border-radius: 16px;
     padding: 10px 18px;
     font-size: 17px;
     color: #6200EE;
     font-weight: 800;
 }
-.login-input-search{
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)), #EFEFF4!important;
-    box-shadow: inset 0px 2px 0px rgba(0, 0, 0, 0.04)!important;
-    border-radius: 16px!important;
-    padding: 12px 12px 12px 12px!important;
+
+.login-input-search {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)), #EFEFF4 !important;
+    box-shadow: inset 0px 2px 0px rgba(0, 0, 0, 0.04) !important;
+    border-radius: 16px !important;
+    padding: 12px 12px 12px 12px !important;
     height: 46px;
 
 
 }
-.login-text-primary{
+
+.login-text-primary {
     color: RGB(98, 0, 238);
 }
+
 #custom-header {
 
     padding: 24px 30px;
@@ -161,8 +180,6 @@ a:hover{
 
 
 }
-
-
 
 
 .c-search img {
@@ -763,7 +780,6 @@ a:hover{
 .long-item img {
     border-radius: 20px;
 }
-
 
 
 .long-item .right .createdDate {
@@ -1749,7 +1765,6 @@ a:hover{
 }
 
 
-
 .sign-title {
     font-family: FiraGO-bold;
     font-style: normal;
@@ -2052,7 +2067,7 @@ a:hover{
 
 .startup-list .left-search {
     min-height: 800px;
-    width:100%;
+    width: 100%;
 }
 
 .startup-list .left-search .chek-list .title {
@@ -2125,22 +2140,27 @@ a:hover{
     width: 100%;
 
 }
+
 .browse-types-card {
     width: 100%;
     height: 240px;
-    border-radius:36px;
+    border-radius: 36px;
     padding: 32px;
     word-break: break-all;
 }
-.browse-types-card img{
+
+.browse-types-card img {
     width: 56px;
 }
+
 .investor-desc {
     margin: 16px 0 32px 0px !important;
 }
+
 .investor-title {
     margin: 24px 0 0 0px !important;
 }
+
 .list-item .title {
     font-family: FiraGO-regular;
     font-style: normal;
@@ -2856,7 +2876,6 @@ a:hover{
     margin: 8px 0px;
 
 }
-
 
 
 .dash-list .item .right .range p {
@@ -4739,9 +4758,7 @@ a:hover{
 
     /*.startup-list .left-search {*/
     /*    display: none;*/
-
     /*}*/
-
     .startup-list .list-type-count {
         text-align: left;
         margin-bottom: 20px;
@@ -5020,22 +5037,25 @@ a:hover{
 .investor-item img {
     width: 160px;
 }
-.chek-list ul{
+
+.chek-list ul {
     padding-left: 4px;
 }
-.money-in-investor{
+
+.money-in-investor {
     letter-spacing: 0.374px;
     color: #34C759;
     font-size: 34px;
 }
-.moneyandhours{
+
+.moneyandhours {
     letter-spacing: 0.374px;
     color: #34C759;
     line-height: 50px;
 }
 
 
-.sidebar{
+.sidebar {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -5043,7 +5063,8 @@ a:hover{
 
 
 }
-.sidebar .menubar{
+
+.sidebar .menubar {
     background: #FFFFFF;
     box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.16);
     border-radius: 36px;
@@ -5051,6 +5072,7 @@ a:hover{
     width: 90%;
     /*margin: 0 40px;*/
 }
+
 .menubar .das-menu {
 }
 
@@ -5071,7 +5093,8 @@ a:hover{
 .menubar .das-menu li:hover img {
     fill: #6200EE;
 }
-.sidebar-logout{
+
+.sidebar-logout {
     width: 90%;
     padding-left: 20px;
     /*margin: 0 40px;*/
@@ -5084,20 +5107,23 @@ a:hover{
     cursor: pointer;
 
 }
-.das-menu li a.active span{
+
+.das-menu li a.active span {
     color: #6200EE
 }
-.logo-min{
-        display: none;
-    }
+
+.logo-min {
+    display: none;
+}
 
 @media only screen and (max-width: 1200px) {
 
-    .sidebar > .menubar > div > .das-menu  > li > a > span,
+    .sidebar > .menubar > div > .das-menu > li > a > span,
     .logo,
-    .logout-btn{
+    .logout-btn {
         display: none;
     }
+
     .sidebar > .menubar > div > .das-menu,
     .sidebar-logout {
         align-items: center;
@@ -5106,6 +5132,7 @@ a:hover{
         flex-direction: column;
         padding-left: 0px;
     }
+
     .sidebar .menubar {
         display: flex;
         justify-content: center;
@@ -5113,52 +5140,62 @@ a:hover{
         min-width: 76px;
     }
 
-    .logo-min{
+    .logo-min {
         display: block;
     }
-    .sidebar > .logo-container{
+
+    .sidebar > .logo-container {
         display: flex;
         justify-content: center;
         width: 100%;
         min-width: 76px;
 
     }
-    .account-info{
-        margin-left: 10px!important;
+
+    .account-info {
+        margin-left: 10px !important;
     }
 }
+
 @media only screen and (max-width: 676px) {
-    .investor-startup-card{
-        margin-top:20px!important;
-        padding-left:0px!important;
-        padding-right:0px!important;
+    .investor-startup-card {
+        margin-top: 20px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
+
     .sidebar {
-        padding-left: 0px!important;
+        padding-left: 0px !important;
     }
-    .account-info{
-        margin-left: 4px!important;
+
+    .account-info {
+        margin-left: 4px !important;
     }
-    .additional-form > div > .row >  div{
+
+    .additional-form > div > .row > div {
         margin-bottom: 20px;
     }
-    .additional-form > div > .row >  div > .startup-form-btn{
+
+    .additional-form > div > .row > div > .startup-form-btn {
         margin-right: 0px;
         width: 100%;
     }
 
 
 }
+
 @media only screen and (max-width: 767px) {
-    .left-search{
-        min-height: unset!important;
+    .left-search {
+        min-height: unset !important;
     }
-    .investor-startup-card{
-        margin-top:20px!important;
-        padding-left:0px!important;
-        padding-right:0px!important;
+
+    .investor-startup-card {
+        margin-top: 20px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
 }
+
 .register-btn {
     background: #03DAC5;
     height: 56px;
@@ -5169,43 +5206,51 @@ a:hover{
 }
 
 @media only screen and (max-width: 575px) {
-    .event-card{
-        left: -30px!important;
+    .event-card {
+        left: -30px !important;
     }
 
 }
-.cursor-pointer{
-    cursor:pointer!important;
+
+.cursor-pointer {
+    cursor: pointer !important;
 }
-.browse-startup-card{
+
+.browse-startup-card {
     background: white;
     border-radius: 36px;
 }
-.team-info-image{
-    height:170px;
-    min-height:170px;
-    min-width:170px;
-    width:170px;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:center center;
+
+.team-info-image {
+    height: 170px;
+    min-height: 170px;
+    min-width: 170px;
+    width: 170px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
-.investor-dashboard-card-image{
-    height:56px;
-    border-radius:16px;
+
+.investor-dashboard-card-image {
+    height: 56px;
+    border-radius: 16px;
 }
-.startup-dashboard-apply-btn{
-    border-radius:16px;
+
+.startup-dashboard-apply-btn {
+    border-radius: 16px;
 }
-.startup-apply-btn-default{
-    background:#6200EE;
-    color:white;
+
+.startup-apply-btn-default {
+    background: #6200EE;
+    color: white;
 }
-.startup-apply-btn-pending{
-    background:linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #EFEFF4;;
-    color:rgba(0, 0, 0, 0.6);
+
+.startup-apply-btn-pending {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #EFEFF4;;
+    color: rgba(0, 0, 0, 0.6);
 }
-.startup-apply-btn-selected{
-    background:linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #EFEFF4;;
-    color:rgba(55, 0, 179, 1);
+
+.startup-apply-btn-selected {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #EFEFF4;;
+    color: rgba(55, 0, 179, 1);
 }

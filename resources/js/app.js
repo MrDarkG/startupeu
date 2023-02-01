@@ -25,13 +25,14 @@ require('./mixin/helper')
 require('./helpers/browse_guest_helper')
 /*END MIXINS*/
 //GUEST COMPONENTS
-    require('./app/guest.js')
+require('./app/guest.js')
 //END GUEST COMPONENTS
 //Dashboard COMPONENTS
-    require('./app/dashboard.js')
+require('./app/dashboard.js')
 //END Dashboard COMPONENTS
 Vue.component('example-component', require('./components/ExampleComponent.vue').default)
 Vue.component('dashboard-menu', require('./components/dashboard/menu.vue').default)
+Vue.component('startup-cards', require('./components/startup/cards.vue').default)
 // Vue.component('mentor-registration', require('./\components/mentor/registration/index.vue').default)
 // Vue.component('startup-register', require('./components/startup/registration/index.vue').default)
 // Vue.component('investor-registration', require('./components/investor/registration/index.vue').default)
@@ -46,24 +47,24 @@ Vue.component('create-startup', require('./components/startup/registration/index
 Vue.component('create-investor', require('./components/investor/registration/index.vue').default)
 Vue.component('create-mentor', require('./components/mentor/registration/index.vue').default)
 Vue.component('startup-dashboard', require('./components/startup/dashboard/index.vue').default)
-Vue.component('startup-cards', require('./components/startup/dashboard/cards.vue').default)
+Vue.component('dashboard-startup-cards', require('./components/startup/dashboard/cards.vue').default)
 // STARTUP MY_ACCOUNT
-    Vue.component('startup-team-info', require('./components/startup/my_account/team.vue').default)
-    Vue.component('startup-teamates', require('./components/startup/teamates.vue').default)
-    Vue.component('startup-account-menu', require('./components/startup/my_account/menu.vue').default)
-    Vue.component('startup-my-account', require('./components/startup/my_account/index.vue').default)
-    Vue.component('general-info', require('./components/startup/my_account/general.vue').default)
-    Vue.component('additional-info', require('./components/startup/my_account/additional_info.vue').default)
+Vue.component('startup-team-info', require('./components/startup/my_account/team.vue').default)
+Vue.component('startup-teamates', require('./components/startup/teamates.vue').default)
+Vue.component('startup-account-menu', require('./components/startup/my_account/menu.vue').default)
+Vue.component('startup-my-account', require('./components/startup/my_account/index.vue').default)
+Vue.component('general-info', require('./components/startup/my_account/general.vue').default)
+Vue.component('additional-info', require('./components/startup/my_account/additional_info.vue').default)
 
 // INVESTOR DASHBOARD
-    Vue.component('investor-dashboard', require('./components/investor/index.vue').default)
-    Vue.component('investor-account', require('./components/investor/account.vue').default)
-    Vue.component('investor-startup-cards', require('./components/investor/card.vue').default)
+Vue.component('investor-dashboard', require('./components/investor/index.vue').default)
+Vue.component('investor-account', require('./components/investor/account.vue').default)
+Vue.component('investor-startup-cards', require('./components/investor/card.vue').default)
 // MENTOR
-    Vue.component('mentor-dashboard', require('./components/mentor/index.vue').default)
+Vue.component('mentor-dashboard', require('./components/mentor/index.vue').default)
 
 // ADMIN
-    require('./app/admin.js')
+require('./app/admin.js')
 // END ADMIN
 /**
  * Next, we will create a fresh Vue application instance and attach it to

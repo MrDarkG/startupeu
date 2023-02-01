@@ -28,9 +28,9 @@
 	        		</button>
 	        	</div>
 	        </div>
-	        <investor-startup-cards
-	        	class="mt-4 row m-0"
-	        	:startups="custom_startups"
+            <investor-startup-cards
+                class="mt-4 row m-0"
+                :startups="custom_startups"
                 :statuses="statuses"
             ></investor-startup-cards>
 	    </div>

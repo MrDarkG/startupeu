@@ -1,0 +1,29 @@
+.investor-startup-card .bg-white {
+    border-radius: 36px;
+    height: 30vh;
+}
+
+.investor_startup_multiselect .multiselect__single {
+    color: black !important;
+    background: #f2f2f7 !important;
+}
+
+.investor_startup_multiselect .multiselect__tags {
+    background: #f2f2f7 !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+    border-radius: 16px !important;
+    color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.investor-card-description {
+    font-size: 15px;
+    color: #8c8c8c;
+    word-break: break-word;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.investor-card-name {
+    font-size: 20px;
+    word-break: break-word;
+}
