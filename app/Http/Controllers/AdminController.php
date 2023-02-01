@@ -68,6 +68,7 @@ class AdminController extends Controller
     function editEvent(Request $request)
     {
         $event = $request->post()['event'];
+        $event->date = date("d-m-Y", strtotime($event['date']));
         unset($event['is_active']);
         if (str_contains($request->input('event.image'), 'data:image')) {
             Storage::disk('events')->delete($event['image']);
