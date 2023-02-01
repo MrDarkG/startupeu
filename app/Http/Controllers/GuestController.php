@@ -34,12 +34,7 @@ class GuestController extends Controller
     public function home()
     {
         $news = News::latest()->take(4)->get();
-        $startups = Startup::with([
-            'country',
-            'startup_industries',
-            'looking_for',
-            'apply_status'
-        ])->get()->take(9);
+        $startups = Startup::latest()->take(9)->get();
         $startup_ecosystem = Startup_ecosystem::get();
         $events = Events::latest()->take(4)->get();
         return view('welcome', [
