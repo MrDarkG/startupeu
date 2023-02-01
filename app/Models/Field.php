@@ -11,4 +11,7 @@ class Field extends Model
     protected $fillable=[
         "title"
     ];
+    public function mentor(){
+        return $this->hasMany(Mentor::class,'fields_id','id');
+    }
 }

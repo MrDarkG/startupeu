@@ -1,6 +1,8 @@
 <?php
 namespace App\Services;
 
+use App\Models\Field;
+use App\Models\Mentor_issues;
 use App\Models\Stage;
 use App\Models\Bussiness_model;
 use App\Models\TargetAudience;
@@ -11,7 +13,6 @@ use App\Models\Industry;
 use App\Models\Looking_for;
 use App\Models\Market;
 use App\Models\Investor_type;
-use App\Models\Issue;
 use Illuminate\Http\Request;
 
 	class DataService extends MainServices
@@ -20,6 +21,31 @@ use Illuminate\Http\Request;
 		{
 			return Stage::get();
 		}
+        static public function getIssuesByChoosenSide($with){
+            $array = [];
+            $issues = Mentor_issues::with($with,'issue')->orderBy('created_at')->get();
+
+            foreach ($issues as $issue){
+                if($issue[$with]->count() > 0){
+                    $data = $issue['issue'];
+                    $data['mentor'] = $issue['mentor'];
+                    $issue = $data;
+                    array_push($array, $issue);
+                }
+            }
+            return $array;
+        }
+        static public function getFieldsByChoosenSide($with){
+            $array = [];
+            $fields = Field::with($with)->orderBy('created_at')->get();
+
+            foreach ($fields as $field){
+                if($field[$with]->count() > 0){
+                    array_push($array, $field);
+                }
+            }
+            return $array;
+        }
         static public function getMarketsByChoosenSide($with){
             $array = [];
             $markets = Market::with($with)->orderBy('created_at')->get();

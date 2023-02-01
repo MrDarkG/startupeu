@@ -16,4 +16,7 @@ class Mentor_issues extends Model
     function issue(){
         return $this->belongsTo(Issue::class,'issue_id','id');
     }
+    public function mentor(){
+        return $this->hasMany(Mentor::class,'id','mentor_id');
+    }
 }

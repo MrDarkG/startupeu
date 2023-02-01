@@ -12,7 +12,6 @@
             <ul>
                 <li
                     v-for="(response) in list.data.slice(0,(show[index].show_more)?list.data.length:3)"
-                    :key="response.id+response.title"
                 >
                     <div class="form-check">
                         <input

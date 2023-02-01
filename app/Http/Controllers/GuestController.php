@@ -52,8 +52,8 @@ class GuestController extends Controller
 
     public function index()
     {
-        $issues = Issue::orderBy('title')->get();
-        $fields = Field::orderBy('title')->get();
+        $issues = DataService::getIssuesByChoosenSide('mentor');
+        $fields =  DataService::getFieldsByChoosenSide('mentor');
         $mentors = Mentor::paginatedMentors(10);
         $countries = DataService::getCountriesByChoosenSide('mentor');
 
