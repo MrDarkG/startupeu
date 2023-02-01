@@ -11,4 +11,7 @@ class Range extends Model
     protected $fillable=[
         "title"
     ];
+    public function investor(){
+        return $this->hasMany(Investor::class,'range_id','id');
+    }
 }

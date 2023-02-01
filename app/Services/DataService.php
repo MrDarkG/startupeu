@@ -20,6 +20,28 @@ use Illuminate\Http\Request;
 		{
 			return Stage::get();
 		}
+        static public function getMarketsByChoosenSide($with){
+            $array = [];
+            $markets = Market::with($with)->orderBy('created_at')->get();
+
+            foreach ($markets as $market){
+                if($market[$with]->count() > 0){
+                    array_push($array, $market);
+                }
+            }
+            return $array;
+        }
+        static public function getRangeByChoosenSide($with){
+            $array = [];
+            $ranges = Range::with($with)->orderBy('created_at')->get();
+
+            foreach ($ranges as $range){
+                if($range[$with]->count() > 0){
+                    array_push($array, $range);
+                }
+            }
+            return $array;
+        }
         static public function getCountriesByChoosenSide($with){
             $array = [];
             $countries = Country::with($with)->orderBy('title')->get();

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Market extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        "title"
+    ];
+    public function investor(){
+        return $this->hasMany(Investor::class,'market_id','id');
+    }
 }

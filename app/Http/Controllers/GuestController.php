@@ -67,8 +67,8 @@ class GuestController extends Controller
 
     public function investorsPage()
     {
-        $markets = Market::get();
-        $ranges = Range::get();
+        $markets =  DataService::getMarketsByChoosenSide('investor');
+        $ranges = DataService::getRangeByChoosenSide('investor');
         $fields = Field::orderBy('title')->get();
         $investors = Investor::paginatedInvestors(10);
         $startups = Startup::get();
