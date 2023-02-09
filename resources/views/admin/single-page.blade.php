@@ -16,7 +16,7 @@
         </div>
         <admin-singlepage
             :selected="{{ json_encode($singlePage) }}"
-            :news="{{ json_encode($news) }}"
+            :events="{{ json_encode($events) }}"
         ></admin-singlepage>
     </div>
     <script

@@ -123,33 +123,15 @@
                     <div class="countries mt-3 pt-4">
                         <span>Startup Central Eurasia is active in:</span>
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/8">Ukraine</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/9">Belarus</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/3">Azerbaijan</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/1">Georgia</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/2">Armenia</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/4">Kazakhstan</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/7">Kyrgyzstan</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/5">Uzbekistan</a>
-                            </div>
-                            <div>
-                                <a href="https://startupcentraleurasia.com/en/faq/v/6">Tajikistan</a>
-                            </div>
+                            @foreach(App\Models\Startup_ecosystem::get() as $ecosystem)
+                                <div class="pl-1 pr-1">
+                                    <a
+                                        href="/startup-ecosystem/{{ $ecosystem->id }}"
+                                    >
+                                        {{ $ecosystem->title }}
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="pt-2 pb-4 mt-3 text-white d-flex align-items-center">

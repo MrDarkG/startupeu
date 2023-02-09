@@ -93,11 +93,11 @@ class AdminController extends Controller
     }
     function singlePage(){
         $singlePage = Custom_event::first();
-        $news = News::get();
+        $events = Events::get();
 
         return view("admin.single-page",[
             'singlePage' => $singlePage,
-            'news' => $news
+            'events' => $events
         ]);
     }
     function singlePageCreate(Request $request){

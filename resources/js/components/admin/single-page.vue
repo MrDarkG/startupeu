@@ -2,11 +2,11 @@
 <div class="mt-4">
     <multiselect
         id="phone_index"
-        v-model="custom_news"
+        v-model="single_event"
         track-by="id"
         label="title"
         :placeholder="'Select News...'"
-        :options="news"
+        :options="events"
         :multiple="false"
     ></multiselect>
     <div class="d-flex align-items-center justify-content-end">
@@ -31,10 +31,10 @@
 </template>
 <script>
 export default {
-    props:['news','selected','buttons'],
+    props:['events','selected','buttons'],
     data(){
         return {
-            custom_news: {},
+            single_event: {},
         }
     },
     created(){
@@ -42,9 +42,9 @@ export default {
     },
     methods:{
         saveSelectedPage(){
-            let news = this.custom_news
-            if (news.id){
-                axios.post('/admin/single-page/create',news)
+            let single_event = this.single_event
+            if (single_event.id){
+                axios.post('/admin/single-page/create',single_event)
                 .then((response) => {
                     window.location.href = response.data
                 })
@@ -53,12 +53,12 @@ export default {
         deleteSelectedPage(){
             axios.get('/admin/single-page/delete')
                 .then(()=>{
-                    this.custom_news = {}
+                    this.single_event = {}
                 })
         },
         setSelectedNews(){
             if (this.selected){
-                this.custom_news = this.news.filter((item)=>{
+                this.single_event = this.events.filter((item)=>{
                     return item.id == this.selected.news_id
                 })
             }
