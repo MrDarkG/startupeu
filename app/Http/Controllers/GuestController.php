@@ -154,7 +154,18 @@ class GuestController extends Controller
             'buttons' => $buttons
         ]);
     }
+    public function showEvent($slug, $id)
+    {
+        $event = Events::where('id', $id)->firstOrFail();
+        $otherEvents = Events::orderBy('id','asc')->where('id', "<>", $id)->take(4)->get();
+        $buttons = (Custom_event::where('news_id', $event->id)->first()) ? MainEventButtons::get() : [];
 
+        return view('events.main-event', [
+            'event' => $event,
+            'otherEvents' => $otherEvents,
+            'buttons' => $buttons
+        ]);
+    }
     public function allNews()
     {
         $news = News::orderBy('created_at', 'desc')->get();

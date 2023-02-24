@@ -103,14 +103,15 @@ class AdminController extends Controller
     function singlePageCreate(Request $request){
         $custom = new Custom_event;
         $this->singlePageDelete();
+        $url = '/events/main/';
         WelcomeMenu::where('id',4)->update([
-            'url' => '/news/'.urlencode($request->title).'.'.$request->id
+            'url' => $url.urlencode($request->title).'.'.$request->id
         ]);
         $custom->create([
             'news_id' => $request->id
         ]);
 
-        return '/news/'.urlencode($request->title).'.'.$request->id;
+        return $url.urlencode($request->title).'.'.$request->id;
     }
     function singlePageDelete(){
         $items = Custom_event::get();

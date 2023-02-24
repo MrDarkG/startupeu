@@ -19,24 +19,25 @@
                 class="mt-3 col-md-4 col-lg-3 pl-4 pr-3 pb-0"
                 v-for="item in details.menu"
             >
-                <div style="color:#797979;font-size:13px;">
-                    {{ item.title }}:
-                </div>
                 <div
+                    v-text="item.title+':'"
+                    style="color:#797979;font-size:13px;"
+                ></div>
+                <div
+                    v-text="item.content"
                     class="font-weight-bold"
                     :style="{
                         color:item.color.text,
                     }"
-                >
-                    {{ item.content}}
-                </div>
+                ></div>
             </div>
         </div>
         <div class="col-md-12 pl-0 pr-3">
             <div v-for="item in details.content" class="mt-4 mb-4 pb-4 border-bottom" style="border-color:rgba(0, 0, 0, 0.08);">
-                <div  class="font-weight-bold mt-3 mb-3 ">
-                    {{ item.title}}
-                </div>
+                <div
+                    v-text="item.title"
+                    class="font-weight-bold mt-3 mb-3 "
+                ></div>
                 <div
                     style="color:rgba(0, 0, 0, 0.74);word-break: break-all;"
                     v-html="item.description"
@@ -45,9 +46,10 @@
         </div>
         <div class="col-md-12 p-0 pb-5">
             <div class="d-flex align-items-center justify-content-between">
-                <div class="font-weight-bolder">
-                    Competitors and local markets
-                </div>
+                <div
+                    v-text="'Competitors and local markets'"
+                    class="font-weight-bolder"
+                ></div>
                 <div class="d-flex align-items-center">
                     <arrow rotate="true" opacity="true" class="mr-2"></arrow>
                     <span style="font-size: 18px">|</span>
@@ -63,12 +65,14 @@
                     }"
                 >
                     <div class="p-3 bg-white rounded-20px">
-                        <div class="font-weight-bolder">
-                            {{competitor.title}}
-                        </div>
-                        <div style="color:#6200EE;">
-                            {{competitor.website}}
-                        </div>
+                        <div
+                            v-text="competitor.title"
+                            class="font-weight-bolder"
+                        ></div>
+                        <div
+                            v-text="competitor.website"
+                            style="color:#6200EE;"
+                        ></div>
                     </div>
                 </div>
             </div>

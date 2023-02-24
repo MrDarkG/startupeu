@@ -5183,7 +5183,10 @@ a:hover {
 
 
 }
-
+.news-single-description a{
+    color: blue;
+    text-decoration: underline;
+}
 @media only screen and (max-width: 767px) {
     .left-search {
         min-height: unset !important;
