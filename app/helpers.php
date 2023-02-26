@@ -6,6 +6,6 @@ function generateSlug($title)
     foreach ($notAllowedChars as $value) {
         $slugTitle = str_replace($value, "-", $slugTitle);
     }
-    return $slugTitle;
+    return strval($slugTitle);
 }
 
