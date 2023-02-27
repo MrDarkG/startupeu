@@ -23,7 +23,7 @@
                         width="100%"
                     >
                     <div class="news-single-description">
-                        {!! $event->text !!}
+                        {!! $event->description !!}
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
