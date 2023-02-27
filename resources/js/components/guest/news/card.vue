@@ -18,7 +18,7 @@
                     <div
                         v-if="item?.created_at"
                         class="text-black-50"
-                        v-text="new Date(item?.created_at).toLocaleDateString('en-US')"
+                        v-text="getCustomDate(item?.created_at)"
                     ></div>
                     <div class="pt-2">
                         <b>
@@ -51,7 +51,11 @@ export default {
             http.send()
 
             return (http.status != 404)?image_url:'/mini-logo.svg'
-        }
+        },
+        getCustomDate(date){
+            let options = { year: 'numeric', month: 'short', day: 'numeric' }
+            return new Date(date).toLocaleDateString('en-US',options)
+        },
     }
 }
 </script>
