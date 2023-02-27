@@ -80,14 +80,14 @@ export default {
                 menu:[
                     {
                         title:'Successful investments',
-                        content:'123',
+                        content:this.investor?.ranges?.title,
                         color:{
                             text:'#6200EE',
                         },
                     },
                     {
                         title:'Stages of interest',
-                        content:'321',
+                        content:this.investor?.type?.title,
                         color:{
                             text:'#6200EE',
                         },
