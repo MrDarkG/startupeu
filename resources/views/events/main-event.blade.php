@@ -18,7 +18,7 @@
             <div class="col-md-9 d-flex flex-column justify-content-between">
                 <div>
                     <img
-                        src="{{ asset('uploads').'/'.$event->image}}"
+                        src="{{ '/assets/images/events/uploads/'. $event->image}}"
                         alt="{{ $event->title }}"
                         width="100%"
                     >
@@ -59,7 +59,7 @@
                             }}"
                         >
                             <img
-                                src="{{ asset('/uploads').'/'. $o_event->image}}"
+                                src="{{ '/assets/images/events/uploads/'. $o_event->image}}"
                                 alt="{{ $o_event->title }}"
                                 width="100%"
                             >
