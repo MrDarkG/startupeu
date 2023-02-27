@@ -1,5 +1,8 @@
 @extends("layouts.guest.guest")
 <style>
+    .news-single-description p br{
+        display: none!important;
+    }
     .news-single-description p, .news-single-description span{
         padding: unset!important;
         margin: unset!important;
