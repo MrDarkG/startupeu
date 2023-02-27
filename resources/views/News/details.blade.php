@@ -57,12 +57,13 @@
                         </a>
                     </div>
                 @endforeach
-                <div
-                    class="event-det-btn m-0 w-100 pt-3 pb-3 btn-primary border-0 font-weight-bold"
+                <a
+                    href="/news"
+                    class="event-det-btn cursor-pointer m-0 w-100 pt-3 pb-3 btn-primary border-0 font-weight-bold"
                     style="background: rgba(98, 0, 238, 0.1);border-radius: 16px;color:#6200EE;"
                 >
                     See More News
-                </div>
+                </a>
             </div>
         </div>
     </section>
