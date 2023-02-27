@@ -145,7 +145,7 @@ class GuestController extends Controller
     public function show($slug, $id)
     {
         $news = News::where('id', $id)->firstOrFail();
-        $otherNews = News::orderBy('created_at')->where('id', "<>", $id)->take(4)->get();
+        $otherNews = News::orderBy('created_at','desc')->where('id', "<>", $id)->take(4)->get();
         $buttons = (Custom_event::where('news_id', $news->id)->first()) ? MainEventButtons::get() : [];
 
         return view('News.details', [
