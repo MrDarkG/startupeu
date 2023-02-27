@@ -60,9 +60,9 @@
                     More events
                 </h2>
                 @foreach($otherEvents as $o_event)
-                    <div>
+                    <div class="news-more-item">
                         <a
-                            class="news-more-item"
+                            class=""
                             href="{{
                                 route("events.main", [
                                     "id" => $o_event->id,
