@@ -18,7 +18,7 @@
                     <div
                         v-if="item?.created_at"
                         class="text-black-50"
-                        v-text="item?.created_at"
+                        v-text="new Date(item?.created_at).toLocaleDateString('en-US')"
                     ></div>
                     <div class="pt-2">
                         <b>

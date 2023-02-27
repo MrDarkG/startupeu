@@ -14,10 +14,14 @@
     ></single-page-header>
     <div class="m-0 row m-0">
         <div class="order-1 order-sm-0 col-12 col-sm-8 col-md-8 col-lg-9 pl-0 pr-3">
-            <div v-for="item in details.content" class="mt-4 mb-4 pb-4 border-bottom">
-                <div  class="font-weight-bold mt-3 mb-3 ">
-                    {{ item.title}}
-                </div>
+            <div
+                v-for="item in details.content"
+                class="mt-4 mb-4 pb-4 border-bottom"
+            >
+                <div
+                    v-text="item.title"
+                    class="font-weight-bold mt-3 mb-3 "
+                ></div>
                 <div
                     style="color:rgba(0, 0, 0, 0.74);word-break: break-all;"
                     v-html="item.description"
@@ -27,18 +31,21 @@
         <div
             class="order-0 order-sm-1 bg-white col-12 col-sm-4 col-md-4 col-lg-3 mt-4 row ml-0 mr-0 pb-0 rounded-20px pt-2 pt-sm-4 pl-0 pr-0 pb-4"
         >
-            <div class="mt-3 col-12 pl-4 pr-3 pb-0" v-for="item in details.menu">
-                <div style="color:#797979;font-size:13px;">
-                    {{ item.title }}:
-                </div>
+            <div
+                class="mt-3 col-12 pl-4 pr-3 pb-0"
+                v-for="item in details.menu"
+            >
+                <div
+                    v-text="item.title+':'"
+                    style="color:#797979;font-size:13px;"
+                ></div>
                 <div
                     class="font-weight-bold"
                     :style="{
                         color:item.color.text,
                     }"
-                >
-                    {{ item.content}}
-                </div>
+                    v-text="item.content"
+                ></div>
             </div>
         </div>
     </div>
@@ -71,7 +78,7 @@ export default {
               menu:[
                   {
                       title:'Email',
-                      content:this.startup.ceo_email,
+                      content:this.startup.startup_email,
                       color:{
                           text:'#6200EE',
                       },
