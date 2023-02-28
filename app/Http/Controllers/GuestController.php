@@ -142,7 +142,7 @@ class GuestController extends Controller
         ]);
     }
 
-    public function show($slug, $id)
+    public function show($id)
     {
         $news = News::where('id', $id)->firstOrFail();
         $otherNews = News::orderBy('created_at','desc')->where('id', "<>", $id)->take(4)->get();

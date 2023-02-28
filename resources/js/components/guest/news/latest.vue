@@ -8,7 +8,7 @@
             height:'280px'
         }"
 	>
-		<a :href="`/news/${item.title.replace(/[\/.#\\ \s]/g,'-')}.${item.id}`">
+		<a :href="`/news/${item.id}`">
 			<div class="bg-white row h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
 				<div class="p-0 rounded rounded-2 col-md-6">
 					<img

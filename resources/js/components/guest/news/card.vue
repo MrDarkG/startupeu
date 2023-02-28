@@ -3,7 +3,7 @@
         class="p-2"
         style="height:404px;"
     >
-        <a :href="`/news/${item.title}.${item.id}`">
+        <a :href="`/news/${item.id}`">
             <div class="bg-white d-flex flex-column h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
                 <div
                     :style="{
