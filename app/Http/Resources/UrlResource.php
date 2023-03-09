@@ -16,6 +16,7 @@ class UrlResource extends JsonResource
     {
         $parent = parent::toArray($request);
         $parent['url'] = generateSlug($this[$title]);
+        $parent['date'] = date("F jS, Y", strtotime($this->date));
         return $parent;
     }
 }

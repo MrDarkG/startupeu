@@ -102,10 +102,9 @@ class GuestController extends Controller
 
     function eventSinglePage($slug,$event_id)
     {
-        $event = Events::where('id', $event_id)->get();
-        $event['date'] = date("F jS, Y", strtotime($event['date']));
+        $event = Events::where('id', $event_id)->firstOrFail();
         return view('events.single-page', [
-            'event' => $event,
+            'event' => new UrlResource($event),
         ]);
     }
 
