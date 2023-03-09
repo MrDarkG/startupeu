@@ -130,7 +130,7 @@
                                     <h6 class="m-0">{{ $event->date }}</h6>
                                 </div>
                                 <div class="font-weight-bold overflow-hidden h-100">
-                                    {{ $event->title }} {{$event->id}}
+                                    {{ $event->title }}
                                 </div>
                                 <div>
                                     <a
