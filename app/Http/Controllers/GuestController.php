@@ -157,7 +157,7 @@ class GuestController extends Controller
     }
     public function showEvent($slug, $id)
     {
-        $event = Events::where('id', $id)->firstOrFail();
+        return $event = Events::where('id', $id)->firstOrFail();
         $otherEvents = Events::orderBy('id','asc')->where('id', "<>", $id)->take(4)->get();
         $buttons = (Custom_event::where('news_id', $event->id)->first()) ? MainEventButtons::get() : [];
 
