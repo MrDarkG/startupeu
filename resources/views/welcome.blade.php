@@ -134,7 +134,12 @@
                                 </div>
                                 <div>
                                     <a
-                                        href="/events/{{urlencode($event->title)}}.{{$event->id}}"
+                                        href="{{
+                                            route('singleEvent',[
+                                                'slug' => urlencode($event->title),
+                                                'event_id' => $event->id
+                                            ])
+                                        }}"
                                     >
                                         <h6 class="m-0">Learn more</h6>
                                     </a>
