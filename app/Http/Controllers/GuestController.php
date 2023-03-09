@@ -102,7 +102,7 @@ class GuestController extends Controller
 
     function eventSinglePage($slug,$event_id)
     {
-        $event = Events::where('id', $event_id)->firstOrFail();
+        return $event = Events::where('id', $event_id)->get();
         $event['date'] = date("F jS, Y", strtotime($event['date']));
         return view('events.single-page', [
             'event' => $event,
@@ -157,7 +157,7 @@ class GuestController extends Controller
     }
     public function showEvent($slug, $id)
     {
-        return $event = Events::where('id', $id)->get();
+        $event = Events::where('id', $id)->firstOrFail();
         $otherEvents = Events::orderBy('id','asc')->where('id', "<>", $id)->take(4)->get();
         $buttons = (Custom_event::where('news_id', $event->id)->first()) ? MainEventButtons::get() : [];
 
