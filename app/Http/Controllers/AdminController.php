@@ -45,7 +45,6 @@ class AdminController extends Controller
     }
     function setAndGetImageName($file, $disk_name, $image_type=".jpg")
     {
-        dd($image_type);
         $filaname=time().uniqid().$image_type;
         $data = substr($file, strpos($file, ',') + 1);
         $data = base64_decode($data);
@@ -75,7 +74,8 @@ class AdminController extends Controller
             $event['updated_at']
         );
         if (str_contains($request->input('event.image'), 'data:image')) {
-            Storage::disk('events')->delete($event['image']);
+            $single_event = Events::where('id', $request->input('id'))->firstOrFail();
+            Storage::disk('events')->delete($single_event->image);
             $event['image'] = $this->setAndGetImageName($request->input('event.image'),"events");
         }
         Events::where('id', $request->input('id'))->update($event);
