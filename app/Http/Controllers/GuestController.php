@@ -100,7 +100,7 @@ class GuestController extends Controller
         ]);
     }
 
-    function eventSinglePage($slug,$event_id)
+    function eventSinglePage($slug, $event_id)
     {
         $event = Events::where('id', $event_id)->firstOrFail();
         return view('events.single-page', [

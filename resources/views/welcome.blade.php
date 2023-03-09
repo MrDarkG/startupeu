@@ -127,21 +127,14 @@
                             <div
                                 class="col-7 pl-0 pr-0 pl-sm-2 pr-sm-2 h-100 d-flex flex-column justify-content-between ecosystem-text">
                                 <div>
-                                    @if(is_null($event->date))
-                                        <h6 class="m-0">{{ $event->date }}</h6>
-                                    @endif
+                                    <h6 class="m-0">{{ $event->date }}</h6>
                                 </div>
                                 <div class="font-weight-bold overflow-hidden h-100">
                                     {{ $event->title }} {{$event->id}}
                                 </div>
                                 <div>
                                     <a
-                                        href="{{
-                                            route('singleEvent',[
-                                                'slug' => urlencode($event->title),
-                                                'event_id' => $event->id
-                                            ])
-                                        }}"
+                                        href="/events/{{urlencode($event->title)}}.{{$event->id}}"
                                     >
                                         <h6 class="m-0">Learn more</h6>
                                     </a>
