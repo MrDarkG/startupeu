@@ -45,6 +45,7 @@ class AdminController extends Controller
     }
     function setAndGetImageName($file, $disk_name, $image_type=".jpg")
     {
+        dd($image_type);
         $filaname=time().uniqid().$image_type;
         $data = substr($file, strpos($file, ',') + 1);
         $data = base64_decode($data);
