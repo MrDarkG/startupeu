@@ -127,7 +127,9 @@
                             <div
                                 class="col-7 pl-0 pr-0 pl-sm-2 pr-sm-2 h-100 d-flex flex-column justify-content-between ecosystem-text">
                                 <div>
-                                    <h6 class="m-0">{{ $event->date }}</h6>
+                                    @if($event->date)
+                                        <h6 class="m-0">{{ $event->date }}</h6>
+                                    @endif
                                 </div>
                                 <div class="font-weight-bold overflow-hidden h-100">
                                     {{ $event->title }} {{$event->id}}
