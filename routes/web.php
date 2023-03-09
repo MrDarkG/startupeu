@@ -33,7 +33,7 @@ Route::prefix("/browse")->group(function(){
 Route::prefix("/events")->group(function(){
 
     Route::get('/main/{slug?}.{id}', [GuestController::class, 'showEvent'])->name('events.main');
-    Route::get("/{slug}.{event_id}" ,[GuestController::class,'eventSinglePage'])->name('singleEvent');
+    Route::get("/{event_id}.{slug}" ,[GuestController::class,'eventSinglePage'])->name('singleEvent');
     Route::get("/" ,[GuestController::class,'allEvent'])->name('allEvent');
 });
 
