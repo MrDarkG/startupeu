@@ -12,11 +12,11 @@
                 <div
                     class="pt-5 pb-5 pl-4 pr-4"
                     style="
-                            background:{{$event->card_color}};
-                            color:{{$event->card_color=='white'?'black':'white'}};
-                            height: 358px;
-                            border-radius: 36px;
-                        "
+                        background:{{$event->card_color}};
+                        color:{{$event->card_color=='white'?'black':'white'}};
+                        height: 358px;
+                        border-radius: 36px;
+                    "
                 >
                     <div class="row m-0 h-100">
                         <div class="col-5 h-100 position-relative">
@@ -45,6 +45,7 @@
                                 <a
                                     href="{{
                                         route('singleEvent',[
+                                            'slug' => urlencode($event->title),
                                             'event_id' => $event->id
                                         ])
                                     }}"

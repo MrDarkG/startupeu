@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UrlResource;
 use App\Models\Custom_event;
 use App\Models\Events;
 use App\Models\Faq_category;
@@ -99,7 +100,7 @@ class GuestController extends Controller
         ]);
     }
 
-    function eventSinglePage($event_id)
+    function eventSinglePage($slug,$event_id)
     {
         $event = Events::where('id', $event_id)->firstOrFail();
         $event['date'] = date("F jS, Y", strtotime($event['date']));
@@ -162,7 +163,7 @@ class GuestController extends Controller
 
         return view('events.main-event', [
             'event' => $event,
-            'otherEvents' => $otherEvents,
+            'otherEvents' => UrlResource::collection($otherEvents),
             'buttons' => $buttons
         ]);
     }

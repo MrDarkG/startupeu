@@ -136,6 +136,7 @@
                                     <a
                                         href="{{
                                             route('singleEvent',[
+                                                'slug' => urlencode($event->title),
                                                 'event_id' => $event->id
                                             ])
                                         }}"

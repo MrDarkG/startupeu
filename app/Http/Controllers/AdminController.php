@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UrlResource;
 use App\Models\Country;
 use App\Models\Custom_event;
 use App\Models\Field;
@@ -22,7 +23,7 @@ class AdminController extends Controller
     {
         $events = Events::get();
         return view("admin.events",[
-            'events' => $events
+            'events' => UrlResource::collection($events)
         ]);
     }
     function addUser()
@@ -71,6 +72,7 @@ class AdminController extends Controller
         unset(
             $event['is_active'],
             $event['created_at'],
+            $event['url'],
             $event['updated_at']
         );
         if (str_contains($request->input('event.image'), 'data:image')) {
@@ -98,7 +100,7 @@ class AdminController extends Controller
 
         return view("admin.single-page",[
             'singlePage' => $singlePage,
-            'events' => $events
+            'events' => UrlResource::collection($events)
         ]);
     }
     function singlePageCreate(Request $request){

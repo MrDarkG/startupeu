@@ -19,11 +19,11 @@ use App\Services\DataService;
 Route::get('/', [GuestController::class,'home']);
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::group(['prefix' => '{language_id}',], function () {
-    Route::get("/",function(){
-        return view("welcome");
-    });
-});
+//Route::group(['prefix' => '{language_id}',], function () {
+//    Route::get("/",function(){
+//        return view("welcome");
+//    });
+//});
 Route::get("/mentor/info",[ProfileController::class,"index"]);
 Route::prefix("/browse")->group(function(){
     Route::get("/mentors" ,[GuestController::class,'index']);
@@ -31,8 +31,9 @@ Route::prefix("/browse")->group(function(){
     Route::get("/startups" ,[GuestController::class,'startupPage']);
 });
 Route::prefix("/events")->group(function(){
-    Route::get('/main/{slug}.{id}', [GuestController::class, 'showEvent'])->name('events.main');
-    Route::get("/{event_id}" ,[GuestController::class,'eventSinglePage'])->name('singleEvent');
+
+    Route::get('/main/{slug?}.{id}', [GuestController::class, 'showEvent'])->name('events.main');
+    Route::get("/{slug}.{event_id}" ,[GuestController::class,'eventSinglePage'])->name('singleEvent');
     Route::get("/" ,[GuestController::class,'allEvent'])->name('allEvent');
 });
 
