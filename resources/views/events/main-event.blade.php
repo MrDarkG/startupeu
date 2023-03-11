@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col-md-3"></div>
-            <div class="col-md-9 d-flex flex-column justify-content-between">
+            <div class="col-md-9 d-flex flex-column">
                 <div>
                     <img
                         src="{{ '/assets/images/events/uploads/'. $event->image}}"
@@ -38,7 +38,7 @@
                         {!! $event->description !!}
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center justify-content-between mt-4">
                     @foreach($buttons as $button)
                         @if($button->is_visible)
                             <a
