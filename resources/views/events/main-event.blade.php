@@ -38,17 +38,16 @@
                         {!! $event->description !!}
                     </div>
                 </div>
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-between mt-4 mb-5">
-                    <a
-                        href="#"
-                        class="order-1 event-det-btn p-0 m-0 mt-3"
+                <div
+                    class="w-100 p-0 m-0 mt-3 mb-3"
+                >
+                    <img
+                        src="/assets/images/sponsors.jpg"
+                        class="m-0 w-100 bg-transparent"
+                        alt="Image"
                     >
-                        <img
-                            src="/assets/images/sponsors.jpg"
-                            class="m-0 h-100 bg-transparent"
-                            alt="Image"
-                        >
-                    </a>
+                </div>
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-between mt-4 mb-5">
                     @foreach($buttons as $key => $button)
                         @if($button->is_visible)
                             <a
