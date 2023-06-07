@@ -133,7 +133,7 @@ class GuestController extends Controller
                 'categories' => $categories
             ]);
         }
-        return redirect()->back();
+        abort(404);
     }
 
     function allStartupEcosystem()
