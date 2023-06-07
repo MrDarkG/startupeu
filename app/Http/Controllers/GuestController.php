@@ -119,19 +119,21 @@ class GuestController extends Controller
     function singleStartupEcosystem($startup_ecosystem_id)
     {
         $startup_ecosystem = Startup_ecosystem::where('id', $startup_ecosystem_id)->first();
-        if (json_decode($startup_ecosystem->pdf)) {
+        if ($startup_ecosystem && $startup_ecosystem->pdf && json_decode($startup_ecosystem->pdf)) {
             $startup_ecosystem->pdf = json_decode($startup_ecosystem->pdf)[0]->download_link;
-        }
-        $categories = Faq_category::with(['questions' => function ($query) use ($startup_ecosystem) {
-            return $query->with(['answers' => function ($answers_query) use ($startup_ecosystem) {
-                return $answers_query->where('startup_ecosystem_id', $startup_ecosystem->id);
-            }]);
-        }])->get();
 
-        return view('startup-ecosystem.single-page', [
-            'startup_ecosystem' => $startup_ecosystem,
-            'categories' => $categories
-        ]);
+            $categories = Faq_category::with(['questions' => function ($query) use ($startup_ecosystem) {
+                return $query->with(['answers' => function ($answers_query) use ($startup_ecosystem) {
+                    return $answers_query->where('startup_ecosystem_id', $startup_ecosystem->id);
+                }]);
+            }])->get();
+
+            return view('startup-ecosystem.single-page', [
+                'startup_ecosystem' => $startup_ecosystem,
+                'categories' => $categories
+            ]);
+        }
+        return redirect()->back();
     }
 
     function allStartupEcosystem()
