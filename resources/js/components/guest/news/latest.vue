@@ -17,7 +17,7 @@
                     >
 				</div>
 				<div
-					class="col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start justify-content-between"
+					class="col-md-6 d-flex pl-4 pr-4 pt-3 pb-3 flex-column align-items-start h-100 justify-content-between"
 				>
 					<div v-if="item.created_at" class="text-black-50">
 						{{ setCustomDate(item.created_at) }}
