@@ -4,6 +4,9 @@
         color: blue;
         text-decoration: underline;
     }
+    .container .n-details p br{
+        display: none!important;
+    }
 </style>
 @section("content")
     <div class="container">

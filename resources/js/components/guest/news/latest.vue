@@ -35,8 +35,8 @@
 		</a>
 	</div>
     <news-card
-        class="col-12 col-sm-12 mt-3 col-md-6 col-lg-4"
         v-else
+        class="col-12 col-sm-12 mt-3 col-md-6 col-lg-4"
         :item="item"
     ></news-card>
 </div>
