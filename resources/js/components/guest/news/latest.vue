@@ -26,7 +26,8 @@
                             'news-single-image d-flex p-0 w-100 rounded-top':!checkScreenSize(),
                         }"
                         :style="{
-                            backgroundImage:`url('/uploads/${item?.image}')`
+                            backgroundImage:`url('/uploads/${item?.image}')`,
+                            backgroundSize: 'cover'
                         }"
                     ></div>
                     <div
