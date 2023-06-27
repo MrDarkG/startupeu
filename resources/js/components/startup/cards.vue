@@ -8,7 +8,9 @@
                 class="browse-startup-card shadow h-100 p-4 d-flex flex-column justify-content-between"
                 style="min-width:unset!important;"
             >
-                <a :href="`/startup/${startup.id}`">
+                <a
+                    :href="`/startup/${startup.id}`"
+                >
                     <img
                         :src="startup.logo"
                         alt="Logo"

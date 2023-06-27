@@ -2,15 +2,26 @@
 <div class="row pr-2 pl-2">
 	<div
 		v-for="(item, item_i) in news"
-		class="col-md-12 pl-4 pr-4"
-        v-if="item_i < 1"
+        class="col-md-12 pl-4 pr-4"
+        :class="{
+            'col-sm-12 mt-3 col-md-6 col-lg-4':item_i > 0 || item_i === 0 && !checkScreenSize()
+        }"
         :style="{
             height:'280px'
         }"
 	>
-		<a :href="`/news/${item.id}`">
+		<a
+            :href="`/news/${item.id}`"
+            class="p-4"
+        >
 			<div class="bg-white row h-100 rounded-2 overflow-hidden" style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);">
-				<div class="p-0 rounded rounded-2 col-md-6">
+				<div
+                    :class="{
+                        'col-md-6':item_i === 0 && checkScreenSize(),
+                        'col-md-12':item_i > 0
+				    }"
+                    class="p-0 rounded rounded-2"
+                >
 					<img
                         class="col-md-12 h-100 p-0"
                         :src="`/uploads/${item.image}`" :alt="item.image"
@@ -34,17 +45,15 @@
 			</div>
 		</a>
 	</div>
-    <news-card
-        v-else
-        class="col-12 col-sm-12 mt-3 col-md-6 col-lg-4"
-        :item="item"
-    ></news-card>
 </div>
 </template>
 <script>
 export default{
 	props:['news'],
 	methods:{
+        checkScreenSize(){
+            return document.querySelector('#app').clientWidth > 768?true:false
+        },
 		setCustomDate(date){
 			const today = new Date(date)
 			// today.toLocaleString('default',{ month: 'long' })
