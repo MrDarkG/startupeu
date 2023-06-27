@@ -4,7 +4,7 @@
             v-for="(item, item_i) in news"
             v-if="item_i === 0"
             :class="{
-                'col-md-12 p-2':checkScreenSize(),
+                'col-md-12 pl-4 pr-4':checkScreenSize(),
                 'col-12 col-sm-12 col-md-6 col-lg-4 p-2':!checkScreenSize(),
             }"
             :style="{
