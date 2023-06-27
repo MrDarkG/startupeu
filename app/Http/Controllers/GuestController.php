@@ -110,7 +110,7 @@ class GuestController extends Controller
 
     function allEvent()
     {
-        $events = Events::get();
+        $events = Events::orderBy('created_at','desc')->get();
         return view('events.index', [
             'events' => $events
         ]);
