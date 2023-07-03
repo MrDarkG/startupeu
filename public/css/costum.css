@@ -5187,6 +5187,12 @@ a:hover {
     color: blue;
     text-decoration: underline;
 }
+.news-single-description ol{
+    padding:unset!important;
+}
+.news-single-description ol li span{
+    margin-bottom: 14px!important;
+}
 @media only screen and (max-width: 767px) {
     .left-search {
         min-height: unset !important;
