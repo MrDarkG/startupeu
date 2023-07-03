@@ -5189,8 +5189,10 @@ a:hover {
 }
 .news-single-description ol{
     padding:unset!important;
+    padding-left: 45px !important;
 }
 .news-single-description ol li span{
+    margin:unset!important;
     margin-bottom: 14px!important;
 }
 @media only screen and (max-width: 767px) {
