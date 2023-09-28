@@ -48,16 +48,8 @@
             <input type="text" id="website" v-model="input.website" :class="setClassByValue(input.website,false,button)" name="website" class="form-control" placeholder="Website address">
         </div>
         <div class="col-md-12">
-            <label for="what_your_company_does">What your company does?</label>
-            <textarea name="what_your_company_does" v-model="input.about.company" :class="setClassByValue(input.about.company,false,button)" id="what_your_company_does" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
-        </div>
-        <div class="col-md-12">
-            <label for="describe_your_product_text">Describe your product and what it does or will do</label>
+            <label for="describe_your_product_text">Description of the startup(product, business model and innovation)</label>
             <textarea name="describe_your_product_text" v-model="input.about.product" :class="setClassByValue(input.about.product,false,button)" id="describe_your_product_text" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
-        </div>
-        <div class="col-md-12">
-            <label for="what_is_your_innovation">What is your innovation - what are you doing in an absolutely new or significantly improved way?</label>
-            <textarea name="what_is_your_innovation" v-model="input.about.innovation" :class="setClassByValue(input.about.innovation,false,button)" id="what_is_your_innovation" cols="30" rows="10" class="form-control h160" placeholder="Type here"></textarea>
         </div>
         <div class="col-md-4" :class="">
             <label for="what_is_your_current_stage">What is your current stage ?</label>
@@ -251,9 +243,9 @@ export default{
                     },
                     website:val.website,
                     about:{
-                        company:val.what_your_company_does,
+                        company:'declined - company',
                         product:val.description,
-                        innovation:val.inovation,
+                        innovation:'declined - innovation',
                     },
                     current_stage:val.stages,
                     bussiness_model:val.business_model,

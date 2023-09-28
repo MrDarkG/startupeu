@@ -115,7 +115,6 @@ class GuestController extends Controller
             'events' => $events
         ]);
     }
-
     function singleStartupEcosystem($startup_ecosystem_id)
     {
         $startup_ecosystem = Startup_ecosystem::where('id', $startup_ecosystem_id)->first();

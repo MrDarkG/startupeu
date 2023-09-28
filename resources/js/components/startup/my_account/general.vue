@@ -93,37 +93,15 @@
             >
         </div>
         <div class="col-md-12">
-            <label for="what_your_company_does">What your company does?</label>
-            <textarea
-                id="what_your_company_does"
-                cols="30"
-                rows="10"
-                :class="setClassByValue(inputs.about.company_does,false,button)"
-                v-model="inputs.about.company_does"
-                class="form-control h160"
-                placeholder="Type here"
-            ></textarea>
-        </div>
-        <div class="col-md-12">
-            <label for="describe_your_product_text">Describe your product and what it does or will do</label>
+            <label for="describe_your_product_text">
+                Description of the startup(product, business model and innovation)
+            </label>
             <textarea
                 id="describe_your_product_text"
                 cols="30"
                 rows="10"
                 :class="setClassByValue(inputs.about.describe_your_product,false,button)"
                 v-model="inputs.about.describe_your_product"
-                class="form-control h160"
-                placeholder="Type here"
-            ></textarea>
-        </div>
-        <div class="col-md-12">
-            <label for="what_is_your_innovation">What is your innovation - what are you doing in an absolutely new or significantly improved way?</label>
-            <textarea
-                id="what_is_your_innovation"
-                cols="30"
-                rows="10"
-                :class="setClassByValue(inputs.about.your_innovation,false,button)"
-                v-model="inputs.about.your_innovation"
                 class="form-control h160"
                 placeholder="Type here"
             ></textarea>
@@ -241,9 +219,9 @@ export default{
                   email:this.startup.ceo_email,
               },
               about:{
-                  company_does:this.startup.what_your_company_does,
+                  company_does:'declined - company_does',
                   describe_your_product:this.startup.description,
-                  your_innovation:this.startup.inovation,
+                  your_innovation:'declined - your_innovation',
               },
               stage:this.startup.stages,
               country:this.startup.country,

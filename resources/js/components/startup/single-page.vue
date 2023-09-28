@@ -59,20 +59,19 @@ export default {
           details:{
               content:[
                   {
-                    title:'What our company does',
-                    description:this.startup.what_your_company_does,
-                  },
-                  {
-                      title:'Our product and what it does or will do',
-                      description:this.startup.description,
-                  },
-                  {
-                      title:'Our innovaiton',
-                      description:this.startup.inovation,
+                    title:'Description of the startup(product, business model and innovation)',
+                    description:this.startup.description,
                   },
                   {
                       title:'Received investment',
-                      description:'<h1 class="m-0 font-weight-bold" style="color:#6200EE!important;">$ 117k</h1>',
+                      description:`
+                            <h1
+                                class="m-0 font-weight-bold"
+                                style="color:#6200EE!important;"
+                            >
+                                $ 117k
+                            </h1>
+                      `,
                   },
               ],
               menu:[
@@ -100,13 +99,6 @@ export default {
                   {
                       title:'CEO',
                       content:this.startup.full_name,
-                      color:{
-                          text:'black',
-                      },
-                  },
-                  {
-                      title:'Founders',
-                      content:'7',
                       color:{
                           text:'black',
                       },
