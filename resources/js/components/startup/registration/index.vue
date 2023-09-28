@@ -318,7 +318,7 @@ export default{
         },
         saveStartup(){
             this.button = true
-            this.input.founded.number = 'test'
+            this.input.founded.number = 7
             axios.post('/register/startup' ,this.input)
             .then((response)=>{
                 console.log('წარმატებით დაემატა!')
