@@ -39,7 +39,7 @@ use Illuminate\Support\Facades\Storage;
 			$startup->update([
                 "name"=>$request->input("startup.name"),
                 "founded"=>$request->input("founded.year"),
-                "number_of_founders"=>$request->input("founded.number"),
+                "number_of_founders"=>7,
                 "full_name"=>$request->input("full_name"),
                 "phone_index"=>$request->input("phone.index.id"),
                 "number"=>$request->input("founded.number"),
@@ -71,7 +71,7 @@ use Illuminate\Support\Facades\Storage;
 			$startup=Startup::create([
 				"name"=>$request->input("startup.name"),
 		        "founded"=>$request->input("founded.year"),
-                "number_of_founders"=>$request->input("founded.number"),
+                "number_of_founders"=>7,
 		        "full_name"=>$request->input("full_name"),
 		        "phone_index"=>$request->input("phone.index.id"),
 		        "number"=>$request->input("founded.number"),

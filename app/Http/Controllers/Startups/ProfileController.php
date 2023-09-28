@@ -19,6 +19,7 @@ class ProfileController extends Controller
             'user_id' => 'numeric',
             'startup.name' => 'required',
             'founded.year' => 'required|date',
+            'founded.number' => 'numeric',
             'full_name' => 'required',
             'phone.index.id' => 'required|numeric',
             'startup.email' => 'required|email',
@@ -32,7 +33,6 @@ class ProfileController extends Controller
             'country' => 'required',
             'what_are_you_looking' => 'required',
         ]);
-        $request->founded->number = 0;
         if (MainServices::checkIfProfileCompleted($request->input('user_id'), Startup::class)){
             return StartupServices::updateMyProfileInfo($request);
         }else{
