@@ -7,17 +7,13 @@
     	Find investment opportunities from leading Venture Funds, Angels and Accelerators, apply with the one click
     </div>
     <div class="row sign-form">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="title">Startup Name</label>
             <input type="text" id="title" name="title" v-model="input.startup.name" :class="setClassByValue(input.startup.name,false,button)" class="form-control" placeholder="Startup Name">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="founded">Founded</label>
             <input type="date" id="founded" name="founded" v-model="input.founded.year" :class="setClassByValue(input.founded.year,false,button)"  class="form-control" placeholder="Year">
-        </div>
-        <div class="col-md-4">
-            <label for="founded_number">Number of Founders</label>
-            <input type="text" id="founded_number" v-model="input.founded.number" :class="setClassByValue(input.founded.number,false,button)" name="founded_number"  class="form-control" placeholder="Number">
         </div>
         <div class="col-md-4">
             <label for="ceo">Full Name</label>
@@ -234,7 +230,7 @@ export default{
                     },
                     founded:{
                         year:val.founded,
-                        number:val.number_of_founders,
+                        number:0,
                     },
                     full_name:val.full_name,
                     phone:{

@@ -1,7 +1,7 @@
 <template>
 <div class="sign-form" id="startup-form">
     <div v-if="edit_button.is_active" class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="title">Startup Name</label>
             <input
                 id="title"
@@ -12,7 +12,7 @@
                 placeholder="Startup Name"
             >
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="founded">Founded</label>
             <input
                 id="founded"
@@ -21,18 +21,6 @@
                 :class="setClassByValue(inputs.startup.date,false,button)"
                 class="form-control"
                 placeholder="Year"
-            >
-        </div>
-        <div class="col-md-4">
-            <label for="founded_number">Number of Founders</label>
-            <input
-                type="number"
-                id="founded_number"
-                min="0"
-                v-model="inputs.startup.number_of_founders"
-                :class="setClassByValue(inputs.startup.number_of_founders,false,button)"
-                class="form-control"
-                placeholder="Number"
             >
         </div>
         <div class="col-md-4">
@@ -211,7 +199,7 @@ export default{
               startup:{
                   name:this.startup.name,
                   date:this.startup.founded,
-                  number_of_founders:this.startup.number_of_founders,
+                  number_of_founders:'0',
                   email:this.startup.startup_email,
               },
               ceo:{
