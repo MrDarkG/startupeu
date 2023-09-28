@@ -199,7 +199,7 @@ export default{
               startup:{
                   name:this.startup.name,
                   date:this.startup.founded,
-                  number_of_founders:'0',
+                  number_of_founders:7,
                   email:this.startup.startup_email,
               },
               ceo:{

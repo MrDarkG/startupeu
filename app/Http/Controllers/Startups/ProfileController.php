@@ -19,6 +19,7 @@ class ProfileController extends Controller
             'user_id' => 'numeric',
             'startup.name' => 'required',
             'founded.year' => 'required|date',
+            'founded.number' => 'numeric',
             'full_name' => 'required',
             'phone.index.id' => 'required|numeric',
             'startup.email' => 'required|email',

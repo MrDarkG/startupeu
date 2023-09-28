@@ -230,7 +230,7 @@ export default{
                     },
                     founded:{
                         year:val.founded,
-                        number:0,
+                        number:7,
                     },
                     full_name:val.full_name,
                     phone:{
