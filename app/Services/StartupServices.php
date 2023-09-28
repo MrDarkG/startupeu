@@ -42,7 +42,7 @@ use Illuminate\Support\Facades\Storage;
                 "number_of_founders"=>7,
                 "full_name"=>$request->input("full_name"),
                 "phone_index"=>$request->input("phone.index.id"),
-                "number"=>$request->input("founded.number"),
+                "number"=>7,
                 "ceo_email"=>$request->input("startup.number"),
                 "startup_email"=>$request->input("startup.email"),
                 "website"=>$request->input("website"),
