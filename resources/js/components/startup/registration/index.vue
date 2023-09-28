@@ -273,7 +273,7 @@ export default{
                 },
                 founded:{
                     year:"",
-                    number:"",
+                    number:7,
                 },
                 full_name:"",
                 phone:{
@@ -282,9 +282,9 @@ export default{
                 },
                 website:"",
                 about:{
-                    company:"",
+                    company:'declined - company',
                     product:"",
-                    innovation:"",
+                    innovation:'declined - innovation',
                 },
                 current_stage:"",
                 bussiness_model:"",
