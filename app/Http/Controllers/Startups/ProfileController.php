@@ -33,6 +33,7 @@ class ProfileController extends Controller
             'country' => 'required',
             'what_are_you_looking' => 'required',
         ]);
+
         if (MainServices::checkIfProfileCompleted($request->input('user_id'), Startup::class)){
             return StartupServices::updateMyProfileInfo($request);
         }else{

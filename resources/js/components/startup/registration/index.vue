@@ -230,7 +230,7 @@ export default{
                     },
                     founded:{
                         year:val.founded,
-                        number:7,
+                        number:"",
                     },
                     full_name:val.full_name,
                     phone:{
@@ -273,7 +273,7 @@ export default{
                 },
                 founded:{
                     year:"",
-                    number:7,
+                    number:"",
                 },
                 full_name:"",
                 phone:{
@@ -318,6 +318,7 @@ export default{
         },
         saveStartup(){
             this.button = true
+            this.input.founded.number = 0
             axios.post('/register/startup' ,this.input)
             .then((response)=>{
                 console.log('წარმატებით დაემატა!')
