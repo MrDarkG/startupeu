@@ -113,16 +113,8 @@ export default{
             details:{
                 content:[
                     {
-                        title:'What our company does',
-                        description:this.startup.what_your_company_does,
-                    },
-                    {
-                        title:'Our product and what it does or will do',
+                        title:'Description of the startup(product, business model and innovation)',
                         description:this.startup.description,
-                    },
-                    {
-                        title:'Our innovaiton',
-                        description:this.startup.inovation,
                     },
                 ],
                 menu:[
