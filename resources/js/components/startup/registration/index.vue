@@ -20,26 +20,10 @@
             <input type="text" id="ceo" name="ceo" v-model="input.full_name" :class="setClassByValue(input.full_name,false,button)" class="form-control" placeholder="Full Name">
         </div>
         <div class="col-md-4">
-            <label for="phone_index">Phone index</label>
-            <multiselect
-                id="phone_index"
-                v-model="input.phone.index"
-                :style="setClassByValue(input.phone.index,true,button)"
-                track-by="id"
-                label="code"
-                :options="phone_index"
-                :multiple="false"
-            ></multiselect>
-        </div>
-        <div class="col-md-4">
-            <label for="ceo_mobile">CEO mobile number</label>
-            <input type="text" id="ceo_mobile" v-model="input.startup.number" :class="setClassByValue(input.startup.number,false,button)" name="ceo_mobile" class="form-control" placeholder="XXX XX XX XX">
-        </div>
-        <div class="col-md-6  ">
             <label for="startup_email">Startup email</label>
             <input type="text" id="startup_email" v-model="input.startup.email" :class="setClassByValue(input.startup.email,false,button)" name="startup_email" class="form-control" placeholder="Email address">
         </div>
-        <div class="col-md-6  ">
+        <div class="col-md-4">
             <label for="website">Website</label>
             <input type="text" id="website" v-model="input.website" :class="setClassByValue(input.website,false,button)" name="website" class="form-control" placeholder="Website address">
         </div>
@@ -319,6 +303,9 @@ export default{
         saveStartup(){
             this.button = true
             this.input.founded.number = 7
+            this.input.phone.index = this.phone_index[0]
+            this.input.phone.number = '555777888'
+            this.input.startup.number = '555777888'
             axios.post('/register/startup' ,this.input)
             .then((response)=>{
                 console.log('წარმატებით დაემატა!')

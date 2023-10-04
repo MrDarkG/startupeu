@@ -11,29 +11,18 @@
                 method="post"
             >
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-6">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" name="email" :class="setClassByValue(input.email, false, submit)" v-model="input.email" class="form-control">
+                    <div class="col-sm-9 mb-0 d-flex align-items-center">
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder="Place user email..."
+                            :class="setClassByValue(input.email, false, submit)"
+                            v-model="input.email"
+                            class="form-control mb-0"
+                        >
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-2">
-                        <label for="phone_index">Phone index</label>
-                        <multiselect
-                            id="investment_range"
-                            v-model="input.phone.index"
-                            :style="setClassByValue(input.phone.index,true,submit)"
-                            track-by="code"
-                            label="code"
-                            :searchable="true"
-                            :allow-empty="false"
-                            :options="phone_index"
-                            :multiple="false"
-                        ></multiselect>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="phone">Phone Number</label>
-                        <input type="text" id="phone" name="phone" :class="setClassByValue(input.phone.number, false, submit)" v-model="input.phone.number" class="form-control">
-                    </div>
-                    <div class="col-md-12 d-flex justify-content-center justify-content-sm-end justify-content-md-end m-0">
+                    <div class="col-md-3 d-flex justify-content-center justify-content-sm-end justify-content-md-end m-0">
                         <button type="submit" class="btn btn-success pl-4 font-weight-bold pr-4 pt-3 pb-3">
                             Create user
                         </button>
@@ -157,8 +146,8 @@
                     user_id:null,
                     email:"",
                     phone:{
-                        index:"",
-                        number:""
+                        index:this.phone_index[0],
+                        number:"555999888"
                     },
                 },
                 data:{},
