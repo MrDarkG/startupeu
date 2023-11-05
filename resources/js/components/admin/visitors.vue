@@ -1,14 +1,14 @@
 <template>
     <div>
         <h3 class="text-center mb-5 ml-3 mt-5">
-            დღევანდელი შემომსვლელები
+            დღევანდელი შემომსვლელები <span v-if="visitors && visitors.length > 0">({{visitors.length}})</span>
         </h3>
         <div class="row m-0">
             <div class="col-md-3" v-for="visitor in visitors">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">IP : {{ visitor.ip }}</h5>
-
+                        <p class="card-text">ქვეყანა : {{ visitor.country }}</p>
                     </div>
                 </div>
             </div>

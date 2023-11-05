@@ -11,11 +11,6 @@
 @endsection
 @section('content')
     <div id="app">
-        <div class="font-weight-bold">
-            <h3>
-                შემომსვლელების სტატისტიკა <b>(დღეს {{count($visitors)}})</b>
-            </h3>
-        </div>
         <admin-visitors
             :visitors="{{ json_encode($visitors) }}"
             :monthly="{{ json_encode($visitorsMonthly) }}"
