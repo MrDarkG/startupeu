@@ -11,7 +11,9 @@ use App\Models\Issue;
 use App\Models\Phone_index;
 use App\Models\Range;
 use App\Models\User;
+use App\Models\Visitors;
 use App\Models\WelcomeMenu;
+use App\Services\VisitorsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Events;
@@ -24,6 +26,13 @@ class AdminController extends Controller
         $events = Events::get();
         return view("admin.events",[
             'events' => UrlResource::collection($events)
+        ]);
+    }
+    protected function visitors()
+    {
+        return view("admin.visitors",[
+            'visitors' => VisitorsService::todayVisitors(),
+            'visitorsMonthly' => VisitorsService::monthlyVisitors(),
         ]);
     }
     function addUser()

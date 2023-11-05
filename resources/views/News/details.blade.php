@@ -12,7 +12,7 @@
                     {{ $news->title }}
                 </h1>
                 <div class="mt-3 mb-3">
-                    <small  class="mt-2 mb-2" style="font-size: 15px;">
+                    <small class="mt-2 mb-2" style="font-size: 15px;">
                         {{ $news->created_at->format("d M, Y") }}
                     </small>
                 </div>
@@ -42,18 +42,47 @@
             <div class="col-md-3 ">
                 <h2 class="mt-0 mb-0 font-weight-bold text-black m-0" style="font-size: 22px;">More news</h2>
                 @foreach($otherNews->take(3) as $other)
-                    <div >
-                        <a class="news-more-item" href="{{ route("news.details", [
+                    <div>
+                        <a
+                            class="news-more-item"
+                            href="{{route("news.details",[
                                 "id" => $other->id,
                                 'slug' => generateSlug($other->title)
-                                ]) }}">
-                            <img src="{{ asset('/uploads').'/'. $other->image}}" alt="{{ $other->title }}" width="100%">
-                            <span class="ml-2 mr-2">
-                                {{ $other->created_at->format("d M, Y") }}
-                            </span>
-                            <h4 class="ml-2 mr-2">
-                                {{ $other->title }}
-                            </h4>
+                            ])}}"
+                        >
+                            <div
+                                class="bg-white d-flex flex-column h-100 rounded-2 overflow-hidden"
+                                style="box-shadow: 0px 4px 32px rgb(0 0 0 / 16%);"
+                            >
+                                <div
+                                    :style="{
+                                        backgroundImage:`url('/uploads/{{$other->image}}')`
+                                    }"
+                                    class="news-single-image d-flex p-0 w-100 rounded-top"
+                                ></div>
+                                <div
+                                    class="d-flex overflow-hidden pl-4 pr-4 pt-3 mb-2 flex-column align-items-start justify-content-between"
+                                    style="height: 50%;"
+                                >
+                                    <div class="pt-2">
+                                        <b>
+                                            <h4 class="m-0 p-0">
+                                                {{ $other->title }}
+                                            </h4>
+                                        </b>
+                                    </div>
+                                    <div class="pt-2">
+                                        <h6
+                                            class="text-black-50 latestnews-desc"
+                                        >
+                                            {{ $other->created_at->format("d M, Y") }}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a>
+                            <img src="" width="100%">
                         </a>
                     </div>
                 @endforeach

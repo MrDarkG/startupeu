@@ -15,6 +15,6 @@ class Controller extends BaseController
 
     public function __construct(Request $request)
     {
-        VisitorsService::countVisitors($request::ip(), $request::server('HTTP_REFERER'));
+        VisitorsService::updateOrCreate($request::ip(), $request::server('HTTP_REFERER'));
     }
 }

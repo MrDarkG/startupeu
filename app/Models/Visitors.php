@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static truncate()
+ * @method static firstOrCreate(array $array, array $array1)
+ * @method static create(array $array)
+ * @method static where(string $string, $ip)
+ * @method static get()
  */
 class Visitors extends Model
 {
@@ -14,6 +18,7 @@ class Visitors extends Model
 
     protected $fillable = [
         'ip',
+        'country',
         'referer'
     ];
 }
