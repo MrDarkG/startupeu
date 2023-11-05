@@ -49,3 +49,9 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/get/menu-items',[GuestController::class,'getWelcomeMenu']);
+
+//"v=spf1 include:_spf.google.com ip4:95.216.167.70 ~all"
+//startup
+//ssh 188.34.202.239 -l root
+//user:root
+//pass:WsAnJXaaXPqj9hjWLXp3
