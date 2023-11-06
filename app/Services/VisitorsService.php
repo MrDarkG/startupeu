@@ -14,7 +14,7 @@ class VisitorsService
         self::saveVisitorsCountAfterDelete();
         Visitors::truncate();
     }
-    static public function updateOrCreate($ip, $referer)
+    static public function create($ip, $referer)
     {
         if (visitors::where('ip', $ip)->count() == 0) {
             $ch = curl_init();
@@ -33,11 +33,11 @@ class VisitorsService
     }
     static public function todayVisitors()
     {
-        return Visitors::get();
+        return Visitors::orderBy('created_at','asc')->get();
     }
     static public function monthlyVisitors()
     {
-        return VisitorStatistics::get();
+        return VisitorStatistics::orderBy('created_at','asc')->get();
     }
     static public function saveVisitorsCountAfterDelete(): void
     {
