@@ -16,21 +16,11 @@ class VisitorsService
     }
     static public function create($ip, $referer)
     {
-        if (!Visitors::where('ip', $ip)->first()) {
-            $ch = curl_init();
-            $url = "http://ip-api.com/json/$ip";
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            $output = curl_exec($ch);
-            curl_close($ch);
-            $result = collect(json_decode($output, true));
-
-            Visitors::create([
-                'ip' => $ip,
-                'country' => $result['country']??'Empty',
-                'referer' => $referer
-            ]);
-        }
+        Visitors::firstOrCreate([
+            'ip' => $ip,
+        ],[
+            'referer' => $referer
+        ]);
     }
     static public function todayVisitors()
     {
