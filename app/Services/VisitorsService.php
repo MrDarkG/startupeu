@@ -17,6 +17,10 @@ class VisitorsService
     static public function create($ip, $referer)
     {
         if (Visitors::where('ip', $ip)->count() == 0) {
+            $visitor = Visitors::create([
+                'ip' => $ip,
+                'referer' => $referer
+            ]);
             $ch = curl_init();
             $url = "http://ip-api.com/json/$ip";
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -24,8 +28,7 @@ class VisitorsService
             $output = curl_exec($ch);
             curl_close($ch);
             $result = collect(json_decode($output, true));
-            Visitors::create([
-                'ip' => $ip,
+            Visitors::where('id', $visitor->id)->update([
                 'country' => $result['country']??'Empty',
                 'referer' => $referer
             ]);
