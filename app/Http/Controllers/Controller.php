@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\VisitorsService;
-use \Illuminate\Support\Facades\Request as Request;
+use Illuminate\Http\Request as Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -15,6 +15,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        dd(Request::ip());
         VisitorsService::create(Request::ip(), Request::server('HTTP_REFERER'));
     }
 }
