@@ -13,8 +13,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct(Request $request)
+    public function __construct()
     {
-        VisitorsService::create($request::ip(), $request::server('HTTP_REFERER'));
+        VisitorsService::create(Request::ip(), Request::server('HTTP_REFERER'));
     }
 }
