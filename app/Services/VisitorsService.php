@@ -24,7 +24,7 @@ class VisitorsService
             $output = curl_exec($ch);
             curl_close($ch);
             $result = collect(json_decode($output, true));
-
+            dd([$ip, $referer]);
             Visitors::create([
                 'ip' => $ip,
                 'country' => $result['country']??'Empty',
