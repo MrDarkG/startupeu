@@ -37,7 +37,7 @@ class VisitorsService
     }
     static public function monthlyVisitors()
     {
-        return VisitorStatistics::orderBy('created_at','asc')->get();
+        return VisitorStatistics::orderBy('created_at','desc')->get();
     }
     static public function saveVisitorsCountAfterDelete(): void
     {
