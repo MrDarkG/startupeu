@@ -15,7 +15,6 @@ class Controller extends BaseController
 
     public function __construct(Request $request)
     {
-        dd($request);
         VisitorsService::create($request::ip(), $request::server('HTTP_REFERER'));
     }
 }
