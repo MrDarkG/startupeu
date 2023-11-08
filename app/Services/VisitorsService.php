@@ -33,7 +33,7 @@ class VisitorsService
     }
     static public function todayVisitors()
     {
-        return Visitors::orderBy('created_at','asc')->get();
+        return Visitors::orderBy('created_at','desc')->get();
     }
     static public function monthlyVisitors()
     {

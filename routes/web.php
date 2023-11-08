@@ -52,7 +52,7 @@ Route::get('/get/menu-items',[GuestController::class,'getWelcomeMenu']);
 
 //"v=spf1 include:_spf.google.com ip4:95.216.167.70 ~all"
 //STARTUP_CENTRAL_EURASIA
-//ssh 188.34.202.239 -l root
-//pass:WsAnJXaaXPqj9hjWLXp3
+// ssh 188.34.202.239 -l root
+//pass: WsAnJXaaXPqj9hjWLXp3
 // cd /home/admin/web/startupcentraleurasia.com/public_html
 //user:root
