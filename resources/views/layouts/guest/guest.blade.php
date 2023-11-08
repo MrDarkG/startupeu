@@ -21,6 +21,17 @@
                 width: 100%;
             }
         </style>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-84DK2T1WSQ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-84DK2T1WSQ');
+        </script>
+
         <!-- Meta Pixel Code -->
         <script>
             !function(f,b,e,v,n,t,s)

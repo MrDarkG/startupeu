@@ -30,7 +30,6 @@ class AdminController extends Controller
     }
     protected function visitors()
     {
-        dd(FacadesRequest::ip());
         return view("admin.visitors",[
             'visitors' => VisitorsService::todayVisitors(),
             'visitorsMonthly' => VisitorsService::monthlyVisitors(),
