@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static truncate()
- * @method static firstOrCreate(array $array, array $array1)
+ * @method static firstOrCreate(array $array)
  * @method static create(array $array)
  * @method static where(string $string, $ip)
  * @method static get()
