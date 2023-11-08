@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\VisitorsService;
-//use \Illuminate\Support\Facades\Request as Request;
+use \Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -16,6 +16,8 @@ class Controller extends BaseController
 
     public function __construct(Request $request)
     {
-        VisitorsService::create($request->getClientIp(), '/');
+        $clientIP = request()->ip();
+        dd($clientIP);
+        VisitorsService::create($request->getClientIp(), FacadesRequest::server('HTTP_REFERER'));
     }
 }
