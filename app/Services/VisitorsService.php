@@ -19,6 +19,8 @@ class VisitorsService
             Visitors::firstOrCreate([
                 'ip' => $ip,
                 'referer' => $referer
+            ],[
+                'country' => 'unknown'
             ]);
     }
     static public function todayVisitors()
