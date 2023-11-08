@@ -16,8 +16,9 @@ class VisitorsService
     }
     static public function create($ip, $referer)
     {
-            Visitors::firstOrCreate([
+            Visitors::updateOrCreate([
                 'ip' => $ip,
+            ],[
                 'referer' => $referer
             ]);
     }

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static where(string $string, $ip)
  * @method static get()
  * @method static orderBy(string $string, string $string1)
+ * @method static updateOrCreate(array $array, array $array1)
  */
 class Visitors extends Model
 {
