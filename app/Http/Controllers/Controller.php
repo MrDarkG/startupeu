@@ -16,7 +16,6 @@ class Controller extends BaseController
 
     public function __construct(Request $request)
     {
-        dd($request->ips());
         VisitorsService::create($request->getClientIp(), FacadesRequest::server('HTTP_REFERER'));
     }
 }
