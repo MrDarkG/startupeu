@@ -16,7 +16,7 @@ Route::get('/get-user-type-data/{type}/{user_id}', [AdminController::class, 'get
 Route::get('/add/user', [AdminController::class, 'addUser'])->name('voyager.events.index');
 Route::get('/add/user', [AdminController::class, 'addUser'])->name('voyager.events.index');
 Route::get('/events', [AdminController::class, 'events'])->name('voyager.events.index');
-Route::get('/visitors', [AdminController::class, 'visitors'])->name('voyager.visitors');
+Route::get('/visitors', [AdminController::class, 'visitors'])->name('admin.visitors');
 Route::post('/add/event', [AdminController::class, 'addEvent'])->name('addEvent');
 Route::post('/edit/event', [AdminController::class, 'editEvent'])->name('editEvent');
 Route::get('/delete/event/{event_id}', [AdminController::class, 'deleteEvent'])->name('deleteEvent');
