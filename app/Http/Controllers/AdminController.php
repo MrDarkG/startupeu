@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Models\WelcomeMenu;
 use App\Services\VisitorsService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Events;
 use App\Models\News;
@@ -29,6 +30,7 @@ class AdminController extends Controller
     }
     protected function visitors()
     {
+        dd(FacadesRequest::ip());
         return view("admin.visitors",[
             'visitors' => VisitorsService::todayVisitors(),
             'visitorsMonthly' => VisitorsService::monthlyVisitors(),
