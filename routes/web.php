@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/get/menu-items',[GuestController::class,'getWelcomeMenu']);
-//Route::get('/rasadjsd',[GuestController::class,'voyageWaaaa'])->name('voyager.visitors.index');
+Route::get('/rasadjsd',[GuestController::class,'voyageWaaaa'])->name('voyager.visitors.index');
 
 //"v=spf1 include:_spf.google.com ip4:95.216.167.70 ~all"
 //STARTUP_CENTRAL_EURASIA
