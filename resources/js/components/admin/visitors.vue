@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div class="text-center font-weight-bolder" v-if="!visitors && !monthly">
-            ჯერჯერობით არავინ შემოსულა
-        </div>
-        <h3 class="text-center mb-5 ml-3 mt-5" v-if="visitors && visitors.length > 0">
+        <h3 class="text-center mb-5 ml-3 mt-5">
             დღევანდელი შემომსვლელები
         </h3>
         <div class="row justify-content-center m-0">
