@@ -14,11 +14,10 @@ class VisitorsService
         self::saveVisitorsCountAfterDelete();
         Visitors::truncate();
     }
-    static public function create($ip, $referer)
+    static public function create($ip, $referer) : void
     {
-            Visitors::updateOrCreate([
+            Visitors::create([
                 'ip' => $ip,
-            ],[
                 'referer' => $referer
             ]);
     }

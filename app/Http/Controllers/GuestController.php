@@ -14,6 +14,7 @@ use App\Models\Range;
 use App\Models\Stage;
 use App\Models\Startup_ecosystem;
 use App\Models\WelcomeMenu;
+use App\Services\VisitorsService;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Issue;
@@ -23,6 +24,7 @@ use App\Models\Faq_country;
 use App\Models\Startup;
 use App\Models\News;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 use App\Services\DataService;
 
 class GuestController extends Controller
@@ -32,8 +34,12 @@ class GuestController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
+    public function visitors(){
+        VisitorsService::create('Private Ip', FacadesRequest::server('HTTP_REFERER'));
+    }
     public function home()
     {
+        $this->visitors();
         $news = News::latest()->take(4)->get();
         $startups = Startup::latest()->take(9)->get();
         $startup_ecosystem = Startup_ecosystem::get();
@@ -53,6 +59,7 @@ class GuestController extends Controller
 
     public function index()
     {
+        $this->visitors();
         $issues = DataService::getIssuesByChoosenSide('mentor');
         $fields =  DataService::getFieldsByChoosenSide('mentor');
         $mentors = Mentor::paginatedMentors(10);
@@ -68,6 +75,7 @@ class GuestController extends Controller
 
     public function investorsPage()
     {
+        $this->visitors();
         $markets =  DataService::getMarketsByChoosenSide('investor');
         $ranges = DataService::getRangeByChoosenSide('investor');
         $fields = Field::orderBy('title')->get();
@@ -87,6 +95,7 @@ class GuestController extends Controller
 
     public function startupPage()
     {
+        $this->visitors();
         $mentors = Mentor::paginatedMentors(10);
         $startups = Startup::with('startup_industries')->get();
         $stages = Stage::orderBy('title')->get();

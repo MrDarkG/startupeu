@@ -1,20 +1,22 @@
 <template>
     <div>
-        <h3 class="text-center mb-5 ml-3 mt-5">
-            დღევანდელი შემომსვლელები <span v-if="visitors && visitors.length > 0">({{visitors.length}})</span>
+        <div class="text-center font-weight-bolder" v-if="!visitors && !monthly">
+            ჯერჯერობით არავინ შემოსულა
+        </div>
+        <h3 class="text-center mb-5 ml-3 mt-5" v-if="visitors && visitors.length > 0">
+            დღევანდელი შემომსვლელები
         </h3>
-        <div class="row m-0">
-            <div class="col-md-3" v-for="visitor in visitors">
+        <div class="row justify-content-center m-0">
+            <div class="col-md-6" >
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">IP : {{ visitor.ip }}</h5>
-                        <p class="card-text">ქვეყანა : {{ visitor.country }}</p>
+                        <h5 class="card-title">რაოდენობა <b>{{visitors.length}}</b></h5>
                     </div>
                 </div>
             </div>
         </div>
-        <h3 class="text-center mb-5 ml-3 mt-5">
-            შემოსული მომხმარებლების რაოდენობა <span v-if="monthly && monthly.length > 0"> ჯამში - ({{countMonthly(monthly)}})</span>
+        <h3 class="text-center mb-5 ml-3 mt-5" v-if="monthly && monthly.length > 0">
+            შემოსული მომხმარებლების რაოდენობა <span> ჯამში - ({{countMonthly(monthly)}})</span>
         </h3>
         <div
             class="row m-0 mt-4 mb-4 pl-2 pr-2"
