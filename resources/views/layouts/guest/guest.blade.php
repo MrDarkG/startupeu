@@ -31,7 +31,15 @@
 
             gtag('config', 'G-84DK2T1WSQ');
         </script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5987X99HW0"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
+            gtag('config', 'G-5987X99HW0');
+        </script>
         <!-- Meta Pixel Code -->
         <script>
             !function(f,b,e,v,n,t,s)
