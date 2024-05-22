@@ -101,9 +101,6 @@
                         <a class="navbar-brand d-xl-none d-md-none d-sm-inline-block" href="#">
                             <img src="/assets/images/res_logo.svg" id="logo">
                         </a>
-                        <a class="navbar-brand" href="#">
-                            <img src="/assets/images/lil-logo.svg" id="logo">
-                        </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
